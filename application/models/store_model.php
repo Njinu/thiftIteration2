@@ -20,6 +20,17 @@ class Store_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	public function get_data(){
+
+        $type = $this->input->post('type');
+ 			
+     		 $where = "seller_id =  $type";
+        	$this->db->where($where);
+			// $query = $this->db->select('date,event')->from('calendar')->like('date',"$type")->get();	
+			$query = $this->db->select()->from('product')->get();			
+			return $query->result_array();
+    }
+
 	public function get_products_ByCategory($slug = FALSE)
 	{
 

@@ -20,6 +20,19 @@
 		$this->load->view('templates/footer');
     
     }
+
+    function get_item_view(){
+
+       $this->load->model('store_model');
+
+        $data = array();
+
+        $data['title'] = 'Item View';
+        $data['list'] = $this->store_model->get_data();
+
+        $this->load->view('user/itemview',$data);
+
+    }
 		
 		public function index()
 		{
