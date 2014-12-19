@@ -3,11 +3,12 @@
             var controller = 'user';
             var base_url = '<?php echo site_url(); //you have to load the "url_helper" to use this function ?>';
 
-            function load_data_ajax(type){
+            $(document).ready ( function(){
                 $.ajax({
+
                     'url' : base_url + '/' + controller + '/get_item_view',
                     'type' : 'POST', //the way you want to send data to your URL
-                    'data' : {'type' : type},
+                    'data' : {'type' : <?php echo $this->session->userdata('id') ?> },
                     'success' : function(data){ //probably this request will return anything, it'll be put in var "data"
                         var container = $('#table'); //jquery selector (get element by id)
                         if(data){
@@ -15,7 +16,7 @@
                         }
                     }
                 });
-            }           
+            });         
         </script>
 
 
@@ -49,7 +50,7 @@
 </div>
 
 <div class="col-md-8" id="table">
-<button class="btn btn-default" onclick="load_data_ajax(2)">Load Data</button>
+
 </div>
 
  <script src='<?php echo base_url()."assets/ThriftshopTheme/js/site.js"?>'></script>
