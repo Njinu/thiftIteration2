@@ -34,6 +34,7 @@
 <br>
   <h3><?php echo $calendar_item['name'] ?> | <?php echo $newitemdateDAY ; ?> <?php echo $monthName; ?></h3>
   <p><?php echo $calendar_item['description'] ?> </p>
+  <a href=''></a>
   <p> <!-- <a <?php if(!$slug ){echo "";}else{echo "href='news/$slug'";}?>><?php if(!$slug ){ echo "coming soon";}else{echo "Read more...";} ?></a> -->
 </p>
 </div>

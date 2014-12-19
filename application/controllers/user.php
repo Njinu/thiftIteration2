@@ -314,6 +314,7 @@
     }
     
     public function createItem(){
+        if($_POST):
     $this->load->model('store_model');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -334,6 +335,8 @@
 			$this->store_model->set_UserItem();
 			$this->load->view('store/success');
 		}	
+        return true;
+        endif;
 	}
 
 
