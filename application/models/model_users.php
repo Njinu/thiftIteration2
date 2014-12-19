@@ -11,6 +11,7 @@ class Model_users extends CI_Model {
 
 		if($query->num_rows() == 1 ) {
 		$this->session->set_userdata('id', $results[0]['id']);
+		$this->session->set_userdata('username',$results[0]['username']);
 			return true;
 		} else {
 			return false;

@@ -1,6 +1,6 @@
 
 <div class="container" style="margin-top:10%">
-<div class="col-md-12">
+<div class="col-md-4">
 <?php echo form_open('user/createItem') ?>
 
   <div class="form-group">  
@@ -27,6 +27,9 @@
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
 </div>
+
+<div class="col-md-8">
+
 </div>
 
  <script src='<?php echo base_url()."assets/ThriftshopTheme/js/site.js"?>'></script>

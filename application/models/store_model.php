@@ -39,6 +39,7 @@ class Store_model extends CI_Model {
 	
 	public function set_UserItem(){
 		$this->load->helper('url');
+		$date = date('d.m.y');
 
 		$slug = url_title($this->input->post('ItemName'), 'dash', TRUE);
 		$data = array(
@@ -47,7 +48,11 @@ class Store_model extends CI_Model {
 			'price' => $this->input->post('ItemPrice'),
 			'category' => $this->input->post('ItemCategory'),
 			'description' => $this->input->post('ItemDescription'),
-			'picturePath' =>$this->session->userdata('picturepath')
+			'picturePath' =>$this->session->userdata('picturepath'),
+			'date_created' => $date,
+			'likes' => 0, 
+			'seller_id' => $this->session->userdata('id'),
+			'status' => "Inactive"
 		
 
 		);
