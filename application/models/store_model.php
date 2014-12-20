@@ -59,7 +59,7 @@ class Store_model extends CI_Model {
 			'price' => $this->input->post('ItemPrice'),
 			'category' => $this->input->post('ItemCategory'),
 			'description' => $this->input->post('ItemDescription'),
-			'picturePath' =>$this->session->userdata('picturepath'),
+			'picturepath' =>$this->session->userdata('picturepath'),
 			'date_created' => $date,
 			'likes' => 0, 
 			'seller_id' => $this->session->userdata('id'),
