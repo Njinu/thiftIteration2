@@ -74,7 +74,7 @@ function load_data_ajax(type){
   <h3 id='<?php echo $int ?>_name'><?php echo $calendar_item['name'] ?> | <?php echo $newitemdateDAY ; ?> <?php echo $monthName; ?></h3>
   <p><?php echo $calendar_item['description'] ?> </p>
   <a href=''></a>
-  <a onclick="" data-toggle="modal" data-target='#<?php echo $int ?>ModalEdit' id="editbutton">Edit</a>
+  <a style="color:black" onclick="" data-toggle="modal" data-target='#<?php echo $int ?>ModalEdit' id="editbutton">Edit</a>
   <p> <!-- <a <?php if(!$slug ){echo "";}else{echo "href='news/$slug'";}?>><?php if(!$slug ){ echo "coming soon";}else{echo "Read more...";} ?></a> -->
   </p>
 </div>
