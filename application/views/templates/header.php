@@ -100,10 +100,11 @@ error_reporting(E_ALL & ~E_NOTICE);
                     <li class="dropdown" style="margin-top:2%;">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
                     </li>
-                    
+                    <?php if(empty($user_me['name']) or empty($this->session->userdata('id'))) {?>
                   <li class="dropdown" style="margin-top:2%;">
                         <a href="" data-toggle="modal" data-target="#myModal">Register </a>
                     </li>
+                     <?php } ?>
                     <li class="dropdown">
                         <a href="#" style="color:#2c3e50;" class="dropdown-toggle" data-toggle="dropdown"><span class="google_name"><?=$user_me['name']?> </span><img class="img-thumbnail" data-src="holder.js/140x140" alt="140x140" src="https://graph.facebook.com/<?=$user_me['id']?>/picture?type=large" style="width: 40px; height: 40px;"><b class="caret"></b> </a>
                     <ul class="dropdown-menu">

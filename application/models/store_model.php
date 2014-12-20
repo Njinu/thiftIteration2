@@ -71,6 +71,28 @@ class Store_model extends CI_Model {
 		return $this->db->insert('product', $data);
 	}
 
+	public function delete_UserItem(){
+		$id = $this->input->post('type');
+		$this->db->where('product_id', $id);
+		$this->db->delete('product'); 
+		
+	}
+
+	public function Update_UserItem(){
+		$id = $this->input->post('itemid');
+		echo $id;
+		$data = array(
+               'name' => $this->input->post('itemname2'),
+               'description' => $$this->input->post('itemdescription2'),
+               'price' => $this->input->post('itemprice2'),
+               'status' => $$this->input->post('itemstatus2'),
+               'category' => $this->input->post('itemcat2')
+            );
+
+$this->db->where('product_id', $id);
+$this->db->update('product', $data); 
+	}
+
 			
 
 	public function set_products()

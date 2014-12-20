@@ -1,5 +1,5 @@
 <?php 
-class store extends CI_Controller {
+class Store extends CI_Controller {
 
 
 	public function __construct()
@@ -175,6 +175,8 @@ public function additem(){
 
 	return $this->cart->insert($data);
 }
+
+
 
 	public function createItem(){
 		$this->load->helper('form');

@@ -21,6 +21,16 @@
     
     }
 
+    public function edititem(){
+         $this->load->model('store_model');
+        $this->store_model->Update_UserItem();
+    }
+
+    public function deleteItem(){
+        $this->load->model('store_model');
+        $this->store_model->delete_UserItem();
+ }
+
     function get_item_view(){
 
        $this->load->model('store_model');
