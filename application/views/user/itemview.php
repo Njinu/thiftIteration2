@@ -91,24 +91,24 @@ function load_data_ajax(type){
           <?php echo form_open('user/edititem',array('id'=>'frm2')) ?>
           <div class="form-group">
             <label for="exampleInputEmail1">Item Name</label>
-            <input type="text" class="form-control" id="itemname2" name="itemname2" placeholder='<?php echo $calendar_item['name'] ?>'>
+            <input type="text" class="form-control" id="itemname2" name="itemname2" placeholder='<?php echo $calendar_item['name'] ?>' value= '<?php echo $calendar_item['name'] ?>'>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Item Description</label>
-            <input type="text" class="form-control" id="itemdescription2" name="itemdescription2" placeholder='<?php echo $calendar_item['description'] ?>'>
+            <input type="text" class="form-control" id="itemdescription2" name="itemdescription2" placeholder='<?php echo $calendar_item['description'] ?>' value='<?php echo $calendar_item['description'] ?>'>
           </div>
            <div class="form-group">
             <label for="exampleInputEmail1">Item Price</label>
-            <input type="number" class="form-control" id="itemprice2" name="itemprice2" placeholder='<?php echo $calendar_item['price'] ?>'>
+            <input type="number" class="form-control" id="itemprice2" name="itemprice2" placeholder='<?php echo $calendar_item['price'] ?>' value='<?php echo $calendar_item['price'] ?>'>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Item Status</label>
-            <input type="text" class="form-control" id="itemstatus2" name="itemstatus2" placeholder='<?php echo $calendar_item['status'] ?>'>
+            <input type="text" class="form-control" id="itemstatus2" name="itemstatus2" placeholder='<?php echo $calendar_item['status'] ?>' value='<?php echo $calendar_item['status'] ?>'>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Item Category</label>
-            <input type="text" class="form-control" id="itemcat2" name="itemcat2" placeholder='<?php echo $calendar_item['category'] ?>'>
-            <input type="hidden" class="form-control" id="itemid" name="itemid" placeholder="Category" value='<?php echo $calendar_item['product_id'] ?>'>
+            <input type="text" class="form-control" id="itemcat2" name="itemcat2" placeholder='<?php echo $calendar_item['category'] ?>' value='<?php echo $calendar_item['category'] ?>'>
+            <input type="number" class="form-control" id="itemid" name="itemid" placeholder="Category" value='<?php echo $calendar_item['product_id'] ?>'>
           </div>
      
           <button type="submit" class="btn btn-default">Submit</button>

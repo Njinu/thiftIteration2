@@ -80,12 +80,12 @@ class Store_model extends CI_Model {
 
 	public function Update_UserItem(){
 		$id = $this->input->post('itemid');
-		echo $id;
+
 		$data = array(
                'name' => $this->input->post('itemname2'),
-               'description' => $$this->input->post('itemdescription2'),
+               'description' => $this->input->post('itemdescription2'),
                'price' => $this->input->post('itemprice2'),
-               'status' => $$this->input->post('itemstatus2'),
+               'status' => $this->input->post('itemstatus2'),
                'category' => $this->input->post('itemcat2')
             );
 
