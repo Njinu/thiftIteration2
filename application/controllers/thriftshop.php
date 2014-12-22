@@ -13,7 +13,14 @@
         $data['title'] = 'thriftshop';
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer2');
+        }
+
+        public function wishlist(){
+        $data['title'] = 'wishlist';
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/wishlist', $data);
+        $this->load->view('templates/footer2');
         }
 		
 		 
