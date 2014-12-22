@@ -2,63 +2,63 @@
 //Squar'd is a little script written for GoCart to help get the product images squar'd up.
 
 $.fn.squard = function(dim, container){
-	
-	//dim is the square dimensions you want to match
-	img	= $(this);
-	
-	var newImg=document.createElement("img");
-	
-	newImg.setAttribute('src', img.attr('src'));
-	
-	if(img.innerHeight() == img.innerWidth())
-	{
-		newImg.style.width	= dim+'px';
-		newImg.style.height	= dim+'px';
-	}
-	else if(img.innerHeight() > img.innerWidth())
-	{
-		newImg.style.height	= dim+'px';
-	}
-	else
-	{
-		newImg.style.width	= dim+'px';
-		
-		//find top margin
-		//newImg.style.marginTop = (dim - newImg.height)/2+'px';
-		
-	}
-	
-	newImg.setAttribute('src', img.attr('src'));
-	
-	if(img.innerHeight() == img.innerWidth())
-	{
-		newImg.style.width	= dim+'px';
-		newImg.style.height	= dim+'px';
-	}
-	else if(img.innerHeight() > img.innerWidth())
-	{
-		newImg.style.height	= dim+'px';
-	}
-	else
-	{
-		newImg.style.width	= dim+'px';
-		
-		//find top margin
-		//newImg.style.marginTop = (dim - newImg.height)/2+'px';	
-	}
-	
-	container.html(newImg);
-	
-	newImg.onload = function()
-	{
-		img2	= container.children().eq(0);
-		if(img2.innerHeight() < dim)
-		{
-			margin = (dim-img2.innerHeight())/2;
 
-			img2.css('margin-top', margin+'px');
-		}
+//dim is the square dimensions you want to match
+img	= $(this);
+
+var newImg=document.createElement("img");
+
+newImg.setAttribute('src', img.attr('src'));
+
+if(img.innerHeight() == img.innerWidth())
+{
+	newImg.style.width	= dim+'px';
+	newImg.style.height	= dim+'px';
+}
+else if(img.innerHeight() > img.innerWidth())
+{
+	newImg.style.height	= dim+'px';
+}
+else
+{
+	newImg.style.width	= dim+'px';
+	
+	//find top margin
+	//newImg.style.marginTop = (dim - newImg.height)/2+'px';
+	
+}
+
+newImg.setAttribute('src', img.attr('src'));
+
+if(img.innerHeight() == img.innerWidth())
+{
+	newImg.style.width	= dim+'px';
+	newImg.style.height	= dim+'px';
+}
+else if(img.innerHeight() > img.innerWidth())
+{
+	newImg.style.height	= dim+'px';
+}
+else
+{
+	newImg.style.width	= dim+'px';
+	
+	//find top margin
+	//newImg.style.marginTop = (dim - newImg.height)/2+'px';	
+}
+
+container.html(newImg);
+
+newImg.onload = function()
+{
+	img2	= container.children().eq(0);
+	if(img2.innerHeight() < dim)
+	{
+		margin = (dim-img2.innerHeight())/2;
+
+		img2.css('margin-top', margin+'px');
 	}
+}
 
 };
 
@@ -123,7 +123,7 @@ img.responsiveImage
 }
 
 /* Hide Related products from the responsive design */
- @media (max-width: 767px) {
+@media (max-width: 767px) {
 	.desktop {
 		display:none;
 	}
@@ -210,112 +210,99 @@ img.responsiveImage
 </style>
 
 <body>
-	
-	
+
+
 	<div class="container">
-				
-				
-				
-				
 
-    
-    <div class="page-header">
-        <h2>Your Cart</h2>
-    </div>
-    <form action="http://demo.gocartdv.com/cart/update_cart" method="post" accept-charset="utf-8" id="update_cart_form">    
-    	<table class="table table-striped table-bordered">
-		<thead>
-			<tr>
-				<th style="width:10%;">SKU</th>
-				<th style="width:20%;">Name</th>
-				<th style="width:10%;">Price</th>
-				<th>Description</th>
-				<th style="width:10%;">Quantity</th>
-				<th style="width:8%;">Totals</th>
-			</tr>
-		</thead>
-		
-		<tfoot>
-									<tr>
-		    	<td colspan="5"><strong>Subtotal</strong></td>
-				<td id="gc_subtotal_price">$ 999.00</td>
-			</tr>
-				
-				
-						
-						
-						<tr>
-				<td colspan="5"><strong>Grand Total</strong></td>
-				<td>$ 999.00</td>
-			</tr>
-		</tfoot>
-		
-		<tbody>
-							<tr>
-					<td></td>
-					<td>Hi-Tech CTR</td>
-					<td>$ 600.00</td>
-					<td>
-						<div><span class="gc_option_name">Material:</span> Steel</div>					</td>
-					
-					<td style="white-space:nowrap">
-																					<div class="control-group">
-									<div class="controls">
-										<div class="input-append">
-											<input class="span1" style="margin:0px;" name="cartkey[3fbcd93e8b9e967995f2cee0374c08aa]"  value="1" size="3" type="text"><button class="btn btn-danger" type="button" onclick="if(confirm('Are you sure you want to remove this item from your cart?')){window.location='http://demo.gocartdv.com/cart/remove_item/3fbcd93e8b9e967995f2cee0374c08aa';}"><i class="icon-remove icon-white"></i></button>
-										</div>
+
+
+
+
+
+		<div class="page-header">
+			<h2>Your Cart</h2>
+		</div>
+		<form action="http://demo.gocartdv.com/cart/update_cart" method="post" accept-charset="utf-8" id="update_cart_form">    
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th style="width:10%;">SKU</th>
+						<th style="width:20%;">Name</th>
+						<th style="width:10%;">Price</th>
+						<th>Description</th>
+						<th style="width:10%;">Quantity</th>
+						<th style="width:8%;">Totals</th>
+					</tr>
+				</thead>
+
+				<tfoot>
+					<tr>
+						<td colspan="5"><strong>Subtotal</strong></td>
+						<td id="gc_subtotal_price">$ 999.00</td>
+					</tr>
+
+
+
+
+					<tr>
+						<td colspan="5"><strong>Grand Total</strong></td>
+						<td>$ 999.00</td>
+					</tr>
+				</tfoot>
+
+				<tbody>
+					<tr>
+						<td></td>
+						<td>Hi-Tech CTR</td>
+						<td>$ 600.00</td>
+						<td>
+							<div><span class="gc_option_name">Material:</span> Steel</div>					</td>
+
+							<td style="white-space:nowrap">
+
+								<div class="control-group">
+									<div class="input-group">
+										<input  value="1" size="3" type="number" class="form-control">
+										<span class="input-group-addon" style="background-color:#d9534f"><a style="color:white;"><i class="glyphicon glyphicon-remove"></i></a></span>
 									</div>
 								</div>
-																		</td>
-					<td>$ 600.00</td>
-				</tr>
-							<tr>
-					<td>gb-10</td>
-					<td>Robot Head</td>
-					<td>$ 399.00</td>
-					<td>
-						<div><span class="gc_option_name">Brain Memory Size:</span> 32 TB</div>					</td>
+
+								
+
+							</td>
+							<td>$ 600.00</td>
+						</tr>
+
 					
-					<td style="white-space:nowrap">
-																					<div class="control-group">
-									<div class="controls">
-										<div class="input-append">
-											<input class="span1" style="margin:0px;" name="cartkey[870c52cf63026bbfee900717539b02dd]"  value="1" size="3" type="text"><button class="btn btn-danger" type="button" onclick="if(confirm('Are you sure you want to remove this item from your cart?')){window.location='http://demo.gocartdv.com/cart/remove_item/870c52cf63026bbfee900717539b02dd';}"><i class="icon-remove icon-white"></i></button>
-										</div>
-									</div>
-								</div>
-																		</td>
-					<td>$ 399.00</td>
-				</tr>
-					</tbody>
-	</table>    
-    
-    <div class="row">
-        <div class="span5">
-            <label>If you have a coupon, enter the code here:</label>
-            <input type="text" name="coupon_code" class="span3" style="margin:0px;">
-            <input class="span2 btn" type="submit" value="Apply Coupon"/>
-            
-                    </div>
-        
-        <div class="span7" style="text-align:right;">
-                <input id="redirect_path" type="hidden" name="redirect" value=""/>
-    
-                                    <input class="btn" type="submit" onclick="$('#redirect_path').val('checkout/login');" value="Login"/>
-                    <input class="btn" type="submit" onclick="$('#redirect_path').val('checkout/register');" value="Register Now"/>
-                                    <input class="btn" type="submit" value="Update Cart"/>
-                    
-                            <input class="btn btn-large btn-primary" type="submit" onclick="$('#redirect_path').val('checkout');" value="Checkout"/>
-                        
-        </div>
-    </div>
+						</tbody>
+					</table>    
 
-</form>
-    <footer class="footer">
+					<div class="row">
+						<div class="span5">
+							<label>If you have a coupon, enter the code here:</label>
+							<input type="text" name="coupon_code" class="span3" style="margin:0px;">
+							<input class="span2 btn" type="submit" value="Apply Coupon"/>
 
-        
-        
-    </footer>
-</div>
+						</div>
 
-</body>
+						<div class="span7" style="text-align:right;">
+							<input id="redirect_path" type="hidden" name="redirect" value=""/>
+
+							<input class="btn" type="submit" onclick="" value="Login"/>
+							<input class="btn" type="submit" onclick="" value="Register Now"/>
+							<input class="btn" type="submit" value="Update Cart"/>
+
+							<input class="btn btn-large btn-primary" type="submit" onclick="" value="Checkout"/>
+
+						</div>
+					</div>
+
+				</form>
+				<footer class="footer">
+
+
+
+				</footer>
+			</div>
+
+		</body>
