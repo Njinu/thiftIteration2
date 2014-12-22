@@ -230,6 +230,7 @@ error_reporting(E_ALL & ~E_NOTICE);
                 <li><a href="shopping-cart.html">Shopping Cart</a></li>
                 <li><a href="checkout.html">Checkout Page</a></li>
                 <li><a href='<?php echo base_url()."index.php/". "thriftshop/wishlist"?>'>Wishlist</a></li>
+                <li><a href='<?php echo base_url()."index.php/". "thriftshop/filterpage"?>'>Filter</a></li>
               </ul>
             </li>
             <li class="has-submenu"><a href="blog-sidebar-right.html">Support<i class="fa fa-chevron-down"></i></a>

@@ -57,6 +57,7 @@
     
     <!--Javascript (jQuery) Libraries and Plugins-->
    <!-- ThriftScript -->
+   <?php echo script_tag('assets/Thiftstore/js/jquery-ui-1.10.4.custom.min.js'); ?>
  <?php echo script_tag('assets/Thiftstore/js/jquery.easing.min.js'); ?>
     <?php echo script_tag('assets/Thiftstore/js/smoothscroll.js'); ?>
      <?php echo script_tag('assets/Thiftstore/js/jquery.validate.min.js'); ?>
@@ -68,9 +69,12 @@
     <?php echo script_tag('assets/Thiftstore/js/lightGallery.min.js'); ?>
    <?php echo script_tag('assets/Thiftstore/js/owl.carousel.min.js'); ?>
     <?php echo script_tag('assets/Thiftstore/js/masterslider.min.js'); ?>
+    <?php echo script_tag('assets/Thiftstore/js/jquery.nouislider.min.js'); ?>
    <?php echo script_tag('assets/Thiftstore/js/mailer.js'); ?>
    <?php echo script_tag('assets/Thiftstore/js/scripts.js'); ?>
     <?php echo script_tag('assets/Thiftstore/js/color-switcher.js'); ?>
+
+   
 
     <!-------------------------------------------------------------------------------------->
    
