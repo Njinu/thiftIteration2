@@ -9,7 +9,7 @@ function index() {
 
     $this->load->view('templates/header', $data);
 	 $this->load->helper('form');
-	 $this->load->view('store/viewcart');
+	 $this->load->view('user/cart');
 	
 }
 

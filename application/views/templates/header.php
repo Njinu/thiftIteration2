@@ -89,20 +89,20 @@ error_reporting(E_ALL & ~E_NOTICE);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href='<?php echo base_url()."index.php"?>'>ThriftShop</a>
+                <a class="navbar-brand" href='<?php echo base_url()."index.php"?>'>ThriftShop </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right"  style="margin-top: -0.5%;">
                     <li style="margin-top:2%;">
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.html">Contact <i class="fa fa-phone"></i></a>
                     </li>
                     <li class="dropdown" style="margin-top:2%;">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+                        <a href='<?php echo base_url()."index.php/". "thriftstore/index"?>' class="dropdown-toggle" data-toggle="dropdown">Thrift shopping  <i class="fa fa-shopping-cart"></i></a>
                     </li>
                     <?php if(empty($user_me['name']) or empty($this->session->userdata('id'))) {?>
                   <li class="dropdown" style="margin-top:2%;">
-                        <a href="" data-toggle="modal" data-target="#myModal">Register </a>
+                        <a href="" data-toggle="modal" data-target="#myModal">Register <i class="fa fa-pencil-square-o"></i></a>
                     </li>
                      <?php } ?>
                     <li class="dropdown">
@@ -119,7 +119,7 @@ error_reporting(E_ALL & ~E_NOTICE);
                             </li>  
                               
                               <li>
-                            <a href='<?php echo base_url()."index.php/". "user/cart"?>' style=" border-radius:0px;">Shopping Cart <i style="text-align:right" class="fa fa-shopping-cart"></i></i></a>
+                            <a href='<?php echo base_url()."index.php/". "user/cart"?>' style=" border-radius:0px;">My Wishlist <i style="text-align:right" class="fa fa-tree"></i></i></a>
                             </li> 
                              <li>
                             <a href='<?php echo base_url()."index.php/". "user/myStore"?>' style=" border-radius:0px;">My Store <i style="text-align:right" class="fa fa-building-o"></i></a>

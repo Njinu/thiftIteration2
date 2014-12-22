@@ -220,7 +220,7 @@ img.responsiveImage
 
 
 		<div class="page-header">
-			<h2>Your Cart</h2>
+			<h2>Your Wishlist</h2>
 		</div>
 		<form action="http://demo.gocartdv.com/cart/update_cart" method="post" accept-charset="utf-8" id="update_cart_form">    
 			<table class="table table-striped table-bordered">
@@ -273,36 +273,39 @@ img.responsiveImage
 							<td>$ 600.00</td>
 						</tr>
 
-					
-						</tbody>
-					</table>    
+						
+					</tbody>
+				</table>    
 
-					<div class="row">
-						<div class="span5">
-							<label>If you have a coupon, enter the code here:</label>
-							<input type="text" name="coupon_code" class="span3" style="margin:0px;">
-							<input class="span2 btn" type="submit" value="Apply Coupon"/>
+				<div class="">
 
-						</div>
+					<div class="input-group col-md-4">
+						<span class="input-group-btn">
 
-						<div class="span7" style="text-align:right;">
-							<input id="redirect_path" type="hidden" name="redirect" value=""/>
+							<button class="btn btn-default" type="button">Add Coupon</button>
+						</span>
+						<input type="text" class="form-control">
+					</div><!-- /input-group -->
+					<br>
+					<label>If you have a coupon enter the code here and Save!</label>
+					<div class="span7" style="text-align:right;">
+						<input id="redirect_path" type="hidden" name="redirect" value=""/>
 
-							<input class="btn" type="submit" onclick="" value="Login"/>
-							<input class="btn" type="submit" onclick="" value="Register Now"/>
-							<input class="btn" type="submit" value="Update Cart"/>
+						<input class="btn" type="submit" onclick="" value="Login"/>
+						<input class="btn" type="submit" onclick="" value="Register Now"/>
+						<input class="btn" type="submit" value="Update Cart"/>
 
-							<input class="btn btn-large btn-primary" type="submit" onclick="" value="Checkout"/>
+						<input class="btn btn-large btn-primary" type="submit" onclick="" value="Checkout"/>
 
-						</div>
 					</div>
+				</div>
 
-				</form>
-				<footer class="footer">
+			</form>
+			<footer class="footer">
 
 
 
-				</footer>
-			</div>
+			</footer>
+		</div>
 
-		</body>
+	</body>
