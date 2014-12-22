@@ -222,10 +222,10 @@ error_reporting(E_ALL & ~E_NOTICE);
         <!--Main Menu-->
         <nav class="menu">
           <ul class="main">
-            <li class="has-submenu"><a href="index.html">Home</a><!--Class "has-submenu" for proper highlighting and dropdown-->
+            <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "thriftshop"?>'>Home</a><!--Class "has-submenu" for proper highlighting and dropdown-->
              
             </li>
-            <li class="has-submenu"><a href="shop-filters-left-3cols.html">Shop<i class="fa fa-chevron-down"></i></a>
+            <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "thriftshop/filterpage"?>'>Shop<i class="fa fa-chevron-down"></i></a>
               <ul class="submenu">
                 <li><a href="shopping-cart.html">Shopping Cart</a></li>
                 <li><a href="checkout.html">Checkout Page</a></li>

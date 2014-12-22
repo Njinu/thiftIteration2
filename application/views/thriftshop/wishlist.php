@@ -302,7 +302,7 @@
               <div class="form-group">
                 <label class="sr-only" for="subscr-name">Enter name</label>
                 <input type="text" class="form-control" name="FNAME" id="subscr-name" placeholder="Enter name" required>
-                <button class="subscr-next"><i class="icon-arrow-right"></i></button>
+                <button class="subscr-next"><i class="fa fa-chevron-circle-right"></i></button>
               </div>
               <div class="form-group fff" style="display: none">
                 <label class="sr-only" for="subscr-email">Enter email</label>
