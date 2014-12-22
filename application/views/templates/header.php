@@ -98,7 +98,7 @@ error_reporting(E_ALL & ~E_NOTICE);
                         <a href="contact.html">Contact <i class="fa fa-phone"></i></a>
                     </li>
                     <li class="dropdown" style="margin-top:2%;">
-                        <a href='<?php echo base_url()."index.php/". "thriftstore/index"?>' class="dropdown-toggle" data-toggle="dropdown">Thrift shopping  <i class="fa fa-shopping-cart"></i></a>
+                        <a href='<?php echo base_url()."index.php/". "thriftshop"?>' >Thrift shopping <i class="fa fa-shopping-cart"></i></a>
                     </li>
                     <?php if(empty($user_me['name']) or empty($this->session->userdata('id'))) {?>
                   <li class="dropdown" style="margin-top:2%;">
