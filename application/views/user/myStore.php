@@ -1,3 +1,6 @@
+          <?php echo link_tag('assets/ThriftshopTheme/css/sellerDash/plugins/morris.css'); ?>
+    <?php echo link_tag('assets/ThriftshopTheme/css/sellerDash/sb-admin.css'); ?>  
+
           <script type="text/javascript">
 
           var controller = 'user';

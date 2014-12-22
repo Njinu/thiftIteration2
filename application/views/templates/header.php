@@ -28,8 +28,7 @@ error_reporting(E_ALL & ~E_NOTICE);
     <?php echo link_tag('assets/ThriftshopTheme/css/thriftshopcustom.css'); ?>
     <?php echo link_tag('assets/ThriftshopTheme/css/freelancer.css'); ?>
     <?php echo link_tag('assets/ThriftshopTheme/css/bootstrap-social.css'); ?>
-    <?php echo link_tag('assets/ThriftshopTheme/css/sellerDash/plugins/morris.css'); ?>
-    <?php echo link_tag('assets/ThriftshopTheme/css/sellerDash/sb-admin.css'); ?>  
+   
 	<?php echo script_tag('assets/ThriftshopTheme/js/jquery-1.10.2.js'); ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 	<?php echo script_tag('<?php echo base_url()."assets/ThriftshopTheme/js/bootstrap.js"?>'); ?>
@@ -109,9 +108,7 @@ error_reporting(E_ALL & ~E_NOTICE);
                     <li class="dropdown">
                         <a href="#" style="color:#2c3e50;" class="dropdown-toggle" data-toggle="dropdown"><span class="google_name"><?=$user_me['name']?> </span><img class="img-thumbnail" data-src="holder.js/140x140" alt="140x140" src="https://graph.facebook.com/<?=$user_me['id']?>/picture?type=large" style="width: 40px; height: 40px;"><b class="caret"></b> </a>
                     <ul class="dropdown-menu">
-                       <li>
-                            <a href='<?php echo base_url()."index.php/". "user/myStore"?>' style=" border-radius:0px;">My Store <i style="text-align:right" class="fa fa-building-o"></i></a>
-                            </li
+                      
                 <?php if($user_me['name'] or $this->session->userdata('id')) {?>
                             <li>
                                <a href='<?php echo base_url()."index.php/". "user/logout"?>' style=" border-radius:0px;"> Logout <i style="text-align:right" class="fa fa-sign-out"></i></a>
@@ -127,10 +124,12 @@ error_reporting(E_ALL & ~E_NOTICE);
                               <li>
                             <a href='<?php echo base_url()."index.php/". "user/profile"?>' style=" border-radius:0px;">Shopping Cart <i style="text-align:right" class="fa fa-shopping-cart"></i></i></a>
                             </li> 
-                            
+                             <li>
+                            <a href='<?php echo base_url()."index.php/". "user/myStore"?>' style=" border-radius:0px;">My Store <i style="text-align:right" class="fa fa-building-o"></i></a>
+                            </li>
                             <?php } else {?>
 
-                           >  
+                           
                               <li>
                               <a href='<?php echo $login_url; ?>' class="btn-facebook"style="">Login with <i class="fa fa-facebook"></i></a>
                               
