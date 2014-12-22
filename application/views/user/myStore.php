@@ -322,31 +322,37 @@
                 <!-- /.row -->
 <div class="row">
                     <div class="col-lg-8">
-                     <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-newspaper-o"></i> Post an Ad
-                            </li>
-                        </ol>
-                        <div class="alert alert-info alert-dismissable">
-              <?php echo form_open('user/createItem',array('id'=>'frm')) ?>
+                        <div class="panel panel-default">
+                       <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Post an Ad!</h3>
+                            </div>
+                        <div class="panel-body">
+              <?php 
+              echo form_open('user/createItem',array('id'=>'frm', 'class'=>'frm')) ?>
 
               <div class="form-group">  
+                <label>Title</label>
                 <input type="text" class="form-control" id="ItemName" name="ItemName" placeholder="Enter Item Name">
               </div>
+          </br>
 
-              <div class="form-group"> 
-                <input type="text" class="form-control" id="ItemDescription"  name="ItemDescription" placeholder="Enter Item Description">
+              <div class="form-group" id="descHolder">
+              <label>Description</label> 
+                <textarea  class="form-control" id="ItemDescription"  name="ItemDescription" placeholder="Enter Item Description"></textarea>
               </div>
-
+ </br>
               <div class="form-group"> 
+                <label>Category</label> 
                 <input type="text" class="form-control" id="ItemCategory"  name="ItemCategory" placeholder="Enter Item Category">
               </div>
+ </br>
 
               <div class="form-group"> 
+                <label>Price</label> 
                 <input type="number" class="form-control" id="ItemPrice" name="ItemPrice" placeholder="Enter Item Price">
               </div>
-
-              <div class="form-group">
+ </br>
+              <div class="form-group" id="picHolder">
                 <label for="ItemPicture">File input</label>
                 <input type="file" id="ItemPicture">
               </div>
@@ -356,21 +362,26 @@
               
                         </div>
                     </div>
+                    </div>
                           <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Activity Panel</h3>
+                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Previous posts</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
+                                <?php foreach ($products as $product): $product_name = $product['name']  ?>
+<?php echo $product_name ?>
                                     <a href="#" class="list-group-item">
-                                        <span class="badge">just now</span>
+                                        <span class="badge">Active</span>
                                         <i class="fa fa-fw fa-calendar"></i> Calendar updated
                                     </a>
+                                  <?php endforeach ?>   
                                     <a href="#" class="list-group-item">
                                         <span class="badge">4 minutes ago</span>
                                         <i class="fa fa-fw fa-comment"></i> Commented on a post
                                     </a>
+
                                     <a href="#" class="list-group-item">
                                         <span class="badge">23 minutes ago</span>
                                         <i class="fa fa-fw fa-truck"></i> Order 392 shipped

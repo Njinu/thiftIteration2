@@ -20,12 +20,13 @@
 		
 		 public function myStore(){
     
-    		
+    	$this->load->model('store_model');	
 		$data['title'] = 'My Store';
 		$this->load->view('templates/header', $data);
 		$this->load->view('user/myStore', $data);
 		$this->load->view('templates/footer');
-    
+        $data['products'] = $this->store_model->get_data();
+        //$data('products')= $this->store_model->get_all_products();
     }
 
     public function edititem(){

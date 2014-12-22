@@ -17,10 +17,17 @@ body {
     }
 }
 
+#frm .form-control{ width:70%; float:right;}
+
+#frm{padding-left:4%;}
+#ItemDescription, #descHolder{height:80px;}
 #wrapper {
     padding-left: 0;
 }
-
+#picHolder{
+    height:20px;
+}
+#ItemPicture{ float:right; margin-right:21%;} 
 #page-wrapper {
     width: 100%;
     padding: 0;
