@@ -10,6 +10,13 @@
 			
 			
 		}
+
+        public function cart(){
+        $data['title'] = 'My Cart';
+        $this->load->view('templates/header', $data);
+        $this->load->view('user/cart', $data);
+        $this->load->view('templates/footer');
+        }
 		
 		 public function myStore(){
     
