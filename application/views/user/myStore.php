@@ -1,3 +1,4 @@
+        
           <?php echo link_tag('assets/ThriftshopTheme/css/sellerDash/plugins/morris.css'); ?>
     <?php echo link_tag('assets/ThriftshopTheme/css/sellerDash/sb-admin.css'); ?>  
 
@@ -68,6 +69,11 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
+                        <?php  foreach($product_comments as $product_comment){
+
+    //cho element('message', $product_comment);
+
+?>
                         <li class="message-preview">
                             <a href="#">
                                 <div class="media">
@@ -78,41 +84,13 @@
                                         <h5 class="media-heading"><strong>John Smith</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                        <p><?php echo $product_comment["message"];?></p>
                                     </div>
                                 </div>
                             </a>
                         </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
+                        <?php } ?>
+                     
                         <li class="message-footer">
                             <a href="#">Read All New Messages</a>
                         </li>
@@ -237,7 +215,7 @@
                                         <i class="fa fa-list fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
+                                        <div class="huge"><?php echo $product_count ?></div>
                                         <div>Active Ads!</div>
                                     </div>
                                 </div>
@@ -281,7 +259,7 @@
                                         <i class="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
+                                        <div class="huge"><?php echo $comment_count;?></div>
                                         <div>New Comments!</div>
                                     </div>
                                 </div>
@@ -355,8 +333,16 @@
               <div class="form-group" id="picHolder">
                 <label for="ItemPicture">File input</label>
                 <input type="file" id="ItemPicture">
-              </div>
 
+        <link href="<?php echo base_url(); ?>resources/css/dropzone.css" type="text/css" rel="stylesheet" />
+<script src="<?php echo base_url(); ?>resources/dropzone.js"></script>
+
+    <?php echo form_open('/dropzone/upload',array('id'=>'dpzone', 'class'=>'dropzone')) ?>
+    hi
+              </div>
+<h1>File Upload using dropzone.js and Codeigniter - arjun.net.in</h1>
+<form action="<?php echo site_url('/dropzone/upload'); ?>" class="dropzone"  >
+</form>
               <button  type="submit"  class="btn btn-default">Submit</button>
             </form>
               
@@ -364,51 +350,65 @@
                     </div>
                     </div>
                           <div class="col-lg-4">
-                        <div class="panel panel-default" id="foreachtest">
+     
+                <div class="panel panel-default" id="foreachtest">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Previous posts</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
-                                <?php foreach ($products as $product): $product_name = $product['name']  ?>
-<?php echo $product_name ?>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">Active</span>
-                                        <i class="fa fa-fw fa-calendar"></i> Calendar updated
-                                    </a>
-                                  <?php endforeach ?>   
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">4 minutes ago</span>
-                                        <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                    </a>
+                                    <?php 
+                                     
+
+  //  echo element('message', $product_comments);
+
+  // foreach ($product_comments as $comment): $product_likes = $comment['likes']; 
+           // echo $product_likes;
+
+    //        endforeach
+                                    ?>
+                                <?php 
+                                $i==0;
+                                foreach ($products as $product): $product_name = $product['name']; 
+                                if ($product['status']==0){  $product_status="Inactive"; }
+                                elseif($product['status']==1){$product_status="Active";}
+                                else {$product_status="Sold";}  if($i<2){ $i=$i+1;?>
 
                                     <a href="#" class="list-group-item">
-                                        <span class="badge">23 minutes ago</span>
-                                        <i class="fa fa-fw fa-truck"></i> Order 392 shipped
+                                        <span class="badge"><?php echo $product_status; ?></span>
+                                        <img src="" class="fa fa-fw fa-calendar"></i> <?php echo $product_name ?>
                                     </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">46 minutes ago</span>
-                                        <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
+                                  <?php } 
+                                  else{ ?>   
+                                    <a href="#" class="list-group-item hidden_notification" id="">
+                                        <span class="badge"><?php echo $product_status; ?></span>
+                                        <img src="" class="fa fa-fw fa-calendar"></i> <?php echo $product_name ?>
                                     </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">1 hour ago</span>
-                                        <i class="fa fa-fw fa-user"></i> A new user has been added
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">2 hours ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">yesterday</span>
-                                        <i class="fa fa-fw fa-globe"></i> Saved the world
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">two days ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
-                                    </a>
+
                                 </div>
+                                <?php }endforeach ?>
                                 <div class="text-right">
-                                    <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".hidden_notification").slideUp();
+    $(".btn1").hide();
+
+  $(".btn1").click(function(){
+    $(".hidden_notification").slideUp();
+    $(".btn2").show();
+    $(".btn1").hide();
+  });
+  $(".btn2").click(function(){
+    $(".hidden_notification").slideDown();
+   $(".btn1").show();
+   $(".btn2").hide();
+  });
+});
+</script>
+
+                                    <a class="btn2" >View All  <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a class="btn1" >Hide  <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>

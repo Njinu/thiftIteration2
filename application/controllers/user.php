@@ -19,10 +19,27 @@
         }
 		
 		 public function myStore(){
-    
+        $this->load->helper('array');
     	$this->load->model('store_model');	
 		$data['title'] = 'My Store';
          $data['products'] = $this->store_model->get_data();
+         $prodCount=0;
+         foreach ($data['products'] as $product['product_id']) {
+             $prodCount++;
+             # code...
+         }
+        $data['product_count']=$prodCount;
+        $data['product_comments'] = $this->store_model->get_product_comments();
+        $comment_count=0;
+        echo element('message', $data['product_comments']);
+        foreach ($data['product_comments'] as $p) {
+           //    implode("[",$p);
+             $comment_count++;
+            // echo ("Ok".$p["user_id"]);
+             
+             # code...
+         }
+         $data['comment_count']=$comment_count;
 		$this->load->view('templates/header', $data);
 		$this->load->view('user/myStore', $data);
 		$this->load->view('templates/footer');
@@ -352,7 +369,7 @@
 		else
 		{		
 			$this->store_model->set_UserItem();
-			$this->load->view('store/success');
+			$this->load->view('dropzone/dropzone_view');
 		}	
         return true;
         endif;

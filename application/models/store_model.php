@@ -26,10 +26,31 @@ class Store_model extends CI_Model {
  			
      	
         	$this->db->where('seller_id',$this->session->userdata('id'));
-			// $query = $this->db->select('date,event')->from('calendar')->like('date',"$type")->get();	
-			$query = $this->db->select()->from('product')->get();			
+			$query = $this->db->select()->from('product')->get();
+
 			return $query->result_array();
     }
+
+
+	public function get_product_comments(){
+$this->load->helper('array');
+        $type = $this->input->post('type');
+ 			
+     	
+        	$this->db->where('seller_id',$this->session->userdata('id'));
+        	$query1 = $this->db->select()->from('comments')->get();
+        	$prodCount=0;
+
+			// $query = $this->db->select('date,event')->from('calendar')->like('date',"$type")->get();	
+			//$query = $this->db->select()->from('product')->get();	
+		
+			//$this->db->from('comments');
+			//$this->db->where('product_id',$this->session->userdata('id'));
+			//$this->db->join('products', 'product.product_id = comments.product_id');
+						//$query = $this->db->get();
+			return $query1->result_array();
+    }
+
 
 	public function get_products_ByCategory($slug = FALSE)
 	{
@@ -70,6 +91,8 @@ class Store_model extends CI_Model {
 
 		return $this->db->insert('product', $data);
 	}
+
+
 
 	public function delete_UserItem(){
 		$id = $this->input->post('type');

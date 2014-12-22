@@ -50,7 +50,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 	<script src='<?php echo base_url()."assets/ThriftshopTheme/custom/kool-swap/demo.js"?>'></script>
 	<script src='<?php echo base_url()."assets/ThriftshopTheme/js/freelancer.js"?>'></script>
 	  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-  <script src="https://apis.google.com/js/client:platform.js?onload=render" async defer></script>
+
 
 
     <?php echo script_tag('assets/ThriftshopTheme/modernizr.custom.js'); ?>
@@ -99,6 +99,9 @@ error_reporting(E_ALL & ~E_NOTICE);
                     </li>
                     <li class="dropdown" style="margin-top:2%;">
                         <a href='<?php echo base_url()."index.php/". "thriftshop"?>' >Thrift shopping <i class="fa fa-shopping-cart"></i></a>
+                    </li>
+                         <li class="dropdown" style="margin-top:2%;">
+                        <a href='<?php echo base_url()."index.php/". "dropzone/"?>' >Up <i class="fa fa-shopping-cart"></i></a>
                     </li>
                     <?php if(empty($user_me['name']) or empty($this->session->userdata('id'))) {?>
                   <li class="dropdown" style="margin-top:2%;">
