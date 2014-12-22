@@ -117,12 +117,9 @@ error_reporting(E_ALL & ~E_NOTICE);
                               <li>
                             <a href='<?php echo base_url()."index.php/". "user/profile"?>' style=" border-radius:0px;">View Profile <i style="text-align:right" class="fa fa-user"></i></a>
                             </li>  
-                             <li>
-                            <a href='<?php echo base_url()."index.php/". "user/myStore"?>' style=" border-radius:0px;"> Post Ad! <i style="text-align:right" class="fa fa-building-o"></i></a>
-                            </li>  
                               
                               <li>
-                            <a href='<?php echo base_url()."index.php/". "user/profile"?>' style=" border-radius:0px;">Shopping Cart <i style="text-align:right" class="fa fa-shopping-cart"></i></i></a>
+                            <a href='<?php echo base_url()."index.php/". "user/cart"?>' style=" border-radius:0px;">Shopping Cart <i style="text-align:right" class="fa fa-shopping-cart"></i></i></a>
                             </li> 
                              <li>
                             <a href='<?php echo base_url()."index.php/". "user/myStore"?>' style=" border-radius:0px;">My Store <i style="text-align:right" class="fa fa-building-o"></i></a>
