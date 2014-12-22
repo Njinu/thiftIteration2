@@ -18,6 +18,7 @@ $fileName = $_FILES['file']['name'];
 $targetPath = getcwd() . '/uploads/';
 $targetFile = $targetPath . $fileName ;
 move_uploaded_file($tempFile, $targetFile);
+
 // if you want to save in db,where here
 // with out model just for example
 // $this->load->database(); // load database

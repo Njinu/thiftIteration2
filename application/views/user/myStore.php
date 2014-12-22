@@ -330,28 +330,35 @@
                 <input type="number" class="form-control" id="ItemPrice" name="ItemPrice" placeholder="Enter Item Price">
               </div>
  </br>
+
+<!--
               <div class="form-group" id="picHolder">
-                <label for="ItemPicture">File input</label>
-                <input type="file" id="ItemPicture">
+                <label for="ItemPicture">File input</label> <input type="file" id="ItemPicture">
+     !-->          
 
         <link href="<?php echo base_url(); ?>resources/css/dropzone.css" type="text/css" rel="stylesheet" />
 <script src="<?php echo base_url(); ?>resources/dropzone.js"></script>
 
-    <?php echo form_open('/dropzone/upload',array('id'=>'dpzone', 'class'=>'dropzone')) ?>
-    hi
-              </div>
-<h1>File Upload using dropzone.js and Codeigniter - arjun.net.in</h1>
-<form action="<?php echo site_url('/dropzone/upload'); ?>" class="dropzone"  >
-</form>
-              <button  type="submit"  class="btn btn-default">Submit</button>
+             
+              <button  type="submit" id="sender"  class="btn btn-default">Submit</button>
             </form>
-              
+              <script>
+              $(".sender").click(function(){
+  alert("The paragraph was clicked.");
+});
+              </script>
                         </div>
                     </div>
-                    </div>
+                    </div> <div class="col-lg-4">      <link href="<?php echo base_url(); ?>resources/css/dropzone.css" type="text/css" rel="stylesheet" />
+<script src="<?php echo base_url(); ?>resources/dropzone.js"></script>
+
+<h4>File Upload</h4>
+<form action="<?php echo site_url('/dropzone/upload'); ?>" class="dropzone"  >
+    <button  type="submit" id="sender"  class="btn btn-default">Submit</button>
+</br>
+             </div>
                           <div class="col-lg-4">
-     
-                <div class="panel panel-default" id="foreachtest">
+   <div class="panel panel-default" id="foreachtest">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Previous posts</h3>
                             </div>
