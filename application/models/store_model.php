@@ -24,8 +24,8 @@ class Store_model extends CI_Model {
 
         $type = $this->input->post('type');
  			
-     		 $where = "seller_id =". $this->session->userdata('id');
-        	$this->db->where($where);
+     	
+        	$this->db->where('seller_id',$this->session->userdata('id'));
 			// $query = $this->db->select('date,event')->from('calendar')->like('date',"$type")->get();	
 			$query = $this->db->select()->from('product')->get();			
 			return $query->result_array();

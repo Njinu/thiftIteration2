@@ -364,7 +364,7 @@
                     </div>
                     </div>
                           <div class="col-lg-4">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="foreachtest">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Previous posts</h3>
                             </div>
