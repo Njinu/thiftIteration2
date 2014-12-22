@@ -182,7 +182,7 @@ error_reporting(E_ALL & ~E_NOTICE);
       <!--Search Form-->
       <form class="search-form closed" method="get" role="form" autocomplete="off">
         <div class="container">
-          <div class="close-search"><i class="icon-delete"></i></div>
+          <div class="close-search"><i class="fa fa-times"></i></div>
             <div class="form-group">
               <label class="sr-only" for="search-hd">Search for procuct</label>
               <input type="text" class="form-control" name="search-hd" id="search-hd" placeholder="Search for procuct">
@@ -334,8 +334,8 @@ error_reporting(E_ALL & ~E_NOTICE);
               </div>
               <div class="footer group">
                 <div class="buttons">
-                  <a class="btn btn-outlined-invert" href="checkout.html"><i class="icon-download"></i>Checkout</a>
-                  <a class="btn btn-outlined-invert" href="shopping-cart.html"><i class="icon-shopping-cart-content"></i>To cart</a>
+                  <a class="btn btn-outlined-invert" href="checkout.html"><i class="fa fa-sign-out"></i>Checkout</a>
+                  <a class="btn btn-outlined-invert" href="shopping-cart.html"><i class="fa fa-shopping-cart"></i>To cart</a>
                 </div>
                 <div class="total">93 389 $</div>
               </div>
