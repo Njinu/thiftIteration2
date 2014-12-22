@@ -29,7 +29,7 @@
                 	<td class="thumb"><a href="shop-single-item-v1.html"><img src="img/catalog/shopping-cart-thumb-1.jpg" alt="Nikon D4S"/></a></td>
                   <td class="name"><a href="shop-single-item-v1.html">Nikon D4S</a></td>
                   <td class="price">715,00 $</td>
-                  <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="icon-shopping-cart"></i>Add to cart</a></td>
+                  <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a></td>
                   <td class="delete"><i class="icon-delete"></i></td>
                 </tr>
                 <!--Item-->
@@ -37,7 +37,7 @@
                 	<td class="thumb"><a href="shop-single-item-v1.html"><img src="img/catalog/shopping-cart-thumb-2.jpg" alt="Nikkor 11-27.5"/></a></td>
                   <td class="name"><a href="shop-single-item-v1.html">Nikkor</a></td>
                   <td class="price">715,00 $</td>
-                  <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="icon-shopping-cart"></i>Add to cart</a></td>
+                  <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a></td>
                   <td class="delete"><i class="icon-delete"></i></td>
                 </tr>
                 <!--Item-->
@@ -53,7 +53,7 @@
                 	<td class="thumb"><a href="shop-single-item-v1.html"><img src="img/catalog/shopping-cart-thumb-2.jpg" alt="Nikkor 11-27.5"/></a></td>
                   <td class="name"><a href="shop-single-item-v1.html">Nikkor</a></td>
                   <td class="price">715,00 $</td>
-                  <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="icon-shopping-cart"></i>Add to cart</a></td>
+                  <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a></td>
                   <td class="delete"><i class="icon-delete"></i></td>
                 </tr>
                 <!--Item-->
@@ -116,7 +116,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
@@ -152,7 +152,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
@@ -188,7 +188,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
@@ -224,7 +224,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">

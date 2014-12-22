@@ -114,7 +114,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
@@ -154,7 +154,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
@@ -193,7 +193,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
@@ -229,7 +229,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
@@ -266,7 +266,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
@@ -302,7 +302,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
@@ -338,7 +338,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
@@ -374,7 +374,7 @@
                       <span></span>
                     </div>
                     <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
                     <!--Share Button-->
                     <div class="share-btn">
                     	<div class="hover-state">
