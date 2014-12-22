@@ -20,6 +20,7 @@ gapi.client.load('plus','v1', function(){
   }
   </script>
   <style type="text/css">
+  body{background-color: rgba(96,96,96,0.1);!important}
     #customBtn {
       display: inline-block;
       
