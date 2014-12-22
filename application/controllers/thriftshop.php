@@ -11,7 +11,7 @@
 
         public function index(){
         $data['title'] = 'thriftshop';
-        $this->load->view('templates/header', $data);
+        $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer');
         }
