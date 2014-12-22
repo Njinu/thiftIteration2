@@ -103,8 +103,8 @@
     	<div class="right-bg"></div>
       
     	<div class="container">
-      	<a class="logo" href="index.html"><img src="img/logo.png" alt="Bushido"/></a>
-        
+      	<!-- <a class="logo" href="index.html"><img src="img/logo.png" alt="Bushido"/></a> -->
+       
         <!--Language / Currency Switchers-->
         <ul class="switchers">
         	<li>$
@@ -314,42 +314,42 @@
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
             	<a href="#">
-                <img src="img/categories/1.jpg" alt="1"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/>
                 <p>Category name</p>
               </a>
             </div>
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
             	<a href="#">
-                <img src="img/categories/2.jpg" alt="2"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/>
                 <p>Category name</p>
               </a>
             </div>
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
             	<a href="#">
-                <img src="img/categories/3.jpg" alt="3"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/>
                 <p>Category name</p>
               </a>
             </div>
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
             	<a href="#">
-                <img src="img/categories/4.jpg" alt="4"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/>
                 <p>Category name</p>
               </a>
             </div>
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
             	<a href="#">
-                <img src="img/categories/5.jpg" alt="5"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginpostCover.jpg"?>' alt="5"/>
                 <p>Category name</p>
               </a>
             </div>
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
             	<a href="#">
-                <img src="img/categories/6.jpg" alt="5"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
                 <p>Category name</p>
               </a>
             </div>
@@ -369,7 +369,7 @@
                 	<span class="sale"></span>
                 </div>
               	<div class="price-label">715,00 $</div>
-              	<a href="#"><img src="img/catalog/tiles/1.jpg" alt="1"/></a>
+              	<a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/></a>
                 <div class="footer">
                 	<a href="#">Nikon D5300</a>
                   <span>by Pirate3d</span>
@@ -409,7 +409,7 @@
                 </div>
               	<div class="price-label">715,00 $</div>
                 <div class="price-label old-price">920,00 $</div>
-              	<a href="#"><img src="img/catalog/tiles/2.jpg" alt="2"/></a>
+              	<a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/></a>
                 <div class="footer">
                 	<a href="#">Nikon Coolpix</a>
                   <span>by Pirate3d</span>
@@ -448,7 +448,7 @@
                   <span class="best-seller"></span>
                 </div>
               	<div class="price-label">715,00 $</div>
-              	<a href="#"><img src="img/catalog/tiles/3.jpg" alt="3"/></a>
+              	<a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/></a>
                 <div class="footer">
                 	<a href="#">Nikon WP-N3</a>
                   <span>by Pirate3d</span>
@@ -484,7 +484,7 @@
           	<div class="col-lg-3 col-md-4 col-sm-6">
             	<div class="tile">
               	<div class="price-label">715,00 $</div>
-              	<a href="#"><img src="img/catalog/tiles/4.jpg" alt="4"/></a>
+              	<a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/></a>
                 <div class="footer">
                 	<a href="#">Nikkor 10-30 VR</a>
                   <span>by Pirate3d</span>
@@ -521,7 +521,7 @@
             	<div class="tile">
               	<div class="price-label">715,00 $</div>
                 <div class="price-label old-price">920,00 $</div>
-              	<a href="#"><img src="img/catalog/tiles/5.jpg" alt="5"/></a>
+              	<a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/></a>
                 <div class="footer">
                 	<a href="#">Nikon WU 1b</a>
                   <span>by Pirate3d</span>
@@ -557,7 +557,7 @@
           	<div class="col-lg-3 col-md-4 col-sm-6">
             	<div class="tile">
               	<div class="price-label">715,00 $</div>
-              	<a href="#"><img src="img/catalog/tiles/6.jpg" alt="6"/></a>
+              	<a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="6"/></a>
                 <div class="footer">
                 	<a href="#">Nikon V3</a>
                   <span>by Pirate3d</span>
@@ -593,7 +593,7 @@
           	<div class="col-lg-3 col-md-4 col-sm-6">
             	<div class="tile">
               	<div class="price-label">715,00 $</div>
-              	<a href="#"><img src="img/catalog/tiles/7.jpg" alt="7"/></a>
+              	<a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="7"/></a>
                 <div class="footer">
                 	<a href="#">Nikon J4</a>
                   <span>by Pirate3d</span>
@@ -629,7 +629,7 @@
           	<div class="col-lg-3 col-md-4 col-sm-6">
             	<div class="tile">
               	<div class="price-label">715,00 $</div>
-              	<a href="#"><img src="img/catalog/tiles/8.jpg" alt="8"/></a>
+              	<a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="8"/></a>
                 <div class="footer">
                 	<a href="#">Nikkor AF-S</a>
                   <span>by Pirate3d</span>
@@ -681,7 +681,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>X-MAS LIGHT IPHONE LENS<span>$14.95</span></div></div>
                     </div>
-                    <img src="img/media/1.jpg" alt="1"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/>
                   </a>
                 </div>
               	<div class="col-lg-5 col-md-5 col-sm-5">
@@ -689,7 +689,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>Hedadset for iPhone<span>$19.40</span></div></div>
                     </div>
-                    <img src="img/media/2.jpg" alt="2"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/>
                   </a>
                 </div>
               </div>
@@ -699,7 +699,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>Product Name<span>$24.15</span></div></div>
                     </div>
-                    <img src="img/media/3.jpg" alt="3"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/>
                   </a>
                 </div>
               	<div class="col-lg-5 col-md-5 col-sm-5">
@@ -707,7 +707,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>Product Name<span>$24.15</span></div></div>
                     </div>
-                    <img src="img/media/4.jpg" alt="4"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/>
                   </a>
                 </div>
               	<div class="col-lg-3 col-md-3 col-sm-3">
@@ -715,7 +715,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>Product Name<span>$24.15</span></div></div>
                     </div>
-                    <img src="img/media/5.jpg" alt="5"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
                   </a>
                 </div>
               </div>
@@ -729,7 +729,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>Product Name<span>$14.95</span></div></div>
                     </div>
-                    <img src="img/media/6.jpg" alt="6"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="6"/>
                   </a>
                 </div>
               	<div class="col-lg-4 col-md-4 col-sm-4">
@@ -737,7 +737,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>Product Name<span>$19.40</span></div></div>
                     </div>
-                    <img src="img/media/7.jpg" alt="7"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="7"/>
                   </a>
                 </div>
               	<div class="col-lg-4 col-md-4 col-sm-4">
@@ -745,7 +745,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>Product Name<span>$19.40</span></div></div>
                     </div>
-                    <img src="img/media/8.jpg" alt="8"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="8"/>
                   </a>
                 </div>
               </div>
@@ -755,7 +755,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>Product Name<span>$14.95</span></div></div>
                     </div>
-                    <img src="img/media/9.jpg" alt="9"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="9"/>
                   </a>
                 </div>
               	<div class="col-lg-4 col-md-4 col-sm-4">
@@ -763,7 +763,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>Product Name<span>$19.40</span></div></div>
                     </div>
-                    <img src="img/media/10.jpg" alt="10"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="10"/>
                   </a>
                 </div>
               	<div class="col-lg-4 col-md-4 col-sm-4">
@@ -771,7 +771,7 @@
                   	<div class="overlay">
                     	<div class="descr"><div>Product Name<span>$19.40</span></div></div>
                     </div>
-                    <img src="img/media/11.jpg" alt="11"/>
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="11"/>
                   </a>
                 </div>
               </div>
@@ -795,7 +795,7 @@
                   <!--Post-->
                   <div class="post row">
                     <div class="col-lg-6 col-sm-6">
-                      <a href="#"><img src="img/posts-widget/1.jpg" alt="1"/></a>
+                      <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/></a>
                     </div>
                     <div class="col-lg-6 col-sm-6">
                       <h3><a href="#">Another Title</a></h3>
@@ -807,7 +807,7 @@
                   <!--Post-->
                   <div class="post row">
                     <div class="col-lg-6 col-sm-6">
-                      <a href="#"><img src="img/posts-widget/2.jpg" alt="2"/></a>
+                      <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/></a>
                     </div>
                     <div class="col-lg-6 col-sm-6">
                       <h3><a href="#">Awesome Title</a></h3>
@@ -871,42 +871,42 @@
             <div class="gallery-item" data-groups='["camera"]' data-src="img/gallery-widget/1.jpg">
               <a href="img/gallery-widget/1.jpg">
                 <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                <img src="img/gallery-widget/th_1.jpg" alt="1"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/>
               </a>
             </div>
             <!--Item-->
             <div class="gallery-item" data-groups='["camera"]' data-src="img/gallery-widget/2.jpg">
               <a href="img/gallery-widget/2.jpg">
                 <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                <img src="img/gallery-widget/th_2.jpg" alt="2"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/>
               </a>
             </div>
             <!--Item-->
             <div class="gallery-item" data-groups='["video"]' data-src="https://www.youtube.com/watch?v=hdEAWW7tZSA">
               <a href="https://www.youtube.com/watch?v=hdEAWW7tZSA">
                 <div class="overlay"><span><i class="icon-music-play"></i></span></div>
-                <img src="img/gallery-widget/th_3.jpg" alt="3"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/>
               </a>
             </div>
             <!--Item-->
             <div class="gallery-item" data-groups='["lenses"]' data-src="img/gallery-widget/4.jpg">
               <a href="img/gallery-widget/4.jpg">
                 <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                <img src="img/gallery-widget/th_4.jpg" alt="4"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/>
               </a>
             </div>
             <!--Item-->
             <div class="gallery-item" data-groups='["flash"]' data-src="img/gallery-widget/5.jpg">
               <a href="img/gallery-widget/5.jpg">
                 <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                <img src="img/gallery-widget/th_5.jpg" alt="5"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
               </a>
             </div>
             <!--Item-->
             <div class="gallery-item" data-groups='["flash"]' data-src="img/gallery-widget/6.jpg">
               <a href="img/gallery-widget/6.jpg">
                 <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                <img src="img/gallery-widget/th_6.jpg" alt="6"/>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="6"/>
               </a>
             </div>
           </div>
@@ -968,7 +968,7 @@
               <div class="form-group">
                 <label class="sr-only" for="subscr-name">Enter name</label>
                 <input type="text" class="form-control" name="FNAME" id="subscr-name" placeholder="Enter name" required>
-                <button class="subscr-next"><i class="icon-arrow-right"></i></button>
+                <button class="subscr-next"><i class="fa fa-arrow-circle-o-right"></i></button>
               </div>
               <div class="form-group fff" style="display: none">
                 <label class="sr-only" for="subscr-email">Enter email</label>
@@ -994,7 +994,7 @@
       	<div class="row">
         	<div class="col-lg-5 col-md-5 col-sm-5">
           	<div class="info">
-              <a class="logo" href="index.html"><img src="img/logo.png" alt="Bushido"/></a>
+            <!--   <a class="logo" href="index.html"><img src="img/logo.png" alt="Bushido"/></a> -->
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
               <div class="social">
               	<a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
@@ -1029,7 +1029,7 @@
         <div class="copyright">
         	<div class="row">
           	<div class="col-lg-7 col-md-7 col-sm-7">
-              <p>&copy; 2014 BUSHIDO. All Rights Reserved. Designed by <a href="http://8guild.com/" target="_blank">8Guild</a></p>
+              <p>&copy; 2014 thriftShop. All Rights Reserved. Designed by <a href="http://8guild.com/" target="_blank">7Spyre</a></p>
             </div>
           	<div class="col-lg-5 col-md-5 col-sm-5">
             	<div class="payment">
