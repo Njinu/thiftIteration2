@@ -44,22 +44,7 @@
   	<!--Color Switcher-->
     <div class="color-switcher group animated">
     	<div class="toggle"><i class="fa fa-cog"></i></div>
-    	<div class="color">
-      	<a class="current" style="background-image:url(color-switcher/img/default.png);" href="#" data-color="default"></a>
-        <span>#2ba8db<br/>#a3c756</span>
-      </div>
-    	<div class="color">
-      	<a style="background-image:url(color-switcher/img/scheme2.png);" href="#" data-color="scheme2"></a>
-        <span>#a1b0ca<br/>#e7807f</span>
-      </div>
-    	<div class="color">
-      	<a style="background-image:url(color-switcher/img/scheme3.png);" href="#" data-color="scheme3"></a>
-        <span>#4bb5c1<br/>#bfa995</span>
-      </div>
-    	<div class="color">
-      	<a style="background-image:url(color-switcher/img/scheme4.png);" href="#" data-color="scheme4"></a>
-        <span>#73cbbe<br/>#c7b07b</span>
-      </div>
+    	
     </div><!--Color Switcher End-->
   
   	<!--Login Modal-->
@@ -239,7 +224,7 @@
           <button class="search-btn btn-outlined-invert"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
           <div class="middle-btns">
             <a class="btn-outlined-invert" href="wishlist.html"><i class="fa fa-heart"></i> <span>Wishlist</span></a>
-            <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i class="icon-profile"></i> <span>Login</span></a>
+            <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i class="glyphicon glyphicon-user"></i> <span>Login</span></a>
           </div>
           <div class="cart-btn">
           	<a class="btn btn-outlined-invert" href="shopping-cart.html"><i class="fa fa-shopping-cart"></i><span>3</span></a>
