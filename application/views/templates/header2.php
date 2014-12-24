@@ -235,6 +235,10 @@
                 <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "thriftshop/support"?>'>Support<i class="fa fa-chevron-down"></i></a>
 
                 </li>
+
+                 <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "user/signup"?>'>Signup<i class="fa fa-chevron-down"></i></a>
+
+                </li>
            <!--  <li class="has-submenu"><a href="#">Pages<span class="label">NEW</span><i class="fa fa-chevron-down"></i></a>
               <ul class="submenu">
                 <li><a href="register.html">Login / Registration</a></li>
@@ -296,13 +300,13 @@
         
         <!--Toolbar-->
         <div class="toolbar group">
-          <button class="search-btn btn-outlined-invert"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          <button class="search-btn btn-outlined-invert"><i class="glyphicon glyphicon-search"></i></button>
           <div class="middle-btns">
             <a class="btn-outlined-invert" href='<?php echo base_url()."index.php/". "thriftshop/wishlist"?>'><i class="fa fa-heart"></i> <span>Wishlist</span></a>
             <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i class="glyphicon glyphicon-user"></i> <span>Login</span></a>
           </div>
           <div class="cart-btn">
-            <a class="btn btn-outlined-invert" href="#"><i class="glyphicon glyphicon-user"></i></a>
+            <a class="btn btn-outlined-invert" href='<?php echo base_url()."index.php/". "user/signup"?>'><i class="glyphicon glyphicon-user"></i></a>
             
             <!--Cart Dropdown-->
             <div class="cart-dropdown">

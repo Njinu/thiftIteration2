@@ -326,9 +326,10 @@
 
     public function signup() {
     	$data['title'] = 'Signup';
-
+    $this->load->view('templates/header2',$data);
     	$this->load->view('user/signup', $data);
-    	$this->load->view('templates/header');
+            $this->load->view('templates/footer2');
+    
     }
 
     public function validate_creditentials () {

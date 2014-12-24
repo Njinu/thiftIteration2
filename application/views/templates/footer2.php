@@ -30,7 +30,7 @@
             <p class="p-style3">
             	4120 Lenox Avenue, New York, NY,<br/>
               10035 76 Saint Nicholas Avenue<br/>
-              <a href="mailto:mail@bushido.com">mail@bushido.com</a><br/>
+              <a href="mailto:mail@Thriftshop.com">mail@Thriftshop.com</a><br/>
               +48 543765234<br/>
               +48 555 234 54 34<br/>
             </p>
