@@ -28,7 +28,7 @@
       <!--Catalog Grid-->
       <section class="catalog-grid">
       	<div class="container">
-          <h2 class="with-sorting">Filters left 3 columns</h2>
+          <h2 class="with-sorting">The ThriftShop</h2>
           <div class="sorting">
             <a href="#">Sort by name</a>
             <a href="#">Sort by price</a>
