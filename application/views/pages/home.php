@@ -1,729 +1,743 @@
+
 <script>
 gapi.client.load('plus','v1', function(){
- var request = gapi.client.plus.people.get({
-   'userId': 'me'
- });
- request.execute(function(resp) {
-   console.log('Retrieved profile for:' + resp.displayName);
- });
+    var request = gapi.client.plus.people.get({
+        'userId': 'me'
+    });
+    request.execute(function(resp) {
+        console.log('Retrieved profile for:' + resp.displayName);
+    });
 });
 </script>
-     <script>
-  function render() {
+<script>
+function render() {
     gapi.signin.render('customBtn', {
-      'callback': 'onSignInCallback',
-      'clientid': '668784135808-461oqhniijb05dp1s5gf9gt7tboq0d4m.apps.googleusercontent.com',
-      'cookiepolicy': 'single_host_origin',
-      'requestvisibleactions': 'http://schema.org/AddAction',
-      'scope': 'https://www.googleapis.com/auth/plus.login'
+        'callback': 'onSignInCallback',
+        'clientid': '668784135808-461oqhniijb05dp1s5gf9gt7tboq0d4m.apps.googleusercontent.com',
+        'cookiepolicy': 'single_host_origin',
+        'requestvisibleactions': 'http://schema.org/AddAction',
+        'scope': 'https://www.googleapis.com/auth/plus.login'
     });
-  }
-  </script>
-  <style type="text/css">
-  body{background-color: rgba(96,96,96,0.1);!important}
-    #customBtn {
-      display: inline-block;
-      
-      color: black  ;
-      width: 165px;
-      border-radius: 5px;
-      white-space: nowrap;
-    }
-    #customBtn:hover {
-      background: rgba(96,96,96,0.1);
-      cursor: hand;
-    }
-    span.label {
+}
+</script>
+
+<!--Page Content-->
+<div class="page-content">
     
-    }
-    span.icon {
-      background: url('/+/images/branding/btn_red_32.png') transparent 5px 50% no-repeat;
-      display: inline-block;
-      vertical-align: middle;
-      width: 35px;
-      height: 35px;
-      border-right: #bb3f30 1px solid;
-    }
-    span.buttonText {
-      display: inline-block;
-      vertical-align: middle;
-      padding-left: 35px;
-      padding-right: 35px;
-
-      /* Use the Roboto font that is loaded in the <head> */
-      font-family: 'Roboto',arial,sans-serif;
-    }
-  </style>
-
-
-    <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
+    <!--Hero Slider-->
+    <section class="hero-slider" style="padding:0px">
+        <div class="master-slider" id="hero-slider">
+            
+            <!--Slide 1-->
+            <div class="ms-slide" data-delay="7">
+                <div class="overlay"></div>
+                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' data-src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikon D4S"/>
+                <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="top(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Nikon D4S</h2>
+                <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="back(500)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+                <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="bottom(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>1845$</span>Buy it now</a></div>
             </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
+            
+            <!--Slide 2-->
+            <div class="ms-slide" data-delay="7">
+                <span class="overlay"></span>
+                <img src="masterslider/blank.gif" data-src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nest"/>
+                <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Nest</h2>
+                <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+                <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="rotatebottom(30|90,long,br,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>1640$</span>Buy it now</a></div>
             </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
+            
+            <!--Slide 3-->
+            <div class="ms-slide" data-delay="7">
+                <div class="overlay"></div>
+                <img src="masterslider/blank.gif" data-src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3D Printer"/>
+                <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">3D Printer</h2>
+                <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+                <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="left(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>2500$</span>Buy it now</a></div>
             </div>
+            
         </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </header>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Marketing Icons Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header mainheading">
-                    Welcome to the Thriftshop
-                </h1>
-            </div>
-
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      New content
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade bs-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg2">
-    <div class="modal-content">
-      New content2
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade bs-example-modal-lg3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg3">
-    <div class="modal-content">
-      New content 3
-    </div>
-  </div>
-</div>
-
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class=" panel-heading ">
-                        <h4><i class="fa fa-fw fa-home"></i> Latest digs Upload</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                       <button type="button" class=" digs btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading ">
-                        <h4><i class="fa fa-fw fa-book"></i>Latest Textbook Upload</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <button type="button" class="textbook btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg2">Large modal</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading ">
-                        <h4><i class="fa fa-fw fa-gift"></i>Latest Goods Upload</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                         <button type="button" class="goods btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg3">Large modal</button>
-                   </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.row -->
-
-          <!-- Portfolio Section -->
-    <section id="portfolio">      
+    </section><!--Hero Slider Close-->
+    
+    <!--Categories-->
+    <section class="cat-tiles">
         <div class="container">
-            <div class="col-lg-11" style="float:right;">
-                <h1 class="page-header submain1" style="color:#3498db">check them features...</h1>
+            <h2>Browse categories</h2>
+            <div class="row">
+                <!--Category-->
+                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href="#">
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/>
+                        <p>Category name</p>
+                    </a>
+                </div>
+                <!--Category-->
+                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href="#">
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/>
+                        <p>Category name</p>
+                    </a>
+                </div>
+                <!--Category-->
+                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href="#">
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/>
+                        <p>Category name</p>
+                    </a>
+                </div>
+                <!--Category-->
+                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href="#">
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/>
+                        <p>Category name</p>
+                    </a>
+                </div>
+                <!--Category-->
+                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href="#">
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
+                        <p>Category name</p>
+                    </a>
+                </div>
+                <!--Category-->
+                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href="#">
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
+                        <p>Category name</p>
+                    </a>
+                </div>
             </div>
-            <div class="col-md-11" style="float:right;">
-                <div class="col-md-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption" style="background: rgba(0,0,0,0.7);">
-                            <div class="caption-content" >
-                             <span style="font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;">Digs</span>
+        </div>
+    </section><!--Categories Close-->
+    
+    <!--Catalog Grid-->
+    <section class="catalog-grid">
+        <div class="container">
+            <h2 class="primary-color">Catalog picks</h2>
+            <div class="row">
+                <!--Tile-->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="tile">
+                        <div class="badges">
+                            <span class="sale"></span>
+                        </div>
+                        <div class="price-label">715,00 $</div>
+                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/></a>
+                        <div class="footer">
+                            <a href="#">Nikon D5300</a>
+                            <span>by Pirate3d</span>
+                            <div class="tools">
+                                <div class="rate">
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!--Add To Cart Button-->
+                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                <!--Share Button-->
+                                <div class="share-btn">
+                                    <div class="hover-state">
+                                        <a class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="#"></a>
+                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                    </div>
+                                    <i class="fa fa-share"></i>
+                                </div>
+                                <!--Add To Wishlist Button-->
+                                <a class="wishlist-btn" href="#">
+                                    <div class="hover-state">Wishlist</div>
+                                    <i class="fa fa-plus"></i>
+                                </a>
                             </div>
                         </div>
-                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cabin.png"?>' class="img-responsive" alt="">
-                    </a>
+                    </div>
                 </div>
-            
-                <div class="col-md-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="caption" style="background:rgba(0,0,0,0.7);">
-                            <div class="caption-content">
-                                   <span style="font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;">Electronics</span>
+                <!--Tile-->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="tile">
+                        <div class="badges">
+                            <span class="out"></span>
+                        </div>
+                        <div class="price-label">715,00 $</div>
+                        <div class="price-label old-price">920,00 $</div>
+                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/></a>
+                        <div class="footer">
+                            <a href="#">Nikon Coolpix</a>
+                            <span>by Pirate3d</span>
+                            <div class="tools">
+                                <div class="rate">
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!--Add To Cart Button-->
+                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                <!--Share Button-->
+                                <div class="share-btn">
+                                    <div class="hover-state">
+                                        <a class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="#"></a>
+                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                    </div>
+                                    <i class="fa fa-share"></i>
+                                </div>
+                                <!--Add To Wishlist Button-->
+                                <a class="wishlist-btn" href="#">
+                                    <div class="hover-state">Wishlist</div>
+                                    <i class="fa fa-plus"></i>
+                                </a>
                             </div>
                         </div>
-                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/game.png"?>' class="img-responsive" alt="">
-                    </a>
+                    </div>
                 </div>
-            
-                <div class="col-md-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption" style="background: rgba(0,0,0,0.7);">
-                            <div class="caption-content">
-                               <span style="font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;">Transport</span>
+                <!--Tile-->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="tile">
+                        <div class="badges">
+                            <span class="best-seller"></span>
+                        </div>
+                        <div class="price-label">715,00 $</div>
+                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/></a>
+                        <div class="footer">
+                            <a href="#">Nikon WP-N3</a>
+                            <span>by Pirate3d</span>
+                            <div class="tools">
+                                <div class="rate">
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!--Add To Cart Button-->
+                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                <!--Share Button-->
+                                <div class="share-btn">
+                                    <div class="hover-state">
+                                        <a class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="#"></a>
+                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                    </div>
+                                    <i class="fa fa-share"></i>
+                                </div>
+                                <!--Add To Wishlist Button-->
+                                <a class="wishlist-btn" href="#">
+                                    <div class="hover-state">Wishlist</div>
+                                    <i class="fa fa-plus"></i>
+                                </a>
                             </div>
                         </div>
-                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/submarine.png"?>' class="img-responsive" alt="">
+                    </div>
+                </div>
+                <!--Tile-->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="tile">
+                        <div class="price-label">715,00 $</div>
+                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/></a>
+                        <div class="footer">
+                            <a href="#">Nikkor 10-30 VR</a>
+                            <span>by Pirate3d</span>
+                            <div class="tools">
+                                <div class="rate">
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!--Add To Cart Button-->
+                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                <!--Share Button-->
+                                <div class="share-btn">
+                                    <div class="hover-state">
+                                        <a class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="#"></a>
+                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                    </div>
+                                    <i class="fa fa-share"></i>
+                                </div>
+                                <!--Add To Wishlist Button-->
+                                <a class="wishlist-btn" href="#">
+                                    <div class="hover-state">Wishlist</div>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Tile-->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="tile">
+                        <div class="price-label">715,00 $</div>
+                        <div class="price-label old-price">920,00 $</div>
+                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/></a>
+                        <div class="footer">
+                            <a href="#">Nikon WU 1b</a>
+                            <span>by Pirate3d</span>
+                            <div class="tools">
+                                <div class="rate">
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!--Add To Cart Button-->
+                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                <!--Share Button-->
+                                <div class="share-btn">
+                                    <div class="hover-state">
+                                        <a class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="#"></a>
+                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                    </div>
+                                    <i class="fa fa-share"></i>
+                                </div>
+                                <!--Add To Wishlist Button-->
+                                <a class="wishlist-btn" href="#">
+                                    <div class="hover-state">Wishlist</div>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Tile-->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="tile">
+                        <div class="price-label">715,00 $</div>
+                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="6"/></a>
+                        <div class="footer">
+                            <a href="#">Nikon V3</a>
+                            <span>by Pirate3d</span>
+                            <div class="tools">
+                                <div class="rate">
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!--Add To Cart Button-->
+                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                <!--Share Button-->
+                                <div class="share-btn">
+                                    <div class="hover-state">
+                                        <a class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="#"></a>
+                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                    </div>
+                                    <i class="fa fa-share"></i>
+                                </div>
+                                <!--Add To Wishlist Button-->
+                                <a class="wishlist-btn" href="#">
+                                    <div class="hover-state">Wishlist</div>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Tile-->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="tile">
+                        <div class="price-label">715,00 $</div>
+                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="7"/></a>
+                        <div class="footer">
+                            <a href="#">Nikon J4</a>
+                            <span>by Pirate3d</span>
+                            <div class="tools">
+                                <div class="rate">
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!--Add To Cart Button-->
+                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                <!--Share Button-->
+                                <div class="share-btn">
+                                    <div class="hover-state">
+                                        <a class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="#"></a>
+                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                    </div>
+                                    <i class="fa fa-share"></i>
+                                </div>
+                                <!--Add To Wishlist Button-->
+                                <a class="wishlist-btn" href="#">
+                                    <div class="hover-state">Wishlist</div>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Tile-->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="tile">
+                        <div class="price-label">715,00 $</div>
+                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="8"/></a>
+                        <div class="footer">
+                            <a href="#">Nikkor AF-S</a>
+                            <span>by Pirate3d</span>
+                            <div class="tools">
+                                <div class="rate">
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span class="active"></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!--Add To Cart Button-->
+                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                <!--Share Button-->
+                                <div class="share-btn">
+                                    <div class="hover-state">
+                                        <a class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="#"></a>
+                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                    </div>
+                                    <i class="fa fa-share"></i>
+                                </div>
+                                <!--Add To Wishlist Button-->
+                                <a class="wishlist-btn" href="#">
+                                    <div class="hover-state">Wishlist</div>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--Catalog Grid Close-->
+    
+    <!--Tabs Widget-->
+    <section class="tabs-widget">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#bestsel" data-toggle="tab">Bestseller items</a></li>
+            <li><a href="#onsale" data-toggle="tab">Items on sale</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="bestsel">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>X-MAS LIGHT IPHONE LENS<span>$14.95</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>Hedadset for iPhone<span>$19.40</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="onsale">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>Product Name<span>$14.95</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="6"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>Product Name<span>$19.40</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="7"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>Product Name<span>$19.40</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="8"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>Product Name<span>$14.95</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="9"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>Product Name<span>$19.40</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="10"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <a class="media-link" href="#">
+                                <div class="overlay">
+                                    <div class="descr"><div>Product Name<span>$19.40</span></div></div>
+                                </div>
+                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="11"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--Tabs Widget Close-->
+    
+    <!--Posts/Twitter Widget-->
+    <section class="posts-widget">
+        <div class="tw-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="latest-posts col-lg-8 col-md-8">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <h2 class="extra-bold">Latests posts</h2>
+                            <a class="btn btn-success btn-block" href="#">To blog</a>
+                        </div>
+                        <div class="col-lg-9">
+                            <!--Post-->
+                            <div class="post row">
+                                <div class="col-lg-6 col-sm-6">
+                                    <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/></a>
+                                </div>
+                                <div class="col-lg-6 col-sm-6">
+                                    <h3><a href="#">Another Title</a></h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                                    <div class="author"><i class="fa fa-user"></i><a href="#">By Bedismo</a></div>
+                                    <div class="comments"><i class="fa fa-comment"></i><a href="#">Comments (34)</a></div>
+                                </div>
+                            </div><!--Post End-->
+                            <!--Post-->
+                            <div class="post row">
+                                <div class="col-lg-6 col-sm-6">
+                                    <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/></a>
+                                </div>
+                                <div class="col-lg-6 col-sm-6">
+                                    <h3><a href="#">Awesome Title</a></h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                                    <div class="author"><i class="fa fa-user"></i><a href="#">By Jeddah</a></div>
+                                    <div class="comments"><i class="fa fa-comment"></i><a href="#">Comments (101)</a></div>
+                                </div>
+                            </div><!--Post End-->
+                        </div>
+                    </div>
+                </div>
+                <div class="twitter-feed col-lg-4 col-md-4">
+                    <a class="tw-follow" href="https://twitter.com/8Guild" target="_blank">
+                        <div class="button">Follow us<i class="fa fa-twitter"></i></div>
+                        <h2 class="extra-bold">On Twitter <i class="fa fa-twitter"></i></h2>
                     </a>
+                    <!--Tweet-->
+                    <div class="tweet">
+                        <a href="#">@Bedismo</a>
+                        <p class="p-style3">Uberly impressed with the AMAZING support I constantly get from awesome!!!</p>
+                        <div class="group">
+                            <div class="actions">
+                                <a href="#">Reply</a>
+                                <a href="#">Retweet</a>
+                                <a href="#">Favorite</a>
+                            </div>
+                            <span class="date">5 Mar 2014</span>
+                        </div>
+                    </div><!--Tweet Close-->
+                    <!--Tweet-->
+                    <div class="tweet">
+                        <a href="#">@Bedismo</a>
+                        <p class="p-style3">Uberly impressed with the AMAZING support I constantly get from awesome!!!</p>
+                        <div class="group">
+                            <div class="actions">
+                                <a href="#">Reply</a>
+                                <a href="#">Retweet</a>
+                                <a href="#">Favorite</a>
+                            </div>
+                            <span class="date">5 Mar 2014</span>
+                        </div>
+                    </div><!--Tweet Close-->
                 </div>
             </div>
         </div>
     </section>
-        
-        <!-- /.row -->
-<div class="col-md-1" style="float:left; height:753px; background-color:forestgreen;top:-293px; margin-bottom:-403px; ">
-</br></br></br></br></br></br></br></br></br>
-   Advert column </br> </br>
-   Advert column </br> </br> 
-    Advert column </br> </br> </br>
-     Advert column </br> </br></br>      Advert column 
+    
+    <!--Gallery Widget-->
+    <section class="gray-bg gallery-widget">
+        <div class="container">
+            <h2>Product gallery</h2>
+            <div class="filters">
+                <a class="active" href="#" data-group="all">All</a>
+                <a href="#" data-group="camera">Camera</a>
+                <a href="#" data-group="flash">Flash</a>
+                <a href="#" data-group="lenses">Lenses</a>
+                <a href="#" data-group="video">Video</a>
+            </div>
+            <div class="gallery-grid">
+                <!--Item-->
+                <div class="gallery-item" data-groups='["camera"]' data-src="img/gallery-widget/1.jpg">
+                    <a href="img/gallery-widget/1.jpg">
+                        <div class="overlay"><span><i class="icon-expand"></i></span></div>
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/>
+                    </a>
+                </div>
+                <!--Item-->
+                <div class="gallery-item" data-groups='["camera"]' data-src="img/gallery-widget/2.jpg">
+                    <a href="img/gallery-widget/2.jpg">
+                        <div class="overlay"><span><i class="icon-expand"></i></span></div>
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/>
+                    </a>
+                </div>
+                <!--Item-->
+                <div class="gallery-item" data-groups='["video"]' data-src="https://www.youtube.com/watch?v=hdEAWW7tZSA">
+                    <a href="https://www.youtube.com/watch?v=hdEAWW7tZSA">
+                        <div class="overlay"><span><i class="icon-music-play"></i></span></div>
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/>
+                    </a>
+                </div>
+                <!--Item-->
+                <div class="gallery-item" data-groups='["lenses"]' data-src="img/gallery-widget/4.jpg">
+                    <a href="img/gallery-widget/4.jpg">
+                        <div class="overlay"><span><i class="icon-expand"></i></span></div>
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/>
+                    </a>
+                </div>
+                <!--Item-->
+                <div class="gallery-item" data-groups='["flash"]' data-src="img/gallery-widget/5.jpg">
+                    <a href="img/gallery-widget/5.jpg">
+                        <div class="overlay"><span><i class="icon-expand"></i></span></div>
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
+                    </a>
+                </div>
+                <!--Item-->
+                <div class="gallery-item" data-groups='["flash"]' data-src="img/gallery-widget/6.jpg">
+                    <a href="img/gallery-widget/6.jpg">
+                        <div class="overlay"><span><i class="icon-expand"></i></span></div>
+                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="6"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section><!--Gallery Widget Close-->
+    
+    <!--Brands Carousel Widget-->
+    <section class="brand-carousel">
+        <div class="container">
+            <h2>Brands in our shop</h2>
+            <div class="inner">
+                <a class="item" href="#"><img src="img/brands/jquery.png" alt="jQuery"/></a>
+                <a class="item" href="#"><img src="img/brands/wp.png" alt="WordPress"/></a>
+                <a class="item" href="#"><img src="img/brands/woo.png" alt="WooCommerce"/></a>
+                <a class="item" href="#"><img src="img/brands/android.png" alt="Android"/></a>
+                <a class="item" href="#"><img src="img/brands/macgasm.png" alt="Macgasm"/></a>
+                <a class="item" href="#"><img src="img/brands/dropbox.png" alt="Dropbox"/></a>
+            </div>
+        </div>
+    </section><!--Brands Carousel Close-->
+    
+</div><!--Page Content Close-->
 
-</div>    
-        <!-- /.row -->
-<div class="row col-md-11" style="float:right;">
+<!--Sticky Buttons-->
+<div class="sticky-btns">
+    <form class="quick-contact ajax-form" method="post" name="quick-contact">
+        <h3>Contact us</h3>
+        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
+        <div class="form-group">
+            <label for="qc-name">Full name</label>
+            <input class="form-control input-sm" type="text" name="name" id="qc-name" placeholder="Enter full name">
+        </div>
+        <div class="form-group">
+            <label for="qc-email">Email</label>
+            <input class="form-control input-sm" type="email" name="email" id="qc-email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="qc-message">Your message</label>
+            <textarea class="form-control input-sm" name="message" id="qc-message" placeholder="Enter your message"></textarea>
+        </div>
+        <!-- Validation Response -->
+        <div class="response-holder"></div>
+        <!-- Response End -->
+        <input class="btn btn-success btn-sm btn-block" type="submit" value="Send">
+    </form>
+    <span id="qcf-btn"><i class="fa fa-envelope"></i></span>
+    <span id="scrollTop-btn"><i class="fa fa-chevron-up"></i></span>
+</div><!--Sticky Buttons Close-->
 
-    <div id="grid-gallery" class="grid-gallery">
-         <h1 class="page-header submain1" style="color:#FAB32F;">Funky Pics (^_^)</h1>
-                <section class="grid-wrap">
-                    <ul class="grid">
-                        <li class="grid-sizer"></li><!-- for Masonry column width -->
-                        <li>
-                            <figure>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/safe.png"?>'>
-                                <figcaption><h3>Letterpress asymmetrical</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
-                            </figure>
-                        </li>
-                       
-                        <li>
-                            <figure>
-                                 <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                                <figcaption><h3>Letterpress asymmetrical</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/circus.png"?>'>
-                                <figcaption><h3>Vice velit chia</h3><p>Laborum tattooed iPhone, Schlitz irure nulla Tonx retro 90's chia cardigan quis asymmetrical paleo. </p></figcaption>
-                            </figure>
-                        </li>
-                         <li>
-                            <figure>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/game.png"?>'>
-                                <figcaption><h3>Vice velit chia</h3><p>Laborum tattooed iPhone, Schlitz irure nulla Tonx retro 90's chia cardigan quis asymmetrical paleo. </p></figcaption>
-                            </figure>
-                        </li>
-                  
-                    </ul>
-                </section><!-- // grid-wrap -->
-                <section class="slideshow">
-                    <ul>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Letterpress asymmetrical</h3>
-                                    <p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/safe.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Vice velit chia</h3>
-                                    <p>Chillwave Echo Park Etsy organic Cosby sweater seitan authentic pour-over. Occupy wolf selvage bespoke tattooed, cred sustainable Odd Future hashtag butcher.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/safe.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Brunch semiotics</h3>
-                                    <p>IPhone PBR polaroid before they sold out meh you probably haven't heard of them leggings tattooed tote bag, butcher paleo next level single-origin coffee photo booth.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/safe.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Chillwave nihil occupy</h3>
-                                    <p>Vice cliche locavore mumblecore vegan wayfarers asymmetrical letterpress hoodie mustache. Shabby chic lomo polaroid, scenester 8-bit Portland Pitchfork VHS tote bag.</p>
-                                </figcaption>
-                                 <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Kale chips lomo biodiesel</h3>
-                                    <p>Chambray Schlitz pug YOLO, PBR Tumblr semiotics. Flexitarian YOLO ennui Blue Bottle, forage dreamcatcher chillwave put a bird on it craft beer Etsy.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Exercitation occaecat</h3>
-                                    <p>Cosby sweater hella lomo Thundercats VHS occupy High Life. Synth pop-up readymade single-origin coffee, fanny pack tousled retro. Fingerstache mlkshk ugh hashtag, church-key ethnic street art pug yr.</p>
-                                </figcaption>
-                                 <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Selfies viral four</h3>
-                                    <p>Ethnic readymade pug, small batch XOXO Odd Future normcore kogi food truck craft beer single-origin coffee banh mi photo booth raw denim. XOXO messenger bag pug VHS. Forage gluten-free polaroid, twee hoodie chillwave Helvetica.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Photo booth skateboard</h3>
-                                    <p>Thundercats pour-over four loko skateboard Brooklyn, Etsy sriracha leggings dreamcatcher narwhal authentic 3 wolf moon synth Portland. Shabby chic photo booth Blue Bottle keffiyeh, McSweeney's roof party Carles.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Ex fashion axe</h3>
-                                    <p>Ennui Blue Bottle shabby chic, organic butcher High Life tattooed meggings jean shorts Brooklyn sartorial polaroid. Cray raw denim +1, bespoke High Life Odd Future banh mi chillwave Marfa kogi disrupt paleo direct trade 90's Godard. </p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Thundercats next level</h3>
-                                    <p>Typewriter authentic PBR, iPhone mixtape fixie post-ironic fingerstache Pitchfork artisan. Wayfarers master cleanse occupy, Tonx lo-fi swag Truffaut irony whatever Blue Bottle readymade PBR gluten-free. Lomo Pinterest Banksy fap. Retro ennui you probably haven't heard of them iPhone, PBR fashion axe polaroid.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Bushwick selvage synth</h3>
-                                    <p>Schlitz deserunt pour-over consectetur. Selfies plaid asymmetrical farm-to-table, cred gastropub photo booth narwhal non roof party velit raw denim slow-carb meggings pug. Tempor post-ironic seitan cliche bicycle rights. Meh viral Williamsburg, quinoa 8-bit kale chips YOLO Marfa accusamus.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Bottle wayfarers locavore</h3>
-                                    <p>Aliqua High Life art party fixie farm-to-table. Kitsch Echo Park shabby chic, narwhal fugiat Cosby sweater asymmetrical gastropub tofu. Authentic minim Pinterest Blue Bottle beard, aliqua chia XOXO dolor freegan banh mi vegan fugiat.</p>
-                                </figcaption>
-                               <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Letterpress asymmetrical</h3>
-                                    <p>Pickled hoodie Pinterest 90's proident church-key chambray. Salvia incididunt slow-carb ugh skateboard velit, flannel authentic hoodie lomo fixie photo booth farm-to-table. Minim meggings Bushwick, semiotics Vice put a bird.</p>
-                                </figcaption>
-                               <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Vice velit chia</h3>
-                                    <p>Tattooed assumenda chambray cray officia. 90's mollit ethnic church-key ex eu pop-up gentrify. Tonx raw denim eu, bitters nesciunt distillery Neutra pop-up. Drinking vinegar Helvetica Truffaut tattooed.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Brunch semiotics</h3>
-                                    <p>Gentrify High Life adipisicing, duis slow-carb kogi Tumblr raw denim freegan Echo Park. Fingerstache laboris pork belly messenger bag, you probably haven't heard of them vegan twee Intelligentsia Vice Etsy pickled put a bird on it Godard roof party. Meggings small batch dreamcatcher velit.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Chillwave nihil occupy</h3>
-                                    <p>Marfa exercitation non, beard +1 hashtag cardigan gluten-free mixtape church-key ugh eu Portland leggings. Ennui farm-to-table fingerstache keytar Echo Park tattooed. Seitan qui artisan, aliquip cupidatat sunt Portland wayfarers duis.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Kale chips lomo biodiesel</h3>
-                                    <p>Lomo church-key whatever, seitan laborum drinking vinegar lo-fi semiotics nihil meh. Skateboard irure before they sold out Banksy. Narwhal High Life lomo aliqua drinking vinegar. PBR&B placeat proident, craft beer forage DIY nostrud meh flexitarian keytar Helvetica.</p>
-                                </figcaption>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Exercitation occaecat</h3>
-                                    <p>Skateboard Truffaut bicycle rights seitan normcore. Culpa lo-fi ennui, Pinterest before they sold out Echo Park roof party sapiente aesthetic consequat Truffaut freegan voluptate. Kogi banh mi vero nihil, freegan gluten-free cliche. Forage Etsy laboris anim normcore, McSweeney's ex.</p>
-                                </figcaption>
-                                 <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cake.png"?>'>
-                            </figure>
-                        </li>
-                    </ul>
-                    <nav>
-                        <span class="icon nav-prev"></span>
-                        <span class="icon nav-next"></span>
-                        <span class="icon nav-close"></span>
-                    </nav>
-                    <div class="info-keys icon">Navigate with arrow keys</div>
-                </section><!-- // slideshow -->
-            </div><!-- // grid-gallery --></div>
-        <!-- Features Section -->
+<!--Subscription Widget-->
+<section class="subscr-widget">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Modern Business Features</h2>
-            </div>
-            <div class="col-md-6">
-                <p>The Modern Business template by Start Bootstrap includes:</p>
-                <ul>
-                    <li><strong>Bootstrap v3.2.0</strong>
-                    </li>
-                    <li>jQuery v1.11.0</li>
-                    <li>Font Awesome v4.1.0</li>
-                    <li>Working PHP contact form with validation</li>
-                    <li>Unstyled page elements for easy customization</li>
-                    <li>17 HTML pages</li>
-                </ul>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-            </div>
-            <div class="col-md-6">
-                <img class="img-responsive" src="http://placehold.it/700x450" alt="">
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Call to Action Section -->
-        <div class="well">
-            <div class="row">
-                <div class="col-md-8">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-                </div>
-                <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" href="#">Call to Action</a>
-                </div>
-            </div>
-        </div>
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer_back">
-                        <p>Copyright &copy; ThriftShop 2014-2020 || Powered by:  <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/7spyre.png"?>'> || Site Map </p>
+            <div class="col-lg-7 col-md-8 col-sm-8">
+                <h2 class="light-color">Subscribe to our news</h2>
+                
+                <!--Mail Chimp Subscription Form-->
+                <form class="subscr-form" role="form" action="//8guild.us3.list-manage.com/subscribe/post?u=168a366a98d3248fbc35c0b67&amp;id=d704057a31" target="_blank" method="post" autocomplete="off">
+                    <div class="form-group">
+                        <label class="sr-only" for="subscr-name">Enter name</label>
+                        <input type="text" class="form-control" name="FNAME" id="subscr-name" placeholder="Enter name" required>
+                        <button class="subscr-next"><i class="fa fa-arrow-circle-o-right"></i></button>
                     </div>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-
-    <!-- Portfolio Modals -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-           
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h4>Searching for a Digs?</h4>
-                            <hr class="star-primary">
-                            <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/cabin.png"?>' class="img-responsive img-centered" alt="">
-                            <p>Find flats easily by browsing our listed  <a href="https://sellfy.com/p/8Q9P/jV3VZ/">student properties</a>. Users can view pictures of the properties and make contact with property owners </p>
-                            <ul class="list-inline item-details">
-                                <li>Release
-                                    <strong><a href="http://7spyre.com">V1.0 </a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://7spyre.com">January 2015</a>
-                                    </strong>
-                                </li>
-                                <li>Author:
-                                    <strong><a href="http://7spyre.com">7Spyre</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
+                    <div class="form-group fff" style="display: none">
+                        <label class="sr-only" for="subscr-email">Enter email</label>
+                        <input type="email" class="form-control" name="EMAIL" id="subscr-email" placeholder="Enter email" required>
+                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;"><input type="text" name="b_168a366a98d3248fbc35c0b67_d704057a31" tabindex="-1" value=""></div>
+                        <button type="submit" id="subscr-submit"><i class="icon-check"></i></button>
                     </div>
-                </div>
+                </form>
+                <!--Mail Chimp Subscription Form Close-->
+                <p class="p-style2">Please fill the field before continuing</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-1">
+                <p class="p-style3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
             </div>
         </div>
     </div>
+</section><!--Subscription Widget Close-->
 
 
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-           
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h4>Need to supply the crib?</h4>
-                            <hr class="star-primary">
-                            <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/game.png"?>' class="img-responsive img-centered" alt="">
-                            <p>Got something to sell? Find buyers easily by upload products using our product portal.
-                                                     <ul class="list-inline item-details">
-                                <li>Release
-                                    <strong><a href="http://7spyre.com">V1.0 </a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://7spyre.com">January 2015</a>
-                                    </strong>
-                                </li>
-                                <li>Author:
-                                    <strong><a href="http://7spyre.com">7Spyre</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                      
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h4>Got wheels?</h4>
-                            <hr class="star-primary">
-                            <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/submarine.png"?>' class="img-responsive img-centered" alt="">
-
-                            <p> Need a new mode of transport? Browse our list of vehicles from skate boards to submarines</p>
-                             <ul class="list-inline item-details">
-                                <li>Release
-                                    <strong><a href="http://7spyre.com">V1.0 </a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://7spyre.com">January 2015</a>
-                                    </strong>
-                                </li>
-                                <li>Author:
-                                    <strong><a href="http://7spyre.com">7Spyre</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-      <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/safe.png"?>' class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-      <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/safe.png"?>' class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-      <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src='<?php echo base_url()."assets/ThriftshopTheme/img/portfolio/safe.png"?>' class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
-<?php echo script_tag('assets/ThriftshopTheme/cbpGridGallery.js'); ?>
-    <?php echo script_tag('assets/ThriftshopTheme/classie.js'); ?>
-    <?php echo script_tag('assets/ThriftshopTheme/imagesloaded.pkgd.min.js'); ?>
-    <?php echo script_tag('assets/ThriftshopTheme/masonry.pkgd.min.js'); ?>
-
-<script src='<?php echo base_url()."assets/ThriftshopTheme/gridGalley/cbpGridGallery.js"?>'></script>
-<script src='<?php echo base_url()."assets/ThriftshopTheme/gridGalley/classie.js"?>'></script>
-<script src='<?php echo base_url()."assets/ThriftshopTheme/gridGalley/imagesloaded.pkgd.min.js"?>'></script>
-<script src='<?php echo base_url()."assets/ThriftshopTheme/gridGalley/masonry.pkgd.min.js"?>'></script>
-
-
-        <script>
-            new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
-        </script>

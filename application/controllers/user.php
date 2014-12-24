@@ -83,9 +83,9 @@
 			$data['me'] = $this->Model_users->getme();
 						
 			
-			$this->load->view('templates/header',$data);
+			$this->load->view('templates/header2',$data);
 			$this->load->view('user/profile',$data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer2');
 		}
 
 		public function login1()
@@ -326,9 +326,10 @@
 
     public function signup() {
     	$data['title'] = 'Signup';
-
+    $this->load->view('templates/header2',$data);
     	$this->load->view('user/signup', $data);
-    	$this->load->view('templates/header');
+            $this->load->view('templates/footer2');
+    
     }
 
     public function validate_creditentials () {
