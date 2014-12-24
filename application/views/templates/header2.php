@@ -24,7 +24,7 @@
   <?php echo link_tag('assets/ThriftshopTheme/custom/ElastSlide/demo.css'); ?>
   <?php echo link_tag('assets/ThriftshopTheme/custom/ElastSlide/elastislide.css'); ?>
   <?php echo link_tag('assets/ThriftshopTheme/custom/kool-swap/koolswap.css'); ?>
-  <?php echo link_tag('assets/ThriftshopTheme/css/modern-business.css'); ?>
+<!--   <?php echo link_tag('assets/ThriftshopTheme/css/modern-business.css'); ?> -->
   <?php echo link_tag('assets/ThriftshopTheme/css/thriftshopcustom.css'); ?>
   <?php echo link_tag('assets/ThriftshopTheme/css/freelancer.css'); ?>
   <?php echo link_tag('assets/ThriftshopTheme/css/bootstrap-social.css'); ?>
@@ -232,7 +232,7 @@
                     <li><a href='<?php echo base_url()."index.php/". "thriftshop/shop"?>'>Store</a></li>
                   </ul> -->
                 </li>
-                <li class="has-submenu"><a href="blog-sidebar-right.html">Support<i class="fa fa-chevron-down"></i></a>
+                <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "thriftshop/support"?>'>Support<i class="fa fa-chevron-down"></i></a>
 
                 </li>
            <!--  <li class="has-submenu"><a href="#">Pages<span class="label">NEW</span><i class="fa fa-chevron-down"></i></a>

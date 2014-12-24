@@ -29,6 +29,13 @@
         $this->load->view('thriftshop/shop', $data);
         $this->load->view('templates/footer2');
         }
+
+        public function support(){
+        $data['title'] = 'support';
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/support', $data);
+        $this->load->view('templates/footer2');
+        }
 		
 		 
 
