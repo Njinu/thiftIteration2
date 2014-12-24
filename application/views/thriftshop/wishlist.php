@@ -1,5 +1,9 @@
 
-   
+   <style>
+   .delete{
+    width:10%;
+   }
+   </style>
     
     <!--Page Content-->
     <div class="page-content">
@@ -29,7 +33,7 @@
                 	<td class="thumb"><a href="shop-single-item-v1.html"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikon D4S"/></a></td>
                   <td class="name"><a href="shop-single-item-v1.html">Nikon D4S</a></td>
                   <td class="price">715,00 $</td>
-                  <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a></td>
+                  
                   <td class="delete"><i class="fa fa-times"></i></td>
                 </tr>
                 <!--Item-->
@@ -37,7 +41,7 @@
                 	<td class="thumb"><a href="shop-single-item-v1.html"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikkor 11-27.5"/></a></td>
                   <td class="name"><a href="shop-single-item-v1.html">Nikkor</a></td>
                   <td class="price">715,00 $</td>
-                  <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a></td>
+                 
                   <td class="delete"><i class="fa fa-times"></i></td>
                 </tr>
                 <!--Item-->
@@ -45,7 +49,7 @@
                 	<td class="thumb"><a href="shop-single-item-v1.html"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikon D4S"/></a></td>
                   <td class="name"><a href="shop-single-item-v1.html">Nikon D4S</a></td>
                   <td class="price">715,00 $</td>
-                  <td class="button"><a class="btn btn-primary btn-sm disabled" href="#">Out of stock</a></td>
+                  
                   <td class="delete"><i class="fa fa-times"></i></td>
                 </tr>
                 <!--Item-->
@@ -53,7 +57,7 @@
                 	<td class="thumb"><a href="shop-single-item-v1.html"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikkor 11-27.5"/></a></td>
                   <td class="name"><a href="shop-single-item-v1.html">Nikkor</a></td>
                   <td class="price">715,00 $</td>
-                  <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a></td>
+                 
                   <td class="delete"><i class="fa fa-times"></i></td>
                 </tr>
                 <!--Item-->
@@ -61,7 +65,7 @@
                 	<td class="thumb"><a href="shop-single-item-v1.html"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikon D4S"/></a></td>
                   <td class="name"><a href="shop-single-item-v1.html">Nikon D4S</a></td>
                   <td class="price">715,00 $</td>
-                  <td class="button"><a class="btn btn-primary btn-sm disabled" href="#">Out of stock</a></td>
+                  
                   <td class="delete"><i class="fa fa-times"></i></td>
                 </tr>
               </table>
