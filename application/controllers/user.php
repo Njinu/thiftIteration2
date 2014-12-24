@@ -369,7 +369,7 @@
 		else
 		{		
 			$this->store_model->set_UserItem();
-			$this->load->view('dropzone/dropzone_view');
+			//$this->load->view('user/myStore');
 		}	
         return true;
         endif;

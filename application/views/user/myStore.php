@@ -8,6 +8,7 @@
           var base_url = '<?php echo site_url(); //you have to load the "url_helper" to use this function ?>';
 
           $(document).ready ( function(){
+          
             $.ajax({
 
               'url' : base_url + '/' + controller + '/get_item_view',
@@ -25,7 +26,7 @@
 
           <script>
    $(function(){
-       $("#frm").submit(function(){
+       $("#frm").submit(function(){ 
          dataString = $("#frm").serialize();
  
          $.ajax({
@@ -344,7 +345,7 @@
             </form>
               <script>
               $(".sender").click(function(){
-  alert("The paragraph was clicked.");
+ $(".dropzone").show();
 });
               </script>
                         </div>
@@ -392,14 +393,17 @@
                                         <img src="" class="fa fa-fw fa-calendar"></i> <?php echo $product_name ?>
                                     </a>
 
-                                </div>
+                                
                                 <?php }endforeach ?>
+                                </div>
                                 <div class="text-right">
                                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+      $(".navbar-default").remove();
     $(".hidden_notification").slideUp();
     $(".btn1").hide();
+    $(".dropzone").hide();
 
   $(".btn1").click(function(){
     $(".hidden_notification").slideUp();
