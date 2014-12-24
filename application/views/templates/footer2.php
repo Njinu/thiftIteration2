@@ -39,7 +39,7 @@
         <div class="copyright">
         	<div class="row">
           	<div class="col-lg-7 col-md-7 col-sm-7">
-              <p>&copy; 2014 thriftShop. All Rights Reserved. Designed by <a href="http://8guild.com/" target="_blank">7Spyre</a></p>
+              <p>&copy; 2014 THRIFTSHOP. All Rights Reserved. Designed by <a href="http://8guild.com/" target="_blank">7Spyre</a></p>
             </div>
           	<div class="col-lg-5 col-md-5 col-sm-5">
             	<div class="payment">
