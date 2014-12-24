@@ -23,10 +23,10 @@
         $this->load->view('templates/footer2');
         }
 
-        public function filterpage(){
+        public function shop(){
         $data['title'] = 'filter';
         $this->load->view('templates/header2', $data);
-        $this->load->view('thriftshop/filterpage', $data);
+        $this->load->view('thriftshop/shop', $data);
         $this->load->view('templates/footer2');
         }
 		

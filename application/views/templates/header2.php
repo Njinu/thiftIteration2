@@ -223,13 +223,13 @@
             <!--Main Menu-->
             <nav class="menu">
               <ul class="main">
-                <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "thriftshop"?>'>Home</a><!--Class "has-submenu" for proper highlighting and dropdown-->
+                <li class="has-submenu"><a href='<?php echo base_url()."index.php/"?>'>Home</a><!--Class "has-submenu" for proper highlighting and dropdown-->
 
                 </li>
-                <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "thriftshop/filterpage"?>'>Shop<i class="fa fa-chevron-down"></i></a>
+                <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "thriftshop"?>'>Shop<i class="fa fa-chevron-down"></i></a>
                 <!--   <ul class="submenu">
                     <li><a href='<?php echo base_url()."index.php/". "thriftshop/wishlist"?>'>Wishlist</a></li>
-                    <li><a href='<?php echo base_url()."index.php/". "thriftshop/filterpage"?>'>Store</a></li>
+                    <li><a href='<?php echo base_url()."index.php/". "thriftshop/shop"?>'>Store</a></li>
                   </ul> -->
                 </li>
                 <li class="has-submenu"><a href="blog-sidebar-right.html">Support<i class="fa fa-chevron-down"></i></a>
@@ -302,7 +302,7 @@
             <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i class="glyphicon glyphicon-user"></i> <span>Login</span></a>
           </div>
           <div class="cart-btn">
-            <a class="btn btn-outlined-invert" href="#"><i class="glyphicon glyphicon-user"></i><span>3</span></a>
+            <a class="btn btn-outlined-invert" href="#"><i class="glyphicon glyphicon-user"></i></a>
             
             <!--Cart Dropdown-->
             <div class="cart-dropdown">
@@ -327,9 +327,9 @@
 
             <h1>Login With:</h1>
 
-            <div class="social-login">
+            <div class="social-login"> 
                   <a class="facebook" href='<?php echo $login_url; ?>'><i class="fa fa-facebook-square"></i></a>
-                  <a class="google" href="#"><i class="fa fa-google-plus-square"></i></a>
+                  <a class="buttonText customGPlusSignIn" href="#"><i class="fa fa-google-plus-square"></i></a>
                   <a class="twitter" data-toggle="modal" data-target="#myModallogin" href="#"> <i class="fa fa-sign-in"></i></a>
                 </div>
 
@@ -345,6 +345,90 @@
           <div class="footer group">
             
           </div>
+
+          <script type="text/javascript">
+  /**
+   * Handler for the signin callback triggered after the user selects an account.
+   */
+  function onSignInCallback(resp) {
+    gapi.client.load('plus', 'v1', apiClientLoaded);
+    console.log("here");
+  }
+
+  function insertGoogle(googleId)
+  {
+
+
+    console.log (googleId);
+
+  }
+
+  /**
+   * Sets up an API call after the Google API client loads.
+   */
+  function apiClientLoaded() {
+    gapi.client.plus.people.get({userId: 'me'}).execute(handleEmailResponse);
+  }
+
+  /**
+   * Response callback for when the API client receives a response.
+   *
+   * @param resp The API response object with the user email and profile information.
+   */
+  function handleEmailResponse(resp) {
+    var primaryEmail;
+    for (var i=0; i < resp.emails.length; i++) {
+      if (resp.emails[i].type === 'account') 
+        primaryEmail = resp.emails[i].value;
+
+    }
+
+   // document.getElementById('responseContainer').value = 'Primary email: ' +
+      //  primaryEmail + '\n\nFull Response:\n' + JSON.stringify(resp);
+    var googleData = JSON.stringify(resp);
+    var googleId= resp.id;
+    var gender= resp.gender;
+    var age= resp.ageRange.min;
+    var pUser = resp.isPlusUser;
+    var fName = resp.name.givenName;
+    var lName = resp.name.familyName;
+    var pic = resp.image.url;
+
+    console.log (pic);
+     insertGoogle(pic);
+     $('.img-thumbnail').attr('src', pic);
+       $('.google_name').html(' ' + fName +' '+lName + '    ');
+     // check if user is registered here
+      $.ajax({
+      url: "<?=base_url()?>.index.php/user/gmail_exists",
+       type: 'POST',
+       data: {"googleId":googleId},
+      // dataType:"json", 
+       success: function(data){
+      // alert(pic);;
+           //if true
+         //  get details
+// if false
+//redirect
+ 
+       // window.location = "http://localhost:90/thriftShop_Iteration2/index.php/user/googleLogin/gId/"+<?php echo("googleId") ?>+"/gMail/"+<?php echo("fName") ?>;
+
+       },
+       error: function(){
+       //    alert("Fail");
+       }
+   });
+  
+   e.preventDefault();
+
+   //Register new user
+   
+  }
+
+
+
+  </script> <!--Google button !-->    
+
 <?php } ?>
 
         </div><!--Cart Dropdown Close-->

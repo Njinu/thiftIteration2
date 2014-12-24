@@ -183,10 +183,7 @@
 </form>
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-       <!--  <button type="button" class="btn btn-primary">Save changes</button> -->
-      </div>
+      
     </div>
   </div>
 </div>
@@ -243,5 +240,32 @@ function NextStep() {
    
 
     <!-------------------------------------------------------------------------------------->
+
+        <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+<?php echo script_tag('assets/ThriftshopTheme/cbpGridGallery.js'); ?>
+    <?php echo script_tag('assets/ThriftshopTheme/classie.js'); ?>
+    <?php echo script_tag('assets/ThriftshopTheme/imagesloaded.pkgd.min.js'); ?>
+    <?php echo script_tag('assets/ThriftshopTheme/masonry.pkgd.min.js'); ?>
+
+<script src='<?php echo base_url()."assets/ThriftshopTheme/gridGalley/cbpGridGallery.js"?>'></script>
+<script src='<?php echo base_url()."assets/ThriftshopTheme/gridGalley/classie.js"?>'></script>
+<script src='<?php echo base_url()."assets/ThriftshopTheme/gridGalley/imagesloaded.pkgd.min.js"?>'></script>
+<script src='<?php echo base_url()."assets/ThriftshopTheme/gridGalley/masonry.pkgd.min.js"?>'></script>
+
+
+        <script>
+            new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+        </script>
     
   </body><!--Body Close-->
