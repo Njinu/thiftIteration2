@@ -248,7 +248,7 @@
       </section><!--Catalog Grid Close-->
       
       <!--Brands Carousel Widget-->
-      <section class="brand-carousel">
+      <!-- <section class="brand-carousel">
       	<div class="container">
         	<h2>Brands in our shop</h2>
           <div class="inner">
@@ -260,7 +260,7 @@
             <a class="item" href="#"><img src="img/brands/dropbox.png" alt="Dropbox"/></a>
           </div>
         </div>
-      </section><!--Brands Carousel Close-->
+      </section> --><!--Brands Carousel Close-->
       
     </div><!--Page Content Close-->
     

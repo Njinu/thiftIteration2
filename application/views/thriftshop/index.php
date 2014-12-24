@@ -22,7 +22,7 @@
       <!--Breadcrumbs-->
       <ol class="breadcrumb">
         <li><a href="index.html">Home</a></li>
-        <li>Shop - filters left 3 cols</li>
+        <li>Shop</li>
       </ol><!--Breadcrumbs Close-->
       
       <!--Catalog Grid-->
@@ -501,7 +501,7 @@
       </section><!--Catalog Grid Close-->
     
       <!--Brands Carousel Widget-->
-      <section class="brand-carousel">
+      <!-- <section class="brand-carousel">
       	<div class="container">
         	<h2>Brands in our shop</h2>
           <div class="inner">
@@ -513,7 +513,7 @@
             <a class="item" href="#"><img src="img/brands/dropbox.png" alt="Dropbox"/></a>
           </div>
         </div>
-      </section><!--Brands Carousel Close-->
+      </section> --><!--Brands Carousel Close-->
       
     </div><!--Page Content Close-->
     
