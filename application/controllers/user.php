@@ -246,7 +246,7 @@
     		$this->load->library('email', array('mailtype'=>'html'));
     		$this->load->model('model_users');
 
-    		$this->email->from('GLHEMI001@uct.ac.za',"ThriftShop");
+    		$this->email->from('emirgluhbegovic@gmail.com',"ThriftShop");
     		$this->email->to($this->input->post('email'));
     		$this->email->subject("Confirm your account.");
 
@@ -327,7 +327,7 @@
     public function signup() {
     	$data['title'] = 'Signup';
     $this->load->view('templates/header2',$data);
-    	$this->load->view('user/signup', $data);
+    	$this->load->view('user/signup', $data);   
             $this->load->view('templates/footer2');
     
     }

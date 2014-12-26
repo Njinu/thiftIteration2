@@ -306,7 +306,7 @@
             <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i class="glyphicon glyphicon-user"></i> <span>Login</span></a>
           </div>
           <div class="cart-btn">
-            <a class="btn btn-outlined-invert" href='<?php echo base_url()."index.php/". "user/signup"?>'><i class="glyphicon glyphicon-user"></i></a>
+            <a class="btn btn-outlined-invert" href='<?php echo base_url()."index.php/". "user/signup"?>'> <?php if($user_me['name']) {?> <?=$user_me['name']?> </span><img class="img-thumbnail" data-src="holder.js/140x140" alt="140x140" src="https://graph.facebook.com/<?=$user_me['id']?>/picture?type=large" style="width: 40px; height: 40px;"><b class="caret">  <?php }else { ?> <i class="glyphicon glyphicon-user"></i> <?php } ?></a>
             
             <!--Cart Dropdown-->
             <div class="cart-dropdown">
