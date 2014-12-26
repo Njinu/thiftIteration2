@@ -40,7 +40,7 @@
              # code...
          }
          $data['comment_count']=$comment_count;
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sellerHeader', $data);
 		$this->load->view('user/myStore', $data);
 		$this->load->view('templates/footer');
        
@@ -414,14 +414,49 @@
 			$this->load->view('store/create',array('error' => ' ' ));			
 		}
 		else
-		{		
-			$this->store_model->set_UserItem();
-			$this->load->view('dropzone/dropzone_view');
+		{
+                $data['products'] = $this->store_model->get_data();
+         $prodCount=0;
+         foreach ($data['products'] as $product['product_id']) {
+             $prodCount++;
+             # code...
+         }
+        $data['product_count']=$prodCount;
+        $data['product_comments'] = $this->store_model->get_product_comments();
+        $comment_count=0;
+        echo element('message', $data['product_comments']);
+        foreach ($data['product_comments'] as $p) {
+           //    implode("[",$p);
+             $comment_count++;
+            // echo ("Ok".$p["user_id"]);
+             
+             # code...
+         }
+         $data['comment_count']=$comment_count;
+            $data['product_id'] = '19';
+            $this->load->view('templates/sellerHeader', $data);
+		  $product_id=	$this->store_model->set_UserItem();
+          echo 
+          $data['product_id'] =  $product_id;
+			 $this->load->view('user/myStore', $data);
+          //addPics($product_id);
+            
 		}	
         return true;
         endif;
 	}
 
+ public function addPics(){
+
+      $this->load->model('store_model');
+       $this->load->view('user/addPics');
+
+       $data['title'] = 'AddPics';
+       $data['product_id'] = '$product_id';
+
+       $this->load->view('templates/header', $data);
+       $this->load->view('user/addPics');
+ }
 
     public function register_user($key) {
     	$this->load->model('model_users');

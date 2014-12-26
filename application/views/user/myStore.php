@@ -1,51 +1,3 @@
-        
-          <?php echo link_tag('assets/ThriftshopTheme/css/sellerDash/plugins/morris.css'); ?>
-    <?php echo link_tag('assets/ThriftshopTheme/css/sellerDash/sb-admin.css'); ?>  
-
-          <script type="text/javascript">
-
-          var controller = 'user';
-          var base_url = '<?php echo site_url(); //you have to load the "url_helper" to use this function ?>';
-
-          $(document).ready ( function(){
-            $.ajax({
-
-              'url' : base_url + '/' + controller + '/get_item_view',
-                              'type' : 'POST', //the way you want to send data to your URL
-                              'data' : {'type' : <?php echo $this->session->userdata('id') ?> },
-                              'success' : function(data){ //probably this request will return anything, it'll be put in var "data"
-                                  var container = $('#table'); //jquery selector (get element by id)
-                                  if(data){
-                                    container.html(data);
-                                  }
-                                }
-                              });
-          });         
-          </script>
-
-          <script>
-   $(function(){
-       $("#frm").submit(function(){
-         dataString = $("#frm").serialize();
- 
-         $.ajax({
-           type: "POST",
-           url: "<?php echo base_url(); ?>index.php/user/createItem",
-           data: dataString,
- 
-           success: function(data){
-              location.reload();
-           }
- 
-         });
- 
-         return false;  //stop the actual form post !important!
- 
-      });
-   });
-</script>
-
-<script src='<?php echo base_url()."assets/ThriftshopTheme/gridGalley/masonry.pkgd.min.js"?>'></script>
 
          
 
@@ -330,28 +282,43 @@
                 <input type="number" class="form-control" id="ItemPrice" name="ItemPrice" placeholder="Enter Item Price">
               </div>
  </br>
+
+<!--
               <div class="form-group" id="picHolder">
-                <label for="ItemPicture">File input</label>
-                <input type="file" id="ItemPicture">
+                <label for="ItemPicture">File input</label> <input type="file" id="ItemPicture">
+     !-->          
 
         <link href="<?php echo base_url(); ?>resources/css/dropzone.css" type="text/css" rel="stylesheet" />
 <script src="<?php echo base_url(); ?>resources/dropzone.js"></script>
 
-    <?php echo form_open('/dropzone/upload',array('id'=>'dpzone', 'class'=>'dropzone')) ?>
-    hi
-              </div>
-<h1>File Upload using dropzone.js and Codeigniter - arjun.net.in</h1>
-<form action="<?php echo site_url('/dropzone/upload'); ?>" class="dropzone"  >
-</form>
-              <button  type="submit"  class="btn btn-default">Submit</button>
+             
+              <button  type="submit" id="sender"  class="btn btn-default">Submit</button>
             </form>
-              
+              <script>
+              $(".sender").click(function(){
+ $(".upload").show();
+ 
+});
+              </script>
                         </div>
                     </div>
-                    </div>
+                    </div> <div class="col-lg-4">                 <?php echo $error;?>
+
+<?php echo form_open_multipart('upload/do_upload',array('id'=>'upload', 'class'=>'upload'));?>
+<input type="hidden" value="19" name="product_id" />
+<input type="file" name="userfile" size="20" />
+
+<br /><br />
+
+<input type="submit" value="upload" />
+
+</form>
+             </div>
+
+
+
                           <div class="col-lg-4">
-     
-                <div class="panel panel-default" id="foreachtest">
+   <div class="panel panel-default" id="foreachtest">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Previous posts</h3>
                             </div>
@@ -385,14 +352,17 @@
                                         <img src="" class="fa fa-fw fa-calendar"></i> <?php echo $product_name ?>
                                     </a>
 
-                                </div>
+                                
                                 <?php }endforeach ?>
+                                </div>
                                 <div class="text-right">
                                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+      $(".navbar-default").remove();
     $(".hidden_notification").slideUp();
     $(".btn1").hide();
+    $(".dropzone").hide();
 
   $(".btn1").click(function(){
     $(".hidden_notification").slideUp();

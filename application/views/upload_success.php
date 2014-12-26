@@ -35,7 +35,8 @@ $newdata = array(
 
 
 <p> BLBALBABALBALB </p>
-			<?php echo $this->session->userdata('filename'); ?>
+			<?php echo $this->session->userdata('filename'); 
+			echo $this->session->userdata('p_id'); ?>
 <p> BLBALBABALBALB </p>
 </body>
 </html>
