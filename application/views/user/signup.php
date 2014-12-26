@@ -182,6 +182,33 @@
   </div>
 </section><!--Subscription Widget Close-->
 
+<!-- Modal -->
+<div class="modal fade" id="myModalforgot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-pencil-square-o"></i> Login </h4>
+      </div>
+      <div class="modal-body">
+
+     <?php echo form_open('user/Forget_validation') ?>
+  
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+  </div>
+  
+  <button type="submit" class="btn btn-default">Submit</button>
+     
+</form>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
 function NextStep() {
 
