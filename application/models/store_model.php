@@ -38,7 +38,7 @@ $this->load->helper('array');
  			
      	
         	$this->db->where('seller_id',$this->session->userdata('id'));
-        	$query1 = $this->db->select()->from('comments')->get();
+        	$query1 = $this->db->select()->from('comment')->get();
         	$prodCount=0;
 
 			// $query = $this->db->select('date,event')->from('calendar')->like('date',"$type")->get();	
@@ -88,8 +88,23 @@ $this->load->helper('array');
 		
 
 		);
+		 $this->db->trans_start();
+   $this->db->insert('product',$data);
+   $insert_id = $this->db->insert_id();
+   $this->db->trans_complete();
+   // echo "Yo". $insert_id;
+   return  $insert_id;
+	}
 
-		return $this->db->insert('product', $data);
+	public function set_ProductPicture($data)
+	{$this->load->helper('url');
+
+
+		 $product_id  = $this->uri->segment(3);
+		$this->load->helper('url');
+echo "HEY!!". $data['product_id'];
+
+		$this->db->insert('product_images',$data);
 	}
 
 

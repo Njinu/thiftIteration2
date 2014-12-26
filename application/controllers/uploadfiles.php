@@ -58,7 +58,7 @@ $count = 0;
 
         }
     
-        $this->load->view('uploadfiles/index', $data);
+        $this->load->view('uploadfiles/index');
        
     }
  

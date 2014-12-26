@@ -26,7 +26,7 @@ class Upload extends CI_Controller {
     $msg = "";
     $file_element_name = 'userfile';
      
-    if (empty($_POST['title']))
+    if (emptyC)
     {
         $status = "error";
         $msg = "Please enter a title";
@@ -95,11 +95,26 @@ class Upload extends CI_Controller {
 
 
 			$upload_data = $this->upload->data(); 
+  		
   		$file_name =   $upload_data['file_name'];
+  		$product_id = $_POST['product_id'] ;
+
+
 
 		$this->session->set_userdata('filename', $file_name);
 			
+			$this->session->set_userdata('p_id', $product_id);
+			
 			$this->load->view('upload_success', $data);
+
+  $date = date('d.m.y');
+         $in_data= array ('product_id'=>$product_id,
+ 		'pic_id'=>$file_name,
+ 		'date_created'=>$date);
+
+       $this->load->model('store_model');
+$this->store_model->set_ProductPicture($in_data);
+
 		}
 
 		return $image_data;

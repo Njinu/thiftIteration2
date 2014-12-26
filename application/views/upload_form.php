@@ -7,7 +7,7 @@
 <?php echo $error;?>
 
 <?php echo form_open_multipart('upload/do_upload');?>
-
+<input type="hidden" value="19" name="product_id" />
 <input type="file" name="userfile" size="20" />
 
 <br /><br />
