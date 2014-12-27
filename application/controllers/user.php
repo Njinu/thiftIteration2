@@ -40,6 +40,7 @@
              # code...
          }
          $data['comment_count']=$comment_count;
+
 		$this->load->view('templates/sellerHeader', $data);
 		$this->load->view('user/myStore', $data);
 		$this->load->view('templates/footer2');
@@ -65,7 +66,7 @@
 
         $data['title'] = 'Item View';
         $data['list'] = $this->store_model->get_data();
-
+        $this->load->view('templates/sellerHeader', $data);
         $this->load->view('user/itemview',$data);
 
     }
@@ -434,11 +435,10 @@
          }
          $data['comment_count']=$comment_count;
             $data['product_id'] = '19';
-            $this->load->view('templates/header2', $data);
+            $this->load->view('templates/sellerHeader', $data);
 		  $product_id=	$this->store_model->set_UserItem();
-          echo 
           $data['product_id'] =  $product_id;
-			 $this->load->view('user/myStore', $data);
+		  $this->load->view('user/myStore', $data);
           //addPics($product_id);
             
 		}	

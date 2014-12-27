@@ -31,6 +31,12 @@ class Store_model extends CI_Model {
 			return $query->result_array();
     }
 
+	public function getProductbyId(){
+		$productId=$this->uri->segment(3);
+ 		$this->db->where('product_id',$this->session->userdata('id'));
+     	
+
+	}
 
 	public function get_product_comments(){
 $this->load->helper('array');
@@ -51,6 +57,25 @@ $this->load->helper('array');
 			return $query1->result_array();
     }
 
+
+	public function get_product_images(){
+$this->load->helper('array');
+        $type = $this->input->post('type');
+ 			
+     	
+        	$this->db->where('product_id',$product_id);
+        	$query1 = $this->db->select()->from('product_images')->get();
+        	$prodCount=0;
+
+			// $query = $this->db->select('date,event')->from('calendar')->like('date',"$type")->get();	
+			//$query = $this->db->select()->from('product')->get();	
+		
+			//$this->db->from('comments');
+			//$this->db->where('product_id',$this->session->userdata('id'));
+			//$this->db->join('products', 'product.product_id = comments.product_id');
+						//$query = $this->db->get();
+			return $query1->result_array();
+    }
 
 	public function get_products_ByCategory($slug = FALSE)
 	{
@@ -97,11 +122,7 @@ $this->load->helper('array');
 	}
 
 	public function set_ProductPicture($data)
-	{$this->load->helper('url');
-
-
-		 $product_id  = $this->uri->segment(3);
-		$this->load->helper('url');
+	{
 echo "HEY!!". $data['product_id'];
 
 		$this->db->insert('product_images',$data);

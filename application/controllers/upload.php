@@ -66,9 +66,30 @@ class Upload extends CI_Controller {
     }
     echo json_encode(array('status' => $status, 'msg' => $msg));
 }
+public function complete_pic()
+	{
 
+
+}
 	public function do_upload()
 	{
+
+
+  if (isset($_POST['complete'])) {
+$data['pic_progress'] = '';
+$data['product_id'] = '';
+
+$this->load->view('templates/sellerHeader', $data);
+		$this->load->view('user/myStore', $data);
+		$this->load->view('templates/footer2');
+
+
+        // btnDelete
+    } else {
+        //assume btnSubmit
+    
+
+
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size']	= '3500';
@@ -92,32 +113,64 @@ class Upload extends CI_Controller {
 		else
 		{
 			$data = array('upload_data' => $this->upload->data());
+	if($data['pic_progress']='N'){
+  			$product_id=$this->session->userdata('p_id');
+  			  		$product_id = $_POST['product_id'] ;
+  		}
 
 
 			$upload_data = $this->upload->data(); 
   		
   		$file_name =   $upload_data['file_name'];
-  		$product_id = $_POST['product_id'] ;
 
+  	
 
+		$seller_id=$this->session->userdata('id');
 
 		$this->session->set_userdata('filename', $file_name);
 			
 			$this->session->set_userdata('p_id', $product_id);
-			
-			$this->load->view('upload_success', $data);
+			$data['pic_progress'] = 'Y';
+			$data['product_id'] = $product_id;
+
+			//$this->load->view('upload_success', $data);
 
   $date = date('d.m.y');
-         $in_data= array ('product_id'=>$product_id,
- 		'pic_id'=>$file_name,
- 		'date_created'=>$date);
+         $in_data= array (
+         	'product_id'=>$product_id,
+         	'seller_id'=>$seller_id,
+ 			'pic_id'=>$file_name,
+ 			'date_created'=>$date);
+
 
        $this->load->model('store_model');
-$this->store_model->set_ProductPicture($in_data);
+		$this->store_model->set_ProductPicture($in_data);
+	$this->load->view('templates/sellerHeader', $data);
+	$data['products'] = $this->store_model->get_data();
+         $prodCount=0;
+         foreach ($data['products'] as $product['product_id']) {
+             $prodCount++;
+             # code...
+         }
+        $data['product_count']=$prodCount;
+        $data['product_comments'] = $this->store_model->get_product_comments();
+        $comment_count=0;
+        echo element('message', $data['product_comments']);
+        foreach ($data['product_comments'] as $p) {
+           //    implode("[",$p);
+             $comment_count++;
+            // echo ("Ok".$p["user_id"]);
+             
+             # code...
+         }
+         $data['comment_count']=$comment_count;
+		$this->load->view('user/myStore', $data);
+		$this->load->view('templates/footer2');
 
 		}
 
 		return $image_data;
+	}
 	}
 }
 ?>

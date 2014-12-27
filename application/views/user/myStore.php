@@ -76,7 +76,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Njinu Kimani <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -101,36 +101,17 @@
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Views</a>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Comments</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Products</a>
                     </li>
+            
                     <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> Logout</a>
                     </li>
                 </ul>
             </div>
@@ -258,7 +239,7 @@
                             </div>
                         <div class="panel-body">
               <?php
-              if (!$product_id){
+              if ($pic_progress =='' && $product_id==''){ 
               echo form_open('user/createItem',array('id'=>'frm', 'class'=>'frm')) ?>
 
               <div class="form-group">  
@@ -304,11 +285,13 @@
 });
               </script>
               <?php  }
-              else{
-                echo form_open_multipart('upload/do_upload',array('id'=>'upload', 'class'=>'upload'));
+              elseif($product_id !=='' && $pic_progress==''){
+                echo form_open_multipart('upload/do_upload',array('id'=>'upload', 'class'=>'upload_two'));
                 
               ?>
-              <input type="hidden" value="19" name="product_id" />
+              
+
+              <input type="hidden" value="<?php echo $product_id; ?>" name="product_id" />
 <input type="file" name="userfile" size="20" />
 
 <br /><br />
@@ -317,8 +300,33 @@
 
 </form>
                <?php 
-                }
-              ?>        </div>
+                } elseif($product_id !=='' && $pic_progress!==''){
+        echo form_open_multipart('upload/do_upload',array('id'=>'upload', 'class'=>'upload_one'));
+                
+              ?>
+            <p>  Upload Another File! </p>
+              <input type="hidden" value="<?php echo $product_id; ?>" name="product_id" />
+<input type="file" Name="userfile" size="20" />
+<?php echo 'ya'. $pic_progress;?>
+<br/><br />
+    
+<input type="submit" value="upload" />
+<input type="submit" value="complete" name="complete" />
+<script>
+ $( "#complete" ).submit(function() {
+     $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("upload/complete_pic"); ?>',
+            success:function(data){
+                
+            }
+        });
+});
+</script>
+
+</form>
+
+        <?php } ?>          </div>
                     </div>
                     </div> <div class="col-lg-4">                 <?php echo $error;?>
 
@@ -372,7 +380,9 @@ $(document).ready(function(){
       $(".navbar-default").remove();
     $(".hidden_notification").slideUp();
     $(".btn1").hide();
-    $(".dropzone").hide();
+   // $(".upload").hide();
+
+   //  $(".upload_two").hide();
 
   $(".btn1").click(function(){
     $(".hidden_notification").slideUp();
