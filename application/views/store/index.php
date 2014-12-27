@@ -1,4 +1,5 @@
- 
+<div id="nav_holder">
+
   <meta name="description" content="Responsive HTML5 E-Commerce Template" />
   <meta name="keywords" content="responsive html5 template, e-commerce, shop, bootstrap 3.0, css, jquery, flat, modern" />
   <meta name="author" content="8Guild" />
@@ -119,8 +120,8 @@
             <div class="mobile-border"><span></span></div>
 
             <!--Main Menu-->
-            <nav class="menu">
-              <ul class="main">
+            <nav class="menu" >
+              <ul class="main" style="margin-top: 0px;">
                 <li class="has-submenu"><a href='<?php echo base_url()."index.php/"?>'>Home</a><!--Class "has-submenu" for proper highlighting and dropdown-->
 
                 </li>
@@ -340,9 +341,29 @@
 </header><!--Header Close-->
 
 
+<script>
+gapi.client.load('plus','v1', function(){
+    var request = gapi.client.plus.people.get({
+        'userId': 'me'
+    });
+    request.execute(function(resp) {
+        console.log('Retrieved profile for:' + resp.displayName);
+    });
+});
+</script>
+<script>
+function render() {
+    gapi.signin.render('customBtn', {
+        'callback': 'onSignInCallback',
+        'clientid': '668784135808-461oqhniijb05dp1s5gf9gt7tboq0d4m.apps.googleusercontent.com',
+        'cookiepolicy': 'single_host_origin',
+        'requestvisibleactions': 'http://schema.org/AddAction',
+        'scope': 'https://www.googleapis.com/auth/plus.login'
+    });
+}
+</script>
 
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
+</div> 
 
 
   
@@ -352,158 +373,6 @@
 <div id="main">
 
     <section class="" id="about" style="background: url('<?php echo base_url()."assets/ThriftshopTheme/tiles/fresh_snow.png"?>') repeat  ;">
-
-
-
-      <nav style="background-color: rgba(0, 0, 0, 0.9);" class="navbar navbar-default navbar-fixed-top">
-
-        <div class="container">
-
-
-
-          <div class="navbar-header page-scroll">
-
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-
-              <span class="sr-only">Toggle navigation</span>
-
-              <span class="icon-bar"></span>
-
-              <span class="icon-bar"></span>
-
-              <span class="icon-bar"></span>
-
-            </button>
-
-           <a style="font-family: 'Kristi', cursive;font-weight: 300;color:white; " class="navbar-brand page-scroll" href='<?php echo base_url()."index.php"?>'><img  style="height:300%; margin-top:-35%;" src='<?php echo base_url()."assets/ThriftshopTheme/img/Le Vibe-Fina_simple fontl.png"?>' class="img-responsive" alt="Responsive image"/></a>
-
-          </div>
-
-
-
-
-
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-            <ul  class="nav navbar-nav navbar-right">
-
-              <li class="hidden">
-
-                <a href="#page-top"></a>
-
-    
-
-            </li>
-
-
-
-              <li class="page-scroll">
-
-                <a  href='<?php echo base_url()."index.php#portfolio"?>'>About</a>
-
-              </li>
-
-              <li class="page-scroll">
-
-                <a  href='<?php echo base_url()."index.php/". "news"?>'>Info Bytes</a>
-
-              </li>
-
-
-
-              <li class="page-scroll">
-
-                <a  href='<?php echo base_url()."index.php/". "store"?>'>Le Store</a>
-
-              </li>
-
-
-
-              <li class="page-scroll">
-
-                <a href='<?php echo base_url()."index.php#contact"?>' id="element" >Contact</a>
-
-              </li>
-
-
-
-              <li class="dropdown">
-
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
-
-                <ul class="dropdown-menu">
-
-                  <li><a href='<?php if($this->session->userdata('email') == ""){ echo base_url()."index.php/". "user";} ?>' ><?php if ($this->session->userdata('email') != "") {echo $this->session->userdata('email');} else echo "Login";?></a></li>
-
-                  <li><a   href='<?php if($this->session->userdata('email') == ""){echo base_url()."index.php/". "user/signup"; } ?>'><?php if ($this->session->userdata('email') == "") {echo "Register";} ?></a></li>
-
-                  <li><a href='<?php echo base_url()."index.php/". "user/logout"?>'><?php if ($this->session->userdata('email') != "") {echo "Logout";} else echo "";?></a></li>
-
-
-
-                  <?php if($this->session->userdata('email') == "melony"){ 
-
-                    ?>
-
-                    <li class="page-scroll">
-
-                      <a id="#"  href='<?php echo base_url()."index.php/". "admin/vieworders"; ?>'>Admin</a>
-
-                    </li>
-
-                    <?php 
-
-                  } ?>
-
-
-
-                </ul>
-
-              </li>
-
-
-
-              <?php if($this->cart->total_items() > 0){ 
-
-                ?>
-
-                <li class="dropdown">
-
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
-
-                  <ul class="dropdown-menu">
-
-                    <li><a href= '<?php echo base_url()."index.php/". "cart"; ?>' >Items in Cart: <?php echo $this->cart->total_items() ?></a></li>
-
-
-
-
-
-                  </ul>
-
-                </li>
-
-                <?php 
-
-              } ?>
-
-
-
-
-
-
-
-            </ul>
-
-          </div>
-
-
-
-        </div>
-
-
-
-      </nav>
 
 
 

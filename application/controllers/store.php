@@ -54,9 +54,9 @@ public function product()
 				$data['product'] = $this->store_model->get_products();
 				$data['product2'] = $this->store_model->get_products_ByCategory();
 				$data['title'] = 'LE Store';
-				$this->load->view('templates/header', $data);
+				$this->load->view('templates/header2', $data);
 				$this->load->view('store/index', $data);
-				$this->load->view('templates/footer', $data);
+				$this->load->view('templates/footer2', $data);
 			}
 			else{
 
@@ -66,7 +66,7 @@ public function product()
 		$data['title'] = 'LE Store';
 
 
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/header2', $data);
 		$this->load->view('store/index', $data);
 		$this->load->view('templates/footer', $data);
 	}
