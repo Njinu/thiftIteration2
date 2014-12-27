@@ -40,9 +40,9 @@
              # code...
          }
          $data['comment_count']=$comment_count;
-		$this->load->view('templates/header2', $data);
+		$this->load->view('templates/sellerHeader', $data);
 		$this->load->view('user/myStore', $data);
-		$this->load->view('templates/footer');
+		$this->load->view('templates/footer2');
        
         //$data('products')= $this->store_model->get_all_products();
     }
