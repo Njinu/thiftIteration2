@@ -66,6 +66,12 @@
 
         $data['title'] = 'Item View';
         $data['list'] = $this->store_model->get_data();
+        $data['products'] = $this->store_model->get_data();
+        $data['product_count'] = count($data['products']);
+        $data['product_comments'] = $this->store_model->get_product_comments();
+        $data['comment_count'] = count($data['product_comments']);
+       
+
         $this->load->view('templates/sellerHeader', $data);
         $this->load->view('user/itemview',$data);
 

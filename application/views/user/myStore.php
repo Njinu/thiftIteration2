@@ -107,7 +107,7 @@
                         <a href="tables.html"><i class="fa fa-fw fa-table"></i> Comments</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Products</a>
+                        <a href="get_item_view"><i class="fa fa-fw fa-edit"></i> Products</a>
                     </li>
             
                     <li>

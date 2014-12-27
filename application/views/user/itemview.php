@@ -171,7 +171,7 @@ $(document).on( "click", '#editbutton2',function(e) {
                         <a href="tables.html"><i class="fa fa-fw fa-table"></i> Comments</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Products</a>
+                        <a href="user/get_item_view"><i class="fa fa-fw fa-edit"></i> Products</a>
                     </li>
             
                     <li>
@@ -299,7 +299,7 @@ $(document).on( "click", '#editbutton2',function(e) {
                     <div class="col-lg-8">
                         <div class="panel panel-default">
                        <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Post an Ad!</h3>
+                                <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Update products</h3>
                             </div>
                         <div class="panel-body">
 
