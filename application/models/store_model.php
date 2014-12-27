@@ -148,7 +148,7 @@ echo "HEY!!". $data['product_id'];
                'category' => $this->input->post('itemcat2')
             );
 
-$this->db->where('product_id', $id);
+$this->db->where('id', $id);
 $this->db->update('product', $data); 
 	}
 

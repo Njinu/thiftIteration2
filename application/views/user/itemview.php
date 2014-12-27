@@ -375,7 +375,7 @@ $(document).on( "click", '#editbutton2',function(e) {
           <div class="form-group">
             <label for="exampleInputPassword1">Item Category</label>
             <input type="text" class="form-control" id="itemcat2" name="itemcat2" placeholder='<?php echo $calendar_item['category'] ?>' value='<?php echo $calendar_item['category'] ?>'>
-            <input type="hidden" class="form-control" id="itemid" name="itemid" placeholder="Category" value='<?php echo $calendar_item['product_id'] ?>'>
+            <input type="hidden" class="form-control" id="itemid" name="itemid" placeholder="Category" value='<?php echo $calendar_item['id'] ?>'>
           </div>
      
           <button type="submit" class="btn btn-default">Submit</button>
