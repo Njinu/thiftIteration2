@@ -40,7 +40,7 @@
              # code...
          }
          $data['comment_count']=$comment_count;
-		$this->load->view('templates/sellerHeader', $data);
+		$this->load->view('templates/header2', $data);
 		$this->load->view('user/myStore', $data);
 		$this->load->view('templates/footer');
        
@@ -388,7 +388,7 @@
          }
          $data['comment_count']=$comment_count;
             $data['product_id'] = '19';
-            $this->load->view('templates/sellerHeader', $data);
+            $this->load->view('templates/header2', $data);
 		  $product_id=	$this->store_model->set_UserItem();
           echo 
           $data['product_id'] =  $product_id;

@@ -257,7 +257,8 @@
                                 <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Post an Ad!</h3>
                             </div>
                         <div class="panel-body">
-              <?php 
+              <?php
+              if (!$product_id){
               echo form_open('user/createItem',array('id'=>'frm', 'class'=>'frm')) ?>
 
               <div class="form-group">  
@@ -286,10 +287,12 @@
 <!--
               <div class="form-group" id="picHolder">
                 <label for="ItemPicture">File input</label> <input type="file" id="ItemPicture">
-     !-->          
+  <link href="<?php //echo base_url(); ?>resources/css/dropzone.css" type="text/css" rel="stylesheet" />
+<script src="<?php //echo base_url(); ?>resources/dropzone.js"></script>     !-->          
 
-        <link href="<?php echo base_url(); ?>resources/css/dropzone.css" type="text/css" rel="stylesheet" />
-<script src="<?php echo base_url(); ?>resources/dropzone.js"></script>
+      
+
+ 
 
              
               <button  type="submit" id="sender"  class="btn btn-default">Submit</button>
@@ -297,15 +300,15 @@
               <script>
               $(".sender").click(function(){
  $(".upload").show();
- 
+
 });
               </script>
-                        </div>
-                    </div>
-                    </div> <div class="col-lg-4">                 <?php echo $error;?>
-
-<?php echo form_open_multipart('upload/do_upload',array('id'=>'upload', 'class'=>'upload'));?>
-<input type="hidden" value="19" name="product_id" />
+              <?php  }
+              else{
+                echo form_open_multipart('upload/do_upload',array('id'=>'upload', 'class'=>'upload'));
+                
+              ?>
+              <input type="hidden" value="19" name="product_id" />
 <input type="file" name="userfile" size="20" />
 
 <br /><br />
@@ -313,6 +316,13 @@
 <input type="submit" value="upload" />
 
 </form>
+               <?php 
+                }
+              ?>        </div>
+                    </div>
+                    </div> <div class="col-lg-4">                 <?php echo $error;?>
+
+
              </div>
 
 

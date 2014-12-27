@@ -16,7 +16,7 @@
 
 <br>
 
-<?php echo $upload_data['full_path']; ?> 
+<?php// echo $upload_data['full_path']; ?> 
 
 <br>
 
@@ -29,14 +29,12 @@ $newdata = array(
 			$this->session->set_userdata($newdata);
 			?>
 
-			<?php print_r($this->session->all_userdata()); ?>
+			<?php //print_r($this->session->all_userdata()); ?>
 
 			<br><br><Br>
 
 
-<p> BLBALBABALBALB </p>
 			<?php echo $this->session->userdata('filename'); 
 			echo $this->session->userdata('p_id'); ?>
-<p> BLBALBABALBALB </p>
 </body>
 </html>
