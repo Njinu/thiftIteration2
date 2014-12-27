@@ -144,9 +144,13 @@ $this->load->view('templates/sellerHeader', $data);
 
 
        $this->load->model('store_model');
+
 		$this->store_model->set_ProductPicture($in_data);
+
 	$this->load->view('templates/sellerHeader', $data);
+	
 	$data['products'] = $this->store_model->get_data();
+
          $prodCount=0;
          foreach ($data['products'] as $product['product_id']) {
              $prodCount++;
