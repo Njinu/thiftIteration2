@@ -1,0 +1,10 @@
+diff a/application/config/database.php b/application/config/database.php	(rejected hunks)
+@@ -51,7 +51,7 @@
+ $db['default']['hostname'] = 'localhost';
+ $db['default']['username'] = 'root';
+ $db['default']['password'] = '';
+-$db['default']['database'] = 'thriftshopdb';
++$db['default']['database'] = 'thethriftshop';
+ $db['default']['dbdriver'] = 'mysql';
+ $db['default']['dbprefix'] = '';
+ $db['default']['pconnect'] = TRUE;
