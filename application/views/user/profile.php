@@ -1,3 +1,46 @@
+  <script>
+   $(function(){
+       $("#frmUser").submit(function(){
+         dataString = $("#frmUser").serialize();
+ 
+         $.ajax({
+           type: "POST",
+           url: "<?php echo base_url(); ?>index.php/user/editUser",
+           data: dataString,
+ 
+           success: function(data){
+              location.reload();
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+   
+     $(function(){
+       $("#frmPass").submit(function(){
+         dataString = $("#frmPass").serialize();
+ 
+         $.ajax({
+           type: "POST",
+           url: "<?php echo base_url(); ?>index.php/user/editUserPass",
+           data: dataString,
+ 
+           success: function(data){
+              location.reload();
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+</script>
+  
+  
   <!--Page Content-->
     <div class="page-content">
     
@@ -23,37 +66,34 @@
               <h3>Personal information</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
               <div class="row">
-                <form class="col-md-12 personal-info" method="post">
+                <?php echo form_open('user/edititem',array('id'=>'frmUser','class'=>'col-md-12 personal-info')) ?>
                   <div class="row">
                     <div class="form-group col-sm-6">
                       <label for="api_first_name">First name</label>
-                      <input type="text" class="form-control" name="api_first_name" id="api_first_name" placeholder="First name" required>
+                      <input type="text" class="form-control" name="fname" id="api_first_name" placeholder="First name" value='<?php echo $me['firstname']; ?>' required>
+                       <input type="hidden" class="form-control" name="userid" id="userid"  value='<?php echo $me['id']; ?>' required>
                     </div>
                     <div class="form-group col-sm-6">
                       <label for="api_last_name">Last name</label>
-                      <input type="text" class="form-control" name="api_last_name" id="api_last_name" placeholder="Last name" required>
+                      <input type="text" class="form-control" name="lname" id="api_last_name" placeholder="Last name" value='<?php echo $me['lastname']; ?>' required>
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-sm-6">
                       <label for="api_email">Email</label>
-                      <input type="email" class="form-control" name="api_email" id="api_email" placeholder="Email" required>
+                      <input type="email" class="form-control" name="email" id="api_email" placeholder="Email" value='<?php echo $me['email']; ?>' required>
                     </div>
                     <div class="form-group col-sm-6">
                       <label for="api_phone">Phone</label>
-                      <input type="text" class="form-control" name="api_phone" id="api_phone" placeholder="Phone" required>
+                      <input type="text" class="form-control" name="phone" id="api_phone" placeholder="Phone" value='<?php echo $me['phone']; ?>' required>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="form-group col-sm-6">
-                      <label for="api_password">Password</label>
-                      <input type="password" class="form-control" name="api_password" id="api_password" placeholder="Password" required>
-                    </div>
-                    <div class="form-group col-sm-6">
-                      <label for="api_conf_password">Confirm password</label>
-                      <input type="password" class="form-control" name="api_conf_password" id="api_conf_password" placeholder="Confirm password" required>
-                    </div>
+                  
+                  
+                  
+                          
                   </div>
+                  
                   <div class="form-group">
                     <div class="checkbox custom">
                       <label>
@@ -68,8 +108,32 @@
                   </div>
                   <input type="submit" class="btn btn-success" value="Save changes">
                 </form>
+               
+                <h3 style="margin-top:4%">Password Management</h3>
+                <?php echo form_open('user/edititem',array('id'=>'frmPass','class'=>'col-md-12 personal-info')) ?>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                      <label for="api_password">Current Password</label>
+                      <input type="password" class="form-control" name="CurrentPAss" id="CurrentPAss" placeholder="Current Password" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label for="api_conf_password">New password</label>
+                      <input type="password" class="form-control" name="NewPAss" id="NewPAss" placeholder="New password" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label for="api_conf_password">Confirm New password</label>
+                      <input type="password" class="form-control" name="ConfirmPass" id="ConfirmPass" placeholder="Confirm New password" required>
+                          <input type="hidden" class="form-control" name="userid" id="userid"  value='<?php echo $me['id']; ?>' required>
+                    </div>   
+                   <div class="form-group col-sm-12">
+                       <input type="submit" class="btn btn-success" value="Save changes">   
+                    </div>  
+                    
+               </form>
               </div>
             </div>
+            
+            
             
             <!--Sidebar-->
             <div class="col-lg-3 col-lg-offset-1 col-sm-4">

@@ -103,7 +103,7 @@ error_reporting(E_ALL & ~E_NOTICE);
                          <li class="dropdown" style="margin-top:2%;">
                         <a href='<?php echo base_url()."index.php/". "dropzone/"?>' >Up <i class="fa fa-shopping-cart"></i></a>
                     </li>
-                    <?php if(empty($user_me['name']) or empty($this->session->userdata('id'))) {?>
+                    <?php if(!$user_me['name'] or !$this->session->userdata('id')) {?>
                   <li class="dropdown" style="margin-top:2%;">
                         <a href="" data-toggle="modal" data-target="#myModal">Register <i class="fa fa-pencil-square-o"></i></a>
                     </li>

@@ -52,6 +52,25 @@
          $this->load->model('store_model');
         $this->store_model->Update_UserItem();
     }
+    
+     public function editUser(){
+         $this->load->model('model_users');
+        $this->model_users->Update_User();
+    }
+    
+     public function editUserPass(){
+       $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('', '');
+        
+        $this->form_validation->set_rules('NewPAss','Password','required|trim');
+    	$this->form_validation->set_rules('ConfirmPass','Passconfirm','required|trim|matches[NewPAss]');
+        
+        if ($this->form_validation->run()) {
+
+         $this->load->model('model_users');
+        $this->model_users->Update_UserPass();
+        }
+    }
 
     public function deleteItem(){
         $this->load->model('store_model');
@@ -227,7 +246,7 @@
         $this->form_validation->set_error_delimiters('', '');
         $this->load->view('templates/header');
  
-        $this->form_validation->set_rules('email','Email','required|trim|valid_email|is_unique[userprofile.email]');
+        $this->form_validation->set_rules('email','Email','required|trim|valid_email');
    
              
         $this->form_validation->set_message('is_unique',"That email address already exists");
@@ -238,32 +257,36 @@
 
                 //generate random key
             $key = md5(uniqid());
+            
+          
 
             $this->load->library('email', array('mailtype'=>'html'));
             $this->load->model('model_users');
+            
+            $newpass= $this->model_users->getpass();
 
-            $this->email->from('emirgluhbegovic@gmail.com',"ThriftShop");
+            $this->email->from('support@thethriftshop.co.za',"ThriftShop");
             $this->email->to($this->input->post('email'));
-            $this->email->subject("Confirm your account.");
+            $this->email->subject("Recover Password");
 
-            $message = "<p>Thank you for signing up </p>";
-            $message .= "<p><a href='".base_url()."index.php/"."user/register_user/$key'>Click Here</a> to confirm your account </p>";
+            $message = "<p>Your Current Password is: </p>";
+            $message .= "<p >".$newpass."</p>";
 
             $this->email->message($message);
             //send amd email to the user
-            if($this->model_users->add_temp_user($key)){
+            
                 if ($this->email->send()){
                    $this->session->set_userdata('fancy', 'Check your email for the Registration Confirmation (could be in the spam folder)');
                           redirect('');
                 } else echo "could not send the email";
-            }else echo "problem adding to database";
+            
 
 
 
         }else{      
             $data['title'] = 'Sign up';
              $this->session->set_userdata('fancy', 'failed');
-            redirect('');
+            redirect('thriftshop');
             
         }
     }
@@ -299,7 +322,7 @@
     		$this->load->library('email', array('mailtype'=>'html'));
     		$this->load->model('model_users');
 
-    		$this->email->from('emirgluhbegovic@gmail.com',"ThriftShop");
+    		$this->email->from('support@thethriftshop.co.za',"ThriftShop");
     		$this->email->to($this->input->post('email'));
     		$this->email->subject("Confirm your account.");
 
