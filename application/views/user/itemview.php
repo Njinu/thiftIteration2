@@ -296,7 +296,7 @@ $(document).on( "click", '#editbutton2',function(e) {
                 </div>
                 <!-- /.row -->
 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
                         <div class="panel panel-default">
                        <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Update products</h3>
@@ -306,6 +306,7 @@ $(document).on( "click", '#editbutton2',function(e) {
 
 <?php $int = 0 ?>
 <?php foreach ($list as $calendar_item): $newitemdate = $calendar_item['date_created']; $findsummary =  $calendar_item['description'];  ?>
+
 
   <?php 
   $int +=1;
@@ -324,7 +325,50 @@ $(document).on( "click", '#editbutton2',function(e) {
  <style>
  img {display: block; margin: 0 auto;}
  </style>
+<script>
 
+function edit_pic(get_id)
+{
+    // $(".pimg_gap").hide();
+    //$(".pimg").hide();
+     //$(".pimg_holder").hide(1000);
+var pic_id= 'img.p_img'+get_id;
+if ($(pic_id)){
+    alert(pic_id);
+$(pic_id).css({"width":"50px", "height":"50px", "position":"relative", "visibility":"visible" });
+    $(pic_id).show(1000);
+    $(".pimg_holder").show(1000);
+    $(".pimg_gap").show(1000);
+}
+   }
+
+   function complete_pic(get_id){
+$(".pimg_gap").hide();
+//$(".pmg").hide();
+$(".pimg_holder").hide(100);
+var pic_id= 'img.p_img'+get_id;
+
+//$(pic_id).css({"width":"0px", "height":"50px", "position":"relative", "visibility":"visible" });
+ $(pic_id).hide();
+
+   }
+$(document).ready(function(){
+$(".pimg").mouseenter(function(){
+
+$(this).css({"width":"80px", "height":"80px" });
+
+
+
+});
+$(".pimg").mouseleave(function(){
+
+$(this).css({"width":"50px", "height":"50px", "position":"relative", "visibility":"visible" });
+
+
+
+});
+});
+</script>
  <div class="">
 <!-- <picture>
   <source 
@@ -341,7 +385,41 @@ $(document).on( "click", '#editbutton2',function(e) {
   <h4 id='<?php echo $int ?>_name'><?php echo $calendar_item['name'] ?> | <?php echo $newitemdateDAY ; ?> <?php echo $monthName; ?></h4>
   <p><?php echo $calendar_item['description'] ?> </p>
   <a href=''></a>
-  <a style="color:black" onclick="" data-toggle="modal" data-target='#<?php echo $int ?>ModalEdit' id="editbutton">Edit</a>
+
+
+                                   <?php 
+$pos=$calendar_item['id'];
+foreach ($product_images as $image) {
+
+    if(($image['product_id'])==$pos){
+?>
+  <a href="#" style="width:20%; float:left; "class="pimg_holder list-group-item " >
+                                       
+<li class="pimg_gap" >
+     <span class=" pimg_gap badge">delete <?php echo $image['id']; ?></span>
+
+
+
+   <?php
+
+ echo'<img  style="width:0px; height:0px; position:abolute;  "src="'. base_url().'uploads/'.$image['pic_id'].'"'.' class= '.'"'.' p_img'.$image['product_id'].'"'.'>';
+    //}
+?></li>
+                                    </a>
+<?php
+}
+
+}
+
+
+?>
+
+
+  <a style="color:black" onclick="edit_pic(<?php echo ($calendar_item['id'])?>)" id="editbutton">Edit</a>
+  <a style="color:black" onclick="complete_pic(<?php echo ($calendar_item['id'])?>)" id="editbutton">Complete</a>
+</br>
+
+    <a style="color:black" onclick="" data-toggle="modal" data-target='#<?php echo $int ?>ModalEdit' id="editbutton">Manage Pics</a>
   <p> <!-- <a <?php if(!$slug ){echo "";}else{echo "href='news/$slug'";}?>><?php if(!$slug ){ echo "coming soon";}else{echo "Read more...";} ?></a> -->
   </p>
 </div>
@@ -360,6 +438,7 @@ $(document).on( "click", '#editbutton2',function(e) {
             <label for="exampleInputEmail1">Item Name</label>
             <input type="text" class="form-control" id="itemname2" name="itemname2" placeholder='<?php echo $calendar_item['name'] ?>' value= '<?php echo $calendar_item['name'] ?>'>
           </div>
+          
           <div class="form-group">
             <label for="exampleInputPassword1">Item Description</label>
             <input type="text" class="form-control" id="itemdescription2" name="itemdescription2" placeholder='<?php echo $calendar_item['description'] ?>' value='<?php echo $calendar_item['description'] ?>'>
@@ -400,20 +479,18 @@ $(document).on( "click", '#editbutton2',function(e) {
   
        </div>
                     </div>
-                    </div> <div class="col-lg-4">                
-
-
-             </div>
+                    </div> 
 
 
 
-                          <div class="col-lg-4">
+                          <div class="col-lg-6">
    <div class="panel panel-default" id="foreachtest">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Previous posts</h3>
+                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Manage Pictures</h3>
+
                             </div>
                             <div class="panel-body">
-                                <div class="list-group">
+                                <div class="pimg_holder list-group <?php echo $image['product_id'];?>">
                                     <?php 
                                      
 
@@ -427,23 +504,15 @@ $(document).on( "click", '#editbutton2',function(e) {
                                 <?php 
                                 $i==0;
                                 foreach ($products as $product): $product_name = $product['name']; 
+
                                 if ($product['status']==0){  $product_status="Inactive"; }
                                 elseif($product['status']==1){$product_status="Active";}
-                                else {$product_status="Sold";}  if($i<2){ $i=$i+1;?>
+                                else {$product_status="Sold";}  ?>
 
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge"><?php echo $product_status; ?></span>
-                                        <img src="" class="fa fa-fw fa-calendar"></i> <?php echo $product_name ?>
-                                    </a>
-                                  <?php } 
-                                  else{ ?>   
-                                    <a href="#" class="list-group-item hidden_notification" id="">
-                                        <span class="badge"><?php echo $product_status; ?></span>
-                                        <img src="" class="fa fa-fw fa-calendar"></i> <?php echo $product_name ?>
-                                    </a>
+                                    
 
                                 
-                                <?php }endforeach ?>
+                                <?php endforeach ?>
                                 </div>
                                 <div class="text-right">
                                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -452,6 +521,7 @@ $(document).ready(function(){
       $(".navbar-default").remove();
     $(".hidden_notification").slideUp();
     $(".btn1").hide();
+    $(".pimg_holder").hide();
    // $(".upload").hide();
 
    //  $(".upload_two").hide();

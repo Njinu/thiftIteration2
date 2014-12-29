@@ -70,11 +70,33 @@
         $data['product_count'] = count($data['products']);
         $data['product_comments'] = $this->store_model->get_product_comments();
         $data['comment_count'] = count($data['product_comments']);
-       
-
+        $data['product_images']= $this->store_model->getProductPics();
         $this->load->view('templates/sellerHeader', $data);
         $this->load->view('user/itemview',$data);
 
+    }
+
+    function get_item_pics( array $product_id){
+
+        foreach ($product_id as $product ) {
+            $this->load->model('store_model');
+            $id=$product['id'];
+            $product_images=$this->store_model->getProductPics($id);
+            $product_image_array= array();
+            foreach ($product_images as $product_image) {
+              
+             $product_url='C:/xampp/htdocs/Iteration2v2/thriftIteration2/uplods/'.$product_image['pic_id'];           
+            
+           // $image_data['product_ref']= $id;
+            //$image_data['product_ref']['product_url']= $product_url;
+             $image_array= array($id,$product_url);
+                  # code...
+            }
+            array_push($product_image_array,$image_array);
+          
+            # code...
+        }
+        return $product_image_array;
     }
 		
 		public function index()

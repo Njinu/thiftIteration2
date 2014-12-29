@@ -37,6 +37,16 @@ class Store_model extends CI_Model {
      	
 
 	}
+	public function getProductPics(){
+	
+	$this->db->where('seller_id',$this->session->userdata('id'));
+$query = $this->db->select()->from('product_images')->get();
+
+			return $query->result_array();
+
+     	
+
+	}
 
 	public function get_product_comments(){
 $this->load->helper('array');
