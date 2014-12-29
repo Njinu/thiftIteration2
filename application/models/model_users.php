@@ -1,4 +1,4 @@
-<?php
+<?php ob_start();
 class Model_users extends CI_Model {
 
 	public function can_log_in(){
@@ -18,6 +18,33 @@ class Model_users extends CI_Model {
 		}
 	}
 	
+	public function generateRandomString($length = 6) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+	
+	public function getpass(){
+	
+	$newPass = $this->generateRandomString();
+	$newPassMD5= md5($newPass);
+	
+	$data = array(
+               'password' => $newPassMD5
+               
+            );
+
+		$this->db->where('email',$this->input->post('email'));
+		$this->db->update('userprofile', $data); 
+		
+		return $newPass;
+	
+	}
+	
 	public function getme(){
 			$UserID=  $this->session->userdata('id');
 
@@ -30,6 +57,34 @@ class Model_users extends CI_Model {
                         $query= (array) $query;
 			
 		return $query ;
+	}
+	
+	public function Update_User(){
+		$id = $this->input->post('userid');
+
+		$data = array(
+               'firstname' => $this->input->post('fname'),
+               'lastname' => $this->input->post('lname'),
+               'email' => $this->input->post('email')
+               
+            );
+
+$this->db->where('id', $id);
+$this->db->update('userprofile', $data); 
+	}
+	
+		public function Update_UserPass(){
+		$id = $this->input->post('userid');
+		$pass = $this->input->post('NewPAss');
+		$NewMd5 = md5($pass);
+		
+		$data = array(
+               'password' => $NewMd5
+               
+            );
+
+$this->db->where('id', $id);
+$this->db->update('userprofile', $data); 
 	}
 
 	public function add_temp_user($key){
