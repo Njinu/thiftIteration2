@@ -161,19 +161,20 @@ $(document).on( "click", '#editbutton2',function(e) {
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    <li >
+                        <a href="myStore"><i class="fa fa-fw fa-dashboard"></i> Add Post</a>
                     </li>
+                     <li class="active">
+                        <a href="get_item_view"><i class="fa fa-fw fa-edit"></i> Edit Posts</a>
+                    </li>
+            
                     <li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Views</a>
                     </li>
                     <li>
                         <a href="tables.html"><i class="fa fa-fw fa-table"></i> Comments</a>
                     </li>
-                    <li>
-                        <a href="user/get_item_view"><i class="fa fa-fw fa-edit"></i> Products</a>
-                    </li>
-            
+                   
                     <li>
                         <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> Logout</a>
                     </li>
@@ -210,6 +211,7 @@ $(document).on( "click", '#editbutton2',function(e) {
                                 <div class="row">
                                     <div class="col-xs-3">
                                         <i class="fa fa-list fa-5x"></i>
+            
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge"><?php echo $product_count ?></div>
