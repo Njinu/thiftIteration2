@@ -147,6 +147,12 @@ echo "HEY!!". $data['product_id'];
 		
 	}
 
+
+	public function delete_Pic($img_id){
+		$this->db->where('id', $img_id);
+		$this->db->delete('product_images'); 
+		
+	}
 	public function Update_UserItem(){
 		$id = $this->input->post('itemid');
 

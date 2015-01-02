@@ -335,21 +335,21 @@ function edit_pic(get_id)
 var pic_id= 'img.p_img'+get_id;
 if ($(pic_id)){
     alert(pic_id);
-$(pic_id).css({"width":"50px", "height":"50px", "position":"relative", "visibility":"visible" });
-    $(pic_id).show(1000);
-    $(".pimg_holder").show(1000);
-    $(".pimg_gap").show(1000);
+//$(pic_id).css({"width":"50px", "height":"50px", "position":"relative", "visibility":"visible" });
+   // $(pic_id).show(1000);
+  //  $(".pimg_holder").show(1000);
+    //$(".pimg_gap").show(1000);
 }
    }
 
    function complete_pic(get_id){
-$(".pimg_gap").hide();
+//$(".pimg_gap").hide();
 //$(".pmg").hide();
-$(".pimg_holder").hide(100);
-var pic_id= 'img.p_img'+get_id;
+//$(".pimg_holder").hide(100);
+//var pic_id= 'img.p_img'+get_id;
 
 //$(pic_id).css({"width":"0px", "height":"50px", "position":"relative", "visibility":"visible" });
- $(pic_id).hide();
+// $(pic_id).hide();
 
    }
 $(document).ready(function(){
@@ -368,6 +368,11 @@ $(this).css({"width":"50px", "height":"50px", "position":"relative", "visibility
 
 });
 });
+
+function deletePic(img_id)
+{
+
+}
 </script>
  <div class="">
 <!-- <picture>
@@ -386,40 +391,9 @@ $(this).css({"width":"50px", "height":"50px", "position":"relative", "visibility
   <p><?php echo $calendar_item['description'] ?> </p>
   <a href=''></a>
 
+ <a style="color:black" onclick="" data-toggle="modal" data-target='#<?php echo 'pic_edt'. $calendar_item['id'] ?>' id="editbutton">Manage Pics</a>
 
-                                   <?php 
-$pos=$calendar_item['id'];
-foreach ($product_images as $image) {
-
-    if(($image['product_id'])==$pos){
-?>
-  <a href="#" style="width:20%; float:left; "class="pimg_holder list-group-item " >
-                                       
-<li class="pimg_gap" >
-     <span class=" pimg_gap badge">delete <?php echo $image['id']; ?></span>
-
-
-
-   <?php
-
- echo'<img  style="width:0px; height:0px; position:abolute;  "src="'. base_url().'uploads/'.$image['pic_id'].'"'.' class= '.'"'.' p_img'.$image['product_id'].'"'.'>';
-    //}
-?></li>
-                                    </a>
-<?php
-}
-
-}
-
-
-?>
-
-
-  <a style="color:black" onclick="edit_pic(<?php echo ($calendar_item['id'])?>)" id="editbutton">Edit</a>
-  <a style="color:black" onclick="complete_pic(<?php echo ($calendar_item['id'])?>)" id="editbutton">Complete</a>
-</br>
-
-    <a style="color:black" onclick="" data-toggle="modal" data-target='#<?php echo $int ?>ModalEdit' id="editbutton">Manage Pics</a>
+    <a style="color:black" onclick="" data-toggle="modal" data-target='#<?php echo $int ?>ModalEdit' id="editbutton">Edit Details</a>
   <p> <!-- <a <?php if(!$slug ){echo "";}else{echo "href='news/$slug'";}?>><?php if(!$slug ){ echo "coming soon";}else{echo "Read more...";} ?></a> -->
   </p>
 </div>
@@ -471,7 +445,50 @@ foreach ($product_images as $image) {
 </div>
 
 
+<style type="text/css">
+</style>
 
+
+<div class="modal fade" id='<?php echo'pic_edt'. $calendar_item['id'] ?>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><?php echo $calendar_item['name'] ?></h4>
+      </div>
+      <div class="modal-body">
+ <?php echo form_open('user/delete_pic',array('id'=>'delete_pic')) ?>
+          <?php 
+$pos=$calendar_item['id'];
+foreach ($product_images as $image) {
+
+    if(($image['product_id'])==$pos){
+?>
+<div style="float:left;">
+<input type='checkbox'  style="float:left;  "name='<?php echo 'delete_pic[]'?>' value='<?php echo $image['  id']?>' id="image_checkbox"/><label for="image_checkbox"><?php
+
+ echo'<img  style="width:50px; height:50px;  "src="'. base_url().'uploads/'.$image['pic_id'].'"'.' class= '.'"'.' p_imger'.$image['product_id'].'"'.'>';
+    //}
+?></label> 
+</div>
+
+<?php
+}
+
+}
+
+
+?>     
+<input type="submit" class="btn btn-default" value="Delete"></input>
+       </form>
+      </div>
+      <div class="modal-footer">
+
+       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     </div>
+   </div>
+ </div>
+</div>
 
 
 
@@ -521,7 +538,7 @@ $(document).ready(function(){
       $(".navbar-default").remove();
     $(".hidden_notification").slideUp();
     $(".btn1").hide();
-    $(".pimg_holder").hide();
+//    $(".pimg_holder").hide();
    // $(".upload").hide();
 
    //  $(".upload_two").hide();

@@ -77,6 +77,36 @@
         $this->store_model->delete_UserItem();
  }
 
+   public function delete_Pic(){
+        $this->load->model('store_model');
+        if(isset($_POST['delete_pic'])){
+  if (is_array($_POST['delete_pic'])) {
+    foreach($_POST['delete_pic'] as $value){
+     // echo $value.'m';
+      $this->store_model->delete_Pic($value);
+    }
+  } else {
+    $value = $_POST['delete_pic'];
+    echo $value;
+  }
+}
+
+ $this->load->model('store_model');
+
+        $data = array();
+
+        $data['title'] = 'Item View';
+        $data['list'] = $this->store_model->get_data();
+        $data['products'] = $this->store_model->get_data();
+        $data['product_count'] = count($data['products']);
+        $data['product_comments'] = $this->store_model->get_product_comments();
+        $data['comment_count'] = count($data['product_comments']);
+        $data['product_images']= $this->store_model->getProductPics();
+        $this->load->view('templates/sellerHeader', $data);
+        $this->load->view('user/itemview',$data);        
+ }
+
+
     function get_item_view(){
 
        $this->load->model('store_model');
@@ -92,6 +122,10 @@
         $data['product_images']= $this->store_model->getProductPics();
         $this->load->view('templates/sellerHeader', $data);
         $this->load->view('user/itemview',$data);
+
+    }
+
+    function deletePic(){
 
     }
 
