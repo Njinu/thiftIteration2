@@ -465,7 +465,7 @@ foreach ($product_images as $image) {
     if(($image['product_id'])==$pos){
 ?>
 <div style="float:left;">
-<input type='checkbox'  style="float:left;  "name='<?php echo 'delete_pic[]'?>' value='<?php echo $image['  id']?>' id="image_checkbox"/><label for="image_checkbox"><?php
+<input type='checkbox'  style="float:left;  "name='<?php echo 'delete_pic[]'?>' value='<?php echo $image['id']?>' id="image_checkbox"/><label for="image_checkbox"><?php
 
  echo'<img  style="width:50px; height:50px;  "src="'. base_url().'uploads/'.$image['pic_id'].'"'.' class= '.'"'.' p_imger'.$image['product_id'].'"'.'>';
     //}
