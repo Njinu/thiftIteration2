@@ -108,7 +108,26 @@
 
 
     function get_item_view(){
+$productId=$this->uri->segment(3);
 
+ if($productId){
+      $this->load->model('store_model');
+
+        $data = array();
+
+        $data['title'] = 'Item View';
+        $data['list'] = $this->store_model->getProductbyId($productId);
+        $data['products'] = $this->store_model->get_data();
+        $data['product_count'] = count($data['products']);
+        $data['product_comments'] = $this->store_model->get_product_comments();
+        $data['comment_count'] = count($data['product_comments']);
+        $data['product_images']= $this->store_model->getProductPics();
+        $this->load->view('templates/sellerHeader', $data);
+        $this->load->view('user/itemview',$data);
+  
+ }
+else
+ {
        $this->load->model('store_model');
 
         $data = array();
@@ -122,6 +141,26 @@
         $data['product_images']= $this->store_model->getProductPics();
         $this->load->view('templates/sellerHeader', $data);
         $this->load->view('user/itemview',$data);
+}
+    }
+
+
+    function get_comments(){
+
+ $this->load->model('store_model');
+
+        $data = array();
+         $user_id=$this->session->userdata('id');
+        $data['title'] = 'Comments View';
+        $data['list'] = $this->store_model->get_data();
+        $data['products'] = $this->store_model->get_data();
+        $data['product_count'] = count($data['products']);
+        $data['product_comments'] = $this->store_model->get_product_comments();
+        $data['comment_count'] = count($data['product_comments']);
+        $data['product_comment_pics']= $this->store_model->getProductPics();
+        $data['comment_user']= $this->store_model->get_comment_users();
+        $this->load->view('templates/sellerHeader', $data);
+        $this->load->view('user/commentView',$data);
 
     }
 

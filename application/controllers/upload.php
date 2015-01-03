@@ -17,6 +17,7 @@ class Upload extends CI_Controller {
 
 	function index()
 	{
+
 		$this->load->view('upload_form', array('error' => ' ' ));
 	}
 	
@@ -78,9 +79,34 @@ public function complete_pic()
   if (isset($_POST['complete'])) {
 $data['pic_progress'] = '';
 $data['product_id'] = '';
+if($_POST['product_id'])
+{
+  $product_id = $_POST['product_id'] ;
+}
+
+ $this->load->model('store_model');
+
+        $data = array();
+         $user_id=$this->session->userdata('id');
+
+        $data['list'] = $this->store_model->get_data();
+        $data['products'] = $this->store_model->get_data();
+        $data['product_count'] = count($data['products']);
+        $data['product_comments'] = $this->store_model->get_product_comments();
+        $data['comment_count'] = count($data['product_comments']);
+        $data['product_comment_pics']= $this->store_model->getProductPics();
+        $data['comment_user']= $this->store_model->get_comment_users();
+         $data['product_id']= $product_id;
+        $this->load->view('templates/sellerHeader', $data);
+
 
 $this->load->view('templates/sellerHeader', $data);
-		$this->load->view('user/myStore', $data);
+ $data['title'] = 'Item View';
+  
+        $data['comment_count'] = count($data['product_comments']);
+        $data['product_images']= $this->store_model->getProductPics();
+
+		$this->load->view("user/Itemview", $data);
 		$this->load->view('templates/footer2');
 
 
@@ -132,6 +158,9 @@ $this->load->view('templates/sellerHeader', $data);
 			$this->session->set_userdata('p_id', $product_id);
 			$data['pic_progress'] = 'Y';
 			$data['product_id'] = $product_id;
+      if(!$product_id){
+        $product_id=$_POST['product_id'];
+      }
 
 			//$this->load->view('upload_success', $data);
 

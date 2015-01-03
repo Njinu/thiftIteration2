@@ -94,7 +94,7 @@
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
                         <a href="<?php echo base_url(); ?>index.php/user/myStore"><i class="fa fa-fw fa-dashboard"></i> Add a post</a>
@@ -238,95 +238,21 @@
                                 <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Post an Ad!</h3>
                             </div>
                         <div class="panel-body">
-              <?php
-              if ($pic_progress =='' && $product_id==''){ 
-              echo form_open('user/createItem',array('id'=>'frm', 'class'=>'frm')) ?>
+<?php foreach ($product_comments as $key ) {
+?>
+<p> <?php echo $key['message'];?> from </p>
+<?php
+foreach ($comment_user as $user) {
+if($key['user_id']==$user['id']){
+	echo $user['firstname'];
+	echo $user['lastname'];
+}	
 
-              <div class="form-group">  
-                <label>Title</label>
-                <input type="text" class="form-control" id="ItemName" name="ItemName" placeholder="Enter Item Name">
-              </div>
-          </br>
 
-              <div class="form-group" id="descHolder">
-              <label>Description</label> 
-                <textarea  class="form-control" id="ItemDescription"  name="ItemDescription" placeholder="Enter Item Description"></textarea>
-              </div>
- </br>
-              <div class="form-group"> 
-                <label>Category</label> 
-                <input type="text" class="form-control" id="ItemCategory"  name="ItemCategory" placeholder="Enter Item Category">
-              </div>
- </br>
+}
+}
 
-              <div class="form-group"> 
-                <label>Price</label> 
-                <input type="number" class="form-control" id="ItemPrice" name="ItemPrice" placeholder="Enter Item Price">
-              </div>
- </br>
-
-<!--
-              <div class="form-group" id="picHolder">
-                <label for="ItemPicture">File input</label> <input type="file" id="ItemPicture">
-  <link href="<?php //echo base_url(); ?>resources/css/dropzone.css" type="text/css" rel="stylesheet" />
-<script src="<?php //echo base_url(); ?>resources/dropzone.js"></script>     !-->          
-
-      
-
- 
-
-             
-              <button  type="submit" id="sender"  class="btn btn-default">Submit</button>
-            </form>
-              <script>
-              $(".sender").click(function(){
- $(".upload").show();
-
-});
-              </script>
-              <?php  }
-              elseif($product_id !=='' && $pic_progress==''){
-                echo form_open_multipart('upload/do_upload',array('id'=>'upload', 'class'=>'upload_two'));
-                
-              ?>
-              
-
-              <input type="hidden" value="<?php echo $product_id; ?>" name="product_id" />
-<input type="file" name="userfile" size="20" />
-
-<br /><br />
-
-<input type="submit" value="upload" />
-
-</form>
-               <?php 
-                } elseif($product_id !=='' && $pic_progress!==''){
-        echo form_open_multipart('upload/do_upload',array('id'=>'upload', 'class'=>'upload_one'));
-                
-              ?>
-            <p>  Upload Another File! </p>
-              <input type="hidden" value="<?php echo $product_id; ?>" name="product_id" />
-<input type="file" Name="userfile" size="20" />
-<?php echo 'ya'. $pic_progress;?>
-<br/><br />
-    
-<input type="submit" value="upload" />
-<input type="submit" value="complete" name="complete" />
-<script>
- $( "#complete" ).submit(function() {
-     $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("upload/complete_pic"); ?>',
-            success:function(data){
-                
-            }
-        });
-});
-</script>
-
-</form>
-
-        <?php } ?>          </div>
+    ?>                  </div>
                     </div>
                     </div> <div class="col-lg-4">                 <?php echo $error;?>
 

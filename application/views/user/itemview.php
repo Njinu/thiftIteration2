@@ -161,20 +161,20 @@ $(document).on( "click", '#editbutton2',function(e) {
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li >
-                        <a href="myStore"><i class="fa fa-fw fa-dashboard"></i> Add Post</a>
+                    <li class="active">
+                        <a href="<?php echo base_url(); ?>index.php/user/myStore"><i class="fa fa-fw fa-dashboard"></i> Add a post</a>
                     </li>
-                     <li class="active">
-                        <a href="get_item_view"><i class="fa fa-fw fa-edit"></i> Edit Posts</a>
+                    <li>
+                        <a href="<?php echo base_url(); ?>index.php/user/get_item_view"><i class="fa fa-fw fa-edit"></i> Edit Posts</a>
                     </li>
-            
                     <li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Views</a>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Comments</a>
+                        <a href="<?php echo base_url(); ?>index.php/user/get_comments"><i class="fa fa-fw fa-table"></i> Comments</a>
                     </li>
-                   
+                    
+            
                     <li>
                         <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> Logout</a>
                     </li>
@@ -448,6 +448,11 @@ function deletePic(img_id)
 
 
 <style type="text/css">
+input[type=checkbox]:checked  {
+  background-color:rgba(96,96,96,0.5); 
+  opacity:1;
+  } 
+
 </style>
 
 
@@ -462,14 +467,18 @@ function deletePic(img_id)
  <?php echo form_open('user/delete_pic',array('id'=>'delete_pic')) ?>
           <?php 
 $pos=$calendar_item['id'];
+echo $pos;
 foreach ($product_images as $image) {
-
     if(($image['product_id'])==$pos){
 ?>
 <div style="float:left;">
-<input type='checkbox'  style="float:left;  "name='<?php echo 'delete_pic[]'?>' value='<?php echo $image['id']?>' id="image_checkbox"/><label for="image_checkbox"><?php
+<input type='checkbox'  style="float:left;    height: 50px;width: 50px;   position: absolute; opacity:0;
+}   "name='<?php echo 'delete_pic[]'?>' value='<?php echo $image['id']?>' id="image_checkbox"/><label for="image_checkbox" 
+style="background: transparent url(<?php echo base_url().'uploads/'.$image['pic_id']?>) no-repeat 0 50%; width: 50px; height: 50px;
+background-size: 50px 50px;" >
+<?php
 
- echo'<img  style="width:50px; height:50px;  "src="'. base_url().'uploads/'.$image['pic_id'].'"'.' class= '.'"'.' p_imger'.$image['product_id'].'"'.'>';
+ //echo'<img  style="width:50px; height:50px;  "src="'. base_url().'uploads/'.$image['pic_id'].'"'.' class= '.'"'.' p_imger'.$image['product_id'].'"'.'>';
     //}
 ?></label> 
 </div>
@@ -483,6 +492,18 @@ foreach ($product_images as $image) {
 ?>     
 <input type="submit" class="btn btn-default" value="Delete"></input>
        </form>
+<p>Add Pictures</p>
+       <?php echo $error;?>
+
+<?php echo form_open_multipart('upload/do_upload');?>
+<input type="hidden" value="<?php echo $pos ?>" name="product_id" />
+<input type="file" name="userfile" size="20" />
+
+<br /><br />
+
+<input type="submit" value="upload" />
+
+</form>
       </div>
       <div class="modal-footer">
 

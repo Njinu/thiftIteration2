@@ -31,9 +31,12 @@ class Store_model extends CI_Model {
 			return $query->result_array();
     }
 
-	public function getProductbyId(){
-		$productId=$this->uri->segment(3);
- 		$this->db->where('product_id',$this->session->userdata('id'));
+	public function getProductbyId($product_id){
+		//$productId=$this->uri->segment(3);
+ 		$this->db->where('id',$product_id);
+ 		$query = $this->db->select()->from('product')->get();
+
+			return $query->result_array();
      	
 
 	}
@@ -42,34 +45,40 @@ class Store_model extends CI_Model {
 	$this->db->where('seller_id',$this->session->userdata('id'));
 $query = $this->db->select()->from('product_images')->get();
 
-			return $query->result_array();
+			return $query->result_array();     	
 
-     	
+	}
+	public function getProductPic($product_id){
+	
+	$this->db->where('id',$product_id);
+$query = $this->db->select()->from('product_images')->get();
+
+			return $query->result_array();
 
 	}
 
 	public function get_product_comments(){
 $this->load->helper('array');
         $type = $this->input->post('type');
- 			
-     	
         	$this->db->where('seller_id',$this->session->userdata('id'));
         	$query1 = $this->db->select()->from('comment')->get();
-        	$prodCount=0;
-
-			// $query = $this->db->select('date,event')->from('calendar')->like('date',"$type")->get();	
-			//$query = $this->db->select()->from('product')->get();	
-		
-			//$this->db->from('comments');
-			//$this->db->where('product_id',$this->session->userdata('id'));
-			//$this->db->join('products', 'product.product_id = comments.product_id');
-						//$query = $this->db->get();
 			return $query1->result_array();
     }
 
 
+    public function get_comment_users()
+    {
+    	$this->load->helper('array');
+    	
+       	$query1 = $this->db->select()->from('userprofile')->get();
+       
+        
+        return  $query1->result_array();
+    }
+
+
 	public function get_product_images(){
-$this->load->helper('array');
+		$this->load->helper('array');
         $type = $this->input->post('type');
  			
      	
