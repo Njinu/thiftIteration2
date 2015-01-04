@@ -10184,9 +10184,9 @@ a.list-group-item-danger.active:focus {
 
   margin-bottom: 20px;
 
-  background-color: #fff;
+    background-color: rgba(255,255,255,0.9);
 
-  border: 1px solid transparent;
+
 
   border-radius: 4px;
 
@@ -10200,6 +10200,7 @@ a.list-group-item-danger.active:focus {
 
   padding: 15px;
 
+
 }
 
 .panel-heading {
@@ -10211,6 +10212,7 @@ a.list-group-item-danger.active:focus {
   border-top-left-radius: 3px;
 
   border-top-right-radius: 3px;
+ background-color: ghostwhite;
 
 }
 

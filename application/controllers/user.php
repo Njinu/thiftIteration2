@@ -43,7 +43,7 @@
 
 		$this->load->view('templates/sellerHeader', $data);
 		$this->load->view('user/myStore', $data);
-		$this->load->view('templates/footer2');
+		//$this->load->view('templates/footer2');
        
         //$data('products')= $this->store_model->get_all_products();
     }

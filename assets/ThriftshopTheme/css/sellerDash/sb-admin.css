@@ -17,7 +17,7 @@ body {
     }
 }
 
-#frm .form-control{ width:70%; float:right;}
+#frm .form-control{ width:80%; float:right;}
 
 #frm{padding-left:4%;}
 #ItemDescription, #descHolder{height:80px;}
