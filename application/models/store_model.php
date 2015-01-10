@@ -6,7 +6,7 @@ class Store_model extends CI_Model {
 		$this->load->database();
 	}
 
-		public function get_products($slug = FALSE)
+	public function get_products($slug = FALSE)
 	{
 		if ($slug === FALSE)
 		{
@@ -16,75 +16,95 @@ class Store_model extends CI_Model {
 		}
 
 		$query = $this->db->get_where('product', array('slug' => $slug));
-	
+
 		return $query->row_array();
 	}
 
 	public function get_data(){
 
-        $type = $this->input->post('type');
- 			
-     	
-        	$this->db->where('seller_id',$this->session->userdata('id'));
-			$query = $this->db->select()->from('product')->get();
+		$type = $this->input->post('type');
 
-			return $query->result_array();
-    }
+
+		$this->db->where('seller_id',$this->session->userdata('id'));
+		$query = $this->db->select()->from('product')->get();
+
+		return $query->result_array();
+	}
+
+	public function get_filters(){
+
+		$type = $this->input->post('type');
+		$query = $this->db->select('date,event,slug,summary,location')->from('calendar')->where('event',"$type")->get();	
+		return $query->result_array();
+
+	}
+
+	function get_filtersLatest(){
+
+	
+		$this->db->order_by("id", "asc");
+		
+
+		$query = $this->db->select()->from('product')->get();	
+
+		return $query->result_array();
+
+	}
 
 	public function getProductbyId($product_id){
 		//$productId=$this->uri->segment(3);
- 		$this->db->where('id',$product_id);
- 		$query = $this->db->select()->from('product')->get();
+		$this->db->where('id',$product_id);
+		$query = $this->db->select()->from('product')->get();
 
-			return $query->result_array();
-     	
+		return $query->result_array();
 
 	}
-	public function getProductPics(){
-	
-	$this->db->where('seller_id',$this->session->userdata('id'));
-$query = $this->db->select()->from('product_images')->get();
 
-			return $query->result_array();     	
+	public function getProductPics(){
+
+		$this->db->where('seller_id',$this->session->userdata('id'));
+		$query = $this->db->select()->from('product_images')->get();
+
+		return $query->result_array();     	
 
 	}
 	public function getProductPic($product_id){
-	
-	$this->db->where('id',$product_id);
-$query = $this->db->select()->from('product_images')->get();
 
-			return $query->result_array();
+		$this->db->where('id',$product_id);
+		$query = $this->db->select()->from('product_images')->get();
+
+		return $query->result_array();
 
 	}
 
 	public function get_product_comments(){
-$this->load->helper('array');
-        $type = $this->input->post('type');
-        	$this->db->where('seller_id',$this->session->userdata('id'));
-        	$query1 = $this->db->select()->from('comment')->get();
-			return $query1->result_array();
-    }
+		$this->load->helper('array');
+		$type = $this->input->post('type');
+		$this->db->where('seller_id',$this->session->userdata('id'));
+		$query1 = $this->db->select()->from('comment')->get();
+		return $query1->result_array();
+	}
 
 
-    public function get_comment_users()
-    {
-    	$this->load->helper('array');
-    	
-       	$query1 = $this->db->select()->from('userprofile')->get();
-       
-        
-        return  $query1->result_array();
-    }
+	public function get_comment_users()
+	{
+		$this->load->helper('array');
+
+		$query1 = $this->db->select()->from('userprofile')->get();
+
+
+		return  $query1->result_array();
+	}
 
 
 	public function get_product_images(){
 		$this->load->helper('array');
-        $type = $this->input->post('type');
- 			
-     	
-        	$this->db->where('product_id',$product_id);
-        	$query1 = $this->db->select()->from('product_images')->get();
-        	$prodCount=0;
+		$type = $this->input->post('type');
+
+
+		$this->db->where('product_id',$product_id);
+		$query1 = $this->db->select()->from('product_images')->get();
+		$prodCount=0;
 
 			// $query = $this->db->select('date,event')->from('calendar')->like('date',"$type")->get();	
 			//$query = $this->db->select()->from('product')->get();	
@@ -93,8 +113,8 @@ $this->load->helper('array');
 			//$this->db->where('product_id',$this->session->userdata('id'));
 			//$this->db->join('products', 'product.product_id = comments.product_id');
 						//$query = $this->db->get();
-			return $query1->result_array();
-    }
+		return $query1->result_array();
+	}
 
 	public function get_products_ByCategory($slug = FALSE)
 	{
@@ -109,7 +129,7 @@ $this->load->helper('array');
 		}
 
 		$query = $this->db->get_where('product', array('slug' => $slug));
-	
+
 		return $query->row_array();
 	}
 	
@@ -129,20 +149,20 @@ $this->load->helper('array');
 			'likes' => 0, 
 			'seller_id' => $this->session->userdata('id'),
 			'status' => "Inactive"
-		
 
-		);
-		 $this->db->trans_start();
-   $this->db->insert('product',$data);
-   $insert_id = $this->db->insert_id();
-   $this->db->trans_complete();
+
+			);
+		$this->db->trans_start();
+		$this->db->insert('product',$data);
+		$insert_id = $this->db->insert_id();
+		$this->db->trans_complete();
    // echo "Yo". $insert_id;
-   return  $insert_id;
+		return  $insert_id;
 	}
 
 	public function set_ProductPicture($data)
 	{
-echo "HEY!!". $data['product_id'];
+		echo "HEY!!". $data['product_id'];
 
 		$this->db->insert('product_images',$data);
 	}
@@ -166,18 +186,18 @@ echo "HEY!!". $data['product_id'];
 		$id = $this->input->post('itemid');
 
 		$data = array(
-               'name' => $this->input->post('itemname2'),
-               'description' => $this->input->post('itemdescription2'),
-               'price' => $this->input->post('itemprice2'),
-               'status' => $this->input->post('itemstatus2'),
-               'category' => $this->input->post('itemcat2')
-            );
+			'name' => $this->input->post('itemname2'),
+			'description' => $this->input->post('itemdescription2'),
+			'price' => $this->input->post('itemprice2'),
+			'status' => $this->input->post('itemstatus2'),
+			'category' => $this->input->post('itemcat2')
+			);
 
-$this->db->where('id', $id);
-$this->db->update('product', $data); 
+		$this->db->where('id', $id);
+		$this->db->update('product', $data); 
 	}
 
-			
+
 
 	public function set_products()
 	{
@@ -195,7 +215,7 @@ $this->db->update('product', $data);
 			'picture' =>$this->session->userdata('picturepath'),
 			'location' =>  $this->session->userdata('filename')
 
-		);
+			);
 
 		return $this->db->insert('product', $data);
 	}
