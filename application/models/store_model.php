@@ -41,12 +41,11 @@ class Store_model extends CI_Model {
 
 	function get_filtersLatest(){
 
-	
-		$this->db->order_by("id", "asc");
-		
-
-		$query = $this->db->select()->from('product')->get();	
-
+		$this->db->order_by("product.id", "asc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		$query = $this->db->get();
 		return $query->result_array();
 
 	}
@@ -55,7 +54,6 @@ class Store_model extends CI_Model {
 		//$productId=$this->uri->segment(3);
 		$this->db->where('id',$product_id);
 		$query = $this->db->select()->from('product')->get();
-
 		return $query->result_array();
 
 	}
