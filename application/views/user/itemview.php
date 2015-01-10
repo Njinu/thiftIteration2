@@ -65,7 +65,7 @@ $(document).on( "click", '#editbutton2',function(e) {
 
          
 
-           <div style="padding-right: 0px;"class="col-md-12">
+           <div style="padding-right: 0px; background-color:ghostwhite;"class="col-md-12">
   <div id="wrapper">
 
         <!-- Navigation -->
@@ -189,9 +189,9 @@ $(document).on( "click", '#editbutton2',function(e) {
             <!-- /.navbar-collapse -->
         </nav>
 
-        <div id="page-wrapper" style="padding-top:45px;">
+        <div id="page-wrapper" style="padding-top:45px; background-color:ghostwhite;">
 
-            <div class="container-fluid">
+            <div class="container-fluid" style="background-color: ghostwhite;">
 
                
                 <!-- /.row -->
@@ -391,7 +391,7 @@ input[type=checkbox]:checked  {
  <?php echo form_open('user/delete_pic',array('id'=>'delete_pic')) ?>
           <?php 
 $pos=$calendar_item['id'];
-echo $pos;
+//echo $pos;
 foreach ($product_images as $image) {
     if(($image['product_id'])==$pos){
 ?>
@@ -449,11 +449,32 @@ background-size: 50px 50px;" >
 
                     
                 </div>
-                <center>
-<p>store policy  here</p>             
-</center>
-       
+                <div class="col-md-6 " style="">
+                 <div class="panel panel-default">
+                       <div style=""class="panel-heading">
+                                <h3 style="font-weight: bold;font-size: 16px;scolor: rgb(96,96,96);" class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Advert</h3>
+                            </div>
+                        <div class="panel-body" style="height:279px;">
+Your store policy and support links here            
+</div>
+</div>
+       </div>
+
+                 <div class="col-md-4 col-md-offset-1" >
+                 <div class="panel panel-default" style="height:279px;">
+                       <div style=""class="panel-heading">
+                                <h3 style="font-weight: bold;font-size: 16px;scolor: rgb(96,96,96);" class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Policy</h3>
+                            </div>
+                        <div class="panel-body">
+Advert here           
+</div>
+</div>
+       </div>
+               
                 <!-- /.row -->
+                <div class="col-md-3 " style="">
+
+                </div>
 
             </div>
             <!-- /.container-fluid -->
