@@ -258,28 +258,18 @@
 
           </ul>
           <ul class="catalog">
-            <li class="has-submenu"><a href="shop-filters-left-3cols.html">Phones<i class="fa fa-chevron-down"></i></a>
+            <li class="has-submenu"><a href="shop-filters-left-3cols.html">Flat Wise<i class="fa fa-chevron-down"></i></a>
               <ul class="submenu">
-                <li><a href="#">Nokia</a></li>
-                <li class="has-submenu"><a href="#">iPhone</a><!--Class "has-submenu" for adding carret and dropdown-->
-                  <ul class="sub-submenu">
-                    <li><a href="#">iPhone 4</a></li>
-                    <li><a href="#">iPhone 4s</a></li>
-                    <li><a href="#">iPhone 5c</a></li>
-                    <li><a href="#">iPhone 5s</a></li>
-                  </ul>
+                <li><a href="#">Accomodation</a></li>
+                
+                <li><a href="#">Furniture</a></li>
+                <li ><a href="#">Samsung</a>
+                 
                 </li>
-                <li><a href="#">HTC</a></li>
-                <li class="has-submenu"><a href="#">Samsung</a>
-                  <ul class="sub-submenu">
-                    <li><a href="#">Galaxy Note 3</a></li>
-                    <li><a href="#">Galaxy S5</a></li>
-                    <li><a href="#">Galaxy S3 Neo</a></li>
-                    <li><a href="#">Galaxy Gear</a></li>
-                    <li><a href="#">Galaxy S Duos 2</a></li>
-                  </ul>
+                  <li ><a href="#">Miscellaneous</a>
+                  
                 </li>
-                <li><a href="#">BlackBerry</a></li>
+                <li><a href="#"></a></li>
                 <li class="offer">
                   <div class="col-1">
                     <p class="p-style2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -291,10 +281,37 @@
                 </li>
               </ul>
             </li>
-            <li><a href="shop-filters-left-3cols.html">Cameras</a></li>
-            <li><a href="shop-filters-left-3cols.html">Personal computers</a></li>
-            <li><a href="shop-filters-left-3cols.html">Gaming consoles</a></li>
-            <li><a href="shop-filters-left-3cols.html">TV sets</a></li>
+
+              <li class="has-submenu"><a href="shop-filters-left-3cols.html">Student Wise<i class="fa fa-chevron-down"></i></a>
+              <ul class="submenu">
+                <li><a href="#">Jobs </a></li>
+                <li ><a href="#">Books</a><!--Class "has-submenu" for adding carret and dropdown-->
+                  
+                </li>
+              
+                <li><a href="#">Tutoring</a>
+                  
+                </li>
+                <li ><a href="#">Sporting Goods</a>
+                  
+                </li> 
+                <li><a href="#"></a></li>
+                <li class="offer">
+                  <div class="col-1">
+                    <p class="p-style2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                  <div class="col-2">
+                    <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Special Offer"/>
+                    <a class="btn btn-block" href="#"><span>584$</span>Special offer</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+
+            <li><a href="shop-filters-left-3cols.html">Electronics</a></li>
+            <li><a href="shop-filters-left-3cols.html">Vehicles</a></li>          
+
+            <li><a href="shop-filters-left-3cols.html">Competitions</a></li>
           </ul>
         </nav>
         
