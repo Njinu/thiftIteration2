@@ -1,5 +1,3 @@
-
-
 <!--Page Content-->
 <div class="page-content">
     
@@ -36,6 +34,30 @@
             
         </div>
     </section><!--Hero Slider Close-->
+
+    <?php if($this->session->flashdata('fancy') != "") { ?>
+
+
+
+<script type="text/javascript">
+
+   $(document).ready(
+    function(){
+
+      
+             jQuery.noConflict();
+           
+
+        $.fancybox('<div style="height: 90px;padding-left:20px;padding-right:20px;line-height: 90px;color:#2980b9"><?php echo $this->session->flashdata('fancy') ?></div>');
+    
+        
+
+    });
+
+
+
+   </script>
+<?php } ?>
     
     <!--Categories-->
     <section class="cat-tiles">

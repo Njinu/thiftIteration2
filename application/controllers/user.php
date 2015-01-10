@@ -323,7 +323,7 @@ else
     			'is_logged_in'=> 1
     			);
     		$this->session->set_userdata($data);
-
+$this->session->set_flashdata('fancy', 'Your message has been sent.');
  	redirect('');
 
     	}else{

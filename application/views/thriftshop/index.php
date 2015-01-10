@@ -593,7 +593,7 @@
         $rows.show().filter(function() {
             var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
             var price = text >= 100 && text <= 715;
-            return !~text.indexOf('d5' ) ;
+            return !~text.indexOf(715 ) ;
         }).hide();
     });
     </script>
