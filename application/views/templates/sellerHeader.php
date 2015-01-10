@@ -27,13 +27,18 @@
   <?php echo script_tag('<?php echo base_url()."assets/ThriftshopTheme/js/bootstrap.js"?>'); ?>
   <?php echo link_tag('assets/ThriftshopTheme/css/sellerDash/plugins/morris.css'); ?>
     <?php echo link_tag('assets/ThriftshopTheme/css/sellerDash/sb-admin.css'); ?>  
+ <?php echo script_tag('assets/ThriftshopTheme/js/notify.js'); ?>
+
  <?php echo script_tag('assets/ThriftshopTheme/js/jquery-1.10.2.js'); ?>
 
 <?php echo link_tag('assets/ThriftshopTheme/css/bootstrap.css'); ?>
 <script src='<?php echo base_url()."assets/ThriftshopTheme/gridGalley/masonry.pkgd.min.js"?>'></script>
 
   <?php echo script_tag('assets/ThriftshopTheme/js/jquery.fancybox.js'); ?>
-  
+
+  <script src='<?php echo base_url()."assets/ThriftshopTheme/js/jquery-1.10.2.js"?>'></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+
 </head>
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -116,7 +116,7 @@ $this->load->helper('array');
 	public function set_UserItem(){
 		$this->load->helper('url');
 		$date = date('d.m.y');
-
+$Name=$this->input->post('ItemName');
 		$slug = url_title($this->input->post('ItemName'), 'dash', TRUE);
 		$data = array(
 			'name' => $this->input->post('ItemName'),
@@ -139,6 +139,21 @@ $this->load->helper('array');
    // echo "Yo". $insert_id;
 
 $this->session->set_flashdata('fancy', 'Successfully created');
+
+$notify_message = array(
+                   'message'  => $data['name'],
+                   
+               );
+
+$this->session->set_userdata($newdata);
+
+$data['notify_message'] =array(
+'message'=>$data['name']
+	);
+
+
+
+$this->session->set_userdata($newdata);
    return  $insert_id;
 	}
 
@@ -186,7 +201,6 @@ $this->session->set_flashdata('fancy', 'Successfully created');
 $this->db->where('id', $id);
 $this->db->update('product', $data); 
 
-$this->session->set_flashdata('fancy', 'Successfully updated');
 	}
 
 			

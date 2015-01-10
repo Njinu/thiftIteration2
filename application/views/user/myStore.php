@@ -10,7 +10,6 @@
 }
 </style>
          
-
           <div style="padding-right: 0px;"class="col-md-12">
   <div id="wrapper">
 
@@ -144,6 +143,24 @@
 
                 
                 <!-- /.row -->
+                <?php if($notify_message != "") {  ?>
+
+<div id="pop_up" style="position:absolute; z-index:1000000; margin-left:25%;width:440px; height:50px; ">
+      <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                 <?php  echo "Successfull"?>
+   
+                          </div>
+                         <p> <?php echo $notify_message . " added to products </br>
+                         you now have: $product_count active products" ?></p>
+                       </div>
+            
+
+            </div>
+
+<?php
+ } ?>
+
 
                 <div class="row" style="margin-top:0px;background-color: deepskyblue; padding-top:20px;margin-right: 2px;">
                     <div class="col-lg-3 col-md-6">
@@ -393,10 +410,25 @@ foreach ($prev_pic as $pic ) {
                                 <div class="text-right">
                                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
+
+$(document).ready(function() {
+   window.setTimeout("fadeMyDiv();", 3000); //call fade in 3 seconds
+ }
+)
+
+function fadeMyDiv() {
+   $("#pop_up").fadeOut('slow');
+}
+
+
 $(document).ready(function(){
       $(".navbar-default").remove();
     $(".hidden_notification").slideUp();
     $(".btn1").hide();
+  //  $(".pop_up").
+
+   //$(".pop_up").css("visibility","visible");
+
    // $(".upload").hide();
 
    //  $(".upload_two").hide();
@@ -405,6 +437,8 @@ $(document).ready(function(){
     $(".hidden_notification").slideUp();
     $(".btn2").show();
     $(".btn1").hide();
+    $(".pop_up").fadeOut("slow");
+
   });
   $(".btn2").click(function(){
     $(".hidden_notification").slideDown();
@@ -435,16 +469,12 @@ $(document).ready(function(){
                 </div>
                 <!-- /.row -->
 
-            
-
-            </div>
             <!-- /.container-fluid -->
 
         </div>
         <!-- /#page-wrapper -->
 
     </div>
-    <?php echo 'over'. $this->session->flashdata('fancy')?>
           </div>
 
 <script src='<?php echo base_url()."assets/ThriftshopTheme/js/sellerDash/jquery.js"?>'></script>
@@ -458,26 +488,5 @@ $(document).ready(function(){
 <?php echo script_tag('assets/ThriftshopTheme/js/sellerDash/plugins/morris/raphael.min.js'); ?>
 <?php echo script_tag('assets/ThriftshopTheme/js/sellerDash/plugins/morris/morris.min.js'); ?>
 <?php echo script_tag('assets/ThriftshopTheme/js/sellerDash/plugins/morris/morris-data.js'); ?>
-  <?php if($this->session->flashdata('fancy') != "") { echo $this->session->flashdata('fancy')  ?>
+  
 
-
-
-<script type="text/javascript">
-
-   $(document).ready(
-    function(){
-
-      
-             jQuery.noConflict();
-           console.log('here');
-
-        $.fancybox('<div style="height: 90px;padding-left:20px;padding-right:20px;line-height: 90px;color:#2980b9"><?php echo $this->session->flashdata('fancy') ?></div>');
-    
-        
-
-    });
-
-
-
-   </script>
-<?php } ?>

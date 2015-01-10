@@ -549,6 +549,7 @@ $this->session->set_flashdata('fancy', 'You are now logged in');
          }
         $data['product_count']=$prodCount;
         $data['product_comments'] = $this->store_model->get_product_comments();
+
         $comment_count=0;
         echo element('message', $data['product_comments']);
         foreach ($data['product_comments'] as $p) {
@@ -562,7 +563,16 @@ $this->session->set_flashdata('fancy', 'You are now logged in');
             $data['product_id'] = '19';
             $this->load->view('templates/sellerHeader', $data);
 		  $product_id=	$this->store_model->set_UserItem();
+          $message= $this->store_model->getProductbyId($product_id);
+          foreach ($message as $notify) {
+            $notify_message= $notify['name'];
+              # code...
+          }
+             
+ $data['notify_message'] =  $notify_message;
           $data['product_id'] =  $product_id;
+
+           
 		  $this->load->view('user/myStore', $data);
           //addPics($product_id);
             
