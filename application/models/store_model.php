@@ -33,15 +33,23 @@ class Store_model extends CI_Model {
 
 	public function get_filters(){
 
-		$type = $this->input->post('type');
-		$query = $this->db->select('date,event,slug,summary,location')->from('calendar')->where('event',"$type")->get();	
+
+		$max = $this->input->post('maxVal');
+		$min = $this->input->post('minVal');
+		$this->db->where('product.price >=',$min);
+		$this->db->where('product.price <=',$max);
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		 $query = $this->db->get();
 		return $query->result_array();
 
 	}
 
 	function get_filtersLatest(){
 
-		$this->db->order_by("product.id", "asc");		
+		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
 		 $this->db->group_by('product.id');
