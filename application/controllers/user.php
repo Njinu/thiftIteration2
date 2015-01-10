@@ -429,7 +429,8 @@ $this->session->set_flashdata('fancy', 'You are now logged in');
 			//send amd email to the user
     		if($this->model_users->add_temp_user($key)){
     			if ($this->email->send()){
-                   $this->session->set_userdata('fancy', 'Check your email for the Registration Confirmation (could be in the spam folder)');
+                 
+                   $this->session->set_flashdata('fancy', 'Check your email for the Registration Confirmation (could be in the spam folder)');
     				      redirect('');
     			} else echo "could not send the email";
     		}else echo "problem adding to database";
