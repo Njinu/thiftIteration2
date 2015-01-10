@@ -296,8 +296,9 @@ else
 
         // Logs off session from website
     	$this->session->sess_destroy();
+        $this->session_start();
         // Make sure you destory website session as well.
-
+        $this->session->set_userdata('fancy', 'You have been logged out');
     	redirect('');
     }
 
@@ -323,7 +324,7 @@ else
     			'is_logged_in'=> 1
     			);
     		$this->session->set_userdata($data);
-$this->session->set_flashdata('fancy', 'Your message has been sent.');
+$this->session->set_flashdata('fancy', 'You are now logged in');
  	redirect('');
 
     	}else{

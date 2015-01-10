@@ -1,6 +1,27 @@
+    <?php if($this->session->flashdata('fancy') != "") { ?>
+
+
+
+<script type="text/javascript">
+
+   $(document).ready(
+    function(){
+
+      $( "#notify" ).click();
+        // $.fancybox('<div style="height: 90px;padding-left:20px;padding-right:20px;line-height: 90px;color:#2980b9"><?php echo $this->session->flashdata('fancy') ?></div>');
+    
+        
+
+    });
+
+
+
+   </script>
+<?php } ?>
+
 <!--Page Content-->
 <div class="page-content">
-    
+    <input type="hidden" id="notify" data-toggle="modal" data-target="#myModal"/>
     <!--Hero Slider-->
     <section class="hero-slider" style="padding:0px">
         <div class="master-slider" id="hero-slider">
@@ -35,29 +56,7 @@
         </div>
     </section><!--Hero Slider Close-->
 
-    <?php if($this->session->flashdata('fancy') != "") { ?>
 
-
-
-<script type="text/javascript">
-
-   $(document).ready(
-    function(){
-
-      
-             jQuery.noConflict();
-           
-
-        $.fancybox('<div style="height: 90px;padding-left:20px;padding-right:20px;line-height: 90px;color:#2980b9"><?php echo $this->session->flashdata('fancy') ?></div>');
-    
-        
-
-    });
-
-
-
-   </script>
-<?php } ?>
     
     <!--Categories-->
     <section class="cat-tiles">
@@ -742,3 +741,18 @@
 </section><!--Subscription Widget Close-->
 
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 50%;margin-top: 30%;margin-left: 20%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+      </div>
+      <div class="modal-body">
+       <?php echo $this->session->flashdata('fancy') ?>
+      </div>
+     
+    </div>
+  </div>
+</div>
