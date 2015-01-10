@@ -517,7 +517,12 @@ $this->session->set_flashdata('fancy', 'You are now logged in');
     }
 
     public function logout() {
+        
+    
     	$this->session->sess_destroy();
+        $this->session->sess_create();
+             $this->session->set_flashdata('fancy', 'You have been logged out');
+
     	redirect('');
     	
     }
