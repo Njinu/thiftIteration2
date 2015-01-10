@@ -28,6 +28,7 @@
   <?php echo link_tag('assets/ThriftshopTheme/css/thriftshopcustom.css'); ?>
   <?php echo link_tag('assets/ThriftshopTheme/css/freelancer.css'); ?>
   <?php echo link_tag('assets/ThriftshopTheme/css/bootstrap-social.css'); ?>
+  <?php echo link_tag('assets/ThriftshopTheme/css/jquery.fancybox.css'); ?>
 
   <!--  -->
 
@@ -55,6 +56,7 @@
   <?php echo script_tag('assets/ThriftshopTheme/custom/kool-swap/demo2.js'); ?>
   <?php echo script_tag('assets/ThriftshopTheme/custom/kool-swap/jquery.kool-swap.js'); ?>
   <?php echo script_tag('assets/ThriftshopTheme/js/freelancer.js'); ?>
+  <?php echo script_tag('assets/ThriftshopTheme/js/jquery.fancybox.js'); ?>
 
   <!--   <------------------------------------------------------------------------------------------ -->
   <!-- ThriftScript -->
@@ -263,12 +265,9 @@
                 <li><a href="#">Accomodation</a></li>
                 
                 <li><a href="#">Furniture</a></li>
-                <li ><a href="#">Samsung</a>
-                 
-                </li>
-                  <li ><a href="#">Miscellaneous</a>
-                  
-                </li>
+               
+                  <li ><a href="#">Miscellaneous</a></li>
+                   <li ><a style="color:#2f343b">....</a></li>
                 <li><a href="#"></a></li>
                 <li class="offer">
                   <div class="col-1">

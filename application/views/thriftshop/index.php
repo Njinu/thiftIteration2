@@ -1,6 +1,3 @@
-
-
-    
     <!--Filters Modal-->
     <div class="modal fade" id="filterModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog">
@@ -63,7 +60,7 @@
                         <input class="form-control" name="maxVal" id="maxVal" type="text" data-max-val="2500" value="1400">
                         <span class="labels">$</span>
                       </div>
-                      <input class="btn btn-primary btn-sm" type="submit" value="Filter">
+                      <input class="btn btn-primary btn-sm" id="filterbutton" type="submit" value="Filter">
                     </div>
                   </form>
                 </section>
@@ -148,7 +145,8 @@
             
             <!--Tiles-->
           	<div class="col-lg-9 col-md-9 col-sm-8">
-            	<div class="row">
+              <input type="text" id="search" placeholder="Type to search"  class="form-control">
+            	<div class="row" id="filtertable">
                 <!--Tile-->
                 <div class="col-lg-4 col-md-6 col-sm-12">
                   <div class="tile">
@@ -575,7 +573,28 @@
       </div>
     </section><!--Subscription Widget Close-->
       
+    <script type="text/javascript">
+    var $rows = $('#filtertable').children();
+    $('#search').keyup(function() {
+        var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
 
+        $rows.show().filter(function() {
+            var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+            return !~text.indexOf(val);
+        }).hide();
+    });
+    </script>
 
-    
+    <script type="text/javascript">
+    var $rows = $('#filtertable').children();
+    $('#filterbutton').click(function() {
+        var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+        var price = 
+        $rows.show().filter(function() {
+            var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+            var price = text >= 100 && text <= 715;
+            return !~text.indexOf('d5' ) ;
+        }).hide();
+    });
+    </script>
   
