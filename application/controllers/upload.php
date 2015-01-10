@@ -174,7 +174,8 @@ $this->load->view('templates/sellerHeader', $data);
 
        $this->load->model('store_model');
 
-		$this->store_model->set_ProductPicture($in_data);
+		$prod_pics=$this->store_model->set_ProductPicture($in_data);
+  $data['prev_pic']= $prod_pics;    
 
 	$this->load->view('templates/sellerHeader', $data);
 	
@@ -197,9 +198,10 @@ $this->load->view('templates/sellerHeader', $data);
              # code...
          }
          $data['comment_count']=$comment_count;
-		$this->load->view('user/myStore', $data);
-		$this->load->view('templates/footer2');
 
+$this->session->set_flashdata('fancy', 'Picture successfully uploaded');
+		$this->load->view('user/myStore', $data);
+	
 		}
 
 		return $image_data;

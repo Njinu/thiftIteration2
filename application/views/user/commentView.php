@@ -118,134 +118,67 @@
             <!-- /.navbar-collapse -->
         </nav>
 
-        <div id="page-wrapper" style="padding-top:45px;">
+       <div id="page-wrapper" style="padding-top:45px; background-color:ghostwhite;">
 
-            <div class="container-fluid">
+            <div class="container-fluid" style="background-color: ghostwhite;">
 
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Thrift Shop</small>
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
-                    </div>
-                </div>
+               <style>
+.panel-body figure.free:before {
+background: #72d08d;
+border-radius: 50%;
+color: #fff;
+content: "";
+font-size: 22px;
+font-weight: 500;
+height: 60px;
+left: 38px;
+letter-spacing: 1px;
+line-height: 60px;
+position: absolute;
+text-align: center;
+top: 38px;
+width: 60px;
+z-index: 1;
+margin-left:15px;
+}
+.panel-body figure:hover.free:before {
+content: "FREE";
+font-size: 9px;
+transition: all 0.3s ease-out 0s;
+-moz-transition: all 0.3s ease-out 0s;
+-webkit-transition: all 0.3s ease-out 0s;
+transform: rotate(360deg);
+
+}
+               </style>
+              
+            
+
                 <!-- /.row -->
-
-                
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-list fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $product_count ?></div>
-                                        <div>Active Ads!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-search fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
-                                        <div>New Views!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-comments fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $comment_count;?></div>
-                                        <div>New Comments!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-support fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">1</div>
-                                        <div>Alerts!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- /.row -->
-<div class="row">
+<div class="row" style="padding-top: 20px;">
                     <div class="col-lg-8">
                         <div class="panel panel-default">
                        <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Post an Ad!</h3>
+                                <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Comments</h3>
                             </div>
                         <div class="panel-body">
 <?php foreach ($product_comments as $key ) {
 ?>
-<p> <?php echo $key['message'];?> from </p>
+<p style=""> " <?php echo $key['message'];?>   "</p>
+ <figure class="free">
+
+    <figcaption>
+       </figcaption>
+</figure>  
+   
 <?php
 foreach ($comment_user as $user) {
 if($key['user_id']==$user['id']){
-	echo $user['firstname'];
-	echo $user['lastname'];
+?>
+<p style="font-style: oblique; color:silver;">from: <?php echo $user['firstname']?> <?php echo $user['lastname']?> </p>
+
+<?php
+	
 }	
 
 
@@ -501,3 +434,26 @@ $(document).ready(function(){
 <?php echo script_tag('assets/ThriftshopTheme/js/sellerDash/plugins/morris/raphael.min.js'); ?>
 <?php echo script_tag('assets/ThriftshopTheme/js/sellerDash/plugins/morris/morris.min.js'); ?>
 <?php echo script_tag('assets/ThriftshopTheme/js/sellerDash/plugins/morris/morris-data.js'); ?>
+  <?php if($this->session->flashdata('fancy') != "") { ?>
+
+
+
+<script type="text/javascript">
+
+   $(document).ready(
+    function(){
+
+      
+             jQuery.noConflict();
+           
+
+        $.fancybox('<div style="height: 90px;padding-left:20px;padding-right:20px;line-height: 90px;color:#2980b9"><?php echo $this->session->flashdata('fancy') ?></div>');
+    
+        
+
+    });
+
+
+
+   </script>
+<?php } ?>

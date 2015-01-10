@@ -1,4 +1,14 @@
 
+
+<style>
+.small_pic{
+    padding:5px;
+    float:left;
+    border: 3px solid whitesmoke ;
+    margin-top:4px;
+    border-radius:3px;
+}
+</style>
          
 
           <div style="padding-right: 0px;"class="col-md-12">
@@ -289,11 +299,14 @@
               
 
               <input type="hidden" value="<?php echo $product_id; ?>" name="product_id" />
+
+                 <h4 style=" width:100%;">  Upload a picture</h4>
+
 <input type="file" name="userfile" size="20" />
 
 <br /><br />
 
-<input type="submit" value="upload" />
+<input type="submit" value="Upload" />
 
 </form>
                <?php 
@@ -301,14 +314,21 @@
         echo form_open_multipart('upload/do_upload',array('id'=>'upload', 'class'=>'upload_one'));
                 
               ?>
-            <p>  Upload Another File! </p>
+              <h5 style=" width:100%;">  Upload another picture</h5>
+
               <input type="hidden" value="<?php echo $product_id; ?>" name="product_id" />
 <input type="file" Name="userfile" size="20" />
-<?php echo 'ya'. $pic_progress;?>
-<br/><br />
+<?php
+foreach ($prev_pic as $pic ) {
+   echo' <img class= '.'"'."small_pic".'"'.' style="width:50px; height:50px;  "src="'. base_url().'uploads/'.$pic['pic_id'].'"'.' class= '.'"'.' p_imger'.$image['product_id'].'"'.'>';
+
+}
+ ?>
+<h5 style="font-size:smaller; width:100%;float:right"> press complete to finish</h5>
     
-<input type="submit" value="upload" />
-<input type="submit" value="complete" name="complete" />
+<input style= "float:right; padding:2px;margin:2px;"type="submit" value="Complete" name="complete" />
+<input style= "float:right; padding:2px; margin:2px;"type="submit" value="Upload" />
+
 <script>
  $( "#complete" ).submit(function() {
      $.ajax({
@@ -424,6 +444,7 @@ $(document).ready(function(){
         <!-- /#page-wrapper -->
 
     </div>
+    <?php echo 'over'. $this->session->flashdata('fancy')?>
           </div>
 
 <script src='<?php echo base_url()."assets/ThriftshopTheme/js/sellerDash/jquery.js"?>'></script>
@@ -437,3 +458,26 @@ $(document).ready(function(){
 <?php echo script_tag('assets/ThriftshopTheme/js/sellerDash/plugins/morris/raphael.min.js'); ?>
 <?php echo script_tag('assets/ThriftshopTheme/js/sellerDash/plugins/morris/morris.min.js'); ?>
 <?php echo script_tag('assets/ThriftshopTheme/js/sellerDash/plugins/morris/morris-data.js'); ?>
+  <?php if($this->session->flashdata('fancy') != "") { echo $this->session->flashdata('fancy')  ?>
+
+
+
+<script type="text/javascript">
+
+   $(document).ready(
+    function(){
+
+      
+             jQuery.noConflict();
+           console.log('here');
+
+        $.fancybox('<div style="height: 90px;padding-left:20px;padding-right:20px;line-height: 90px;color:#2980b9"><?php echo $this->session->flashdata('fancy') ?></div>');
+    
+        
+
+    });
+
+
+
+   </script>
+<?php } ?>

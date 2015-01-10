@@ -137,14 +137,24 @@ $this->load->helper('array');
    $insert_id = $this->db->insert_id();
    $this->db->trans_complete();
    // echo "Yo". $insert_id;
+
+$this->session->set_flashdata('fancy', 'Successfully created');
    return  $insert_id;
 	}
 
 	public function set_ProductPicture($data)
 	{
-echo "HEY!!". $data['product_id'];
+//echo "HEY!!". $data['product_id'];
 
 		$this->db->insert('product_images',$data);
+		//get prod pics
+
+
+        	$this->db->where('product_id',$data['product_id']);
+        	$query1 = $this->db->select()->from('product_images')->get();
+        	return $query1->result_array();
+
+
 	}
 
 
@@ -175,6 +185,8 @@ echo "HEY!!". $data['product_id'];
 
 $this->db->where('id', $id);
 $this->db->update('product', $data); 
+
+$this->session->set_flashdata('fancy', 'Successfully updated');
 	}
 
 			

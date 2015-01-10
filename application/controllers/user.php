@@ -535,7 +535,7 @@ $this->session->set_flashdata('fancy', 'Your message has been sent.');
 		
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header2', $data);
 			$this->load->view('store/create',array('error' => ' ' ));			
 		}
 		else
