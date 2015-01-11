@@ -1,3 +1,4 @@
+ <div id="filtersearch">
 <?php foreach ($list as $filter): $newitemdate = $filter['price'];?>
                                 <!--Tile-->
 
@@ -41,3 +42,4 @@
                                 </div>
 
                               <?php endforeach ?>
+                            </div>

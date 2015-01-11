@@ -27,8 +27,16 @@
       	<div class="container">
           <h2 class="with-sorting">The ThriftShop</h2>
           <div class="sorting">
-            <a href="#">Sort by name</a>
-            <a href="#">Sort by price</a>
+            <a href="#">Sort by Name</a>
+             <a id="thepricefilter" onclick="performfilter()" >Sort by Price</a>
+              <?php $attributes3 = array('name' => 'price-filters3', 'id' => 'filterform3', 'name' => 'filterform3'); ?>
+               <?php $attributes4 = array('name' => 'price-filters4', 'id' => 'filterform4', 'name' => 'filterform4'); ?>
+            <?php echo form_open('thriftshop/get_filteredpage',$attributes3) ?>
+            <input type="submit" style="visibility:hidden" hidden; id="pricefilter" name="pricefilter" href="#" value="Sort by Price"/>
+          </form>
+          <?php echo form_open('thriftshop/get_filteredpage',$attributes4) ?>
+            <input type="submit" style="visibility:hidden" hidden; id="pricefilter2" name="pricefilter2" href="#" value="Sort by Price"/>
+          </form>
           </div>
           <div class="subnav">
           	<a href="#">iPhone cases</a>
@@ -44,177 +52,178 @@
                 <section class="filter-section">
                 	<h3>Filter by price</h3>
                   <?php $attributes = array('name' => 'price-filters', 'id' => 'filterform', 'name' => 'filterform'); ?>
-                <?php $attributes2 = array('name' => 'price-filters', 'id' => 'filterform2', 'name' => 'filterform2'); ?>
-                   <?php echo form_open('thriftshop/get_filteredpage',$attributes2) ?>
-                  	<span class="clear" id="clearPrice" >Clear price</span>
-                    <div class="price-btns">
-                       <input type="hidden" id="minValue" name="minValue" value="" />
-                       <input type="hidden" id="maxValue" name="maxValue" value="" />
-                      <button type="submit" onclick="adjustvalue50()"  class="btn btn-success btn-sm" value="50">Below R50</button><br/>
-                      <button type="submit" onclick="adjustvalue100()"  class="btn btn-success btn-sm" value="50-100">R50-R100</button><br/>
-                      <button  type="submit" onclick="adjustvalue300()" class="btn btn-success btn-sm" value="100-300">R100-R300</button><br/>
-                      <button  type="submit" onclick="adjustvalue1000()" class="btn btn-success btn-sm" value="300-1000">R300-R1000</button>
-                     
-                    </div>
-                  </form>
-                      <?php echo form_open('thriftshop/get_filteredpage',$attributes) ?>
-                    <div class="price-slider" id="slider-container">
-                    	<div id="price-range"></div>
-                      <div class="values group">
-                      	<!--data-min-val represent minimal price and data-max-val maximum price respectively in pricing slider range; value="" - default values-->
-                      	<span class="labels">R </span>
-                        <input class="form-control" name="minVal" id="minVal" type="text" data-min-val="10" value="180">
-                          <span class="labels">- R</span>
-                        <input class="form-control" name="maxVal" id="maxVal" type="text" data-max-val="2500" value="1400">
-                      
-                      </div>
-                      <input class="btn btn-primary btn-sm" id="filterbutton" type="submit" value="Filter">
-                    </div>
-                  </form>
-                </section>
-                
-                <!--Colors Section-->
-                <section class="filter-section">
-                	<h3>Filter by color</h3>
-                  <span class="clear clearChecks">Clear colors</span>
+                  <?php $attributes2 = array('name' => 'price-filters', 'id' => 'filterform2', 'name' => 'filterform2'); ?>
+                  <?php echo form_open('thriftshop/get_filteredpage',$attributes2) ?>
+                  <span class="clear" id="clearPrice" >Clear price</span>
+                  <div class="price-btns">
+                   <input type="hidden" id="minValue" name="minValue" value="" />
+                   <input type="hidden" id="maxValue" name="maxValue" value="" />
+                   <button type="submit" onclick="adjustvalue50()"  class="btn btn-success btn-sm" value="50">Below R50</button><br/>
+                   <button type="submit" onclick="adjustvalue100()"  class="btn btn-success btn-sm" value="50-100">R50-R100</button><br/>
+                   <button  type="submit" onclick="adjustvalue300()" class="btn btn-success btn-sm" value="100-300">R100-R300</button><br/>
+                   <button  type="submit" onclick="adjustvalue1000()" class="btn btn-success btn-sm" value="300-1000">R300-R1000</button>
+                   
+                 </div>
+               </form>
+               <?php echo form_open('thriftshop/get_filteredpage',$attributes) ?>
+               <div class="price-slider" id="slider-container">
+                 <div id="price-range"></div>
+                 <div class="values group">
+                   <!--data-min-val represent minimal price and data-max-val maximum price respectively in pricing slider range; value="" - default values-->
+                   <span class="labels">R </span>
+                   <input class="form-control" name="minVal" id="minVal" type="text" data-min-val="10" value="180">
+                   <span class="labels">- R</span>
+                   <input class="form-control" name="maxVal" id="maxVal" type="text" data-max-val="2500" value="1400">
+                   
+                 </div>
+                 <input class="btn btn-primary btn-sm" id="filterbutton" type="submit" value="Filter">
+               </div>
+             </form>
+           </section>
+           
+           <!--Colors Section-->
+           <section class="filter-section">
+             <h3>Filter by color</h3>
+             <span class="clear clearChecks">Clear colors</span>
+             <label>
+              <input type="checkbox" name="colors" value="black" id="color_0" checked>
+              Black (12)</label>
+              <br>
+              <label>
+                <input type="checkbox" name="colors" value="white" id="color_1">
+                White (1)</label>
+                <br>
+                <label>
+                  <input type="checkbox" name="colors" value="green" id="color_2">
+                  Green  (34)</label>
+                  <br>
                   <label>
-                    <input type="checkbox" name="colors" value="black" id="color_0" checked>
-                    Black (12)</label>
+                    <input type="checkbox" name="colors" value="blue" id="color_3">
+                    Blue (23)</label>
                     <br>
                     <label>
-                      <input type="checkbox" name="colors" value="white" id="color_1">
-                      White (1)</label>
+                      <input type="checkbox" name="colors" value="red" id="color_4">
+                      Red (12)</label>
+                    </section>
+
+                    <!--Colors Section-->
+                    <section class="filter-section">
+                     <h3>Filter by size</h3>
+                     <span class="clear clearChecks">Clear size</span>
+                     <label>
+                      <input type="checkbox" name="sizes" value="small" id="size_0" checked>
+                      Small (12)</label>
                       <br>
                       <label>
-                        <input type="checkbox" name="colors" value="green" id="color_2">
-                        Green  (34)</label>
+                        <input type="checkbox" name="sizes" value="white" id="size_1">
+                        Medium (34)</label>
                         <br>
                         <label>
-                          <input type="checkbox" name="colors" value="blue" id="color_3">
-                          Blue (23)</label>
+                          <input type="checkbox" name="sizes" value="green" id="size_2">
+                          Large (11)</label>
                           <br>
                           <label>
-                            <input type="checkbox" name="colors" value="red" id="color_4">
-                            Red (12)</label>
-                          </section>
-
-                          <!--Colors Section-->
-                          <section class="filter-section">
-                           <h3>Filter by size</h3>
-                           <span class="clear clearChecks">Clear size</span>
-                           <label>
-                            <input type="checkbox" name="sizes" value="small" id="size_0" checked>
-                            Small (12)</label>
+                            <input type="checkbox" name="sizes" value="blue" id="size_3">
+                            Extra large (1)</label>
                             <br>
                             <label>
-                              <input type="checkbox" name="sizes" value="white" id="size_1">
-                              Medium (34)</label>
-                              <br>
-                              <label>
-                                <input type="checkbox" name="sizes" value="green" id="size_2">
-                                Large (11)</label>
-                                <br>
-                                <label>
-                                  <input type="checkbox" name="sizes" value="blue" id="size_3">
-                                  Extra large (1)</label>
-                                  <br>
-                                  <label>
-                                    <input type="checkbox" name="sizes" value="red" id="size_4">
-                                    Superman (0)</label>
-                                  </section>
+                              <input type="checkbox" name="sizes" value="red" id="size_4">
+                              Superman (0)</label>
+                            </section>
 
-                                  <!--Categories Section-->
-                                  <section class="filter-section">
-                                   <h3>Categories</h3>
-                                   <ul class="categories">
-                                     <li class="has-subcategory"><a href="#">iPhone cases (123)</a><!--Class "has-subcategory" for dropdown propper work-->
-                                       <ul class="subcategory">
-                                         <li><a href="#">iPhone cases (1)</a></li>
-                                         <li><a href="#">iPad cases (45)</a></li>
-                                         <li><a href="#">MacBook cases (34)</a></li>
-                                         <li><a href="#">Something (12)</a></li>
-                                         <li><a href="#">Air cases (23)</a></li>
-                                       </ul>
-                                     </li>
-                                     <li><a href="#">iPad cases (34)</a></li>
-                                     <li><a href="#">MacBook cases (78)</a></li>
-                                     <li class="has-subcategory"><a href="#">Something (45)</a>
-                                       <ul class="subcategory">
-                                         <li><a href="#">Subcategory (1)</a></li>
-                                         <li><a href="#">Subcategory (45)</a></li>
-                                         <li><a href="#">Subcategory (23)</a></li>
-                                       </ul>
-                                     </li>
-                                     <li><a href="#">Air cases (23)</a></li>
-                                   </ul>
-                                 </section>
-                               </div>
-                             </div>
+                            <!--Categories Section-->
+                            <section class="filter-section">
+                             <h3>Categories</h3>
+                             <ul class="categories">
+                               <li class="has-subcategory"><a href="#">iPhone cases (123)</a><!--Class "has-subcategory" for dropdown propper work-->
+                                 <ul class="subcategory">
+                                   <li><a href="#">iPhone cases (1)</a></li>
+                                   <li><a href="#">iPad cases (45)</a></li>
+                                   <li><a href="#">MacBook cases (34)</a></li>
+                                   <li><a href="#">Something (12)</a></li>
+                                   <li><a href="#">Air cases (23)</a></li>
+                                 </ul>
+                               </li>
+                               <li><a href="#">iPad cases (34)</a></li>
+                               <li><a href="#">MacBook cases (78)</a></li>
+                               <li class="has-subcategory"><a href="#">Something (45)</a>
+                                 <ul class="subcategory">
+                                   <li><a href="#">Subcategory (1)</a></li>
+                                   <li><a href="#">Subcategory (45)</a></li>
+                                   <li><a href="#">Subcategory (23)</a></li>
+                                 </ul>
+                               </li>
+                               <li><a href="#">Air cases (23)</a></li>
+                             </ul>
+                           </section>
+                         </div>
+                       </div>
 
-                             <!--Tiles-->
-                             <div class="col-lg-9 col-md-9 col-sm-8">
-                              <input type="text" id="search" placeholder="Type to search"  class="form-control">
-                              <div class="row" id="filtertable">
+                       <!--Tiles-->
+                       <div class="col-lg-9 col-md-9 col-sm-8">
+                        <input type="text" id="search" placeholder="Type to search"  class="form-control">
+                        <div class="row" id="filtertable">
+                          <div id="filtersearch">
+                            <?php foreach ($filterslatest as $filter): $newitemdate = $calendar_item['date'];?>
+                            <!--Tile-->
 
-                                <?php foreach ($filterslatest as $filter): $newitemdate = $calendar_item['date'];?>
-                                <!--Tile-->
-
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                  <div class="tile">
-                                    <div class="badges">
-                                      <span class="sale"></span>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                              <div class="tile">
+                                <div class="badges">
+                                  <span class="sale"></span>
+                                </div>
+                                <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
+                                <a href="#"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
+                                <div class="footer">
+                                  <a href="#"><?php echo $filter['name'] ?></a>
+                                  <span><?php echo $filter['category'] ?></span>
+                                  <div class="tools">
+                                    <div class="rate">
+                                      <span class="active"></span>
+                                      <span class="active"></span>
+                                      <span class="active"></span>
+                                      <span></span>
+                                      <span></span>
                                     </div>
-                                    <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
-                                    <a href="#"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
-                                    <div class="footer">
-                                      <a href="#"><?php echo $filter['name'] ?></a>
-                                      <span><?php echo $filter['category'] ?></span>
-                                      <div class="tools">
-                                        <div class="rate">
-                                          <span class="active"></span>
-                                          <span class="active"></span>
-                                          <span class="active"></span>
-                                          <span></span>
-                                          <span></span>
-                                        </div>
-                                        <!--Add To Cart Button-->
-                                        <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
-                                        <!--Share Button-->
-                                        <div class="share-btn">
-                                          <div class="hover-state">
-                                            <a class="fa fa-facebook-square" href="#"></a>
-                                            <a class="fa fa-twitter-square" href="#"></a>
-                                            <a class="fa fa-google-plus-square" href="#"></a>
-                                          </div>
-                                          <i class="fa fa-share"></i>
-                                        </div>
-                                        <!--Add To Wishlist Button-->
-                                        <a class="wishlist-btn" href="#">
-                                          <div class="hover-state">Wishlist</div>
-                                          <i class="fa fa-plus"></i>
-                                        </a>
+                                    <!--Add To Cart Button-->
+                                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                    <!--Share Button-->
+                                    <div class="share-btn">
+                                      <div class="hover-state">
+                                        <a class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="#"></a>
+                                        <a class="fa fa-google-plus-square" href="#"></a>
                                       </div>
+                                      <i class="fa fa-share"></i>
                                     </div>
+                                    <!--Add To Wishlist Button-->
+                                    <a class="wishlist-btn" href="#">
+                                      <div class="hover-state">Wishlist</div>
+                                      <i class="fa fa-plus"></i>
+                                    </a>
                                   </div>
                                 </div>
-
-                              <?php endforeach ?>
+                              </div>
                             </div>
-                            <!--Pagination-->
-                            <ul class="pagination">
-                              <li class="prev-page"><a class="fa fa-arrow-circle-left" href="#"></a></li>
-                              <li class="active"><a href="#">1</a></li>
-                              <li><a href="#">2</a></li>
-                              <li><a href="#">3</a></li>
-                              <li><a href="#">4</a></li>
-                              <li class="next-page"><a class="fa fa-arrow-circle-right" href="#"></a></li>
-                            </ul>
-                          </div>
+
+                          <?php endforeach ?>
                         </div>
                       </div>
-                    </section><!--Catalog Grid Close-->
+                      <!--Pagination-->
+                      <ul class="pagination">
+                        <li class="prev-page"><a class="fa fa-arrow-circle-left" href="#"></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li class="next-page"><a class="fa fa-arrow-circle-right" href="#"></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section><!--Catalog Grid Close-->
 
-                    <!--Brands Carousel Widget-->
+              <!--Brands Carousel Widget-->
       <!-- <section class="brand-carousel">
       	<div class="container">
         	<h2>Brands in our shop</h2>
@@ -290,7 +299,7 @@
   </section><!--Subscription Widget Close-->
 
   <script type="text/javascript">
-  var $rows = $('#filtertable').children();
+  var $rows = $('#filtersearch').children();
   $('#search').keyup(function() {
     var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
 
@@ -340,67 +349,142 @@
         dataType: "html",
         success: function(data){
         var container = $('#filtertable'); //jquery selector (get element by id)
-                        if(data){
-                          container.html(data);
-                        }
-        },
-        error: function() { alert("Error posting feed."); }
-      });
+        if(data){
+          container.html(data);
+        }
+      },
+      error: function() { alert("Error posting feed."); }
+    });
 
   });
 
   </script>
 
   <script type="text/javascript">
+
+  function performfilter()
+  {
+
+    $("#pricefilter").click();
+    $("#thepricefilter").attr("onclick","performfilter2()");
+
+    
+  }
+
+  function performfilter2()
+  {
+
+    $("#pricefilter2").click();
+    $("#thepricefilter").attr("onclick","performfilter()");
+
+    
+  }
+
   function adjustvalue50()
-{
+  {
     $( "#minValue" ).val(0);
     $( "#maxValue" ).val(50);
-}
+  }
 
-function adjustvalue100()
-{
+  function adjustvalue100()
+  {
    $( "#minValue" ).val(50);
-    $( "#maxValue" ).val(100);
-}
+   $( "#maxValue" ).val(100);
+ }
 
-function adjustvalue300()
-{
-    $( "#minValue" ).val(100);
-    $( "#maxValue" ).val(300);
+ function adjustvalue300()
+ {
+  $( "#minValue" ).val(100);
+  $( "#maxValue" ).val(300);
 }
 
 function adjustvalue1000()
 {
-    $( "#minValue" ).val(300);
-    $( "#maxValue" ).val(1000);
+  $( "#minValue" ).val(300);
+  $( "#maxValue" ).val(1000);
 }
-  </script>
+</script>
 
-   <script type="text/javascript">
+<script type="text/javascript">
 
-  $('form#filterform2').submit(function(e) {
+$('form#filterform2').submit(function(e) {
 
-    var form = $(this);
+  var form = $(this);
 
-    
+  
 
-    e.preventDefault();
+  e.preventDefault();
 
-    $.ajax({
-      type: "POST",
-      url: "<?php echo site_url('thriftshop/get_filteredpage2'); ?>",
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/get_filteredpage2'); ?>",
         data: form.serialize(), // <--- THIS IS THE CHANGE
         dataType: "html",
         success: function(data){
         var container = $('#filtertable'); //jquery selector (get element by id)
-                        if(data){
-                          container.html(data);
-                        }
-        },
-        error: function() { alert("Error posting feed."); }
-      });
+        if(data){
+          container.html(data);
+        }
+      },
+      error: function() { alert("Error posting feed."); }
+    });
 
-  });
+});
 
-  </script>
+</script>
+
+<script type="text/javascript">
+
+$('form#filterform3').submit(function(e) {
+
+  var form = $(this);
+
+  
+
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/get_filteredpage3'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+        var container = $('#filtertable'); //jquery selector (get element by id)
+        if(data){
+          container.html(data);
+        }
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
+
+<script type="text/javascript">
+
+$('form#filterform4').submit(function(e) {
+
+  var form = $(this);
+
+  
+
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/get_filteredpage4'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+        var container = $('#filtertable'); //jquery selector (get element by id)
+        if(data){
+          container.html(data);
+        }
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
