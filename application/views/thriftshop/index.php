@@ -29,10 +29,11 @@
           <div class="sorting">
             <a id="thenamefilter" onclick="performfiltername()">Sort by Name</a>
              <a id="thepricefilter" onclick="performfilter()" >Sort by Price</a>
-              <?php $attributes3 = array('name' => 'price-filters3', 'id' => 'filterform3', 'name' => 'filterform3'); ?>
-               <?php $attributes4 = array('name' => 'price-filters4', 'id' => 'filterform4', 'name' => 'filterform4'); ?>
-                <?php $attributes5 = array('name' => 'price-filters5', 'id' => 'filterform5', 'name' => 'filterform5'); ?>
-               <?php $attributes6 = array('name' => 'price-filters6', 'id' => 'filterform6', 'name' => 'filterform6'); ?>
+              <?php $attributes3 = array('name' => 'price-filters3', 'id' => 'filterform3', 'name' => 'filterform3', 'style'=>'visibility:hidden; display:none'); ?>
+               <?php $attributes4 = array('name' => 'price-filters4', 'id' => 'filterform4', 'name' => 'filterform4','style'=>'visibility:hidden; display:none'); ?>
+                <?php $attributes5 = array('name' => 'price-filters5', 'id' => 'filterform5', 'name' => 'filterform5','style'=>'visibility:hidden; display:none'); ?>
+               <?php $attributes6 = array('name' => 'price-filters6', 'id' => 'filterform6', 'name' => 'filterform6','style'=>'visibility:hidden; display:none'); ?>
+               <?php $attributes7 = array('name' => 'price-filters7', 'id' => 'filterform7', 'name' => 'filterform7','style'=>'visibility:hidden; display:none'); ?>
             <?php echo form_open('thriftshop/get_filteredpage',$attributes3) ?>
             <input type="submit" style="visibility:hidden" hidden; id="pricefilter" name="pricefilter" href="#" value="Sort by Price"/>
           </form>
@@ -61,10 +62,14 @@
                 <!--Price Section-->
                 <section class="filter-section">
                 	<h3>Filter by price</h3>
-                  <?php $attributes = array('name' => 'price-filters', 'id' => 'filterform', 'name' => 'filterform'); ?>
+                  <?php $attributes = array('name' => 'price-filters', 'id' => 'filterform', 'name' => 'filterform','style'=>'visibility:hidden; display:none'); ?>
                   <?php $attributes2 = array('name' => 'price-filters', 'id' => 'filterform2', 'name' => 'filterform2'); ?>
-                  <?php echo form_open('thriftshop/get_filteredpage',$attributes2) ?>
-                  <span class="clear" id="clearPrice" >Clear price</span>
+                
+                  <span onclick="performfilterclean()" class="clear" id="clearPrice" >Clear filters</span>
+                   <?php echo form_open('thriftshop/get_filteredpage',$attributes7) ?>
+            <input type="submit" style="visibility:hidden" id="clearfilter" name="clearfilter" href="#" value="Sort by Price"/>
+          </form>
+            <?php echo form_open('thriftshop/get_filteredpage',$attributes2) ?>
                   <div class="price-btns">
                    <input type="hidden" id="minValue" name="minValue" value="" />
                    <input type="hidden" id="maxValue" name="maxValue" value="" />
@@ -378,6 +383,12 @@
     $("#thepricefilter").attr("onclick","performfilter2()");  
   }
 
+  function performfilterclean()
+  {
+    $("#clearfilter").click();
+    
+  }
+
   function performfilter2()
   {
     $("#pricefilter2").click();
@@ -552,6 +563,34 @@ $('form#filterform6').submit(function(e) {
   $.ajax({
     type: "POST",
     url: "<?php echo site_url('thriftshop/get_filteredpage6'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+        var container = $('#filtertable'); //jquery selector (get element by id)
+        if(data){
+          container.html(data);
+        }
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
+
+<script type="text/javascript">
+
+$('form#filterform7').submit(function(e) {
+
+  var form = $(this);
+
+  
+
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/get_filteredpage7'); ?>",
         data: form.serialize(), // <--- THIS IS THE CHANGE
         dataType: "html",
         success: function(data){
