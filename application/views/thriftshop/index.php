@@ -62,7 +62,7 @@
                 <!--Price Section-->
                 <section class="filter-section">
                 	<h3>Filter by price</h3>
-                  <?php $attributes = array('name' => 'price-filters', 'id' => 'filterform', 'name' => 'filterform','style'=>'visibility:hidden; display:none'); ?>
+                  <?php $attributes = array('name' => 'price-filters', 'id' => 'filterform', 'name' => 'filterform'); ?>
                   <?php $attributes2 = array('name' => 'price-filters', 'id' => 'filterform2', 'name' => 'filterform2'); ?>
                 
                   <span onclick="performfilterclean()" class="clear" id="clearPrice" >Clear filters</span>
@@ -188,7 +188,7 @@
                                   <span class="sale"></span>
                                 </div>
                                 <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
-                                <a href="#"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
+                                <a href="thriftshop/<?php echo $filter['slug'] ?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
                                 <div class="footer">
                                   <a href="#"><?php echo $filter['name'] ?></a>
                                   <span><?php echo $filter['category'] ?></span>

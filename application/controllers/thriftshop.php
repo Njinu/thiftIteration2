@@ -6,6 +6,9 @@ class thriftshop extends CI_Controller {
       public function __construct()
       {
              parent::__construct();		
+              $this->load->database();
+              $this->load->model('store_model');
+              $this->load->helper('url');
 
      }
 
@@ -24,6 +27,37 @@ public function wishlist(){
         $this->load->view('thriftshop/wishlist', $data);
         $this->load->view('templates/footer2');
 }
+
+public function singleview(){
+        $data['title'] = 'Item view';
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/singleview', $data);
+        $this->load->view('templates/footer2');
+}
+
+public function view($slug)
+  {
+    $data['filter'] = $this->store_model->get_product($slug);
+
+      $this->load->helper('form');
+      $this->load->library('form_validation');
+
+    if (empty($data['filter']))
+    {
+      show_404();
+    }
+
+    $data['title'] = $data['filter']['title'];
+    
+
+    
+    $this->load->view('templates/header2', $data);
+    $this->load->view('thriftshop/singleview', $data);
+    $this->load->view('templates/footer2');
+    
+    
+    
+  }
 
 public function shop(){
         $data['title'] = 'filter';
