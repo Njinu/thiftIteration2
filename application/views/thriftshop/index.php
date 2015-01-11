@@ -27,16 +27,26 @@
       	<div class="container">
           <h2 class="with-sorting">The ThriftShop</h2>
           <div class="sorting">
-            <a href="#">Sort by Name</a>
+            <a id="thenamefilter" onclick="performfiltername()">Sort by Name</a>
              <a id="thepricefilter" onclick="performfilter()" >Sort by Price</a>
               <?php $attributes3 = array('name' => 'price-filters3', 'id' => 'filterform3', 'name' => 'filterform3'); ?>
                <?php $attributes4 = array('name' => 'price-filters4', 'id' => 'filterform4', 'name' => 'filterform4'); ?>
+                <?php $attributes5 = array('name' => 'price-filters5', 'id' => 'filterform5', 'name' => 'filterform5'); ?>
+               <?php $attributes6 = array('name' => 'price-filters6', 'id' => 'filterform6', 'name' => 'filterform6'); ?>
             <?php echo form_open('thriftshop/get_filteredpage',$attributes3) ?>
             <input type="submit" style="visibility:hidden" hidden; id="pricefilter" name="pricefilter" href="#" value="Sort by Price"/>
           </form>
           <?php echo form_open('thriftshop/get_filteredpage',$attributes4) ?>
             <input type="submit" style="visibility:hidden" hidden; id="pricefilter2" name="pricefilter2" href="#" value="Sort by Price"/>
           </form>
+
+          <?php echo form_open('thriftshop/get_filteredpage',$attributes5) ?>
+            <input type="submit" style="visibility:hidden" hidden; id="namefilter" name="namefilter" href="#" value="Sort by Price"/>
+          </form>
+          <?php echo form_open('thriftshop/get_filteredpage',$attributes6) ?>
+            <input type="submit" style="visibility:hidden" hidden; id="namefilter2" name="namefilter2" href="#" value="Sort by Price"/>
+          </form>
+
           </div>
           <div class="subnav">
           	<a href="#">iPhone cases</a>
@@ -364,18 +374,30 @@
 
   function performfilter()
   {
-
     $("#pricefilter").click();
-    $("#thepricefilter").attr("onclick","performfilter2()");
-
-    
+    $("#thepricefilter").attr("onclick","performfilter2()");  
   }
 
   function performfilter2()
   {
-
     $("#pricefilter2").click();
-    $("#thepricefilter").attr("onclick","performfilter()");
+    $("#thepricefilter").attr("onclick","performfilter()"); 
+  }
+
+  function performfiltername()
+  {
+
+    $("#namefilter").click();
+    $("#thenamefilter").attr("onclick","performfiltername2()");
+
+    
+  }
+
+  function performfiltername2()
+  {
+
+    $("#namefilter2").click();
+    $("#thenamefilter").attr("onclick","performfiltername()");
 
     
   }
@@ -474,6 +496,62 @@ $('form#filterform4').submit(function(e) {
   $.ajax({
     type: "POST",
     url: "<?php echo site_url('thriftshop/get_filteredpage4'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+        var container = $('#filtertable'); //jquery selector (get element by id)
+        if(data){
+          container.html(data);
+        }
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
+
+<script type="text/javascript">
+
+$('form#filterform5').submit(function(e) {
+
+  var form = $(this);
+
+  
+
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/get_filteredpage5'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+        var container = $('#filtertable'); //jquery selector (get element by id)
+        if(data){
+          container.html(data);
+        }
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
+
+<script type="text/javascript">
+
+$('form#filterform6').submit(function(e) {
+
+  var form = $(this);
+
+  
+
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/get_filteredpage6'); ?>",
         data: form.serialize(), // <--- THIS IS THE CHANGE
         dataType: "html",
         success: function(data){

@@ -71,6 +71,22 @@ public function get_filteredpage4(){
  $this->load->view('thriftshop/filteredpage',$data);
 }
 
+public function get_filteredpage5(){
+ $this->load->model('store_model');
+ $data = array();
+ $data['title'] = 'Lorem ipsum';
+ $data['list'] = $this->store_model->get_filters5();
+ $this->load->view('thriftshop/filteredpage',$data);
+}
+
+public function get_filteredpage6(){
+ $this->load->model('store_model');
+ $data = array();
+ $data['title'] = 'Lorem ipsum';
+ $data['list'] = $this->store_model->get_filters6();
+ $this->load->view('thriftshop/filteredpage',$data);
+}
+
 
 
 }

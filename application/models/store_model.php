@@ -89,6 +89,32 @@ class Store_model extends CI_Model {
 
 	}
 
+	public function get_filters5(){
+
+
+		
+		$this->db->order_by("product.name", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		 $query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	public function get_filters6(){
+
+
+		
+		$this->db->order_by("product.name", "asc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		 $query = $this->db->get();
+		return $query->result_array();
+
+	}
+
 	function get_filtersLatest(){
 
 		$this->db->order_by("product.id", "desc");		
