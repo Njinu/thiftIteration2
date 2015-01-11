@@ -44,23 +44,29 @@
                 <section class="filter-section">
                 	<h3>Filter by price</h3>
                   <?php $attributes = array('name' => 'price-filters', 'id' => 'filterform', 'name' => 'filterform'); ?>
-                  <?php echo form_open('thriftshop/get_filteredpage',$attributes) ?>
-                  
+                <?php $attributes2 = array('name' => 'price-filters', 'id' => 'filterform2', 'name' => 'filterform2'); ?>
+                   <?php echo form_open('thriftshop/get_filteredpage',$attributes2) ?>
                   	<span class="clear" id="clearPrice" >Clear price</span>
                     <div class="price-btns">
-                      <button class="btn btn-success btn-sm" value="below 50$">below 50$</button><br/>
-                      <button class="btn btn-success btn-sm disabled" value="50$-100$">50$-100$</button><br/>
-                      <button class="btn btn-success btn-sm" value="100$-300$">100$-300$</button><br/>
-                      <button class="btn btn-success btn-sm" value="300$-1000$">300$-1000$</button>
+                       <input type="hidden" id="minValue" name="minValue" value="" />
+                       <input type="hidden" id="maxValue" name="maxValue" value="" />
+                      <button type="submit" onclick="adjustvalue50()"  class="btn btn-success btn-sm" value="50">Below R50</button><br/>
+                      <button type="submit" onclick="adjustvalue100()"  class="btn btn-success btn-sm" value="50-100">R50-R100</button><br/>
+                      <button  type="submit" onclick="adjustvalue300()" class="btn btn-success btn-sm" value="100-300">R100-R300</button><br/>
+                      <button  type="submit" onclick="adjustvalue1000()" class="btn btn-success btn-sm" value="300-1000">R300-R1000</button>
+                     
                     </div>
+                  </form>
+                      <?php echo form_open('thriftshop/get_filteredpage',$attributes) ?>
                     <div class="price-slider" id="slider-container">
                     	<div id="price-range"></div>
                       <div class="values group">
                       	<!--data-min-val represent minimal price and data-max-val maximum price respectively in pricing slider range; value="" - default values-->
-                      	<input class="form-control" name="minVal" id="minVal" type="text" data-min-val="10" value="180">
-                        <span class="labels">$ - </span>
+                      	<span class="labels">R </span>
+                        <input class="form-control" name="minVal" id="minVal" type="text" data-min-val="10" value="180">
+                          <span class="labels">- R</span>
                         <input class="form-control" name="maxVal" id="maxVal" type="text" data-max-val="2500" value="1400">
-                        <span class="labels">$</span>
+                      
                       </div>
                       <input class="btn btn-primary btn-sm" id="filterbutton" type="submit" value="Filter">
                     </div>
@@ -330,6 +336,60 @@
     $.ajax({
       type: "POST",
       url: "<?php echo site_url('thriftshop/get_filteredpage'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+        var container = $('#filtertable'); //jquery selector (get element by id)
+                        if(data){
+                          container.html(data);
+                        }
+        },
+        error: function() { alert("Error posting feed."); }
+      });
+
+  });
+
+  </script>
+
+  <script type="text/javascript">
+  function adjustvalue50()
+{
+    $( "#minValue" ).val(0);
+    $( "#maxValue" ).val(50);
+}
+
+function adjustvalue100()
+{
+   $( "#minValue" ).val(50);
+    $( "#maxValue" ).val(100);
+}
+
+function adjustvalue300()
+{
+    $( "#minValue" ).val(100);
+    $( "#maxValue" ).val(300);
+}
+
+function adjustvalue1000()
+{
+    $( "#minValue" ).val(300);
+    $( "#maxValue" ).val(1000);
+}
+  </script>
+
+   <script type="text/javascript">
+
+  $('form#filterform2').submit(function(e) {
+
+    var form = $(this);
+
+    
+
+    e.preventDefault();
+
+    $.ajax({
+      type: "POST",
+      url: "<?php echo site_url('thriftshop/get_filteredpage2'); ?>",
         data: form.serialize(), // <--- THIS IS THE CHANGE
         dataType: "html",
         success: function(data){
