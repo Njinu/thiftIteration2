@@ -48,12 +48,26 @@ public function view($slug)
     }
 
     $data['title'] = $data['filter']['title'];
-    
+    $this->form_validation->set_rules('rating', 'Rating', 'required|greater_than[0]');
 
-    
+    if($this->form_validation->run() === FALSE)
+    {
     $this->load->view('templates/header2', $data);
     $this->load->view('thriftshop/singleview', $data);
-    $this->load->view('templates/footer2');
+    $this->load->view('templates/footer2', $data);
+    
+    }
+    else
+    {
+      
+     
+      $this->session->set_flashdata('feedback', $addeditem . "Thank you for rating!");
+      // $this->load->view('templates/header');
+      $name = $slug;
+      $add = "thriftshop/".$name; 
+      // $this->load->view('store/success');
+      redirect(base_url()."index.php/". $add);
+    }
     
     
     
