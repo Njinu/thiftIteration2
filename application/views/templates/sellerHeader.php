@@ -21,6 +21,17 @@
   <?php echo link_tag('assets/ThriftshopTheme/css/jquery.fancybox.css'); ?>
   <script src='<?php echo base_url()."assets/ThriftshopTheme/js/bootstrap.js"?>'></script>    
 
+  <?php echo link_tag('assets/ThriftshopTheme/css/grid/component.css'); ?>
+   <?php echo link_tag('assets/ThriftshopTheme/css/grid/demo.css'); ?>
+    <?php echo link_tag('assets/ThriftshopTheme/css/grid/normalize.css'); ?>
+
+
+
+
+<script src='<?php echo base_url()."assets/ThriftshopTheme/js/grid/hovers.js"?>'></script>
+
+<script src='<?php echo base_url()."assets/ThriftshopTheme/js/grid/snap.svg-min.js"?>'></script>
+
   <!-- google login !-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
    <?php echo script_tag('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js'); ?>

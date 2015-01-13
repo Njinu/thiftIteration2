@@ -197,13 +197,17 @@ $(document).on( "click", '#editbutton2',function(e) {
                 <!-- /.row -->
 <div class="row" style="padding-top: 20px;">
 
-                    <div class="col-lg-6 col-md-offset-3    ">
+                    <div class="col-lg-12     ">
                         <div class="panel panel-default">
                        <div class="panel-heading" style="background-color: deepskyblue;">
                                 <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Update products</h3>
                             </div>
                         <div class="panel-body">
 
+ <div class="" style="border-bottom: 1px solid rgba(96,96,96,0.1);">
+
+    <div class="container col-lg-12" style="background-color:ghostwhite;">
+      <section id="grid" class="grid clearfix">
 
 <?php $int = 0 ?>
 <?php foreach ($list as $calendar_item): $newitemdate = $calendar_item['date_created']; $findsummary =  $calendar_item['description'];  ?>
@@ -275,7 +279,10 @@ function deletePic(img_id)
 
 }
 </script>
- <div class="" style="border-bottom: 1px solid rgba(96,96,96,0.1);">
+
+      <!-- Top Navigation -->
+
+
 <!-- <picture>
   <source 
     media="(max-width: 650px)"
@@ -286,25 +293,37 @@ function deletePic(img_id)
   <img 
     src='<?php echo base_url();?>uploads/<?php echo $newitemLoc ?>' 
     alt="a cute kitten">
-  </picture> -->
+  
   <br>
   <h4 id='<?php echo $int ?>_name'>
      <p style="width:70%; float:left;"><?php echo $calendar_item['name'] ?> </p>
  <p style="width:70%;float:left;"> <?php echo $calendar_item['description'] ?> </p>
+       </picture> -->
          <?php 
 $pos=$calendar_item['id'];
 $img_count=0;
 foreach ($product_images as $image) {
     if(($image['product_id'])==$pos &&$img_count==0){
 ?>
-<p style="float:right;width:30%;">
+
+        <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+          <figure>
+            <img style="min-height:190px;" <?php echo "src= ". base_url().'uploads/'.$image['pic_id'] ?> />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+            <figcaption>
+              <h2><?php echo $calendar_item['name'] ?></h2>
+  <p>Price:<?php echo $calendar_item['price'] ?>.</p>
+<button onclick="" data-toggle="modal" data-target='#<?php echo 'pic_edt'. $calendar_item['id'] ?>' id="editbutton">Manage Pics</button></br></br></br>           
+               <button onclick="" data-toggle="modal" data-target='#<?php echo $int ?>ModalEdit' id="editbutton">Edit Details</button>
+            </figcaption>
+          </figure>
+        </a>
 <?php
 
- echo'<img  style="width:50px; height:50px;  "src="'. base_url().'uploads/'.$image['pic_id'].'"'.' class= '.'"'.' p_imger'.$image['product_id'].'"'.'>';
- $img_count++;
+ //echo'<img  style="width:50px; height:50px;  "src="'. base_url().'uploads/'.$image['pic_id'].'"'.' class= '.'"'.' p_imger'.$image['product_id'].'"'.'>';
+ //$img_count++;
     //}
 ?>
-</p>
 <?php
 }
 
@@ -312,17 +331,20 @@ foreach ($product_images as $image) {
 
 
 ?>
+
+<!-- 
+       
   <p style=" width:30%; color:silver; font-size:12px;">Category:<?php echo $calendar_item['category'] ?> </br>
   <span>Price:<?php echo $calendar_item['price'] ?></span> </p>
   <p style="float:left; width:30%; color:silver; font-size:12px;">Date Created:<?php echo $calendar_item['date_created'] ?> </p>
   <a href=''></a>
    
- <a  style="font-size:13px; float:right;color:cornflowerblue" onclick="" data-toggle="modal" data-target='#<?php echo 'pic_edt'. $calendar_item['id'] ?>' id="editbutton">Manage Pics</a>
+ <a  style="font-size:13px; float:right;color:cornflowerblue" >Manage Pics</a>
 
-    <a style="color:cornflowerblue;font-size:13px;" onclick="" data-toggle="modal" data-target='#<?php echo $int ?>ModalEdit' id="editbutton">Edit Details</a>
-  <p> <!-- <a <?php if(!$slug ){echo "";}else{echo "href='news/$slug'";}?>><?php if(!$slug ){ echo "coming soon";}else{echo "Read more...";} ?></a> -->
-  </p>
-</div>
+    <a style="color:cornflowerblue;font-size:13px;" >Edit Details</a>
+  <p> <a <?php if(!$slug ){echo "";}else{echo "href='news/$slug'";}?>><?php if(!$slug ){ echo "coming soon";}else{echo "Read more...";} ?></a>  </p>-->
+ 
+
 
 <div class="modal fade" id='<?php echo $int ?>ModalEdit' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -440,7 +462,9 @@ background-size: 50px 50px;" >
 
 
 <?php endforeach ?>
-  
+</div>
+</div>
+  </section>
        </div>
                     </div>
                     </div> 
@@ -475,7 +499,139 @@ Advert here
                 <div class="col-md-3 " style="">
 
                 </div>
+<!-- grid 
 
+
+
+
+  !-->
+    <div class="container col-lg-6">
+      <!-- Top Navigation -->
+
+      <section id="grid" class="grid clearfix">
+        <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+          <figure>
+            <img src="img/1.png" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+            <figcaption>
+              <h2>Crystalline</h2>
+              <p>Soko radicchio bunya nuts gram dulse.</p>
+              <button>View</button>
+            </figcaption>
+          </figure>
+        </a>
+        <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+          <figure>
+            <img src="img/3.png" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+            <figcaption>
+              <h2>Cacophony</h2>
+              <p>Two greens tigernut soybean radish.</p>
+              <button>View</button>
+            </figcaption>
+          </figure>
+        </a>
+        <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+          <figure>
+            <img src="img/5.png" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+            <figcaption>
+              <h2>Languid</h2>
+              <p>Beetroot water spinach okra water.</p>
+              <button>View</button>
+            </figcaption>
+          </figure>
+        </a>
+        <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+          <figure>
+            <img src="img/7.png" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+            <figcaption>
+              <h2>Serene</h2>
+              <p>Water spinach arugula pea tatsoi.</p>
+              <button>View</button>
+            </figcaption>
+          </figure>
+        </a>
+        <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+          <figure>
+            <img src="img/2.png" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+            <figcaption>
+              <h2>Nebulous</h2>
+              <p>Pea horseradish azuki bean lettuce.</p>
+              <button>View</button>
+            </figcaption>
+          </figure>
+        </a>
+        <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+          <figure>
+            <img src="img/4.png" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+            <figcaption>
+              <h2>Iridescent</h2>
+              <p>A grape silver beet watercress potato.</p>
+              <button>View</button>
+            </figcaption>
+          </figure>
+        </a>
+        <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+          <figure>
+            <img src="img/6.png" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+            <figcaption>
+              <h2>Resonant</h2>
+              <p>Chickweed okra pea winter purslane.</p>
+              <button>View</button>
+            </figcaption>
+          </figure>
+        </a>
+        <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+          <figure>
+            <img src="img/8.png" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+            <figcaption>
+              <h2>Zenith</h2>
+              <p>Salsify taro catsear garlic gram.</p>
+              <button>View</button>
+            </figcaption>
+          </figure>
+        </a>
+      </section>
+      <section class="related">
+        <p>If you enjoyed these effects you might also like:</p>
+        <div><a href="http://tympanus.net/Tutorials/CaptionHoverEffects/"><h4>Caption Hover Effects</h4></a></div>
+        <div><a href="http://tympanus.net/Development/AnimatedSVGIcons/"><h4>Animated SVG Icons</h4></a></div>
+      </section>
+    </div><!-- /container -->
+    <script>
+      (function() {
+  
+        function init() {
+          var speed = 250,
+            easing = mina.easeinout;
+
+          [].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
+            var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+              pathConfig = {
+                from : path.attr( 'd' ),
+                to : el.getAttribute( 'data-path-hover' )
+              };
+
+            el.addEventListener( 'mouseenter', function() {
+              path.animate( { 'path' : pathConfig.to }, speed, easing );
+            } );
+
+            el.addEventListener( 'mouseleave', function() {
+              path.animate( { 'path' : pathConfig.from }, speed, easing );
+            } );
+          } );
+        }
+
+        init();
+
+      })();
+    </script>
             </div>
             <!-- /.container-fluid -->
 
