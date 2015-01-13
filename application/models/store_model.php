@@ -31,17 +31,117 @@ class Store_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function get_product($slug = FALSE)
+	{
+		if ($slug === FALSE)
+		{
+			$this->db->order_by("id", "desc");
+			$query = $this->db->get('product');			
+			return $query->result_array();
+		}
+
+		$query = $this->db->get_where('product', array('slug' => $slug));
+	
+		return $query->row_array();
+	}
+
 	public function get_filters(){
 
-		$type = $this->input->post('type');
-		$query = $this->db->select('date,event,slug,summary,location')->from('calendar')->where('event',"$type")->get();	
+
+		$max = $this->input->post('maxVal');
+		$min = $this->input->post('minVal');
+		$this->db->where('product.price >=',$min);
+		$this->db->where('product.price <=',$max);
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		 $query = $this->db->get();
 		return $query->result_array();
 
 	}
 
+	public function get_filters2(){
+
+
+		$max = $this->input->post('maxValue');
+		$min = $this->input->post('minValue');
+		$this->db->where('product.price >=',$min);
+		$this->db->where('product.price <=',$max);
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		 $query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+
+	public function get_filters3(){
+
+
+		
+		$this->db->order_by("product.price", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		 $query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	public function get_filters4(){
+
+
+		
+		$this->db->order_by("product.price", "asc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		 $query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	public function get_filters5(){
+
+
+		
+		$this->db->order_by("product.name", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		 $query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	public function get_filters6(){
+
+
+		
+		$this->db->order_by("product.name", "asc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		 $query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	public function get_filters7(){
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		 $this->db->group_by('product.id');
+		 $query = $this->db->get();
+		return $query->result_array();
+	}
+
 	function get_filtersLatest(){
 
-		$this->db->order_by("product.id", "asc");		
+		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
 		 $this->db->group_by('product.id');
