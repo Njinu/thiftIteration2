@@ -50,8 +50,8 @@
 
           </div>
           <div class="subnav">
-          	<a href="#">iPhone cases</a>
-            <a href="#">iPad cases</a>
+          <!-- 	<a href="#">iPhone cases</a>
+            <a href="#">iPad cases</a> -->
           </div>
           <div class="row">
 

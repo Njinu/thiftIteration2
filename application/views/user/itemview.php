@@ -499,10 +499,6 @@ Advert here
                 <div class="col-md-3 " style="">
 
                 </div>
-<!-- grid 
-
-
-
 
     <script>
       (function() {
