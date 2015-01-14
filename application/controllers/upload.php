@@ -76,42 +76,6 @@ public function complete_pic()
 	{
 
 
-  if (isset($_POST['complete'])) {
-$data['pic_progress'] = '';
-$data['product_id'] = '';
-if($_POST['product_id'])
-{
-  $product_id = $_POST['product_id'] ;
-}
-
- $this->load->model('store_model');
-
-        $data = array();
-         $user_id=$this->session->userdata('id');
-
-        $data['list'] = $this->store_model->get_data();
-        $data['products'] = $this->store_model->get_data();
-        $data['product_count'] = count($data['products']);
-        $data['product_comments'] = $this->store_model->get_product_comments();
-        $data['comment_count'] = count($data['product_comments']);
-        $data['product_comment_pics']= $this->store_model->getProductPics();
-        $data['comment_user']= $this->store_model->get_comment_users();
-         $data['product_id']= $product_id;
-        $this->load->view('templates/sellerHeader', $data);
-
-
-$this->load->view('templates/sellerHeader', $data);
- $data['title'] = 'Item View';
-  
-        $data['comment_count'] = count($data['product_comments']);
-        $data['product_images']= $this->store_model->getProductPics();
-
-		$this->load->view("user/Itemview", $data);
-		$this->load->view('templates/footer2');
-
-
-        // btnDelete
-    } else {
         //assume btnSubmit
     
 
@@ -133,11 +97,66 @@ $this->load->view('templates/sellerHeader', $data);
 		{
 			$error = array('error' => $this->upload->display_errors());
 
-			$this->load->view('upload_form', $error);
-			$this->load->view('templates/header');
+ $data['notify_message'] =  'NO picture uploaded';
+  $this->load->model('store_model');
+
+        $product_id=$this->session->userdata('p_id');
+              $product_id = $_POST['product_id'] ;
+        $data = array();
+
+        $data['title'] = 'Item View';
+        $data['list'] = $this->store_model->getProductbyId($product_id);
+        $data['products'] = $this->store_model->get_data();
+        $data['product_count'] = count($data['products']);
+        $data['product_comments'] = $this->store_model->get_product_comments();
+        $data['comment_count'] = count($data['product_comments']);
+        $data['product_images']= $this->store_model->getProductPics();
+        $this->load->view('templates/sellerHeader', $data);
+        $this->load->view('user/itemview',$data);
+			$this->load->view('user/itemview',$data );
+			$this->load->view('templates/sellerHeader');
 		}
 		else
 		{
+
+  if (isset($_POST['complete'])) {
+$data['pic_progress'] = '';
+$data['product_id'] = '';
+if($_POST['product_id'])
+{
+  $product_id = $_POST['product_id'] ;
+}
+
+ $this->load->model('store_model');
+
+        $data = array();
+         $user_id=$this->session->userdata('id');
+
+        $data['list'] = $this->store_model->get_data();
+        $data['products'] = $this->store_model->get_data();
+        $data['product_count'] = count($data['products']);
+        $data['product_comments'] = $this->store_model->get_product_comments();
+        $data['comment_count'] = count($data['product_comments']);
+        $data['product_comment_pics']= $this->store_model->getProductPics();
+        $data['comment_user']= $this->store_model->get_comment_users();
+        $data['product_id']= $product_id;
+        $this->load->view('templates/sellerHeader', $data);
+
+
+        $this->load->view('templates/sellerHeader', $data);
+        $data['title'] = 'Item View';
+  
+        $data['comment_count'] = count($data['product_comments']);
+        $data['product_images']= $this->store_model->getProductPics();
+
+    $this->load->view("user/itemview", $data);
+  //  $this->load->view('templates/footer2');
+
+
+ $data['notify_message'] =  'Product Successfully Updated';
+        // btnDelete
+    }
+    
 			$data = array('upload_data' => $this->upload->data());
 	if($data['pic_progress']='N'){
   			$product_id=$this->session->userdata('p_id');
@@ -199,13 +218,14 @@ $this->load->view('templates/sellerHeader', $data);
          }
          $data['comment_count']=$comment_count;
 
+ $data['notify_message'] =  'Picture successfully uploaded';
 $this->session->set_flashdata('fancy', 'Picture successfully uploaded');
 		$this->load->view('user/myStore', $data);
 	
 		}
 
 		return $image_data;
-	}
+	
 	}
 }
 ?>

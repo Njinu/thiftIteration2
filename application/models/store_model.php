@@ -267,7 +267,8 @@ $notify_message = array(
 $this->session->set_userdata($newdata);
 
 $data['notify_message'] =array(
-'message'=>$data['name']
+'message'=>$data['name'] +'succesfully created.'
+
 	);
 
 
