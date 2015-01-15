@@ -23,6 +23,7 @@ class thriftshop extends CI_Controller {
 
 public function wishlist(){
         $data['title'] = 'wishlist';
+        $data['wishlist'] = $this->store_model->get_wishlist();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/wishlist', $data);
         $this->load->view('templates/footer2');
@@ -141,6 +142,17 @@ public function get_filteredpage7(){
  $data['title'] = 'Lorem ipsum';
  $data['list'] = $this->store_model->get_filters7();
  $this->load->view('thriftshop/filteredpage',$data);
+}
+
+public function Add_toWishlist(){
+
+$this->load->model('store_model');
+$data = array();
+$this->store_model->addWish();
+$this->session->set_userdata('fancy', 'item has been added to your wishlist');
+redirect('thriftshop');
+
+
 }
 
 

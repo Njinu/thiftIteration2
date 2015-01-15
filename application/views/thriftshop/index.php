@@ -1,4 +1,25 @@
+ <?php if($this->session->flashdata('fancy') != "") { ?>
+
+
+
+<script type="text/javascript">
+
+   $(document).ready(
+    function(){
+
+      $( "#notify" ).click();
+        // $.fancybox('<div style="height: 90px;padding-left:20px;padding-right:20px;line-height: 90px;color:#2980b9"><?php echo $this->session->flashdata('fancy') ?></div>');
+    
+        
+
+    });
+
+
+
+   </script>
+<?php } ?>
     <!--Filters Modal-->
+     
     <div class="modal fade" id="filterModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -54,7 +75,7 @@
             <a href="#">iPad cases</a> -->
           </div>
           <div class="row">
-
+<input type="hidden" id="notify" data-toggle="modal" data-target="#myModal" />
             <!--Filters-->
             <div class="filters-mobile col-lg-3 col-md-3 col-sm-4">
             	<div class="shop-filters">
@@ -201,10 +222,17 @@
                                       <span></span>
                                     </div>
                                     <!--Add To Cart Button-->
-                                    <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                     <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm', 'name' => 'WishlistForm'); ?>
+                                     <?php echo form_open('thriftshop/Add_toWishlist',$attributes10) ?>
+
+                                    <a onclick="addWish('<?php echo $filter['product_id'] ?>')" href="#"  class="add-cart-btn"><span>to Wishlist</span><i class="fa fa-tree"></i></a>
+                                     <input type="text" style="visibility:hidden" name="productid" id="productid" value= '<?php echo $filter['id'] ?>'>
+                                     <input type="submit" style="visibility:hidden" id="toWish" name="toWish" href="#" value=""/>
+                                  </form>
                                     <!--Share Button-->
                                     <div class="share-btn">
                                       <div class="hover-state">
+
                                         <a class="fa fa-facebook-square" href="#"></a>
                                         <a class="fa fa-twitter-square" href="#"></a>
                                         <a class="fa fa-google-plus-square" href="#"></a>
@@ -212,10 +240,10 @@
                                       <i class="fa fa-share"></i>
                                     </div>
                                     <!--Add To Wishlist Button-->
-                                    <a class="wishlist-btn" href="#">
+                                   <!--  <a class="wishlist-btn" href="#">
                                       <div class="hover-state">Wishlist</div>
                                       <i class="fa fa-plus"></i>
-                                    </a>
+                                    </a> -->
                                   </div>
                                 </div>
                               </div>
@@ -224,6 +252,9 @@
                           <?php endforeach ?>
                         </div>
                       </div>
+
+      
+
                       <!--Pagination-->
                       <ul class="pagination">
                         <li class="prev-page"><a class="fa fa-arrow-circle-left" href="#"></a></li>
@@ -377,10 +408,17 @@
 
   <script type="text/javascript">
 
+  function addWish(prodid)
+  {
+     $('#productid').val(prodid);
+   $("#toWish").click();
+
+  }
+
   function performfilter()
   {
     $("#pricefilter").click();
-    $("#thepricefilter").attr("onclick","performfilter2()");  
+   
   }
 
   function performfilterclean()
@@ -605,3 +643,45 @@ $('form#filterform7').submit(function(e) {
 });
 
 </script>
+
+<script type="text/javascript">
+
+$('form#WishlistForm').submit(function(e) {
+
+  var form = $(this);
+
+  
+
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/Add_toWishlist'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+    $( "#notify" ).click();
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 50%;margin-top: 30%;margin-left: 20%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+      </div>
+
+      <div class="modal-body">
+       Added to your Wishlist
+      </div>
+     
+    </div>
+  </div>
+</div>

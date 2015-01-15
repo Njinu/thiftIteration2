@@ -30,49 +30,23 @@
                   <th>Product name</th>
                   <th>Product price</th>
                 </tr>
+               
+                <?php foreach ($wishlist as $filter): $newitemdate = $filter['name'];?>
                 <!--Item-->
                 <tr class="item first">
-                	<td class="thumb"><a href="shop-single-item-v1.html"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikon D4S"/></a></td>
-                  <td class="name"><a href="shop-single-item-v1.html">Nikon D4S</a></td>
-                  <td class="price">715,00 $</td>
+                	<td class="thumb"><a href="shop-single-item-v1.html"><a href="thriftshop/<?php echo $filter['slug'] ?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a></td>
+                  <td class="name"><a href="shop-single-item-v1.html"><?php echo $filter['name']; ?></a></td>
+                  <td class="price">R <?php echo $filter['price']; ?></td>
                   
                   <td class="delete"><i class="fa fa-times"></i></td>
                 </tr>
                 <!--Item-->
-                <tr class="item first">
-                	<td class="thumb"><a href="shop-single-item-v1.html"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikkor 11-27.5"/></a></td>
-                  <td class="name"><a href="shop-single-item-v1.html">Nikkor</a></td>
-                  <td class="price">715,00 $</td>
-                 
-                  <td class="delete"><i class="fa fa-times"></i></td>
-                </tr>
-                <!--Item-->
-                <tr class="item first">
-                	<td class="thumb"><a href="shop-single-item-v1.html"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikon D4S"/></a></td>
-                  <td class="name"><a href="shop-single-item-v1.html">Nikon D4S</a></td>
-                  <td class="price">715,00 $</td>
-                  
-                  <td class="delete"><i class="fa fa-times"></i></td>
-                </tr>
-                <!--Item-->
-                <tr class="item first">
-                	<td class="thumb"><a href="shop-single-item-v1.html"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikkor 11-27.5"/></a></td>
-                  <td class="name"><a href="shop-single-item-v1.html">Nikkor</a></td>
-                  <td class="price">715,00 $</td>
-                 
-                  <td class="delete"><i class="fa fa-times"></i></td>
-                </tr>
-                <!--Item-->
-                <tr class="item first">
-                	<td class="thumb"><a href="shop-single-item-v1.html"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="Nikon D4S"/></a></td>
-                  <td class="name"><a href="shop-single-item-v1.html">Nikon D4S</a></td>
-                  <td class="price">715,00 $</td>
-                  
-                  <td class="delete"><i class="fa fa-times"></i></td>
-                </tr>
+                          <?php endforeach ?>
+                
+              
               </table>
             </div>
-            
+            `
             <!--Sidebar-->
             <div class="col-lg-3 col-md-3">
               <h3>Have a coupon?</h3>
