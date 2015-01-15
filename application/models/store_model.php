@@ -308,6 +308,7 @@ class Store_model extends CI_Model {
 
 		$this->session->set_userdata($newdata);
 
+
 		$data['notify_message'] =array(
 			'message'=>$data['name']
 			);

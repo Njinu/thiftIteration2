@@ -171,7 +171,7 @@ $(document).on( "click", '#editbutton2',function(e) {
                         <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/myStore"><i class="fa fa-fw fa-dashboard"></i> Add a post</a>
                     </li>
                     <li class="active">
-                        <a class="myactive" style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_item_view"><i class="fa fa-fw fa-edit"></i> Edit Posts</a>
+                        <a class="myactive" style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_item_view"><i class="fa fa-fw fa-edit"></i> All Posts</a>
                     </li>
                     <li>
                         <a style="padding-top: 20.5px;" href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Views</a>
@@ -207,7 +207,7 @@ $(document).on( "click", '#editbutton2',function(e) {
  <div class="" style="border-bottom: 1px solid rgba(96,96,96,0.1);">
 
     <div class="container col-lg-12" style="background-color:ghostwhite;">
-      <section id="grid" class="grid clearfix">
+      <section id="grid" class="grid clearfix" style="background-color: gainsboro;min-height: 40%;">
 
 <?php $int = 0 ?>
 <?php foreach ($list as $calendar_item): $newitemdate = $calendar_item['date_created']; $findsummary =  $calendar_item['description'];  ?>
@@ -312,9 +312,9 @@ foreach ($product_images as $image) {
             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
             <figcaption>
               <h2><?php echo $calendar_item['name'] ?></h2>
-  <p>Price:<?php echo $calendar_item['price'] ?>.</p>
-<button onclick="" data-toggle="modal" data-target='#<?php echo 'pic_edt'. $calendar_item['id'] ?>' id="editbutton">Manage Pics</button></br></br></br>           
-               <button onclick="" data-toggle="modal" data-target='#<?php echo $int ?>ModalEdit' id="editbutton">Edit Details</button>
+  <p style="text-align:left; font-weight:bold;">Price:<?php echo $calendar_item['price'] ?>.</p>
+<button style="border-radius: 3px 0 0px 3px; background-color:deepskyblue; color:white;"onclick="" data-toggle="modal" data-target='#<?php echo 'pic_edt'. $calendar_item['id'] ?>' id="editbutton">Manage Pics</button></br></br></br>           
+               <button style="border-radius: 3px 0 0px 3px;background-color:deepskyblue; color:white;"onclick="" data-toggle="modal" data-target='#<?php echo $int ?>ModalEdit' id="editbutton">Edit Details</button>
             </figcaption>
           </figure>
         </a>
@@ -418,7 +418,7 @@ foreach ($product_images as $image) {
     if(($image['product_id'])==$pos){
 ?>
 <div style="float:left;">
-<input type='checkbox'  style="float:left;    height: 50px;width: 50px;   position: absolute; opacity:0;
+<input type='checkbox'  style="float:left;    height: 50px;width: 50px;   position: absolute; opacity:0.6; height:45px; widh:50px;
 }   "name='<?php echo 'delete_pic[]'?>' value='<?php echo $image['id']?>' id="image_checkbox"/><label for="image_checkbox" 
 style="background: transparent url(<?php echo base_url().'uploads/'.$image['pic_id']?>) no-repeat 0 50%; width: 50px; height: 50px;
 background-size: 50px 50px;" >
@@ -499,13 +499,7 @@ Advert here
                 <div class="col-md-3 " style="">
 
                 </div>
-<!-- grid 
 
-
-
-
-  !-->
-   
     <script>
       (function() {
   

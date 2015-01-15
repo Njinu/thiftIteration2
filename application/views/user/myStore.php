@@ -115,7 +115,7 @@
                         <a style="padding-top: 20.5px;"class="myactive" href="<?php echo base_url(); ?>index.php/user/myStore"><i class="fa fa-fw fa-dashboard"></i> Add a post</a>
                     </li>
                     <li>
-                        <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_item_view"><i class="fa fa-fw fa-edit"></i> Edit Posts</a>
+                        <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_item_view"><i class="fa fa-fw fa-edit"></i> All Posts</a>
                     </li>
                     <li>
                         <a style="padding-top: 20.5px;" href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Views</a>
@@ -151,8 +151,9 @@
                                  <?php  echo "Successfull"?>
    
                           </div>
-                         <p> <?php echo $notify_message . " added to products </br>
-                         you now have: $product_count active products" ?></p>
+                         <p> <?php echo $notify_message . " </br>
+                        $product_count active products";
+                         $notify_message=""; ?></p>
                        </div>
             
 
@@ -319,11 +320,12 @@
 
                  <h4 style=" width:100%;">  Upload a picture</h4>
 
-<input type="file" name="userfile" size="20" />
+<input type="file" style="width:45%; float:left;" name="userfile" size="20" />
 
-<br /><br />
 
-<input type="submit" value="Upload" />
+
+<button style="color: #fff;font-size:15px; font-weight:bold;background-color: #2ba8db; float:right;border:0px; width:200px; " class="btn btn-primary" type="submit" id="sender">Submit</button>
+
 
 </form>
                <?php 
@@ -331,10 +333,10 @@
         echo form_open_multipart('upload/do_upload',array('id'=>'upload', 'class'=>'upload_one'));
                 
               ?>
-              <h5 style=" width:100%;">  Upload another picture</h5>
+              <h4 style=" width:100%;">  Upload another picture</h4>
 
               <input type="hidden" value="<?php echo $product_id; ?>" name="product_id" />
-<input type="file" Name="userfile" size="20" />
+<input type="file" style="width:50%;" Name="userfile" size="20" />
 <?php
 foreach ($prev_pic as $pic ) {
    echo' <img class= '.'"'."small_pic".'"'.' style="width:50px; height:50px;  "src="'. base_url().'uploads/'.$pic['pic_id'].'"'.' class= '.'"'.' p_imger'.$image['product_id'].'"'.'>';
@@ -343,8 +345,12 @@ foreach ($prev_pic as $pic ) {
  ?>
 <h5 style="font-size:smaller; width:100%;float:right"> press complete to finish</h5>
     
-<input style= "float:right; padding:2px;margin:2px;"type="submit" value="Complete" name="complete" />
-<input style= "float:right; padding:2px; margin:2px;"type="submit" value="Upload" />
+
+
+<button style="color: #fff;font-size:15px; font-weight:bold;background-color: #2ba8db; float:left;border:0px; width:200px; " class="btn btn-primary" type="submit" id="sender">Upload</button>
+
+<button style="color: #fff;font-size:15px; font-weight:bold;background-color: #5cb85c; float:right;border:0px; width:200px; " class="btn btn-primary" type="submit" id="sender" value="Complete" name="complete">Complete</button>
+
 
 <script>
  $( "#complete" ).submit(function() {
