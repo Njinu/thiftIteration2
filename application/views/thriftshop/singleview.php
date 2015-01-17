@@ -22,39 +22,14 @@
           
           	<!--Product Gallery-->
             <div class="col-lg-6 col-md-6">
-            	<div class="prod-gal master-slider" id="prod-gal">
-              	<!--Slide1-->
-                <div class="ms-slide">
-                	<img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="Lorem ipsum"/>
-                  <img class="ms-thumb" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="thumb" />
-                </div>
-              	<!--Slide2-->
-                <div class="ms-slide">
-                	<img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' data-src="img/catalog/product-gallery/2.jpg" alt="Lorem ipsum"/>
-                  <img class="ms-thumb" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="thumb" />
-                </div>
-              	<!--Slide3-->
-                <div class="ms-slide">
-                	<img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="Lorem ipsum"/>
-                  <img class="ms-thumb" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="thumb" />
-                </div>
-              	<!--Slide4-->
-                <div class="ms-slide">
-                	<img src="../masterslider/blank.gif" data-src="img/catalog/product-gallery/4.jpg" alt="Lorem ipsum"/>
-                  <img class="ms-thumb" src="img/catalog/product-gallery/th_4.jpg" alt="thumb" />
-                </div>
-              	<!--Slide5-->
-                <div class="ms-slide">
-                	<img src="../masterslider/blank.gif" data-src="img/catalog/product-gallery/5.jpg" alt="Lorem ipsum"/>
-                  <img class="ms-thumb" src="img/catalog/product-gallery/th_5.jpg" alt="thumb" />
-                </div>
-              </div>
+            	
+              <img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' class="img-responsive" alt="Responsive image">
             </div>
             
             <!--Product Description-->
             <div class="col-lg-6 col-md-6">
               <h1><?php echo  $filter['name']; ?></h1>
-              <?php print_r($filter) ?>
+             <!--  <?php print_r($filter) ?> -->
               <div class="rate">
                 <span class="active"></span>
                 <span class="active"></span>
