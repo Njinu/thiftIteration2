@@ -25,18 +25,18 @@
             	<div class="prod-gal master-slider" id="prod-gal">
               	<!--Slide1-->
                 <div class="ms-slide">
-                	<img src="../masterslider/blank.gif" data-src="img/catalog/product-gallery/1.jpg" alt="Lorem ipsum"/>
-                  <img class="ms-thumb" src="img/catalog/product-gallery/th_1.jpg" alt="thumb" />
+                	<img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="Lorem ipsum"/>
+                  <img class="ms-thumb" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="thumb" />
                 </div>
               	<!--Slide2-->
                 <div class="ms-slide">
-                	<img src="../masterslider/blank.gif" data-src="img/catalog/product-gallery/2.jpg" alt="Lorem ipsum"/>
-                  <img class="ms-thumb" src="img/catalog/product-gallery/th_2.jpg" alt="thumb" />
+                	<img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' data-src="img/catalog/product-gallery/2.jpg" alt="Lorem ipsum"/>
+                  <img class="ms-thumb" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="thumb" />
                 </div>
               	<!--Slide3-->
                 <div class="ms-slide">
-                	<img src="../masterslider/blank.gif" data-src="img/catalog/product-gallery/3.jpg" alt="Lorem ipsum"/>
-                  <img class="ms-thumb" src="img/catalog/product-gallery/th_3.jpg" alt="thumb" />
+                	<img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="Lorem ipsum"/>
+                  <img class="ms-thumb" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="thumb" />
                 </div>
               	<!--Slide4-->
                 <div class="ms-slide">
@@ -53,7 +53,8 @@
             
             <!--Product Description-->
             <div class="col-lg-6 col-md-6">
-              <h1><?php echo  $product['name']; ?></h1>
+              <h1><?php echo  $filter['name']; ?></h1>
+              <?php print_r($filter) ?>
               <div class="rate">
                 <span class="active"></span>
                 <span class="active"></span>
@@ -61,8 +62,8 @@
                 <span></span>
                 <span></span>
               </div>
-              <div class="old-price">815,00 $</div>
-              <div class="price">715,00 $</div>
+             <!--  <div class="old-price">815,00 $</div> -->
+              <div class="price">R <?php echo  $filter['price']; ?></div>
               <div class="buttons group">
                 <div class="qnt-count">
                   <a class="incr-btn" href="#">-</a>
@@ -72,10 +73,10 @@
                 <a class="btn btn-primary btn-sm" id="addItemToCart" href="#"><i class="icon-shopping-cart"></i>Add to cart</a>
                 <a class="btn btn-success btn-sm" href="#"><i class="icon-heart"></i>Add to wishlist</a>
               </div>
-              <p class="p-style2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+              <p class="p-style2"><?php echo  $filter['description']; ?></p>
               <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-5">
-                  <h3>Tell friedns</h3>
+                  <h3>Tell Friends</h3>
                   <div class="social-links">
                     <a href="#"><i class="fa fa-tumblr-square"></i></a>
                     <a href="#"><i class="fa fa-pinterest-square"></i></a>

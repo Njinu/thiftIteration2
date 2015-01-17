@@ -30,7 +30,22 @@
                   <th>Product name</th>
                   <th>Product price</th>
                 </tr>
-               
+              <!--  <?php print_r($wishlist) ?> -->
+              <?php if(!$wishlist) {
+
+?>
+
+
+<script type="text/javascript">
+$( document ).ready(function() {
+   $("#trigermodal").click();
+});
+
+</script>
+<?php
+
+              }else {?>
+
                 <?php foreach ($wishlist as $filter): $newitemdate = $filter['name'];?>
                 <!--Item-->
                 <tr class="item first">
@@ -38,21 +53,23 @@
                   <td class="name"><a href="shop-single-item-v1.html"><?php echo $filter['name']; ?></a></td>
                   <td class="price">R <?php echo $filter['price']; ?></td>
                   
-                  <td class="delete"><i class="fa fa-times"></i></td>
+                  <td onclick="deletewish('<?php echo $filter['product_id'] ?>')" class="delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times"></i></td>
                 </tr>
                 <!--Item-->
                           <?php endforeach ?>
-                
+                <?php } ?>
               
               </table>
             </div>
-            `
+            
             <!--Sidebar-->
             <div class="col-lg-3 col-md-3">
               <h3>Have a coupon?</h3>
               <form class="coupon" name="coupon-code" method="post">
                 <div class="form-group">
                   <label class="sr-only" for="coupon-code">Enter coupon code</label>
+                  <button type="button" style="display:none" id="trigermodal"  data-toggle="modal" data-target="#myModal2"></button>
+            
                   <input type="text" class="form-control" id="coupon-code" name="coupon-code" placeholder="Enter coupon code">
                 </div>
                 <input type="submit" class="btn btn-primary btn-sm btn-block" name="apply-coupon" value="Apply coupon">
@@ -302,3 +319,53 @@
       </div>
     </section><!--Subscription Widget Close-->
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+      </div>
+
+      <div class="modal-body">
+       Do you wish do delete this item?
+      </div>
+
+      <div class="modal-footer">
+         <?php echo form_open('thriftshop/deletefromwish') ?>
+         <input type="hidden" id="theproductid" name="theproductid" value="" />
+        <button type="submit" class="btn btn-default" >Yes</button>
+        <button type="button" onclick="location.reload()" class="btn btn-primary" data-dismiss="modal">No</button>
+      </form>
+        
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 50%;margin-top: 30%;margin-left: 20%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+      </div>
+
+      <div class="modal-body">
+      There are no items in your wishlist
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+ function deletewish(prodid)
+  {
+     $('#theproductid').val(prodid);
+
+  }
+</script>

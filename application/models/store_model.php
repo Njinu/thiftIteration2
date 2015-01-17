@@ -6,6 +6,12 @@ class Store_model extends CI_Model {
 		$this->load->database();
 	}
 
+	public function deletefromwish(){
+		$id = $this->input->post('theproductid');
+		$this->db->where('product_id', $id);
+		$this->db->delete('wishlist'); 
+	}
+
 	public function get_products($slug = FALSE)
 	{
 		if ($slug === FALSE)
@@ -82,8 +88,13 @@ class Store_model extends CI_Model {
 			return $query->result_array();
 		}
 
-		$query = $this->db->get_where('product', array('slug' => $slug));
+		$this->db->where('product.slug ',$slug);
 
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
 		return $query->row_array();
 	}
 
@@ -183,6 +194,116 @@ class Store_model extends CI_Model {
 
 	function get_filtersLatest(){
 
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterflats(){
+		$this->db->where('category','accomodation');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterMiscellaneous(){
+		$this->db->where('category','Miscellaneous');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterJobs(){
+		$this->db->where('category','jobs');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterBooks(){
+		$this->db->where('category','books');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterTutoring(){
+		$this->db->where('category','tutoring');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterfurniture(){
+		$this->db->where('category','furniture');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterSportingGoods(){
+		$this->db->where('category','SportingGoods');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterelectronics(){
+		$this->db->where('category','electronics');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filtervehicles(){
+		$this->db->where('category','vehicles');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filtercompetitions(){
+		$this->db->where('category','competitions');
 		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');

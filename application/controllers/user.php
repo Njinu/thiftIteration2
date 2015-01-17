@@ -202,8 +202,7 @@ else
 			$this->load->model('Model_users');
 			$data['title'] = 'Profile';
 			$data['me'] = $this->Model_users->getme();
-						
-			
+									
 			$this->load->view('templates/header2',$data);
 			$this->load->view('user/profile',$data);
 			$this->load->view('templates/footer2');
