@@ -26,6 +26,16 @@ class Store_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	public function get_seller($id)
+	{
+		$this->db->where('product.id ',$id);
+		$query = $this->db->select()->from('sellers');	
+		$query = $this->db->join('product', 'product.seller_id = sellers.seller_id','left');
+		$this->db->group_by('sellers.seller_id');
+		$query = $this->db->get();
+		return $query->row_array();
+	}
+
 	public function get_data(){
 
 		$type = $this->input->post('type');
@@ -344,6 +354,22 @@ class Store_model extends CI_Model {
 		$this->db->where('seller_id',$this->session->userdata('id'));
 		$query1 = $this->db->select()->from('comment')->get();
 		return $query1->result_array();
+	}
+
+	public function get_theproduct_comments($id){
+
+		$this->db->where('comment.product_id ',$id);
+
+		$this->db->order_by("comment.comment_id", "desc");		
+		$query = $this->db->select()->from('comment');	
+		$query = $this->db->join('userprofile', 'comment.user_id = userprofile.id','left');
+		$this->db->group_by('comment.comment_id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+
+
+		
 	}
 
 

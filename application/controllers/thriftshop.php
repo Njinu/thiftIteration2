@@ -135,9 +135,11 @@ public function singleview(){
         $this->load->view('templates/footer2');
 }
 
-public function view($slug)
+public function view($slug,$id)
   {
     $data['filter'] = $this->store_model->get_product($slug);
+    $data['comments'] = $this->store_model->get_theproduct_comments($id);
+       $data['seller'] = $this->store_model->get_seller($id);
 
       $this->load->helper('form');
       $this->load->library('form_validation');
