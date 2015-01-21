@@ -266,6 +266,78 @@ function NextStep() {
 
         <script>
             new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
-        </script>
-    
+                 </script>
+
+            <?php if($me['name'] or $this->session->userdata('id')){?>
+
+<script type="text/javascript">
+var pathname = window.location.pathname; // Returns path only
+var url      = window.location.href;  
+analytics.identify(<?php echo ("'".$me['id']."'"); ?>,
+{
+  name: <?php echo ("'".$me['firstname'].' '.$me['lastname']."'"); ?>,
+  email: <?php echo ("'".$me['email']."'"); ?>,
+  page :pathname
+});
+</script>
+
+<?php
+
+$getme=$_POST['anonymousId'];
+if($getme!=""){
+     $data['id'] = $getme;
+
+
+?>
+
+
+<?php }?>
+
+
+
+            <?php
+
+          }else{
+
+
+
+          }
+
+
+           ?>
+
+<form>
+  <input type="text" value="<?php echo $me['firstname']  ?>" > </input>
+  <input type="text" value="<?php echo $me['lastname']  ?>" > </input>
+  <input type="text" value="<?php echo $me['lastname']  ?>" > </input>
+
+</form>
+   
+<script type="text/javascript">
+
+ // $('form#filterform').submit(function(e) {
+
+   // var form = $(this);
+
+    //e.preventDefault();
+
+    $.ajax({
+      type: "POST",
+      url: "<?php echo site_url('thriftshop/get_filteredpage'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+        var container = $('#filtertable'); //jquery selector (get element by id)
+        if(data){
+          container.html(data);
+        }
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+  });
+
+  </script>   
+
+  
   </body><!--Body Close-->

@@ -1,5 +1,7 @@
-    <?php if($this->session->flashdata('fancy') != "") { ?>
 
+
+
+    <?php if($this->session->flashdata('fancy') != "") { ?>
 
 
 <script type="text/javascript">

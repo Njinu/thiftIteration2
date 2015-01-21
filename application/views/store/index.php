@@ -303,7 +303,7 @@
        $('.google_name').html(' ' + fName +' '+lName + '    ');
      // check if user is registered here
       $.ajax({
-      url: "<?=base_url()?>.index.php/user/gmail_exists",
+      url: "<?php =base_url()?>.index.php/user/gmail_exists",
        type: 'POST',
        data: {"googleId":googleId},
       // dataType:"json", 

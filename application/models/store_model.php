@@ -277,16 +277,22 @@ $this->session->set_userdata($newdata);
    return  $insert_id;
 }
 
+public function insert_view($data){
+	$id=$_POST['anonymousId'];
+	
+
+
+		$this->db->trans_start();
+		$this->db->insert('viewtest',$data);
+		$insert_id = $this->db->insert_id();
+		$this->db->trans_complete();
+
+
+}
 	public function set_ProductPicture($data)
 	{
 
-
-//echo "HEY!!". $data['product_id'];
-
-
 		$this->db->insert('product_images',$data);
-		//get prod pics
-
 
         	$this->db->where('product_id',$data['product_id']);
         	$query1 = $this->db->select()->from('product_images')->get();

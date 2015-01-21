@@ -106,6 +106,16 @@
         $this->load->view('user/itemview',$data);        
  }
 
+function reciever(){
+    $getme=$_POST['anonymousId'];
+ $getme=$id=$thid->input->post('anonymousId');
+     $data['id'] = $getme;
+    $this->load->view('templates/header2', $data);
+        $this->load->view('user/reciever',$data);
+            $this->load->view('templates/footer2', $data);
+            $this->store_model->insert_view($data);
+
+}
 
     function get_item_view(){
 $productId=$this->uri->segment(3);
@@ -195,6 +205,7 @@ else
 		{
 			$this->login();
 			$this->load->view('templates/header');
+            $this->load->model('store_model');
 		}
 		
 		public function profile()
