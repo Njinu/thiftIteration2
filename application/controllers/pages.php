@@ -12,7 +12,7 @@ class Pages extends CI_Controller {
 		// Whoops, we don't have a page for that!
 		show_404();
 		}
-		
+		$this->load->model('store_model');
 		$data['title'] = ucfirst($page); // Capitalize the first letter
   $this->load->model('fb_model');
 		$this->load->library('facebook');
@@ -20,6 +20,7 @@ class Pages extends CI_Controller {
         $data['user_me'] =  $this->facebook->get_user();
         $userinfo = $this->facebook->get_user();
         $data['logout_url'] = $this->facebook->get_logout_url();
+        $data['categories2'] = $this->store_model->get_categories();
         
         $data['get_picture'] =  $this->facebook->get_pic();
         

@@ -124,9 +124,9 @@
           <!--Item-->
           <div class="col-md-4 col-sm-6 space-bottom">
             <div class="row">
-              <div class="col-md-3 col-sm-4 featured-icon"><i class="icon icon-boat"></i></div>
+              <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-user"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
-                <h3>Free shipping</h3>
+                <h3>Name</h3>
                 <p><?php echo $seller['first_name'] ?></p>
               </div>
             </div>
@@ -134,56 +134,55 @@
           <!--Item-->
           <div class="col-md-4 col-sm-6 space-bottom">
             <div class="row">
-              <div class="col-md-3 col-sm-4 featured-icon"><i class="icon icon-ticket"></i></div>
+              <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-thumbs-o-up"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
-                <h3>Up to 30% off!</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                <h3>Likes</h3>
+                <p><?php echo $seller['likes'] ?></p>
               </div>
             </div>
           </div>
           <!--Item-->
           <div class="col-md-4 col-sm-6 space-bottom">
             <div class="row">
-              <div class="col-md-3 col-sm-4 featured-icon"><i class="icon icon-clock"></i></div>
+              <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-thumbs-o-down"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
-                <h3>24h Customer Srvice</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                <h3>Dislikes</h3>
+                <p><?php echo $seller['dislikes'] ?></p>
               </div>
             </div>
           </div>
           <!--Item-->
+        <div class="col-md-4 col-sm-6 space-bottom">
+            <div class="row">
+              <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-book"></i></div>
+              <div class="col-md-9 col-sm-8 text-center-mobile">
+                <h3>Bio</h3>
+                <p><?php echo $seller['bio'] ?></p>
+              </div>
+            </div>
+          </div>
+          <!--Item-->
+         <div class="col-md-4 col-sm-6 space-bottom">
+            <div class="row">
+              <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-user"></i></div>
+              <div class="col-md-9 col-sm-8 text-center-mobile">
+                <h3>Name</h3>
+                <p><?php echo $seller['first_name'] ?></p>
+              </div>
+            </div>
+          </div>
+          
+        <!--Item-->
           <div class="col-md-4 col-sm-6 space-bottom">
             <div class="row">
-              <div class="col-md-3 col-sm-4 featured-icon"><i class="icon icon-heart"></i></div>
+              <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-book"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
                 <h3>Personalised gifts</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
               </div>
             </div>
           </div>
-          
-          <div class="clearfix visible-sm"></div>
-          
-          <!--Item-->
-          <div class="col-md-4 col-sm-6 space-bottom">
-            <div class="row">
-              <div class="col-md-3 col-sm-4 featured-icon"><i class="icon icon-sunny"></i></div>
-              <div class="col-md-9 col-sm-8 text-center-mobile">
-                <h3>New summer collection</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-              </div>
-            </div>
-          </div>
-          <!--Item-->
-          <div class="col-md-4 col-sm-6 space-bottom">
-            <div class="row">
-              <div class="col-md-3 col-sm-4 featured-icon"><i class="icon icon-tshirt"></i></div>
-              <div class="col-md-9 col-sm-8 text-center-mobile">
-                <h3>Style for every budget</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-              </div>
-            </div>
-          </div>
+        
         </div>
       </section><!--Delivery Info Close-->
               	

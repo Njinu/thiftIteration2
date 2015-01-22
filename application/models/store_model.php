@@ -36,6 +36,15 @@ class Store_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	public function get_categories()
+	{
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id ','left');
+		$this->db->group_by('product.category');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 	public function get_data(){
 
 		$type = $this->input->post('type');

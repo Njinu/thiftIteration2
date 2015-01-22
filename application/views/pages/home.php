@@ -63,48 +63,20 @@
         <div class="container">
             <h2>Browse categories</h2>
             <div class="row">
+                
+                <?php foreach ($categories2 as $category): $newitemdate = 0; ?>
+             
                 <!--Category-->
                 <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
                     <a href="#">
-                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/>
-                        <p>Category name</p>
+                        <img src='<?php echo base_url();?>uploads/<?php echo $category['pic_id'] ?>' alt="1"/>
+                        <p><?php echo $category['name'] ?></p>
                     </a>
                 </div>
-                <!--Category-->
-                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <a href="#">
-                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/>
-                        <p>Category name</p>
-                    </a>
-                </div>
-                <!--Category-->
-                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <a href="#">
-                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/>
-                        <p>Category name</p>
-                    </a>
-                </div>
-                <!--Category-->
-                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <a href="#">
-                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/>
-                        <p>Category name</p>
-                    </a>
-                </div>
-                <!--Category-->
-                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <a href="#">
-                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
-                        <p>Category name</p>
-                    </a>
-                </div>
-                <!--Category-->
-                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <a href="#">
-                        <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
-                        <p>Category name</p>
-                    </a>
-                </div>
+        
+              <?php endforeach ?>
+             
+          
             </div>
         </div>
     </section><!--Categories Close-->
