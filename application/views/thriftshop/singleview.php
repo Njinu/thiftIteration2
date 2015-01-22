@@ -23,7 +23,7 @@
           	<!--Product Gallery-->
             <div class="col-lg-6 col-md-6">
             	
-              <img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' class="img-responsive" alt="Responsive image">
+              <img onclick="fbs_click(this)" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' class="img-responsive" alt="Responsive image">
             </div>
             
             <!--Product Description-->
@@ -46,8 +46,8 @@
                   <h3>Tell Friends</h3>
                   <div class="social-links">
                     <a href="#"><i class="fa fa-tumblr-square"></i></a>
-                    <a href="#"><i class="fa fa-pinterest-square"></i></a>
-                    <a href="#"><i class="fa fa-facebook-square"></i></a>
+                   <!--  <a href="#"><i class="fa fa-pinterest-square"></i></a> -->
+                    <a onclick="fbs_click(this)"><i class="fa fa-facebook-square"></i></a>
                   </div>
                 </div>
                
@@ -226,6 +226,15 @@
     </div><!--Sticky Buttons Close-->
     
     <!--Subscription Widget-->
+
+    <script>
+function fbs_click(TheImg) {
+   u=TheImg;
+     // t=document.title;
+     t=TheImg.getAttribute('alt');
+     window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;
+ }
+ </script>
 
     <script type="text/javascript">
 
