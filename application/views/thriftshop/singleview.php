@@ -127,7 +127,7 @@
               <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-user"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
                 <h3>Name</h3>
-                <p><?php echo $seller['first_name'] ?></p>
+                <p><?php echo ucfirst($seller['first_name']) ?></p>
               </div>
             </div>
           </div>
@@ -137,7 +137,7 @@
               <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-thumbs-o-up"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
                 <h3>Likes</h3>
-                <p><?php echo $seller['likes'] ?></p>
+                <p><span class="badge" ><?php echo $seller['likes'] ?></span></p>
               </div>
             </div>
           </div>
@@ -147,7 +147,7 @@
               <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-thumbs-o-down"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
                 <h3>Dislikes</h3>
-                <p><?php echo $seller['dislikes'] ?></p>
+                <p><span class="badge"><?php echo $seller['dislikes'] ?></span></p>
               </div>
             </div>
           </div>

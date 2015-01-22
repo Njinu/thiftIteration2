@@ -279,7 +279,18 @@
  </br>
               <div class="form-group"> 
                 <label>Category</label> 
-                <input type="text" class="form-control" id="ItemCategory"  name="ItemCategory" placeholder="Enter Item Category">
+               <select class="form-control">
+    <option value="Accomodation">Accomodation</option>
+    <option value="Furniture">Furniture</option>
+    <option value="Miscellaneous">Miscellaneous</option>
+    <option value="Jobs">Jobs</option>
+    <option value="Books">Books</option>
+    <option value="Tutotoring">Tutotoring</option>
+    <option value="Sporting-Goods">Sporting Goods</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Vehicles">Vehicles</option>
+    <option value="Competitions">Competitions</option>
+</select>
               </div>
  </br>
 

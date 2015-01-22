@@ -175,6 +175,17 @@ public function view($slug,$id)
     
   }
 
+ 
+
+  public function ShopSearch(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filterSearchHD();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+
 public function shop(){
         $data['title'] = 'filter';
         $this->load->view('templates/header2', $data);

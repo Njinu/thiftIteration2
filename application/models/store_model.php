@@ -163,6 +163,8 @@ class Store_model extends CI_Model {
 
 	}
 
+
+
 	public function get_filters4(){
 
 
@@ -221,6 +223,20 @@ class Store_model extends CI_Model {
 		return $query->result_array();
 
 	}
+
+
+	function get_filterSearchHD(){
+		$searchterm = $this->input->post('search-hd');
+		$this->db->like('name',$searchterm);
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
 
 	function get_filterflats(){
 		$this->db->where('category','accomodation');

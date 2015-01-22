@@ -180,7 +180,9 @@
         <header data-offset-top="500" data-stuck="600"><!--data-offset-top is when header converts to small variant and data-stuck when it becomes visible. Values in px represent position of scroll from top. Make sure there is at least 100px between those two values for smooth animation-->
 
           <!--Search Form-->
-          <form class="search-form closed" method="get" role="form" autocomplete="off">
+           <?php $attributes10 = array('name' => 'SearchForm', 'id' => 'SearchForm','class'=>'search-form closed'); ?>
+           <?php echo form_open('thriftshop/ShopSearch',$attributes10) ?>
+          
             <div class="container">
               <div class="close-search"><i class="fa fa-times"></i></div>
               <div class="form-group">
