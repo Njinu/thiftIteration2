@@ -45,7 +45,8 @@
                 <div class="col-lg-4 col-md-4 col-sm-5">
                   <h3>Tell Friends</h3>
                   <div class="social-links">
-                    <a href="#"><i class="fa fa-tumblr-square"></i></a>
+                 
+                    <a href="http://twitter.com/home?status=Currentlyreading <?php $_SERVER['REQUEST_URI']; ?>"><i class="fa fa-tumblr-square"></i></a>
                    <!--  <a href="#"><i class="fa fa-pinterest-square"></i></a> -->
                     <a onclick="fbs_click(this)"><i class="fa fa-facebook-square"></i></a>
                   </div>
