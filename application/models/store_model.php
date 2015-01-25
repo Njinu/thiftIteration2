@@ -491,18 +491,7 @@ class Store_model extends CI_Model {
 		return  $insert_id;
 	}
 
-public function insert_view($data){
-	$id=$_POST['anonymousId'];
-	
 
-
-		$this->db->trans_start();
-		$this->db->insert('viewtest',$data);
-		$insert_id = $this->db->insert_id();
-		$this->db->trans_complete();
-
-
-}
 	public function set_ProductPicture($data)
 	{
 
@@ -548,7 +537,15 @@ public function insert_view($data){
 
 	}
 
+public function get_product_views($product_id){
+ $one_week = date('Y/m/d H:i:s', strtotime("-7 days"));
 
+//echo $one_week;
+		$this->db->where('event_id',$product_id);
+		$this->db->where('date >=' ,$one_week);
+		$query1 = $this->db->select()->from('viewtest')->get();
+		return $query1->result_array();
+}
 
 	public function set_products()
 	{

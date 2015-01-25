@@ -1,4 +1,35 @@
 <head >
+  <?php 
+
+
+function curPageURL() {
+ $pageURL = 'http';
+ if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+ $pageURL .= "://";
+ if ($_SERVER["SERVER_PORT"] != "80") {
+  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+ } else {
+  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+ }
+ return $pageURL;
+}
+
+?>
+<?php
+function curPageName() {
+ return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
+}
+
+?>
+<script>
+
+
+$(document).ready(function(){
+var pathname = window.location.pathname; // Returns path only
+var url      = window.location.href;
+console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'+url);
+};
+</script>
 	<?php
 // Turn off error reporting
   error_reporting(0);
@@ -23,7 +54,7 @@
   }}();
 </script>
 
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <title><?php echo $title ?> - ThriftShop</title>
   <meta charset="utf-8">
   <?php echo link_tag('assets/ThriftshopTheme/css/bootstrap.css'); ?>	

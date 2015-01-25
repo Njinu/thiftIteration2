@@ -58,7 +58,21 @@ class Model_users extends CI_Model {
 			
 		return $query ;
 	}
+	public function insert_view($data){
+if(!$data){
+	$id=$_POST['log_user'];
 	
+	}
+	else{
+		$id=$data['username'];
+	}
+		$this->db->trans_start();
+		$this->db->insert('viewtest',$data);
+		$insert_id = $this->db->insert_id();
+		$this->db->trans_complete();
+
+
+}
 	public function Update_User(){
 		$id = $this->input->post('userid');
 

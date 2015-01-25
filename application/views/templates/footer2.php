@@ -1,3 +1,6 @@
+
+
+
 <!--Footer-->
     <footer class="footer">
     	<div class="container">
@@ -187,7 +190,30 @@
     </div>
   </div>
 </div>
+  
+    <?php $att = array('name' => 'logger', 'id' => 'logger','class'=>'logger'); ?>
+           <?php echo form_open('user/user_data_submit',$att) ?>
 
+  <?php
+  if($me['id']){
+  $log_id= $me['id'];
+  }
+  if($user_profile['id']){
+    $log_id= $user_profile['id'];
+  }
+  if($user_me){
+    $log_id=$user_me;
+  }
+  if($this->session->userdata('id'))
+  {
+    $log_id=$this->session->userdata('id');
+  }
+  ?>
+  <input type="hidden" id="log_user" name="log_user" value="<?php echo $log_id;  ?>" > </input> 
+  <input type="hidden" id="log_url" name="log_url" value="<?php echo basename($_SERVER['PHP_SELF']); ?>" > </input>
+ 
+</form>
+   
 <script type="text/javascript">
 function NextStep() {
 
@@ -216,6 +242,8 @@ function NextStep() {
      document.getElementById('step2').style.display = "block";
    
   }
+
+
 </script>
 
   <!--Javascript (jQuery) Libraries and Plugins-->
@@ -268,11 +296,10 @@ function NextStep() {
             new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
                  </script>
 
-            <?php if($me['name'] or $this->session->userdata('id')){?>
-
 <script type="text/javascript">
 var pathname = window.location.pathname; // Returns path only
-var url      = window.location.href;  
+var url      = window.location.href;
+
 analytics.identify(<?php echo ("'".$me['id']."'"); ?>,
 {
   name: <?php echo ("'".$me['firstname'].' '.$me['lastname']."'"); ?>,
@@ -280,64 +307,66 @@ analytics.identify(<?php echo ("'".$me['id']."'"); ?>,
   page :pathname
 });
 </script>
+// <script>
+// $(document).ready(function(){
+//   setTimeout(function(){
+//     console.log('HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEYYYYYYYY');
+//     var parameter = $('.logger').serialize();
+//     console.log(parameter);
+//      $.ajax({
+//       type: "POST",
+//       url: "http://localhost:90/iteration2v2/thriftIteration2/index.php/user/reciever",
+//       data: parameter,
+//       dataType: 'json',
+//       success: function (data) {
+//       alert(data);
+//       },
+//       error: function (data) {
+//       alert('fail');
+//      }
+//     });
+//   },1000);
+// }); 
+// </script>
+<script>
+//   // Ajax post
+// $(document).ready(function() {
 
-<?php
 
-$getme=$_POST['anonymousId'];
-if($getme!=""){
-     $data['id'] = $getme;
+//   console.log('HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEYYYYYYYY');
+// setTimeout(function(event){
+// event.preventDefault();
+
+// var user_name = $("#log_user").val();
+// var password = $("#log_id").val();
+// jQuery.ajax({
+// type: "POST",
+// url: "<?php echo base_url(); ?>" + "index.php/user/user_data_submit",
+// dataType: 'json',
+// data: {name: user_name, log_id: password},
+// success: function(res) {
+// if (res)
+// {
+//   alert('yaat');
+// }
+// }
+// });
+// },1000);
+// });
 
 
-?>
 
-
-<?php }?>
-
-
-
-            <?php
-
-          }else{
+$(document).ready(function(){
+ // $("form#logger").submit();
+  $.post( "<?php echo base_url(); ?>" + "index.php/user/user_data_submit", $( "#logger" ).serialize() );
+   //return false;
+   console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
 
 
 
-          }
+
+});
 
 
-           ?>
-
-<form>
-  <input type="text" value="<?php echo $me['firstname']  ?>" > </input>
-  <input type="text" value="<?php echo $me['lastname']  ?>" > </input>
-  <input type="text" value="<?php echo $me['lastname']  ?>" > </input>
-
-</form>
-   
-<script type="text/javascript">
-
- // $('form#filterform').submit(function(e) {
-
-   // var form = $(this);
-
-    //e.preventDefault();
-
-    $.ajax({
-      type: "POST",
-      url: "<?php echo site_url('thriftshop/get_filteredpage'); ?>",
-        data: form.serialize(), // <--- THIS IS THE CHANGE
-        dataType: "html",
-        success: function(data){
-        var container = $('#filtertable'); //jquery selector (get element by id)
-        if(data){
-          container.html(data);
-        }
-      },
-      error: function() { alert("Error posting feed."); }
-    });
-
-  });
-
-  </script>   
-
-  
+</script>
   </body><!--Body Close-->

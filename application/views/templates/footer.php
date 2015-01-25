@@ -114,7 +114,43 @@
     </div>
   </div>
 </div>
+    <?php $att = array('name' => 'logger', 'id' => 'logger','class'=>'logger'); ?>
+           <?php echo form_open('user/user_data_submit',$att) ?>
 
+  <?php
+  if($me['id']){
+  $log_id= $me['id'];
+  }
+  if($user_profile['id']){
+    $log_id= $user_profile['id'];
+  }
+  if($user_me){
+    $log_id=$user_me;
+  }
+  if($this->session->userdata('id'))
+  {
+    $log_id=$this->session->userdata('id');
+  }
+  ?>
+  <input type="hidden" id="log_user" name="log_user" value="<?php echo $log_id;  ?>" > </input> 
+  <input type="hidden" id="log_url" name="log_url" value="<?php echo curPageName();?>" > </input>
+</form>
+   <script>
+
+
+$(document).ready(function(){
+ // $("form#logger").submit();
+  $.post( "<?php echo base_url(); ?>" + "index.php/user/user_data_submit", $( "form#logger" ).serialize() );
+   //return false;
+   console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+
+
+
+
+});
+
+
+</script>
 <script type="text/javascript">
 function NextStep() {
 
@@ -144,3 +180,4 @@ function NextStep() {
    
   }
 </script>
+

@@ -1,4 +1,15 @@
 <head >
+?>
+<script>
+
+
+$(document).ready(function(){
+var pathname = window.location.pathname; // Returns path only
+var url      = window.location.href;
+$('#log_url').text(url);
+console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'+url);
+};
+</script>
 	<?php
 // Turn off error reporting
 error_reporting(0);
@@ -28,7 +39,7 @@ error_reporting(E_ALL & ~E_NOTICE);
     <?php echo link_tag('assets/ThriftshopTheme/css/thriftshopcustom.css'); ?>
     <?php echo link_tag('assets/ThriftshopTheme/css/freelancer.css'); ?>
     <?php echo link_tag('assets/ThriftshopTheme/css/bootstrap-social.css'); ?>
-   
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<?php echo script_tag('assets/ThriftshopTheme/js/jquery-1.10.2.js'); ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 	<?php echo script_tag('<?php echo base_url()."assets/ThriftshopTheme/js/bootstrap.js"?>'); ?>
