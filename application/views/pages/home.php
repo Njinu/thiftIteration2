@@ -24,6 +24,7 @@
 <!--Page Content-->
 <div class="page-content">
     <input type="hidden" id="notify" data-toggle="modal" data-target="#myModal"/>
+     <input type="hidden" id="notify2" data-toggle="modal" data-target="#myModal2"/>
     <!--Hero Slider-->
     <section class="hero-slider" style="padding:0px">
         <div class="master-slider" id="hero-slider">
@@ -104,11 +105,10 @@
                                   <span><?php echo $filter['category'] ?></span>
                                   <div class="tools">
                                     <div class="rate">
-                                      <span class="active"></span>
-                                      <span class="active"></span>
-                                      <span class="active"></span>
-                                      <span></span>
-                                      <span></span>
+
+                                      <span class="active"><i><?php echo $filter['likes']; ?></i> <i class="fa fa-thumbs-up"></i></span>
+                                      <span class="active"><i><?php echo $filter['likes']; ?></i> <i class="fa fa-thumbs-down"></i></span>
+                                     
                                     </div>
                                     <!--Add To Cart Button-->
                                      <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm', 'name' => 'WishlistForm'); ?>
@@ -116,7 +116,7 @@
 
                                     <a onclick="addWish('<?php echo $filter['product_id'] ?>')" href="#"  class="add-cart-btn"><span>to Wishlist</span><i class="fa fa-tree"></i></a>
                                      <input type="text" style="visibility:hidden" name="productid" id="productid" value= '<?php echo $filter['id'] ?>'>
-                                     <input type="submit" style="visibility:hidden" id="toWish" name="toWish" href="#" value=""/>
+                                     <input type="submit" style="visibility:hidden" id="Add_toWishlistsh" name="`" href="#" value=""/>
                                   </form>
                                     <!--Share Button-->
                                     <div class="share-btn">
@@ -299,36 +299,10 @@
                     </div>
                 </div>
                 <div class="twitter-feed col-lg-4 col-md-4">
-                    <a class="tw-follow" href="https://twitter.com/8Guild" target="_blank">
-                        <div class="button">Follow us<i class="fa fa-twitter"></i></div>
-                        <h2 class="extra-bold">On Twitter <i class="fa fa-twitter"></i></h2>
-                    </a>
+                   
                     <!--Tweet-->
-                    <div class="tweet">
-                        <a href="#">@Bedismo</a>
-                        <p class="p-style3">Uberly impressed with the AMAZING support I constantly get from awesome!!!</p>
-                        <div class="group">
-                            <div class="actions">
-                                <a href="#">Reply</a>
-                                <a href="#">Retweet</a>
-                                <a href="#">Favorite</a>
-                            </div>
-                            <span class="date">5 Mar 2014</span>
-                        </div>
-                    </div><!--Tweet Close-->
-                    <!--Tweet-->
-                    <div class="tweet">
-                        <a href="#">@Bedismo</a>
-                        <p class="p-style3">Uberly impressed with the AMAZING support I constantly get from awesome!!!</p>
-                        <div class="group">
-                            <div class="actions">
-                                <a href="#">Reply</a>
-                                <a href="#">Retweet</a>
-                                <a href="#">Favorite</a>
-                            </div>
-                            <span class="date">5 Mar 2014</span>
-                        </div>
-                    </div><!--Tweet Close-->
+             <a class="twitter-timeline" href="https://twitter.com/TheThriftshopZA" data-widget-id="559374291821527040">Tweets by @TheThriftshopZA</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>
             </div>
         </div>
@@ -436,8 +410,6 @@
 </div><!--Sticky Buttons Close-->
 
 
-
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -453,6 +425,50 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 50%;margin-top: 30%;margin-left: 20%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+      </div>
+
+      <div class="modal-body">
+       Added to your Wishlist
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+$('form#WishlistForm').submit(function(e) {
+
+  var form = $(this);
+
+  
+
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/Add_toWishlist'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+    $( "#notify2" ).click();
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
 
     <script>
  function addWish(prodid)
@@ -470,3 +486,6 @@ function fbs_click(TheImg) {
      window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;
  }
  </script>
+
+
+

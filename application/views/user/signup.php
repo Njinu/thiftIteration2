@@ -119,7 +119,7 @@
 
     <div class="checkbox">
       <label>
-        <input type="checkbox"> I am above 18 years of age. I have read and agreed to abide by the thethriftshop.co.za user agreement I recognise that all selling and buying activity undertaken by me on the site is legally binding and I commit to honour all purchases and sales.
+        <input onclick="checked()" type="checkbox"> I am above 18 years of age. I have read and agreed to abide by the thethriftshop.co.za user agreement I recognise that all selling and buying activity undertaken by me on the site is legally binding and I commit to honour all purchases and sales.
       </label>
     </div>
     <button onclick="PreviousStep()" type="button" class="btn btn-default">Back</button>
@@ -203,6 +203,14 @@
 </div>
 
 <script type="text/javascript">
+
+
+function checked() {
+
+ alert('hello');
+
+}
+
 function NextStep() {
 
  document.getElementById('step1').style.display = "none";
@@ -247,3 +255,4 @@ function NextStep2() {
     </div>
   </div>
 </div>
+
