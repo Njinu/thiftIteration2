@@ -149,8 +149,7 @@
           <div class="toggle"><i class="fa fa-cog"></i></div>
 
         </div><!--Color Switcher End-->
-
-        <!--Login Modal-->
+ <!--Login Modal-->
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -190,7 +189,9 @@
         <header data-offset-top="500" data-stuck="600"><!--data-offset-top is when header converts to small variant and data-stuck when it becomes visible. Values in px represent position of scroll from top. Make sure there is at least 100px between those two values for smooth animation-->
 
           <!--Search Form-->
-          <form class="search-form closed" method="get" role="form" autocomplete="off">
+           <?php $attributes10 = array('name' => 'SearchForm', 'id' => 'SearchForm','class'=>'search-form closed'); ?>
+           <?php echo form_open('thriftshop/ShopSearch',$attributes10) ?>
+          
             <div class="container">
               <div class="close-search"><i class="fa fa-times"></i></div>
               <div class="form-group">
@@ -268,13 +269,13 @@
           </ul>
            </ul>
           <ul class="catalog">
-            <li class="has-submenu"><a href="shop-filters-left-3cols.html">Flat Wise<i class="fa fa-chevron-down"></i></a>
+            <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "thriftshop/indexFlat"?>'>Flat Wise<i class="fa fa-chevron-down"></i></a>
               <ul class="submenu">
-                <li><a href="#">Accomodation</a></li>
+                <li><a href='<?php echo base_url()."index.php/". "thriftshop/indexFlat"?>'>Accomodation</a></li>
                 
-                <li><a href="#">Furniture</a></li>
+                <li><a href='<?php echo base_url()."index.php/". "thriftshop/indexFurn"?>'>Furniture</a></li>
                
-                  <li ><a href="#">Miscellaneous</a></li>
+                  <li ><a href='<?php echo base_url()."index.php/". "thriftshop/indexMis"?>'>Miscellaneous</a></li>
                    <li ><a style="color:#2f343b">....</a></li>
                 <li><a href="#"></a></li>
                 <li class="offer">
@@ -289,17 +290,17 @@
               </ul>
             </li>
 
-              <li class="has-submenu"><a href="shop-filters-left-3cols.html">Student Wise<i class="fa fa-chevron-down"></i></a>
+              <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "thriftshop/indexbooks"?>'>Student Wise<i class="fa fa-chevron-down"></i></a>
               <ul class="submenu">
-                <li><a href="#">Jobs </a></li>
-                <li ><a href="#">Books</a><!--Class "has-submenu" for adding carret and dropdown-->
+                <li><a href='<?php echo base_url()."index.php/". "thriftshop/indexjobs"?>'>Jobs </a></li>
+                <li ><a href='<?php echo base_url()."index.php/". "thriftshop/indexbooks"?>'>Books</a><!--Class "has-submenu" for adding carret and dropdown-->
                   
                 </li>
               
-                <li><a href="#">Tutoring</a>
+                <li><a href='<?php echo base_url()."index.php/". "thriftshop/indextutors"?>'>Tutoring</a>
                   
                 </li>
-                <li ><a href="#">Sporting Goods</a>
+                <li ><a href='<?php echo base_url()."index.php/". "thriftshop/indexSG"?>'>Sporting Goods</a>
                   
                 </li> 
                 <li><a href="#"></a></li>
@@ -315,10 +316,10 @@
               </ul>
             </li>
 
-            <li><a href="shop-filters-left-3cols.html">Electronics</a></li>
-            <li><a href="shop-filters-left-3cols.html">Vehicles</a></li>          
+            <li><a href='<?php echo base_url()."index.php/". "thriftshop/indexEle"?>'>Electronics</a></li>
+            <li><a href='<?php echo base_url()."index.php/". "thriftshop/indexVeh"?>'>Vehicles</a></li>          
 
-            <li><a href="shop-filters-left-3cols.html">Competitions</a></li>
+            <li><a href='<?php echo base_url()."index.php/". "thriftshop/indexComp"?>'>Competitions</a></li>
           </ul>
         </nav>
         

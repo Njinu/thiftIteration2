@@ -9228,7 +9228,7 @@ a.label:focus {
 
   font-weight: bold;
 
-  line-height: 1;
+ /* line-height: 1;*/
 
   color: #fff;
 

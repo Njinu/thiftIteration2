@@ -21,11 +21,111 @@ class thriftshop extends CI_Controller {
         $this->load->view('templates/footer2');
 }
 
+ public function indexFlat(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filterflats();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+
+public function indexFurn(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filterfurniture();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+public function indexVeh(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filtervehicles();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+
+public function indexEle(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filterelectronics();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+public function indexSG(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filterSportingGoods();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+
+public function indexjobs(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filterJobs();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+
+public function indextutors(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filterTutoring();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+
+public function indexbooks(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filterBooks();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+
+public function indexMis(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filterMiscellaneous();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+
+public function indexComp(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filtercompetitions();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
+
+public function deletefromwish(){
+  $this->store_model->deletefromwish();
+  redirect('thriftshop/wishlist');
+}
+
 public function wishlist(){
+$user = $this->session->userdata('id');
+if( $user == null) {
+redirect('user/signup');
+} else{
+
         $data['title'] = 'wishlist';
+        $data['wishlist'] = $this->store_model->get_wishlist();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/wishlist', $data);
         $this->load->view('templates/footer2');
+      }
 }
 
 public function singleview(){
@@ -35,9 +135,11 @@ public function singleview(){
         $this->load->view('templates/footer2');
 }
 
-public function view($slug)
+public function view($slug,$id)
   {
     $data['filter'] = $this->store_model->get_product($slug);
+    $data['comments'] = $this->store_model->get_theproduct_comments($id);
+       $data['seller'] = $this->store_model->get_seller($id);
 
       $this->load->helper('form');
       $this->load->library('form_validation');
@@ -47,7 +149,7 @@ public function view($slug)
       show_404();
     }
 
-    $data['title'] = $data['filter']['title'];
+    $data['title'] = 'Item';
     $this->form_validation->set_rules('rating', 'Rating', 'required|greater_than[0]');
 
     if($this->form_validation->run() === FALSE)
@@ -72,6 +174,17 @@ public function view($slug)
     
     
   }
+
+ 
+
+  public function ShopSearch(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filterSearchHD();
+        $this->load->view('templates/header2', $data);
+        $this->load->view('thriftshop/index', $data);
+        $this->load->view('templates/footer2');
+}
 
 public function shop(){
         $data['title'] = 'filter';
@@ -141,6 +254,17 @@ public function get_filteredpage7(){
  $data['title'] = 'Lorem ipsum';
  $data['list'] = $this->store_model->get_filters7();
  $this->load->view('thriftshop/filteredpage',$data);
+}
+
+public function Add_toWishlist(){
+
+$this->load->model('store_model');
+$data = array();
+$this->store_model->addWish();
+$this->session->set_userdata('fancy', 'item has been added to your wishlist');
+redirect('thriftshop');
+
+
 }
 
 

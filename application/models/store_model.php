@@ -6,6 +6,12 @@ class Store_model extends CI_Model {
 		$this->load->database();
 	}
 
+	public function deletefromwish(){
+		$id = $this->input->post('theproductid');
+		$this->db->where('product_id', $id);
+		$this->db->delete('wishlist'); 
+	}
+
 	public function get_products($slug = FALSE)
 	{
 		if ($slug === FALSE)
@@ -20,6 +26,25 @@ class Store_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	public function get_seller($id)
+	{
+		$this->db->where('product.id ',$id);
+		$query = $this->db->select()->from('sellers');	
+		$query = $this->db->join('product', 'product.seller_id = sellers.seller_id','left');
+		$this->db->group_by('sellers.seller_id');
+		$query = $this->db->get();
+		return $query->row_array();
+	}
+
+	public function get_categories()
+	{
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id ','left');
+		$this->db->group_by('product.category');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 	public function get_data(){
 
 		$type = $this->input->post('type');
@@ -31,6 +56,48 @@ class Store_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function get_wishlist(){
+		$user = $this->session->userdata('id');
+
+		$this->db->select('*');
+
+		$this->db->from('product a'); 
+		$this->db->join('wishlist c', 'c.product_id=a.id', 'left');
+		$this->db->join('product_images b', 'b.product_id=a.id', 'inner');
+
+		$this->db->where('c.user_id',$user);
+		$this->db->order_by('c.wishlist_id','desc');   
+		$this->db->group_by('a.id');      
+		$query = $this->db->get(); 
+
+		if($query->num_rows() != 0)
+		{
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+
+
+	}
+
+	
+	public function addWish(){
+
+		$productid = $this->input->post('productid');
+		$userid = $this->session->userdata('id');
+
+		$data = array(
+			'user_id' => $userid ,
+			'product_id' => $productid 
+			);
+
+		$this->db->insert('wishlist', $data); 
+
+
+	}
+
 	public function get_product($slug = FALSE)
 	{
 		if ($slug === FALSE)
@@ -40,8 +107,13 @@ class Store_model extends CI_Model {
 			return $query->result_array();
 		}
 
-		$query = $this->db->get_where('product', array('slug' => $slug));
-	
+		$this->db->where('product.slug ',$slug);
+
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
 		return $query->row_array();
 	}
 
@@ -55,8 +127,8 @@ class Store_model extends CI_Model {
 		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
-		 $this->db->group_by('product.id');
-		 $query = $this->db->get();
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
 		return $query->result_array();
 
 	}
@@ -71,8 +143,8 @@ class Store_model extends CI_Model {
 		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
-		 $this->db->group_by('product.id');
-		 $query = $this->db->get();
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
 		return $query->result_array();
 
 	}
@@ -85,11 +157,13 @@ class Store_model extends CI_Model {
 		$this->db->order_by("product.price", "desc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
-		 $this->db->group_by('product.id');
-		 $query = $this->db->get();
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
 		return $query->result_array();
 
 	}
+
+
 
 	public function get_filters4(){
 
@@ -98,8 +172,8 @@ class Store_model extends CI_Model {
 		$this->db->order_by("product.price", "asc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
-		 $this->db->group_by('product.id');
-		 $query = $this->db->get();
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
 		return $query->result_array();
 
 	}
@@ -111,8 +185,8 @@ class Store_model extends CI_Model {
 		$this->db->order_by("product.name", "desc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
-		 $this->db->group_by('product.id');
-		 $query = $this->db->get();
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
 		return $query->result_array();
 
 	}
@@ -124,8 +198,8 @@ class Store_model extends CI_Model {
 		$this->db->order_by("product.name", "asc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
-		 $this->db->group_by('product.id');
-		 $query = $this->db->get();
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
 		return $query->result_array();
 
 	}
@@ -134,8 +208,8 @@ class Store_model extends CI_Model {
 		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
-		 $this->db->group_by('product.id');
-		 $query = $this->db->get();
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
 		return $query->result_array();
 	}
 
@@ -144,7 +218,131 @@ class Store_model extends CI_Model {
 		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
-		 $this->db->group_by('product.id');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+
+	function get_filterSearchHD(){
+		$searchterm = $this->input->post('search-hd');
+		$this->db->like('name',$searchterm);
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+
+	function get_filterflats(){
+		$this->db->where('category','accomodation');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterMiscellaneous(){
+		$this->db->where('category','Miscellaneous');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterJobs(){
+		$this->db->where('category','jobs');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterBooks(){
+		$this->db->where('category','books');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterTutoring(){
+		$this->db->where('category','tutoring');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterfurniture(){
+		$this->db->where('category','furniture');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterSportingGoods(){
+		$this->db->where('category','SportingGoods');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filterelectronics(){
+		$this->db->where('category','electronics');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filtervehicles(){
+		$this->db->where('category','vehicles');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	function get_filtercompetitions(){
+		$this->db->where('category','competitions');
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
 		$query = $this->db->get();
 		return $query->result_array();
 
@@ -181,6 +379,22 @@ class Store_model extends CI_Model {
 		$this->db->where('seller_id',$this->session->userdata('id'));
 		$query1 = $this->db->select()->from('comment')->get();
 		return $query1->result_array();
+	}
+
+	public function get_theproduct_comments($id){
+
+		$this->db->where('comment.product_id ',$id);
+
+		$this->db->order_by("comment.comment_id", "desc");		
+		$query = $this->db->select()->from('comment');	
+		$query = $this->db->join('userprofile', 'comment.user_id = userprofile.id','left');
+		$this->db->group_by('comment.comment_id');
+		$query = $this->db->get();
+		return $query->result_array();
+
+
+
+		
 	}
 
 
@@ -234,7 +448,7 @@ class Store_model extends CI_Model {
 	public function set_UserItem(){
 		$this->load->helper('url');
 		$date = date('d.m.y');
-$Name=$this->input->post('ItemName');
+		$Name=$this->input->post('ItemName');
 		$slug = url_title($this->input->post('ItemName'), 'dash', TRUE);
 		$data = array(
 			'name' => $this->input->post('ItemName'),
@@ -257,25 +471,25 @@ $Name=$this->input->post('ItemName');
    // echo "Yo". $insert_id;
 
 
-$this->session->set_flashdata('fancy', 'Successfully created');
+		$this->session->set_flashdata('fancy', 'Successfully created');
 
-$notify_message = array(
-                   'message'  => $data['name'],
-                   
-               );
+		$notify_message = array(
+			'message'  => $data['name'],
 
-$this->session->set_userdata($newdata);
+			);
 
-$data['notify_message'] =array(
-'message'=>$data['name'] +'succesfully created.'
-
-	);
+		$this->session->set_userdata($newdata);
 
 
+		$data['notify_message'] =array(
+			'message'=>$data['name']
+			);
 
-$this->session->set_userdata($newdata);
-   return  $insert_id;
-}
+
+
+		$this->session->set_userdata($newdata);
+		return  $insert_id;
+	}
 
 public function insert_view($data){
 	$id=$_POST['anonymousId'];
@@ -294,9 +508,9 @@ public function insert_view($data){
 
 		$this->db->insert('product_images',$data);
 
-        	$this->db->where('product_id',$data['product_id']);
-        	$query1 = $this->db->select()->from('product_images')->get();
-        	return $query1->result_array();
+		$this->db->where('product_id',$data['product_id']);
+		$query1 = $this->db->select()->from('product_images')->get();
+		return $query1->result_array();
 
 
 	}
@@ -321,15 +535,15 @@ public function insert_view($data){
 
 		$data = array(
 
-               'name' => $this->input->post('itemname2'),
-               'description' => $this->input->post('itemdescription2'),
-               'price' => $this->input->post('itemprice2'),
-               'status' => $this->input->post('itemstatus2'),
-               'category' => $this->input->post('itemcat2')
-            );
+			'name' => $this->input->post('itemname2'),
+			'description' => $this->input->post('itemdescription2'),
+			'price' => $this->input->post('itemprice2'),
+			'status' => $this->input->post('itemstatus2'),
+			'category' => $this->input->post('itemcat2')
+			);
 
-$this->db->where('id', $id);
-$this->db->update('product', $data); 
+		$this->db->where('id', $id);
+		$this->db->update('product', $data); 
 
 
 	}

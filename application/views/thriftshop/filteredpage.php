@@ -19,7 +19,7 @@
                                       <span class="sale"></span>
                                     </div>
                                     <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
-                                    <a href="thriftshop/<?php echo $filter['slug'] ?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
+                                    <a href="thriftshop/view/<?php echo $filter['slug'] ?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
                                     <div class="footer">
                                       <a href="#"><?php echo $filter['name'] ?></a>
                                       <span><?php echo $filter['category'] ?></span>
@@ -32,7 +32,12 @@
                                           <span></span>
                                         </div>
                                         <!--Add To Cart Button-->
-                                        <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
+                                       <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm', 'name' => 'WishlistForm'); ?>
+                                     <?php echo form_open('thriftshop/Add_toWishlist',$attributes10) ?>
+                                    <a onclick="addWish('<?php echo $filter['id'] ?>')" href="#"  class="add-cart-btn"><span>to Wishlist</span><i class="fa fa-tree"></i></a>
+                                     <input type="text" style="visibility:hidden" name="productid" id="productid" value= '<?php echo $filter['id'] ?>'>
+                                     <input type="submit" style="visibility:hidden" id="toWish" name="toWish" href="#" value=""/>
+                                  </form>
                                         <!--Share Button-->
                                         <div class="share-btn">
                                           <div class="hover-state">
@@ -43,10 +48,10 @@
                                           <i class="fa fa-share"></i>
                                         </div>
                                         <!--Add To Wishlist Button-->
-                                        <a class="wishlist-btn" href="#">
+                                        <!-- <a class="wishlist-btn" href="#">
                                           <div class="hover-state">Wishlist</div>
                                           <i class="fa fa-plus"></i>
-                                        </a>
+                                        </a> -->
                                       </div>
                                     </div>
                                   </div>
