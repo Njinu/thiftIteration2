@@ -86,305 +86,58 @@
         <div class="container">
             <h2 class="primary-color">Catalog picks</h2>
             <div class="row">
-                <!--Tile-->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="tile">
-                        <div class="badges">
-                            <span class="sale"></span>
-                        </div>
-                        <div class="price-label">715,00 $</div>
-                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/></a>
-                        <div class="footer">
-                            <a href="#">Nikon D5300</a>
-                            <span>by Pirate3d</span>
-                            <div class="tools">
-                                <div class="rate">
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span></span>
-                                    <span></span>
+               
+                 <?php foreach ($catalog as $filter): $newitemdate = $calendar_item['price'];?>
+                            <!--Tile-->
+
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="tile">
+                                <div class="badges">
+                                <!--   <span class="sale"></span> -->
                                 </div>
-                                <!--Add To Cart Button-->
-                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
-                                <!--Share Button-->
-                                <div class="share-btn">
-                                    <div class="hover-state">
-                                        <a class="fa fa-facebook-square" href="#"></a>
-                                        <a class="fa fa-twitter-square" href="#"></a>
-                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
+                                <a href="thriftshop/view/<?php echo $filter['slug']?>/<?php echo $filter['product_id']?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
+                                <div class="footer">
+                                  <a href="#"><?php echo $filter['name'] ?></a>
+                                  <span><?php echo $filter['category'] ?></span>
+                                  <div class="tools">
+                                    <div class="rate">
+                                      <span class="active"></span>
+                                      <span class="active"></span>
+                                      <span class="active"></span>
+                                      <span></span>
+                                      <span></span>
                                     </div>
-                                    <i class="fa fa-share"></i>
-                                </div>
-                                <!--Add To Wishlist Button-->
-                                <a class="wishlist-btn" href="#">
-                                    <div class="hover-state">Wishlist</div>
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Tile-->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="tile">
-                        <div class="badges">
-                            <span class="out"></span>
-                        </div>
-                        <div class="price-label">715,00 $</div>
-                        <div class="price-label old-price">920,00 $</div>
-                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/></a>
-                        <div class="footer">
-                            <a href="#">Nikon Coolpix</a>
-                            <span>by Pirate3d</span>
-                            <div class="tools">
-                                <div class="rate">
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <!--Add To Cart Button-->
-                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
-                                <!--Share Button-->
-                                <div class="share-btn">
-                                    <div class="hover-state">
-                                        <a class="fa fa-facebook-square" href="#"></a>
-                                        <a class="fa fa-twitter-square" href="#"></a>
-                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                    <!--Add To Cart Button-->
+                                     <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm', 'name' => 'WishlistForm'); ?>
+                                     <?php echo form_open('thriftshop/Add_toWishlist',$attributes10) ?>
+
+                                    <a onclick="addWish('<?php echo $filter['product_id'] ?>')" href="#"  class="add-cart-btn"><span>to Wishlist</span><i class="fa fa-tree"></i></a>
+                                     <input type="text" style="visibility:hidden" name="productid" id="productid" value= '<?php echo $filter['id'] ?>'>
+                                     <input type="submit" style="visibility:hidden" id="toWish" name="toWish" href="#" value=""/>
+                                  </form>
+                                    <!--Share Button-->
+                                    <div class="share-btn">
+                                      <div class="hover-state">
+
+                                        <a onclick="fbs_click(this)" class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="http://twitter.com/home?status=Currentlyreading <?php $_SERVER['REQUEST_URI']; ?>"></a>
+                                       
+                                      </div>
+                                      <i class="fa fa-share"></i>
                                     </div>
-                                    <i class="fa fa-share"></i>
+                                    <!--Add To Wishlist Button-->
+                                   <!--  <a class="wishlist-btn" href="#">
+                                      <div class="hover-state">Wishlist</div>
+                                      <i class="fa fa-plus"></i>
+                                    </a> -->
+                                  </div>
                                 </div>
-                                <!--Add To Wishlist Button-->
-                                <a class="wishlist-btn" href="#">
-                                    <div class="hover-state">Wishlist</div>
-                                    <i class="fa fa-plus"></i>
-                                </a>
+                              </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Tile-->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="tile">
-                        <div class="badges">
-                            <span class="best-seller"></span>
-                        </div>
-                        <div class="price-label">715,00 $</div>
-                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/></a>
-                        <div class="footer">
-                            <a href="#">Nikon WP-N3</a>
-                            <span>by Pirate3d</span>
-                            <div class="tools">
-                                <div class="rate">
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <!--Add To Cart Button-->
-                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
-                                <!--Share Button-->
-                                <div class="share-btn">
-                                    <div class="hover-state">
-                                        <a class="fa fa-facebook-square" href="#"></a>
-                                        <a class="fa fa-twitter-square" href="#"></a>
-                                        <a class="fa fa-google-plus-square" href="#"></a>
-                                    </div>
-                                    <i class="fa fa-share"></i>
-                                </div>
-                                <!--Add To Wishlist Button-->
-                                <a class="wishlist-btn" href="#">
-                                    <div class="hover-state">Wishlist</div>
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Tile-->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="tile">
-                        <div class="price-label">715,00 $</div>
-                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/></a>
-                        <div class="footer">
-                            <a href="#">Nikkor 10-30 VR</a>
-                            <span>by Pirate3d</span>
-                            <div class="tools">
-                                <div class="rate">
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <!--Add To Cart Button-->
-                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
-                                <!--Share Button-->
-                                <div class="share-btn">
-                                    <div class="hover-state">
-                                        <a class="fa fa-facebook-square" href="#"></a>
-                                        <a class="fa fa-twitter-square" href="#"></a>
-                                        <a class="fa fa-google-plus-square" href="#"></a>
-                                    </div>
-                                    <i class="fa fa-share"></i>
-                                </div>
-                                <!--Add To Wishlist Button-->
-                                <a class="wishlist-btn" href="#">
-                                    <div class="hover-state">Wishlist</div>
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Tile-->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="tile">
-                        <div class="price-label">715,00 $</div>
-                        <div class="price-label old-price">920,00 $</div>
-                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/></a>
-                        <div class="footer">
-                            <a href="#">Nikon WU 1b</a>
-                            <span>by Pirate3d</span>
-                            <div class="tools">
-                                <div class="rate">
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <!--Add To Cart Button-->
-                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
-                                <!--Share Button-->
-                                <div class="share-btn">
-                                    <div class="hover-state">
-                                        <a class="fa fa-facebook-square" href="#"></a>
-                                        <a class="fa fa-twitter-square" href="#"></a>
-                                        <a class="fa fa-google-plus-square" href="#"></a>
-                                    </div>
-                                    <i class="fa fa-share"></i>
-                                </div>
-                                <!--Add To Wishlist Button-->
-                                <a class="wishlist-btn" href="#">
-                                    <div class="hover-state">Wishlist</div>
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Tile-->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="tile">
-                        <div class="price-label">715,00 $</div>
-                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="6"/></a>
-                        <div class="footer">
-                            <a href="#">Nikon V3</a>
-                            <span>by Pirate3d</span>
-                            <div class="tools">
-                                <div class="rate">
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <!--Add To Cart Button-->
-                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
-                                <!--Share Button-->
-                                <div class="share-btn">
-                                    <div class="hover-state">
-                                        <a class="fa fa-facebook-square" href="#"></a>
-                                        <a class="fa fa-twitter-square" href="#"></a>
-                                        <a class="fa fa-google-plus-square" href="#"></a>
-                                    </div>
-                                    <i class="fa fa-share"></i>
-                                </div>
-                                <!--Add To Wishlist Button-->
-                                <a class="wishlist-btn" href="#">
-                                    <div class="hover-state">Wishlist</div>
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Tile-->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="tile">
-                        <div class="price-label">715,00 $</div>
-                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="7"/></a>
-                        <div class="footer">
-                            <a href="#">Nikon J4</a>
-                            <span>by Pirate3d</span>
-                            <div class="tools">
-                                <div class="rate">
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <!--Add To Cart Button-->
-                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
-                                <!--Share Button-->
-                                <div class="share-btn">
-                                    <div class="hover-state">
-                                        <a class="fa fa-facebook-square" href="#"></a>
-                                        <a class="fa fa-twitter-square" href="#"></a>
-                                        <a class="fa fa-google-plus-square" href="#"></a>
-                                    </div>
-                                    <i class="fa fa-share"></i>
-                                </div>
-                                <!--Add To Wishlist Button-->
-                                <a class="wishlist-btn" href="#">
-                                    <div class="hover-state">Wishlist</div>
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Tile-->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="tile">
-                        <div class="price-label">715,00 $</div>
-                        <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="8"/></a>
-                        <div class="footer">
-                            <a href="#">Nikkor AF-S</a>
-                            <span>by Pirate3d</span>
-                            <div class="tools">
-                                <div class="rate">
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span class="active"></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <!--Add To Cart Button-->
-                                <a class="add-cart-btn" href="#"><span>To cart</span><i class="fa fa-shopping-cart"></i></a>
-                                <!--Share Button-->
-                                <div class="share-btn">
-                                    <div class="hover-state">
-                                        <a class="fa fa-facebook-square" href="#"></a>
-                                        <a class="fa fa-twitter-square" href="#"></a>
-                                        <a class="fa fa-google-plus-square" href="#"></a>
-                                    </div>
-                                    <i class="fa fa-share"></i>
-                                </div>
-                                <!--Add To Wishlist Button-->
-                                <a class="wishlist-btn" href="#">
-                                    <div class="hover-state">Wishlist</div>
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                          <?php endforeach ?>
+                
             </div>
         </div>
     </section><!--Catalog Grid Close-->
@@ -680,37 +433,7 @@
     <span id="scrollTop-btn"><i class="fa fa-chevron-up"></i></span>
 </div><!--Sticky Buttons Close-->
 
-<!--Subscription Widget-->
-<section class="subscr-widget">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 col-md-8 col-sm-8">
-                <h2 class="light-color">Subscribe to our news</h2>
-                
-                <!--Mail Chimp Subscription Form-->
-                <form class="subscr-form" role="form" action="//8guild.us3.list-manage.com/subscribe/post?u=168a366a98d3248fbc35c0b67&amp;id=d704057a31" target="_blank" method="post" autocomplete="off">
-                    <div class="form-group">
-                        <label class="sr-only" for="subscr-name">Enter name</label>
-                        <input type="text" class="form-control" name="FNAME" id="subscr-name" placeholder="Enter name" required>
-                        <button class="subscr-next"><i class="fa fa-arrow-circle-o-right"></i></button>
-                    </div>
-                    <div class="form-group fff" style="display: none">
-                        <label class="sr-only" for="subscr-email">Enter email</label>
-                        <input type="email" class="form-control" name="EMAIL" id="subscr-email" placeholder="Enter email" required>
-                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                        <div style="position: absolute; left: -5000px;"><input type="text" name="b_168a366a98d3248fbc35c0b67_d704057a31" tabindex="-1" value=""></div>
-                        <button type="submit" id="subscr-submit"><i class="icon-check"></i></button>
-                    </div>
-                </form>
-                <!--Mail Chimp Subscription Form Close-->
-                <p class="p-style2">Please fill the field before continuing</p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-1">
-                <p class="p-style3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            </div>
-        </div>
-    </div>
-</section><!--Subscription Widget Close-->
+
 
 
 <!-- Modal -->
@@ -728,3 +451,12 @@
     </div>
   </div>
 </div>
+
+    <script>
+function fbs_click(TheImg) {
+   u=TheImg;
+     // t=document.title;
+     t=TheImg.getAttribute('alt');
+     window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;
+ }
+ </script>

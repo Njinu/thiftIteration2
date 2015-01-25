@@ -85,7 +85,8 @@
 
 
 
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+   <?php echo link_tag('assets/ThriftshopTheme/css/font-awesome-4.3.0/css/font-awesome.min.css'); ?>
+  
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Kristi' rel='stylesheet' type='text/css'>
@@ -135,12 +136,7 @@
       <!--Body-->
       <body style="padding:0px;">
 
-        <!--Color Switcher-->
-        <div class="color-switcher group animated">
-          <div class="toggle"><i class="fa fa-cog"></i></div>
-
-        </div><!--Color Switcher End-->
- <!--Login Modal-->
+       <!--  -->
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
