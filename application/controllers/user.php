@@ -16,9 +16,13 @@
         $this->load->view('templates/header', $data);
         $this->load->view('user/cart', $data);
         $this->load->view('templates/footer');
+         $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();
         }
 		
 		 public function myStore(){
+             $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();
         $this->load->helper('array');
     	$this->load->model('store_model');	
 		$data['title'] = 'My Store';
@@ -47,15 +51,37 @@
        
         //$data('products')= $this->store_model->get_all_products();
     }
+    public function get_views(){
+$this->load->model('store_model');  
+ $data['products'] = $this->store_model->get_data();
+
+  foreach ($data['products'] as $product) {
+             
+              $data['products'] = $this->store_model->get_product_views($product['id']);
+
+         }
+foreach ($data['products'] as $key ) {
+    echo $key['id'];
+}
+        
+
+        $this->load->view('templates/sellerHeader', $data);
+        $this->load->view('user/views', $data);
+
+    }
 
     public function edititem(){
          $this->load->model('store_model');
         $this->store_model->Update_UserItem();
+         $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();
     }
     
      public function editUser(){
          $this->load->model('model_users');
         $this->model_users->Update_User();
+         $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();
     }
     
      public function editUserPass(){
@@ -69,12 +95,16 @@
 
          $this->load->model('model_users');
         $this->model_users->Update_UserPass();
+         $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();
         }
     }
 
     public function deleteItem(){
         $this->load->model('store_model');
         $this->store_model->delete_UserItem();
+         $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();
  }
 
    public function delete_Pic(){
@@ -103,8 +133,37 @@
         $data['comment_count'] = count($data['product_comments']);
         $data['product_images']= $this->store_model->getProductPics();
         $this->load->view('templates/sellerHeader', $data);
-        $this->load->view('user/itemview',$data);        
+        $this->load->view('user/itemview',$data);     
+         $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();   
  }
+
+function reciever(){
+  //  $getme=$_POST['log_user'];
+    if(!$getme){
+    $getme=$this->input->post('log_user');
+    }
+     $this->load->model('Model_users');
+ $data['me'] = $this->Model_users->insert_view($getme);  
+}
+
+public function user_data_submit() {
+    $date = date('d.m.y');
+$data = array(
+'username' => $this->input->post('log_user'),
+'event_id'=>$this->input->post('log_url'),
+'date'=>$date
+);
+
+$id=$_POST['log_user'];
+$data['username']=$id;
+ $this->load->model('Model_users');
+$returned = $this->Model_users->insert_view($data);  
+
+//Either you can print value or you can send value to database
+echo json_encode($data);
+}
+
 
 
     function get_item_view(){
@@ -114,7 +173,8 @@ $productId=$this->uri->segment(3);
       $this->load->model('store_model');
 
         $data = array();
-
+ $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();
         $data['title'] = 'Item View';
         $data['list'] = $this->store_model->getProductbyId($productId);
         $data['products'] = $this->store_model->get_data();
@@ -131,7 +191,8 @@ else
        $this->load->model('store_model');
 
         $data = array();
-
+ $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();
         $data['title'] = 'Item View';
         $data['list'] = $this->store_model->get_data();
         $data['products'] = $this->store_model->get_data();
@@ -161,6 +222,8 @@ else
         $data['comment_user']= $this->store_model->get_comment_users();
         $this->load->view('templates/sellerHeader', $data);
         $this->load->view('user/commentView',$data);
+         $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();
 
     }
 
@@ -193,8 +256,12 @@ else
 		
 		public function index()
 		{
+            $this->load->model('Model_users');
+            $data['me'] = $this->Model_users->getme();
+                                    
 			$this->login();
 			$this->load->view('templates/header');
+            $this->load->model('store_model');
 		}
 		
 		public function profile()

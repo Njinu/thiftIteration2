@@ -500,16 +500,11 @@ class Store_model extends CI_Model {
 		return  $insert_id;
 	}
 
+
 	public function set_ProductPicture($data)
 	{
 
-
-//echo "HEY!!". $data['product_id'];
-
-
 		$this->db->insert('product_images',$data);
-		//get prod pics
-
 
 		$this->db->where('product_id',$data['product_id']);
 		$query1 = $this->db->select()->from('product_images')->get();
@@ -551,7 +546,15 @@ class Store_model extends CI_Model {
 
 	}
 
+public function get_product_views($product_id){
+ $one_week = date('Y/m/d H:i:s', strtotime("-7 days"));
 
+//echo $one_week;
+		$this->db->where('event_id',$product_id);
+		$this->db->where('date >=' ,$one_week);
+		$query1 = $this->db->select()->from('viewtest')->get();
+		return $query1->result_array();
+}
 
 	public function set_products()
 	{

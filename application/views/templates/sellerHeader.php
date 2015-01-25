@@ -27,7 +27,6 @@
 
 
 
-
 <script src='<?php echo base_url()."assets/ThriftshopTheme/js/grid/hovers.js"?>'></script>
 
 <script src='<?php echo base_url()."assets/ThriftshopTheme/js/grid/snap.svg-min.js"?>'></script>
@@ -65,3 +64,19 @@
 <button class="btn btn-primary">Save changes</button>
 </div>
 </div>
+  <?php
+  if($me['id']){
+  $log_id= $me['id'];
+  }
+  if($user_profile['id']){
+    $log_id= $user_profile['id'];
+  }
+  if($user_me){
+    $log_id=$user_me;
+  }
+  if($this->session->userdata('id'))
+  {
+    $log_id=$this->session->userdata('id');
+  }
+  ?>
+<input type="hidden" id="sellerId" name="sellerId" value="<?php echo $log_id;?> "/>

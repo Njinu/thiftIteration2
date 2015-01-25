@@ -118,7 +118,7 @@
                         <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_item_view"><i class="fa fa-fw fa-edit"></i> All Posts</a>
                     </li>
                     <li>
-                        <a style="padding-top: 20.5px;" href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Views</a>
+                        <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_views"><i class="fa fa-fw fa-bar-chart-o"></i> Views</a>
                     </li>
                     <li>
                         <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_comments"><i class="fa fa-fw fa-table"></i> Comments</a>

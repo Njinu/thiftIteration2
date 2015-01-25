@@ -1,4 +1,35 @@
 <head >
+  <?php 
+
+
+function curPageURL() {
+ $pageURL = 'http';
+ if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+ $pageURL .= "://";
+ if ($_SERVER["SERVER_PORT"] != "80") {
+  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+ } else {
+  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+ }
+ return $pageURL;
+}
+
+?>
+<?php
+function curPageName() {
+ return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
+}
+
+?>
+<script>
+
+
+$(document).ready(function(){
+var pathname = window.location.pathname; // Returns path only
+var url      = window.location.href;
+console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'+url);
+};
+</script>
 	<?php
 // Turn off error reporting
   error_reporting(0);
@@ -15,6 +46,15 @@
 // Report all errors except E_NOTICE
   error_reporting(E_ALL & ~E_NOTICE);
   ?> 
+
+  <script type="text/javascript">
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  analytics.load("zvOEyjooJZnkG8hCgVCi9DQzRDVwfSau");
+  analytics.page()
+  }}();
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <title><?php echo $title ?> - ThriftShop</title>
   <meta charset="utf-8">
   <?php echo link_tag('assets/ThriftshopTheme/css/bootstrap.css'); ?>	

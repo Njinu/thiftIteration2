@@ -1,3 +1,12 @@
+<?php
+if($_POST['anonymousId']){
+	$id=$_POST['anonymousId']; 
+	$data['id'] = $id;
+
+            $this->store_model->insert_view($data);
+
+}
+?>
 <html>
 <head>
 	<title>403 Forbidden</title>

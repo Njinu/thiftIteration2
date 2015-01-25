@@ -3,6 +3,10 @@
 $(function() {
 
     // Area Chart
+    var seller =$('#sellerId');
+    alert(seller[value]);
+    console.log(sellerId);
+
     Morris.Area({
         element: 'morris-area-chart',
         data: [{
