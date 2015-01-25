@@ -453,6 +453,14 @@
 </div>
 
     <script>
+ function addWish(prodid)
+  {
+     $('#productid').val(prodid);
+   $("#toWish").click();
+
+  }
+
+    
 function fbs_click(TheImg) {
    u=TheImg;
      // t=document.title;
