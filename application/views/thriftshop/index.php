@@ -206,7 +206,7 @@
                             <div class="col-lg-4 col-md-6 col-sm-12">
                               <div class="tile">
                                 <div class="badges">
-                                  <span class="sale"></span>
+                                 <!--  <span class="sale"></span> -->
                                 </div>
                                 <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
                                 <a href="thriftshop/view/<?php echo $filter['slug']?>/<?php echo $filter['product_id']?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
@@ -233,9 +233,9 @@
                                     <div class="share-btn">
                                       <div class="hover-state">
 
-                                        <a class="fa fa-facebook-square" href="#"></a>
-                                        <a class="fa fa-twitter-square" href="#"></a>
-                                        <a class="fa fa-google-plus-square" href="#"></a>
+                                        <a onclick="fbs_click(this)" class="fa fa-facebook-square" href="#"></a>
+                                        <a class="fa fa-twitter-square" href="http://twitter.com/home?status=Currentlyreading <?php $_SERVER['REQUEST_URI']; ?>"></a>
+                                       
                                       </div>
                                       <i class="fa fa-share"></i>
                                     </div>
@@ -685,3 +685,13 @@ $('form#WishlistForm').submit(function(e) {
     </div>
   </div>
 </div>
+
+
+    <script>
+function fbs_click(TheImg) {
+   u=TheImg;
+     // t=document.title;
+     t=TheImg.getAttribute('alt');
+     window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;
+ }
+ </script>

@@ -6,7 +6,7 @@
 		public function __construct()
 		{
 			parent::__construct();
-			$this->load->library(array('session', 'lib_login'));
+			// $this->load->library(array('session', 'lib_login'));
 			
 			
 		}
@@ -377,7 +377,7 @@ else
     {
     	$this->load->library('form_validation');
     	$this->form_validation->set_error_delimiters('', '');
-    	$this->load->view('templates/header');
+    	
     	$this->form_validation->set_rules('email','Email','required|trim|xss_clean|callback_validate_creditentials');
     	$this->form_validation->set_rules('password','Password','required|md5');
 
@@ -395,7 +395,11 @@ $this->session->set_flashdata('fancy', 'You are now logged in');
 
     	}else{
     		$data['title'] = 'Login';
-    		$this->load->view('user/login',$data);
+              $data['errors'] = validation_errors();
+           
+            $this->load->view('templates/header2',$data);
+    		$this->load->view('user/signup',$data);
+                $this->load->view('templates/footer2');
     	}
 
 
@@ -456,25 +460,24 @@ $this->session->set_flashdata('fancy', 'You are now logged in');
     public function signup_validation(){
     	$this->load->library('form_validation');
     	$this->form_validation->set_error_delimiters('', '');
-    	$this->load->view('templates/header');
-
-        $this->form_validation->set_rules('fname','Fname','required|trim');
-        $this->form_validation->set_rules('lname','Lname','required|trim');
+    	
+        $this->form_validation->set_rules('fname','First Name','required|trim');
+        $this->form_validation->set_rules('lname','Last Name','required|trim');
     	$this->form_validation->set_rules('email','Email','required|trim|valid_email|is_unique[userprofile.email]');
 
         $this->form_validation->set_rules('username','Username','required|trim');
     	$this->form_validation->set_rules('password','Password','required|trim');
-    	$this->form_validation->set_rules('passconfirm','Passconfirm','required|trim|matches[password]');
+    	$this->form_validation->set_rules('passconfirm','Password Confirmation','required|trim|matches[password]');
 
         $this->form_validation->set_rules('cellnumber','Cellnumber','required|trim');
         $this->form_validation->set_rules('address1','Address1','required|trim'); 
          $this->form_validation->set_rules('address2','Address2','required|trim'); 
-          $this->form_validation->set_rules('pcode','Pcode','required|trim'); 
+          $this->form_validation->set_rules('pcode','Postal Code','required|trim'); 
 
        
     	$this->form_validation->set_message('is_unique',"That email address already exists");
     	$this->form_validation->set_message('matches',"Passwords do not match");
-    	$this->form_validation->set_message('required',"This field is required");
+    	
 
     	if ($this->form_validation->run()) {
 
@@ -505,8 +508,11 @@ $this->session->set_flashdata('fancy', 'You are now logged in');
 
     	}else{		
     		$data['title'] = 'Sign up';
-             $this->session->set_userdata('fancy', 'failed');
-    		redirect('');
+            $data['errors'] = validation_errors();
+           
+            $this->load->view('templates/header2',$data);
+            $this->load->view('user/signup',$data);
+                $this->load->view('templates/footer2'); 
     		
     	}
     }
@@ -573,7 +579,7 @@ $this->session->set_flashdata('fancy', 'You are now logged in');
 
     public function validate_creditentials () {
     	$this->load->model('model_users');
-    	$this->load->view('templates/header');
+    	
     	if($this->model_users->can_log_in()){
     		return true;
     	}else{

@@ -1,7 +1,27 @@
+    <?php if( validation_errors()  != "") { ?>
 
+
+
+<script type="text/javascript">
+
+   $(document).ready(
+    function(){
+
+      $( "#notify" ).click();
+        // $.fancybox('<div style="height: 90px;padding-left:20px;padding-right:20px;line-height: 90px;color:#2980b9"><?php echo $this->session->flashdata('fancy') ?></div>');
+    
+        
+
+    });
+
+
+
+   </script>
+<?php } ?>
   
 <!--Page Content-->
 <div class="page-content">
+ <input type="hidden" id="notify" data-toggle="modal" data-target="#myModal"/>
 
   <!--Breadcrumbs-->
   <ol class="breadcrumb">
@@ -27,7 +47,7 @@
       <div class="form-group group">
           <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
-        <a class="help-link" href="#" data-toggle="modal" data-target="#myModalforgot">Forgot email?</a>
+      <!--   <a class="help-link" href="#" data-toggle="modal" data-target="#myModalforgot">Forgot email?</a> -->
       </div>
       <div class="form-group group">
         <label for="password">Password</label>
@@ -47,15 +67,16 @@
    <div class="step1" id="step1">
     <div class="form-group">
       <label for="fname">First Name</label>
-      <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your first name">
+
+      <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your first name" required>
     </div>
     <div class="form-group">
       <label for="lname">Last Name</label>
-      <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your last name">
+      <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your last name" required>
     </div>
     <div class="form-group">
       <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
     </div>
     <button onclick="NextStep()" type="button" class="btn btn-default">Next</button>
   </div>
@@ -64,17 +85,17 @@
 
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+      <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
     </div>
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
     </div>
 
     <div class="form-group">
       <label for="passconfirm">Confirm Password</label>
-      <input type="password" class="form-control" id="passconfirm" name="passconfirm" placeholder="Confirm password">
+      <input type="password" class="form-control" id="passconfirm" name="passconfirm" placeholder="Confirm password" required>
     </div>
     <button onclick="PreviousStep2()" type="button" class="btn btn-default">Back</button>
     <button onclick="NextStep2()" type="button" class="btn btn-default">Next</button>
@@ -84,16 +105,16 @@
   <div class="step2" id="step2" style="display:none;">
     <div class="form-group">
       <label for="cellnumber">Cell Number</label>
-      <input type="number" class="form-control" id="cellnumber" name="cellnumber" placeholder="Enter cell number">
+      <input type="number" class="form-control" id="cellnumber" name="cellnumber" placeholder="Enter cell number" required>
     </div>
     <div class="form-group">
       <label for="address">Address</label>
-      <input type="text" class="form-control" id="address1" name="address1" placeholder="Line 1">
-      <input type="text" class="form-control" id="address2" name="address2" placeholder="Line 2">
+      <input type="text" class="form-control" id="address1" name="address1" placeholder="Line 1" required>
+      <input type="text" class="form-control" id="address2" name="address2" placeholder="Line 2" required>
     </div>
     <div class="form-group">
       <label for="pcode">Postal Code</label>
-      <input type="number" class="form-control" id="pcode" name="pcode" placeholder="Enter your postal code">
+      <input type="number" class="form-control" id="pcode" name="pcode" placeholder="Enter your postal code" required>
     </div>
 
     <div class="checkbox">
@@ -152,37 +173,7 @@
   <span id="scrollTop-btn"><i class="fa fa-chevron-up"></i></span>
 </div><!--Sticky Buttons Close-->
 
-<!--Subscription Widget-->
-<section class="subscr-widget">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-7 col-md-8 col-sm-8">
-        <h2 class="light-color">Subscribe to our news</h2>
 
-        <!--Mail Chimp Subscription Form-->
-        <form class="subscr-form" role="form" action="//8guild.us3.list-manage.com/subscribe/post?u=168a366a98d3248fbc35c0b67&amp;id=d704057a31" target="_blank" method="post" autocomplete="off">
-          <div class="form-group">
-            <label class="sr-only" for="subscr-name">Enter name</label>
-            <input type="text" class="form-control" name="FNAME" id="subscr-name" placeholder="Enter name" required>
-            <button class="subscr-next"><i class="icon-arrow-right"></i></button>
-          </div>
-          <div class="form-group fff" style="display: none">
-            <label class="sr-only" for="subscr-email">Enter email</label>
-            <input type="email" class="form-control" name="EMAIL" id="subscr-email" placeholder="Enter email" required>
-            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-            <div style="position: absolute; left: -5000px;"><input type="text" name="b_168a366a98d3248fbc35c0b67_d704057a31" tabindex="-1" value=""></div>
-            <button type="submit" id="subscr-submit"><i class="icon-check"></i></button>
-          </div>
-        </form>
-        <!--Mail Chimp Subscription Form Close-->
-        <p class="p-style2">Please fill the field before continuing</p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-1">
-        <p class="p-style3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      </div>
-    </div>
-  </div>
-</section><!--Subscription Widget Close-->
 
 <!-- Modal -->
 <div class="modal fade" id="myModalforgot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -240,3 +231,19 @@ function NextStep2() {
 
 }
 </script>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-danger"  style="width: 50%;margin-top: 30%;margin-left: 20%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+      </div>
+      <div class="modal-body">
+       <?php echo $errors ?>
+      </div>
+     
+    </div>
+  </div>
+</div>
