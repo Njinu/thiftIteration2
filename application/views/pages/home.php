@@ -107,7 +107,7 @@
                                     <div class="rate">
 
                                       <span class="active"><i><?php echo $filter['likes']; ?></i> <i class="fa fa-thumbs-up"></i></span>
-                                      <span class="active"><i><?php echo $filter['likes']; ?></i> <i class="fa fa-thumbs-down"></i></span>
+                                      <span class="active"><i><?php echo $filter['dislikes']; ?></i> <i class="fa fa-thumbs-down"></i></span>
                                      
                                     </div>
                                     <!--Add To Cart Button-->
