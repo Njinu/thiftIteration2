@@ -175,6 +175,18 @@ public function view($slug,$id)
     
   }
 
+  public function likeup(){
+      $this->load->model('store_model');
+      $this->store_model->likeup();
+     redirect('');
+  }
+
+  public function dislikedown(){
+      $this->load->model('store_model');
+      $this->store_model->dislikedown();
+    
+  }
+
  
 
   public function ShopSearch(){

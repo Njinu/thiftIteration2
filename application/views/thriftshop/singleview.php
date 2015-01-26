@@ -1,3 +1,18 @@
+<style type="text/css">
+.hoverlike:hover{
+  color: #2ba8db
+}
+.hoverlike{
+  color:black
+}
+.hoverdislike:hover{
+  color: #e74c3c
+}
+.hoverdislike{
+  color:black
+}
+</style>
+
 <!--Page Content-->
     <div class="page-content">
     
@@ -24,11 +39,13 @@
             <div class="col-lg-6 col-md-6">
             	
               <img onclick="fbs_click(this)" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' class="img-responsive" alt="Responsive image">
+            <br><p class="p-style2"><?php echo  $filter['description']; ?></p>
             </div>
             
             <!--Product Description-->
             <div class="col-lg-6 col-md-6">
               <h1><?php echo  $filter['name']; ?></h1>
+              <hr>
              <!--  <?php print_r($filter) ?> -->
               <div class="rate">
                 <span class="active"></span>
@@ -38,9 +55,9 @@
                 <span></span>
               </div>
              <!--  <div class="old-price">815,00 $</div> -->
-              <div class="price">R <?php echo  $filter['price']; ?></div>
+              <div class="price"><span class="badge">R <?php echo  $filter['price']; ?></span></div>
 
-              <p class="p-style2"><?php echo  $filter['description']; ?></p>
+              
               <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-5">
                   <h3>Tell Friends</h3>
@@ -50,6 +67,31 @@
                    <!--  <a href="#"><i class="fa fa-pinterest-square"></i></a> -->
                     <a onclick="fbs_click(this)"><i class="fa fa-facebook-square"></i></a>
                   </div>
+                </div>
+               
+              </div>
+
+               <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-5">
+
+                  <a href="#" onclick="triggerlike()" class="hoverlike" ><i class="fa fa-thumbs-o-up" style="font-size:180%"></i> <span><?php echo  $filter['likes']; ?></span> </a>
+                   <?php $attributeslike = array('name' => 'likeupForm', 'id' => 'likeupForm','style'=> 'display:none'); ?>
+                                     <?php echo form_open('thriftshop/likeup',$attributeslike) ?>
+                                   <input type="int" style="visibility:hidden" id="prodID" name="prodID" href="#" value='<?php echo  $filter['product_id']; ?>'/>  
+                                    <input type="int" style="visibility:hidden" id="clikes" name="clikes" href="#" value='<?php echo  $filter['likes']; ?>'/>  
+                   <input type="text" style="visibility:hidden" id="slug1" name="slug1" href="#" value='<?php echo  $filter['slug']; ?>'/>
+                   <button type="submit" id="likeupclick" style="visibility:hidden"></button>
+                 </form>
+
+                  <a href="#" onclick="triggerdislike()"  class="hoverdislike" ><i class="fa fa-thumbs-o-down" style="font-size:180%"></i> <span><?php echo  $filter['dislikes']; ?></span> </a>
+                   <?php $attributeslike2 = array('name' => 'dislikedownForm', 'id' => 'dislikedownForm','style'=> 'display:none'); ?>
+                                     <?php echo form_open('thriftshop/dislikedown',$attributeslike2) ?>
+                                   <input type="int" style="visibility:hidden" id="prodID2" name="prodID2" href="#" value='<?php echo  $filter['product_id']; ?>'/>  
+                                    <input type="int" style="visibility:hidden" id="dlikes" name="dlikes" href="#" value='<?php echo  $filter['dislikes']; ?>'/>  
+                    <input type="text" style="visibility:hidden" id="slug2" name="slug2" href="#" value='<?php echo  $filter['slug']; ?>'/>
+                   <button type="submit" id="dlikeclick"  style="visibility:hidden"></button>
+                 </form>
+               
                 </div>
                
               </div>
@@ -97,15 +139,16 @@
                       <!--Column 1-->
                       <div class="col-lg-12 col-md-12 col-sm-12">
                       <!--   <?php print_r($comments); ?> -->
-                         <?php foreach ($comments as $filter): $newitemdate = $filter['id'];?>
+                      <?php if($comments){ ?>
+                         <?php foreach ($comments as $filter): $newitemdate = $filter['id'] ?>
                         <!--Item-->
                         <div class="item">
                           <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-3"><i class="fa fa-user"></i><span><?php echo $filter['firstname'] ?></span></div>
                             <div class="col-lg-8 col-md-8 col-sm-9"><p class="p-style2"><?php echo $filter['message'] ?></p></div>
                           </div>
-                        </div>
-<?php endforeach ?>
+                       </div>
+<?php endforeach ?>  <?php } else { ?> <h4>There are currently no comments made for this product. Be the first to comment!</h4> <?php  } ?>
                      </div>                  
                     </div>
                   </div>
@@ -239,6 +282,16 @@ function fbs_click(TheImg) {
 
     <script type="text/javascript">
 
+     function triggerdislike(){
+       $("#dlikeclick").click();
+    }
+
+    function triggerlike(){
+       $("#likeupclick").click();
+    }
+
+   
+
   function addWish(prodid)
   {
      $('#productid').val(prodid);
@@ -247,6 +300,51 @@ function fbs_click(TheImg) {
   }
 
   </script>
+
+  <script type="text/javascript">
+
+
+$('form#dislikedownForm').submit(function(e) {
+
+  var form = $(this);
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/dislikedown'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+  location.reload();
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
+
+  <script type="text/javascript">
+
+$('form#likeupForm').submit(function(e) {
+
+  var form = $(this);
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/likeup'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+   location.reload();
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
     
       
   	

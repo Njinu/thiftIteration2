@@ -12,6 +12,47 @@ class Store_model extends CI_Model {
 		$this->db->delete('wishlist'); 
 	}
 
+	public function rated($id,$slug){
+		$userid = $id;
+		$slug1 = $slug;
+		$data = array(
+			'email' => $userid,
+			'product_slug' => $slug1 
+			);
+
+		$this->db->insert('rated', $data); 
+
+	}
+
+	public function likeup(){
+
+
+		$this->rated($this->session->userdata('id'),$slug = $this->input->post('slug1'));
+		$id = $this->input->post('prodID');
+		$clikes =  $this->input->post('clikes');
+		$newlikes = $clikes +1;
+		$data = array(
+
+			'likes' => $newlikes
+			);
+		$this->db->where('id', $id);
+		$this->db->update('product', $data); 
+
+
+	}
+
+	public function dislikedown(){
+		$id = $this->input->post('prodID2');
+		$dlikes =  $this->input->post('dlikes');
+		$newdislikes = $dlikes  + 1;
+		$data = array(
+
+			'dislikes' => $newdislikes
+			);
+		$this->db->where('id', $id);
+		$this->db->update('product', $data); 
+	}
+
 	public function get_products($slug = FALSE)
 	{
 		if ($slug === FALSE)
