@@ -4,8 +4,19 @@ $(function() {
 
     // Area Chart
     var seller =$('#sellerId');
-    alert(seller[value]);
-    console.log(sellerId);
+    var seller_id= seller.val();
+    //alert(seller_id);
+   // console.log(sellerId);
+        $.ajax({
+            type: 'POST',
+            url: 'ajax.php',
+            data: 'id=testdata',
+            dataType: 'json',
+            cache: false,
+            success: function(result) {
+                $('#content1').html(result[0]);
+            },
+        });
 
     Morris.Area({
         element: 'morris-area-chart',
