@@ -99,7 +99,7 @@
                                 <!--   <span class="sale"></span> -->
                                 </div>
                                 <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
-                                <a href="thriftshop/view/<?php echo $filter['slug']?>/<?php echo $filter['product_id']?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
+                                <a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
                                 <div class="footer">
                                   <a href="#"><?php echo $filter['name'] ?></a>
                                   <span><?php echo $filter['category'] ?></span>
@@ -148,7 +148,7 @@
     <section class="tabs-widget">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#bestsel" data-toggle="tab">Bestseller items</a></li>
+            <li class="active"><a href="#bestsel" data-toggle="tab">Top Rated Items</a></li>
             <li><a href="#onsale" data-toggle="tab">Items on sale</a></li>
         </ul>
         <div class="tab-content">
@@ -158,17 +158,17 @@
                         <div class="col-lg-7 col-md-7 col-sm-7">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div>X-MAS LIGHT IPHONE LENS<span>$14.95</span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[0]['name'] ?><span>R <?php echo $toprated[0]['price'] ?></span><span>Likes:<?php echo $toprated[0]['likes'] ?></div></div>
                                 </div>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/>
+                                <img src='<?php echo base_url();?>uploads/<?php echo $toprated[0]['pic_id'] ?>' alt="1"/>
                             </a>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div>Hedadset for iPhone<span>$19.40</span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[1]['name'] ?><span>R <?php echo $toprated[1]['price'] ?></span><span>Likes:<?php echo $toprated[1]['likes'] ?></div></div>
                                 </div>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/>
+                                <img src='<?php echo base_url();?>uploads/<?php echo $toprated[1]['pic_id'] ?>' alt="2"/>
                             </a>
                         </div>
                     </div>
@@ -176,25 +176,25 @@
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[3]['name'] ?><span>R <?php echo $toprated[3]['price'] ?></span><span>Likes:<?php echo $toprated[3]['likes'] ?></div></div>
                                 </div>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/>
+                                <img src='<?php echo base_url();?>uploads/<?php echo $toprated[3]['pic_id'] ?>' alt="3"/>
                             </a>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[2]['name'] ?><span>R <?php echo $toprated[2]['price'] ?></span><span>Likes:<?php echo $toprated[2]['likes'] ?></span></div></div>
                                 </div>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/>
+                                <img src='<?php echo base_url();?>uploads/<?php echo $toprated[2]['pic_id'] ?>' alt="4"/>
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[4]['name'] ?><span>R <?php echo $toprated[4]['price'] ?></span><span>Likes:<?php echo $toprated[4]['likes'] ?></div></div>
                                 </div>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
+                                <img src='<?php echo base_url();?>uploads/<?php echo $toprated[4]['pic_id'] ?>' alt="5"/>
                             </a>
                         </div>
                     </div>

@@ -24,24 +24,32 @@ class Store_model extends CI_Model {
 
 	}
 
+	public function getratedlist($slug){
+		$id = $this->session->userdata('id');
+		$query = $this->db->get_where('rated', array('email' => $id,'product_slug' => $slug));
+		return $query->row_array();
+	}
+
 	public function likeup(){
+		$ratedlist = $this->getratedlist($this->input->post('slug1'));
 
-
-		$this->rated($this->session->userdata('id'),$slug = $this->input->post('slug1'));
-		$id = $this->input->post('prodID');
-		$clikes =  $this->input->post('clikes');
-		$newlikes = $clikes +1;
-		$data = array(
-
-			'likes' => $newlikes
-			);
-		$this->db->where('id', $id);
-		$this->db->update('product', $data); 
-
-
+		if(!$ratedlist){
+			$this->rated($this->session->userdata('id'),$slug = $this->input->post('slug1'));
+			$id = $this->input->post('prodID');
+			$clikes =  $this->input->post('clikes');
+			$newlikes = $clikes +1;
+			$data = array(
+				'likes' => $newlikes
+				);
+			$this->db->where('id', $id);
+			$this->db->update('product', $data); 
+		}						
 	}
 
 	public function dislikedown(){
+		$ratedlist = $this->getratedlist($this->input->post('slug2'));
+		if(!$ratedlist){
+		$this->rated($this->session->userdata('id'),$slug = $this->input->post('slug2'));
 		$id = $this->input->post('prodID2');
 		$dlikes =  $this->input->post('dlikes');
 		$newdislikes = $dlikes  + 1;
@@ -51,6 +59,15 @@ class Store_model extends CI_Model {
 			);
 		$this->db->where('id', $id);
 		$this->db->update('product', $data); 
+	}
+	}
+
+	public function toprated(){
+		$this->db->order_by('product.likes','desc'); 
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id ','left');
+		$query = $this->db->get('',10);
+		return $query->result_array();
 	}
 
 	public function get_products($slug = FALSE)
@@ -88,10 +105,10 @@ class Store_model extends CI_Model {
 
 	public function get_catalog()
 	{
-		$this->db->order_by('product.likes','desc'); 
+		$this->db->order_by('product.date_created','desc'); 
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id ','left');
-		$query = $this->db->get();
+		$query = $this->db->get('',10);
 		return $query->result_array();
 	}
 
@@ -587,15 +604,15 @@ class Store_model extends CI_Model {
 
 	}
 
-public function get_product_views($product_id){
- $one_week = date('Y/m/d H:i:s', strtotime("-7 days"));
+	public function get_product_views($product_id){
+		$one_week = date('Y/m/d H:i:s', strtotime("-7 days"));
 
 //echo $one_week;
 		$this->db->where('event_id',$product_id);
 		$this->db->where('date >=' ,$one_week);
 		$query1 = $this->db->select()->from('viewtest')->get();
 		return $query1->result_array();
-}
+	}
 
 	public function set_products()
 	{

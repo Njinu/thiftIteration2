@@ -49,8 +49,8 @@ $( document ).ready(function() {
                 <?php foreach ($wishlist as $filter): $newitemdate = $filter['name'];?>
                 <!--Item-->
                 <tr class="item first">
-                	<td class="thumb"><a href="shop-single-item-v1.html"><a href="thriftshop/<?php echo $filter['slug'] ?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a></td>
-                  <td class="name"><a href="shop-single-item-v1.html"><?php echo $filter['name']; ?></a></td>
+                	<td class="thumb"><a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a></td>
+                  <td class="name"><a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><?php echo $filter['name']; ?></a></td>
                   <td class="price">R <?php echo $filter['price']; ?></td>
                   
                   <td onclick="deletewish('<?php echo $filter['product_id'] ?>')" class="delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times"></i></td>

@@ -22,6 +22,7 @@ class Pages extends CI_Controller {
         $data['logout_url'] = $this->facebook->get_logout_url();
         $data['categories2'] = $this->store_model->get_categories();
         $data['catalog'] = $this->store_model->get_catalog();
+        $data['toprated'] = $this->store_model->toprated();
         
         $data['get_picture'] =  $this->facebook->get_pic();
         

@@ -120,7 +120,7 @@
            </section>
            
            <!--Colors Section-->
-           <section class="filter-section">
+           <!-- <section class="filter-section">
              <h3>Filter by color</h3>
              <span class="clear clearChecks">Clear colors</span>
              <label>
@@ -142,10 +142,10 @@
                     <label>
                       <input type="checkbox" name="colors" value="red" id="color_4">
                       Red (12)</label>
-                    </section>
+                    </section> -->
 
                     <!--Colors Section-->
-                    <section class="filter-section">
+               <!--      <section class="filter-section">
                      <h3>Filter by size</h3>
                      <span class="clear clearChecks">Clear size</span>
                      <label>
@@ -167,33 +167,10 @@
                             <label>
                               <input type="checkbox" name="sizes" value="red" id="size_4">
                               Superman (0)</label>
-                            </section>
+                            </section> -->
 
                             <!--Categories Section-->
-                            <section class="filter-section">
-                             <h3>Categories</h3>
-                             <ul class="categories">
-                               <li class="has-subcategory"><a href="#">iPhone cases (123)</a><!--Class "has-subcategory" for dropdown propper work-->
-                                 <ul class="subcategory">
-                                   <li><a href="#">iPhone cases (1)</a></li>
-                                   <li><a href="#">iPad cases (45)</a></li>
-                                   <li><a href="#">MacBook cases (34)</a></li>
-                                   <li><a href="#">Something (12)</a></li>
-                                   <li><a href="#">Air cases (23)</a></li>
-                                 </ul>
-                               </li>
-                               <li><a href="#">iPad cases (34)</a></li>
-                               <li><a href="#">MacBook cases (78)</a></li>
-                               <li class="has-subcategory"><a href="#">Something (45)</a>
-                                 <ul class="subcategory">
-                                   <li><a href="#">Subcategory (1)</a></li>
-                                   <li><a href="#">Subcategory (45)</a></li>
-                                   <li><a href="#">Subcategory (23)</a></li>
-                                 </ul>
-                               </li>
-                               <li><a href="#">Air cases (23)</a></li>
-                             </ul>
-                           </section>
+                           
                          </div>
                        </div>
 
@@ -211,7 +188,8 @@
                                  <!--  <span class="sale"></span> -->
                                 </div>
                                 <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
-                                <a href="thriftshop/view/<?php echo $filter['slug']?>/<?php echo $filter['product_id']?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
+                                
+                                <a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
                                 <div class="footer">
                                   <a href="#"><?php echo $filter['name'] ?></a>
                                   <span><?php echo $filter['category'] ?></span>
