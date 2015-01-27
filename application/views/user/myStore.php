@@ -279,7 +279,7 @@
       </br>
       <div class="form-group"> 
         <label>Category</label> 
-        <select class="form-control">
+        <select class="form-control" id="ItemCategory">
             <option value="Accomodation">Accomodation</option>
             <option value="Furniture">Furniture</option>
             <option value="Miscellaneous">Miscellaneous</option>

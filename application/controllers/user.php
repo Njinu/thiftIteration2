@@ -67,6 +67,7 @@ foreach ($data['products'] as $key ) {
 
         $this->load->view('templates/sellerHeader', $data);
         $this->load->view('user/views', $data);
+        
 
     }
 
@@ -609,7 +610,7 @@ $this->session->set_flashdata('fancy', 'You are now logged in');
 		
 		$this->form_validation->set_rules('ItemName', 'Name', 'required');
 		$this->form_validation->set_rules('ItemPrice', 'Price', 'required');
-		$this->form_validation->set_rules('ItemCategory', 'Category', 'required');
+	//	$this->form_validation->set_rules('ItemCategory', 'Category', 'required');
 		$this->form_validation->set_rules('ItemDescription', 'Description', 'required');
 		
 		if ($this->form_validation->run() === FALSE)
