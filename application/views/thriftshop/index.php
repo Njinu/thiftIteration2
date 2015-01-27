@@ -1,3 +1,5 @@
+<link rel="image_src" href='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' />
+
  <?php if($this->session->flashdata('fancy') != "") { ?>
 
 
@@ -118,7 +120,7 @@
            </section>
            
            <!--Colors Section-->
-           <section class="filter-section">
+           <!-- <section class="filter-section">
              <h3>Filter by color</h3>
              <span class="clear clearChecks">Clear colors</span>
              <label>
@@ -140,10 +142,10 @@
                     <label>
                       <input type="checkbox" name="colors" value="red" id="color_4">
                       Red (12)</label>
-                    </section>
+                    </section> -->
 
                     <!--Colors Section-->
-                    <section class="filter-section">
+               <!--      <section class="filter-section">
                      <h3>Filter by size</h3>
                      <span class="clear clearChecks">Clear size</span>
                      <label>
@@ -165,33 +167,10 @@
                             <label>
                               <input type="checkbox" name="sizes" value="red" id="size_4">
                               Superman (0)</label>
-                            </section>
+                            </section> -->
 
                             <!--Categories Section-->
-                            <section class="filter-section">
-                             <h3>Categories</h3>
-                             <ul class="categories">
-                               <li class="has-subcategory"><a href="#">iPhone cases (123)</a><!--Class "has-subcategory" for dropdown propper work-->
-                                 <ul class="subcategory">
-                                   <li><a href="#">iPhone cases (1)</a></li>
-                                   <li><a href="#">iPad cases (45)</a></li>
-                                   <li><a href="#">MacBook cases (34)</a></li>
-                                   <li><a href="#">Something (12)</a></li>
-                                   <li><a href="#">Air cases (23)</a></li>
-                                 </ul>
-                               </li>
-                               <li><a href="#">iPad cases (34)</a></li>
-                               <li><a href="#">MacBook cases (78)</a></li>
-                               <li class="has-subcategory"><a href="#">Something (45)</a>
-                                 <ul class="subcategory">
-                                   <li><a href="#">Subcategory (1)</a></li>
-                                   <li><a href="#">Subcategory (45)</a></li>
-                                   <li><a href="#">Subcategory (23)</a></li>
-                                 </ul>
-                               </li>
-                               <li><a href="#">Air cases (23)</a></li>
-                             </ul>
-                           </section>
+                           
                          </div>
                        </div>
 
@@ -209,17 +188,15 @@
                                  <!--  <span class="sale"></span> -->
                                 </div>
                                 <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
-                                <a href="thriftshop/view/<?php echo $filter['slug']?>/<?php echo $filter['product_id']?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
+                                
+                                <a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
                                 <div class="footer">
                                   <a href="#"><?php echo $filter['name'] ?></a>
                                   <span><?php echo $filter['category'] ?></span>
                                   <div class="tools">
                                     <div class="rate">
-                                      <span class="active"></span>
-                                      <span class="active"></span>
-                                      <span class="active"></span>
-                                      <span></span>
-                                      <span></span>
+                                       <span class="active"><i><?php echo $filter['likes']; ?></i> <i class="fa fa-thumbs-up"></i></span>
+                                      <span class="active"><i><?php echo $filter['dislikes']; ?></i> <i class="fa fa-thumbs-down"></i></span>
                                     </div>
                                     <!--Add To Cart Button-->
                                      <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm', 'name' => 'WishlistForm'); ?>
@@ -256,14 +233,14 @@
       
 
                       <!--Pagination-->
-                      <ul class="pagination">
+                     <!--  <ul class="pagination">
                         <li class="prev-page"><a class="fa fa-arrow-circle-left" href="#"></a></li>
                         <li class="active"><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
                         <li><a href="#">4</a></li>
                         <li class="next-page"><a class="fa fa-arrow-circle-right" href="#"></a></li>
-                      </ul>
+                      </ul> -->
                     </div>
                   </div>
                 </div>
@@ -312,37 +289,7 @@
      <span id="scrollTop-btn"><i class="fa fa-chevron-up"></i></span>
    </div><!--Sticky Buttons Close-->
 
-   <!--Subscription Widget-->
-   <section class="subscr-widget">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-7 col-md-8 col-sm-8">
-          <h2 class="light-color">Subscribe to our news</h2>
-
-          <!--Mail Chimp Subscription Form-->
-          <form class="subscr-form" role="form" action="//8guild.us3.list-manage.com/subscribe/post?u=168a366a98d3248fbc35c0b67&amp;id=d704057a31" target="_blank" method="post" autocomplete="off">
-            <div class="form-group">
-              <label class="sr-only" for="subscr-name">Enter name</label>
-              <input type="text" class="form-control" name="FNAME" id="subscr-name" placeholder="Enter name" required>
-              <button class="subscr-next"><i class="fa fa-chevron-circle-right"></i></button>
-            </div>
-            <div class="form-group fff" style="display: none">
-              <label class="sr-only" for="subscr-email">Enter email</label>
-              <input type="email" class="form-control" name="EMAIL" id="subscr-email" placeholder="Enter email" required>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;"><input type="text" name="b_168a366a98d3248fbc35c0b67_d704057a31" tabindex="-1" value=""></div>
-              <button type="submit" id="subscr-submit"><i class="icon-check"></i></button>
-            </div>
-          </form>
-          <!--Mail Chimp Subscription Form Close-->
-          <p class="p-style2">Please fill the field before continuing</p>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-1">
-          <p class="p-style3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </div>
-      </div>
-    </div>
-  </section><!--Subscription Widget Close-->
+   
 
   <script type="text/javascript">
   var $rows = $('#filtersearch').children();

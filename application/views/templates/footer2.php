@@ -307,7 +307,7 @@ analytics.identify(<?php echo ("'".$me['id']."'"); ?>,
   page :pathname
 });
 </script>
-// <script>
+<script>
 // $(document).ready(function(){
 //   setTimeout(function(){
 //     console.log('HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEYYYYYYYY');

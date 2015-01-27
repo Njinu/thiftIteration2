@@ -1,4 +1,11 @@
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=359141144257377&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
     <?php if($this->session->flashdata('fancy') != "") { ?>
@@ -24,6 +31,7 @@
 <!--Page Content-->
 <div class="page-content">
     <input type="hidden" id="notify" data-toggle="modal" data-target="#myModal"/>
+     <input type="hidden" id="notify2" data-toggle="modal" data-target="#myModal2"/>
     <!--Hero Slider-->
     <section class="hero-slider" style="padding:0px">
         <div class="master-slider" id="hero-slider">
@@ -72,7 +80,7 @@
                 <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
                     <a href="#">
                         <img src='<?php echo base_url();?>uploads/<?php echo $category['pic_id'] ?>' alt="1"/>
-                        <p><?php echo $category['name'] ?></p>
+                        <p><?php echo $category['category'] ?></p>
                     </a>
                 </div>
         
@@ -86,7 +94,7 @@
     <!--Catalog Grid-->
     <section class="catalog-grid">
         <div class="container">
-            <h2 class="primary-color">Catalog picks</h2>
+            <h2 class="primary-color">Latest Goods</h2>
             <div class="row">
                
                  <?php foreach ($catalog as $filter): $newitemdate = $calendar_item['price'];?>
@@ -98,17 +106,16 @@
                                 <!--   <span class="sale"></span> -->
                                 </div>
                                 <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
-                                <a href="thriftshop/view/<?php echo $filter['slug']?>/<?php echo $filter['product_id']?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
+                                <a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
                                 <div class="footer">
                                   <a href="#"><?php echo $filter['name'] ?></a>
                                   <span><?php echo $filter['category'] ?></span>
                                   <div class="tools">
                                     <div class="rate">
-                                      <span class="active"></span>
-                                      <span class="active"></span>
-                                      <span class="active"></span>
-                                      <span></span>
-                                      <span></span>
+
+                                      <span class="active"><i><?php echo $filter['likes']; ?></i> <i class="fa fa-thumbs-up"></i></span>
+                                      <span class="active"><i><?php echo $filter['dislikes']; ?></i> <i class="fa fa-thumbs-down"></i></span>
+                                     
                                     </div>
                                     <!--Add To Cart Button-->
                                      <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm', 'name' => 'WishlistForm'); ?>
@@ -148,7 +155,7 @@
     <section class="tabs-widget">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#bestsel" data-toggle="tab">Bestseller items</a></li>
+            <li class="active"><a href="#bestsel" data-toggle="tab">Most Liked Items</a></li>
             <li><a href="#onsale" data-toggle="tab">Items on sale</a></li>
         </ul>
         <div class="tab-content">
@@ -158,17 +165,17 @@
                         <div class="col-lg-7 col-md-7 col-sm-7">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div>X-MAS LIGHT IPHONE LENS<span>$14.95</span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[0]['name'] ?><span>R <?php echo $toprated[0]['price'] ?></span><span>Likes:<?php echo $toprated[0]['likes'] ?></div></div>
                                 </div>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/>
+                                <img src='<?php echo base_url();?>uploads/<?php echo $toprated[0]['pic_id'] ?>' alt="1"/>
                             </a>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div>Hedadset for iPhone<span>$19.40</span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[1]['name'] ?><span>R <?php echo $toprated[1]['price'] ?></span><span>Likes:<?php echo $toprated[1]['likes'] ?></div></div>
                                 </div>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/>
+                                <img src='<?php echo base_url();?>uploads/<?php echo $toprated[1]['pic_id'] ?>' alt="2"/>
                             </a>
                         </div>
                     </div>
@@ -176,25 +183,25 @@
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[3]['name'] ?><span>R <?php echo $toprated[3]['price'] ?></span><span>Likes:<?php echo $toprated[3]['likes'] ?></div></div>
                                 </div>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="3"/>
+                                <img src='<?php echo base_url();?>uploads/<?php echo $toprated[3]['pic_id'] ?>' alt="3"/>
                             </a>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[2]['name'] ?><span>R <?php echo $toprated[2]['price'] ?></span><span>Likes:<?php echo $toprated[2]['likes'] ?></span></div></div>
                                 </div>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="4"/>
+                                <img src='<?php echo base_url();?>uploads/<?php echo $toprated[2]['pic_id'] ?>' alt="4"/>
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[4]['name'] ?><span>R <?php echo $toprated[4]['price'] ?></span><span>Likes:<?php echo $toprated[4]['likes'] ?></div></div>
                                 </div>
-                                <img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="5"/>
+                                <img src='<?php echo base_url();?>uploads/<?php echo $toprated[4]['pic_id'] ?>' alt="5"/>
                             </a>
                         </div>
                     </div>
@@ -258,6 +265,11 @@
             </div>
         </div>
     </section><!--Tabs Widget Close-->
+
+    <section class="brand-carousel" style="background-color:#a3c756;color:white"> 
+        <center><h1 style="color:white;font-size:400%;">Social Feeds</h1></center>
+        <hr>
+    </section>
     
     <!--Posts/Twitter Widget-->
     <section class="posts-widget">
@@ -266,69 +278,15 @@
             <div class="row">
                 <div class="latest-posts col-lg-8 col-md-8">
                     <div class="row">
-                        <div class="col-lg-3">
-                            <h2 class="extra-bold">Latests posts</h2>
-                            <a class="btn btn-success btn-block" href="#">To blog</a>
-                        </div>
-                        <div class="col-lg-9">
-                            <!--Post-->
-                            <div class="post row">
-                                <div class="col-lg-6 col-sm-6">
-                                    <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/></a>
-                                </div>
-                                <div class="col-lg-6 col-sm-6">
-                                    <h3><a href="#">Another Title</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                                    <div class="author"><i class="fa fa-user"></i><a href="#">By Bedismo</a></div>
-                                    <div class="comments"><i class="fa fa-comment"></i><a href="#">Comments (34)</a></div>
-                                </div>
-                            </div><!--Post End-->
-                            <!--Post-->
-                            <div class="post row">
-                                <div class="col-lg-6 col-sm-6">
-                                    <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/></a>
-                                </div>
-                                <div class="col-lg-6 col-sm-6">
-                                    <h3><a href="#">Awesome Title</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                                    <div class="author"><i class="fa fa-user"></i><a href="#">By Jeddah</a></div>
-                                    <div class="comments"><i class="fa fa-comment"></i><a href="#">Comments (101)</a></div>
-                                </div>
-                            </div><!--Post End-->
-                        </div>
+                    
+              <div class="fb-like-box" data-href="https://www.facebook.com/pages/Thriftshop/413901205429151" data-width="600" data-height="600" data-colorscheme="dark" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
                     </div>
                 </div>
                 <div class="twitter-feed col-lg-4 col-md-4">
-                    <a class="tw-follow" href="https://twitter.com/8Guild" target="_blank">
-                        <div class="button">Follow us<i class="fa fa-twitter"></i></div>
-                        <h2 class="extra-bold">On Twitter <i class="fa fa-twitter"></i></h2>
-                    </a>
+                   
                     <!--Tweet-->
-                    <div class="tweet">
-                        <a href="#">@Bedismo</a>
-                        <p class="p-style3">Uberly impressed with the AMAZING support I constantly get from awesome!!!</p>
-                        <div class="group">
-                            <div class="actions">
-                                <a href="#">Reply</a>
-                                <a href="#">Retweet</a>
-                                <a href="#">Favorite</a>
-                            </div>
-                            <span class="date">5 Mar 2014</span>
-                        </div>
-                    </div><!--Tweet Close-->
-                    <!--Tweet-->
-                    <div class="tweet">
-                        <a href="#">@Bedismo</a>
-                        <p class="p-style3">Uberly impressed with the AMAZING support I constantly get from awesome!!!</p>
-                        <div class="group">
-                            <div class="actions">
-                                <a href="#">Reply</a>
-                                <a href="#">Retweet</a>
-                                <a href="#">Favorite</a>
-                            </div>
-                            <span class="date">5 Mar 2014</span>
-                        </div>
-                    </div><!--Tweet Close-->
+             <a class="twitter-timeline" href="https://twitter.com/TheThriftshopZA" data-widget-id="559374291821527040">Tweets by @TheThriftshopZA</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>
             </div>
         </div>
@@ -436,8 +394,6 @@
 </div><!--Sticky Buttons Close-->
 
 
-
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -454,7 +410,59 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 50%;margin-top: 30%;margin-left: 20%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+      </div>
+
+      <div class="modal-body">
+       Added to your Wishlist
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+$('form#WishlistForm').submit(function(e) {
+
+  var form = $(this);
+
+  
+
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/Add_toWishlist'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+    $( "#notify2" ).click();
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
+
     <script>
+ function addWish(prodid)
+  {
+     $('#productid').val(prodid);
+   $("#toWish").click();
+
+  }
+
+    
 function fbs_click(TheImg) {
    u=TheImg;
      // t=document.title;
@@ -462,3 +470,6 @@ function fbs_click(TheImg) {
      window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;
  }
  </script>
+
+
+

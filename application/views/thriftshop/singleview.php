@@ -1,6 +1,21 @@
+<style type="text/css">
+.hoverlike:hover{
+  color: #2ba8db
+}
+.hoverlike{
+  color:black
+}
+.hoverdislike:hover{
+  color: #e74c3c
+}
+.hoverdislike{
+  color:black
+}
+</style>
+
 <!--Page Content-->
     <div class="page-content">
-    
+    <input type="hidden" id="notify" data-toggle="modal" data-target="#myModal" />
       <!--Breadcrumbs-->
       <ol class="breadcrumb">
         <li><a href="index.html">Home</a></li>
@@ -24,11 +39,13 @@
             <div class="col-lg-6 col-md-6">
             	
               <img onclick="fbs_click(this)" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' class="img-responsive" alt="Responsive image">
+            <br><p class="p-style2"><?php echo  $filter['description']; ?></p>
             </div>
             
             <!--Product Description-->
             <div class="col-lg-6 col-md-6">
               <h1><?php echo  $filter['name']; ?></h1>
+              <hr>
              <!--  <?php print_r($filter) ?> -->
               <div class="rate">
                 <span class="active"></span>
@@ -38,9 +55,8 @@
                 <span></span>
               </div>
              <!--  <div class="old-price">815,00 $</div> -->
-              <div class="price">R <?php echo  $filter['price']; ?></div>
-
-              <p class="p-style2"><?php echo  $filter['description']; ?></p>
+              <div class="price"><span class="badge">R <?php echo  $filter['price']; ?></span></div>
+     
               <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-5">
                   <h3>Tell Friends</h3>
@@ -54,13 +70,38 @@
                
               </div>
 
+               <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-5">
+
+                  <a href="#" onclick="triggerlike()" class="hoverlike" ><i class="fa fa-thumbs-o-up" style="font-size:180%"></i> <span><?php echo  $filter['likes']; ?></span> </a>
+                   <?php $attributeslike = array('name' => 'likeupForm', 'id' => 'likeupForm','style'=> 'display:none'); ?>
+                                     <?php echo form_open('thriftshop/likeup',$attributeslike) ?>
+                                   <input type="int" style="visibility:hidden" id="prodID" name="prodID" href="#" value='<?php echo  $filter['product_id']; ?>'/>  
+                                    <input type="int" style="visibility:hidden" id="clikes" name="clikes" href="#" value='<?php echo  $filter['likes']; ?>'/>  
+                   <input type="text" style="visibility:hidden" id="slug1" name="slug1" href="#" value='<?php echo  $filter['slug']; ?>'/>
+                   <button type="submit" id="likeupclick" style="visibility:hidden"></button>
+                 </form>
+
+                  <a href="#" onclick="triggerdislike()"  class="hoverdislike" ><i class="fa fa-thumbs-o-down" style="font-size:180%"></i> <span><?php echo  $filter['dislikes']; ?></span> </a>
+                   <?php $attributeslike2 = array('name' => 'dislikedownForm', 'id' => 'dislikedownForm','style'=> 'display:none'); ?>
+                                     <?php echo form_open('thriftshop/dislikedown',$attributeslike2) ?>
+                                   <input type="int" style="visibility:hidden" id="prodID2" name="prodID2" href="#" value='<?php echo  $filter['product_id']; ?>'/>  
+                                    <input type="int" style="visibility:hidden" id="dlikes" name="dlikes" href="#" value='<?php echo  $filter['dislikes']; ?>'/>  
+                    <input type="text" style="visibility:hidden" id="slug2" name="slug2" href="#" value='<?php echo  $filter['slug']; ?>'/>
+                   <button type="submit" id="dlikeclick"  style="visibility:hidden"></button>
+                 </form>
+               
+                </div>
+               
+              </div>
+
                <div class="buttons group">
                <!--  <div class="qnt-count">
                   <a class="incr-btn" href="#">-</a>
                   <input id="quantity" class="form-control" type="text" value="2">
                   <a class="incr-btn" href="#">+</a>
                 </div> -->
-                 <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm', 'name' => 'WishlistForm'); ?>
+                 <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm'); ?>
                                      <?php echo form_open('thriftshop/Add_toWishlist',$attributes10) ?>
                 <a onclick="addWish('<?php echo $filter['product_id'] ?>')" class="btn btn-success btn-sm" href="#"><i class="fa fa-tree"></i>Add to wishlist</a>
                   <input type="text" style="visibility:hidden" name="productid" id="productid" value= '<?php echo $filter['id'] ?>'>
@@ -97,15 +138,16 @@
                       <!--Column 1-->
                       <div class="col-lg-12 col-md-12 col-sm-12">
                       <!--   <?php print_r($comments); ?> -->
-                         <?php foreach ($comments as $filter): $newitemdate = $filter['id'];?>
+                      <?php if($comments){ ?>
+                         <?php foreach ($comments as $filter): $newitemdate = $filter['id'] ?>
                         <!--Item-->
                         <div class="item">
                           <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-3"><i class="fa fa-user"></i><span><?php echo $filter['firstname'] ?></span></div>
                             <div class="col-lg-8 col-md-8 col-sm-9"><p class="p-style2"><?php echo $filter['message'] ?></p></div>
                           </div>
-                        </div>
-<?php endforeach ?>
+                       </div>
+<?php endforeach ?>  <?php } else { ?> <h4>There are currently no comments made for this product. Be the first to comment!</h4> <?php  } ?>
                      </div>                  
                     </div>
                   </div>
@@ -123,7 +165,8 @@
         <h2 class="text-center-mobile">Seller Details</h2>
         <div class="row space-top">
           <!--Item-->
-          <div class="col-md-4 col-sm-6 space-bottom">
+          
+          <div class="col-md-4 col-sm-4 space-bottom">
             <div class="row">
               <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-user"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
@@ -133,27 +176,27 @@
             </div>
           </div>
           <!--Item-->
-          <div class="col-md-4 col-sm-6 space-bottom">
+          <div class="col-md-4 col-sm-4 space-bottom">
             <div class="row">
               <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-thumbs-o-up"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
                 <h3>Likes</h3>
-                <p><span class="badge" ><?php echo $seller['likes'] ?></span></p>
+                <p><span class="badge" ><?php echo $seller['seller_likes'] ?></span></p>
               </div>
             </div>
           </div>
           <!--Item-->
-          <div class="col-md-4 col-sm-6 space-bottom">
+          <div class="col-md-4 col-sm-4 space-bottom">
             <div class="row">
               <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-thumbs-o-down"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
                 <h3>Dislikes</h3>
-                <p><span class="badge"><?php echo $seller['dislikes'] ?></span></p>
+                <p><span class="badge"><?php echo $seller['seller_dislikes'] ?></span></p>
               </div>
             </div>
           </div>
           <!--Item-->
-        <div class="col-md-4 col-sm-6 space-bottom">
+        <div class="col-md-12 col-sm-12 space-bottom">
             <div class="row">
               <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-book"></i></div>
               <div class="col-md-9 col-sm-8 text-center-mobile">
@@ -162,27 +205,7 @@
               </div>
             </div>
           </div>
-          <!--Item-->
-         <div class="col-md-4 col-sm-6 space-bottom">
-            <div class="row">
-              <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-user"></i></div>
-              <div class="col-md-9 col-sm-8 text-center-mobile">
-                <h3>Name</h3>
-                <p><?php echo $seller['first_name'] ?></p>
-              </div>
-            </div>
-          </div>
-          
-        <!--Item-->
-          <div class="col-md-4 col-sm-6 space-bottom">
-            <div class="row">
-              <div class="col-md-3 col-sm-4 featured-icon"><i class="fa fa-book"></i></div>
-              <div class="col-md-9 col-sm-8 text-center-mobile">
-                <h3>Personalised gifts</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-              </div>
-            </div>
-          </div>
+       
         
         </div>
       </section><!--Delivery Info Close-->
@@ -239,6 +262,16 @@ function fbs_click(TheImg) {
 
     <script type="text/javascript">
 
+     function triggerdislike(){
+       $("#dlikeclick").click();
+    }
+
+    function triggerlike(){
+       $("#likeupclick").click();
+    }
+
+   
+
   function addWish(prodid)
   {
      $('#productid').val(prodid);
@@ -247,6 +280,91 @@ function fbs_click(TheImg) {
   }
 
   </script>
+
+  <script type="text/javascript">
+
+
+$('form#dislikedownForm').submit(function(e) {
+
+  var form = $(this);
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/dislikedown'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+  location.reload();
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
+
+  <script type="text/javascript">
+
+$('form#likeupForm').submit(function(e) {
+
+  var form = $(this);
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/likeup'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+   location.reload();
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
+
+<script type="text/javascript">
+
+$('form#WishlistForm').submit(function(e) {
+
+  var form = $(this);
+
+  
+
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/Add_toWishlist'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+    $( "#notify" ).click();
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
     
       
-  	
+  	<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 50%;margin-top: 30%;margin-left: 20%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+      </div>
+
+      <div class="modal-body">
+       Added to your Wishlist
+      </div>
+     
+    </div>
+  </div>
+</div>

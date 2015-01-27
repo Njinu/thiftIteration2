@@ -25,11 +25,8 @@
                                       <span><?php echo $filter['category'] ?></span>
                                       <div class="tools">
                                         <div class="rate">
-                                          <span class="active"></span>
-                                          <span class="active"></span>
-                                          <span class="active"></span>
-                                          <span></span>
-                                          <span></span>
+                                           <span class="active"><i><?php echo $filter['likes']; ?></i> <i class="fa fa-thumbs-up"></i></span>
+                                      <span class="active"><i><?php echo $filter['dislikes']; ?></i> <i class="fa fa-thumbs-down"></i></span>
                                         </div>
                                         <!--Add To Cart Button-->
                                        <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm', 'name' => 'WishlistForm'); ?>

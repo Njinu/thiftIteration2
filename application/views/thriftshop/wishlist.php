@@ -49,8 +49,8 @@ $( document ).ready(function() {
                 <?php foreach ($wishlist as $filter): $newitemdate = $filter['name'];?>
                 <!--Item-->
                 <tr class="item first">
-                	<td class="thumb"><a href="shop-single-item-v1.html"><a href="thriftshop/<?php echo $filter['slug'] ?>"><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a></td>
-                  <td class="name"><a href="shop-single-item-v1.html"><?php echo $filter['name']; ?></a></td>
+                	<td class="thumb"><a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a></td>
+                  <td class="name"><a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><?php echo $filter['name']; ?></a></td>
                   <td class="price">R <?php echo $filter['price']; ?></td>
                   
                   <td onclick="deletewish('<?php echo $filter['product_id'] ?>')" class="delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times"></i></td>
@@ -64,16 +64,7 @@ $( document ).ready(function() {
             
             <!--Sidebar-->
             <div class="col-lg-3 col-md-3">
-              <h3>Have a coupon?</h3>
-              <form class="coupon" name="coupon-code" method="post">
-                <div class="form-group">
-                  <label class="sr-only" for="coupon-code">Enter coupon code</label>
-                  <button type="button" style="display:none" id="trigermodal"  data-toggle="modal" data-target="#myModal2"></button>
-            
-                  <input type="text" class="form-control" id="coupon-code" name="coupon-code" placeholder="Enter coupon code">
-                </div>
-                <input type="submit" class="btn btn-primary btn-sm btn-block" name="apply-coupon" value="Apply coupon">
-              </form>
+              
               <!--Top items-->
               <h3 class="space-top">Top items</h3>
             	<div class="top-item">
@@ -287,37 +278,7 @@ $( document ).ready(function() {
       <span id="scrollTop-btn"><i class="fa fa-chevron-up"></i></span>
     </div><!--Sticky Buttons Close-->
     
-    <!--Subscription Widget-->
-    <section class="subscr-widget">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 col-md-8 col-sm-8">
-            <h2 class="light-color">Subscribe to our news</h2>
-            
-            <!--Mail Chimp Subscription Form-->
-            <form class="subscr-form" role="form" action="//8guild.us3.list-manage.com/subscribe/post?u=168a366a98d3248fbc35c0b67&amp;id=d704057a31" target="_blank" method="post" autocomplete="off">
-              <div class="form-group">
-                <label class="sr-only" for="subscr-name">Enter name</label>
-                <input type="text" class="form-control" name="FNAME" id="subscr-name" placeholder="Enter name" required>
-                <button class="subscr-next"><i class="fa fa-chevron-circle-right"></i></button>
-              </div>
-              <div class="form-group fff" style="display: none">
-                <label class="sr-only" for="subscr-email">Enter email</label>
-                <input type="email" class="form-control" name="EMAIL" id="subscr-email" placeholder="Enter email" required>
-                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                <div style="position: absolute; left: -5000px;"><input type="text" name="b_168a366a98d3248fbc35c0b67_d704057a31" tabindex="-1" value=""></div>
-                <button type="submit" id="subscr-submit"><i class="icon-check"></i></button>
-              </div>
-            </form>
-            <!--Mail Chimp Subscription Form Close-->
-            <p class="p-style2">Please fill the field before continuing</p>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-1">
-            <p class="p-style3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-          </div>
-        </div>
-      </div>
-    </section><!--Subscription Widget Close-->
+    
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
