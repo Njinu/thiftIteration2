@@ -73,7 +73,7 @@
                 <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
                     <a href="#">
                         <img src='<?php echo base_url();?>uploads/<?php echo $category['pic_id'] ?>' alt="1"/>
-                        <p><?php echo $category['name'] ?></p>
+                        <p><?php echo $category['category'] ?></p>
                     </a>
                 </div>
         
@@ -87,7 +87,7 @@
     <!--Catalog Grid-->
     <section class="catalog-grid">
         <div class="container">
-            <h2 class="primary-color">Catalog picks</h2>
+            <h2 class="primary-color">Latest Goods</h2>
             <div class="row">
                
                  <?php foreach ($catalog as $filter): $newitemdate = $calendar_item['price'];?>
@@ -116,7 +116,7 @@
 
                                     <a onclick="addWish('<?php echo $filter['product_id'] ?>')" href="#"  class="add-cart-btn"><span>to Wishlist</span><i class="fa fa-tree"></i></a>
                                      <input type="text" style="visibility:hidden" name="productid" id="productid" value= '<?php echo $filter['id'] ?>'>
-                                     <input type="submit" style="visibility:hidden" id="Add_toWishlistsh" name="`" href="#" value=""/>
+                                     <input type="submit" style="visibility:hidden" id="toWish" name="toWish" href="#" value=""/>
                                   </form>
                                     <!--Share Button-->
                                     <div class="share-btn">
@@ -148,7 +148,7 @@
     <section class="tabs-widget">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#bestsel" data-toggle="tab">Top Rated Items</a></li>
+            <li class="active"><a href="#bestsel" data-toggle="tab">Most Liked Items</a></li>
             <li><a href="#onsale" data-toggle="tab">Items on sale</a></li>
         </ul>
         <div class="tab-content">

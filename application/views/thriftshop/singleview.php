@@ -15,7 +15,7 @@
 
 <!--Page Content-->
     <div class="page-content">
-    
+    <input type="hidden" id="notify" data-toggle="modal" data-target="#myModal" />
       <!--Breadcrumbs-->
       <ol class="breadcrumb">
         <li><a href="index.html">Home</a></li>
@@ -101,7 +101,7 @@
                   <input id="quantity" class="form-control" type="text" value="2">
                   <a class="incr-btn" href="#">+</a>
                 </div> -->
-                 <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm', 'name' => 'WishlistForm'); ?>
+                 <?php $attributes10 = array('name' => 'WishlistForm', 'id' => 'WishlistForm'); ?>
                                      <?php echo form_open('thriftshop/Add_toWishlist',$attributes10) ?>
                 <a onclick="addWish('<?php echo $filter['product_id'] ?>')" class="btn btn-success btn-sm" href="#"><i class="fa fa-tree"></i>Add to wishlist</a>
                   <input type="text" style="visibility:hidden" name="productid" id="productid" value= '<?php echo $filter['id'] ?>'>
@@ -325,6 +325,46 @@ $('form#likeupForm').submit(function(e) {
 });
 
 </script>
+
+<script type="text/javascript">
+
+$('form#WishlistForm').submit(function(e) {
+
+  var form = $(this);
+
+  
+
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo site_url('thriftshop/Add_toWishlist'); ?>",
+        data: form.serialize(), // <--- THIS IS THE CHANGE
+        dataType: "html",
+        success: function(data){
+    $( "#notify" ).click();
+      },
+      error: function() { alert("Error posting feed."); }
+    });
+
+});
+
+</script>
     
       
-  	
+  	<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 50%;margin-top: 30%;margin-left: 20%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+      </div>
+
+      <div class="modal-body">
+       Added to your Wishlist
+      </div>
+     
+    </div>
+  </div>
+</div>
