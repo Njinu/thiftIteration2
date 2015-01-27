@@ -58,13 +58,9 @@
             <!--Items List-->
             <div class="col-sm-8 space-bottom">
               <h2 class="title">My account</h2>
-              <ul class="list-unstyled space-bottom">
-                <li><a class="large" href="account-addresses.html">My addresses</a></li>
-                <li><a class="large" href="order-history.html">Order history</a></li>
-                <li><a class="large" href="wishlist.html">My wishlist</a></li>
-              </ul>
+             <hr>
               <h3>Personal information</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+              
               <div class="row">
                 <?php echo form_open('user/edititem',array('id'=>'frmUser','class'=>'col-md-12 personal-info')) ?>
                   <div class="row">
@@ -94,18 +90,7 @@
                           
                   </div>
                   
-                  <div class="form-group">
-                    <div class="checkbox custom">
-                      <label>
-                        <input type="checkbox">Sign up for our newsletter!
-                      </label>
-                    </div>
-                    <div class="checkbox custom">
-                      <label>
-                        <input type="checkbox">Receive special offers from our us.
-                      </label>
-                    </div>
-                  </div>
+                  
                   <input type="submit" class="btn btn-success" value="Save changes">
                 </form>
                

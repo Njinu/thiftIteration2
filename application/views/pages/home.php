@@ -1,4 +1,11 @@
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=359141144257377&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
     <?php if($this->session->flashdata('fancy') != "") { ?>
@@ -258,6 +265,11 @@
             </div>
         </div>
     </section><!--Tabs Widget Close-->
+
+    <section class="brand-carousel" style="background-color:#a3c756;color:white"> 
+        <center><h1 style="color:white;font-size:400%;">Social Feeds</h1></center>
+        <hr>
+    </section>
     
     <!--Posts/Twitter Widget-->
     <section class="posts-widget">
@@ -266,36 +278,8 @@
             <div class="row">
                 <div class="latest-posts col-lg-8 col-md-8">
                     <div class="row">
-                        <div class="col-lg-3">
-                            <h2 class="extra-bold">Latests posts</h2>
-                            <a class="btn btn-success btn-block" href="#">To blog</a>
-                        </div>
-                        <div class="col-lg-9">
-                            <!--Post-->
-                            <div class="post row">
-                                <div class="col-lg-6 col-sm-6">
-                                    <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="1"/></a>
-                                </div>
-                                <div class="col-lg-6 col-sm-6">
-                                    <h3><a href="#">Another Title</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                                    <div class="author"><i class="fa fa-user"></i><a href="#">By Bedismo</a></div>
-                                    <div class="comments"><i class="fa fa-comment"></i><a href="#">Comments (34)</a></div>
-                                </div>
-                            </div><!--Post End-->
-                            <!--Post-->
-                            <div class="post row">
-                                <div class="col-lg-6 col-sm-6">
-                                    <a href="#"><img src='<?php echo base_url()."assets/ThriftshopTheme/img/LoginCover.jpg"?>' alt="2"/></a>
-                                </div>
-                                <div class="col-lg-6 col-sm-6">
-                                    <h3><a href="#">Awesome Title</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                                    <div class="author"><i class="fa fa-user"></i><a href="#">By Jeddah</a></div>
-                                    <div class="comments"><i class="fa fa-comment"></i><a href="#">Comments (101)</a></div>
-                                </div>
-                            </div><!--Post End-->
-                        </div>
+                    
+              <div class="fb-like-box" data-href="https://www.facebook.com/pages/Thriftshop/413901205429151" data-width="600" data-height="600" data-colorscheme="dark" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
                     </div>
                 </div>
                 <div class="twitter-feed col-lg-4 col-md-4">
