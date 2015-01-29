@@ -146,7 +146,8 @@
       </br>
       <div class="form-group"> 
         <label>Category</label> 
-        <select class="form-control" id="ItemCat" name="ItemCat">
+        <select class="form-control" id="ItemCat">
+
             <option value="Accomodation">Accomodation</option>
             <option value="Furniture">Furniture</option>
             <option value="Miscellaneous">Miscellaneous</option>

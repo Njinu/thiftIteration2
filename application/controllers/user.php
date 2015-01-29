@@ -80,9 +80,8 @@ public function get_views(){
     echo $key['id'];
 }
 
-
-$this->load->view('templates/sellerHeader', $data);
-$this->load->view('user/views', $data);
+        $this->load->view('templates/sellerHeader', $data);
+        $this->load->view('user/views', $data);
 
 }
 
@@ -603,6 +602,7 @@ public function validate_creditentials () {
   return false;
 }
 
+
 }
 
 public function logout() {
@@ -616,31 +616,34 @@ public function logout() {
 
 }
 
-public function createItem(){
-    if($_POST):
-        $this->load->model('store_model');
-    $this->load->helper('form');
-    $this->load->library('form_validation');
-    $this->load->library('upload');
 
-    $this->form_validation->set_rules('ItemName', 'Name', 'required');
-    $this->form_validation->set_rules('ItemPrice', 'Price', 'required');
-    $this->form_validation->set_rules('ItemCategory', 'Category', 'required');
-    $this->form_validation->set_rules('ItemDescription', 'Description', 'required');
+    
+    public function createItem(){
+        if($_POST):
+    $this->load->model('store_model');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->library('upload');
+		
+		$this->form_validation->set_rules('ItemName', 'Name', 'required');
+		$this->form_validation->set_rules('ItemPrice', 'Price', 'required');
+	$this->form_validation->set_rules('ItemCategory', 'Category', 'required');
+		$this->form_validation->set_rules('ItemDescription', 'Description', 'required');
+		
+		if ($this->form_validation->run() === FALSE)
+		{
+			$this->load->view('templates/header2', $data);
+			$this->load->view('store/create',array('error' => ' ' ));			
+		}
+		else
+		{
+                $data['products'] = $this->store_model->get_data();
+         $prodCount=0;
+         foreach ($data['products'] as $product['product_id']) {
+             $prodCount++;
 
-    if ($this->form_validation->run() === FALSE)
-    {
-       $this->load->view('templates/header2', $data);
-       $this->load->view('store/create',array('error' => ' ' ));			
-   }
-   else
-   {
-    $data['products'] = $this->store_model->get_data();
-    $prodCount=0;
-    foreach ($data['products'] as $product['product_id']) {
-     $prodCount++;
-             # code...
  }
+
  $data['product_count']=$prodCount;
  $data['product_comments'] = $this->store_model->get_product_comments();
 
