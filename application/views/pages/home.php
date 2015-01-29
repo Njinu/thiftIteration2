@@ -7,6 +7,17 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+<style type="text/css">
+#fb-root {
+    display: none;
+}
+
+/* To fill the container and nothing else */
+
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+    width: 100% !important;
+}
+</style>
 
     <?php if($this->session->flashdata('fancy') != "") { ?>
 
@@ -73,20 +84,42 @@
         <div class="container">
             <h2>Browse categories</h2>
             <div class="row">
-                
-                <?php foreach ($categories2 as $category): $newitemdate = 0; ?>
-             
-                <!--Category-->
                 <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <a href="#">
-                        <img src='<?php echo base_url();?>uploads/<?php echo $category['pic_id'] ?>' alt="1"/>
-                        <p><?php echo $category['category'] ?></p>
+                    <a href='<?php echo base_url()."index.php/". "thriftshop/indexFlat"?>'>
+                      <i class="fa fa-home fa-5x"></i>
+                        <p>Accomodation</p>
                     </a>
                 </div>
-        
-              <?php endforeach ?>
-             
-          
+                 <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href='<?php echo base_url()."index.php/". "thriftshop/indexbooks"?>'>
+                    <i class="fa fa-book fa-5x"></i>
+                        <p>Books</p>
+                    </a>
+                </div>
+                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href='<?php echo base_url()."index.php/". "thriftshop/indexEle"?>'>
+                    <i class="fa fa-headphones fa-5x"></i>
+                        <p>Electronics</p>
+                    </a>
+                </div>
+                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href='<?php echo base_url()."index.php/". "thriftshop/indexFurn"?>'>
+                        <i class="fa fa-bed fa-5x" ></i>
+                        <p>Furniture</p>
+                    </a>
+                </div>
+                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href='<?php echo base_url()."index.php/". "thriftshop/indexMis"?>'>
+                    <i class="fa fa-user-secret fa-5x"></i>
+                        <p>Miscellaneous</p>
+                    </a>
+                </div>
+                 <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href='<?php echo base_url()."index.php/". "thriftshop/indexVeh"?>'>
+                     <i class="fa fa-fighter-jet fa-5x"></i>
+                        <p>Vehicles</p>
+                    </a>
+                </div>           
             </div>
         </div>
     </section><!--Categories Close-->
@@ -100,13 +133,13 @@
                  <?php foreach ($catalog as $filter): $newitemdate = $calendar_item['price'];?>
                             <!--Tile-->
 
-                            <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div  class="col-lg-3 col-md-4 col-sm-6">
                               <div class="tile">
                                 <div class="badges">
                                 <!--   <span class="sale"></span> -->
                                 </div>
                                 <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
-                                <a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
+                                <a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><img style="max-height:200px;min-height:200px" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
                                 <div class="footer">
                                   <a href="#"><?php echo $filter['name'] ?></a>
                                   <span><?php echo $filter['category'] ?></span>
@@ -165,7 +198,7 @@
                         <div class="col-lg-7 col-md-7 col-sm-7">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div><?php echo $toprated[0]['name'] ?><span>R <?php echo $toprated[0]['price'] ?></span><span>Likes:<?php echo $toprated[0]['likes'] ?></div></div>
+                                    <div class="descr"><div><?php echo $toprated[0]['name'] ?><span>R <?php echo $toprated[0]['price'] ?></span><span style="font-weight:200;font-size:70%"><i class="fa fa-thumbs-up"></i> <?php echo $toprated[0]['likes'] ?></span></div></div>
                                 </div>
                                 <img src='<?php echo base_url();?>uploads/<?php echo $toprated[0]['pic_id'] ?>' alt="1"/>
                             </a>
@@ -173,7 +206,7 @@
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div><?php echo $toprated[1]['name'] ?><span>R <?php echo $toprated[1]['price'] ?></span><span>Likes:<?php echo $toprated[1]['likes'] ?></div></div>
+                                    <div class="descr"><div><?php echo $toprated[1]['name'] ?><span>R <?php echo $toprated[1]['price'] ?></span><span style="font-weight:200;font-size:70%"><i class="fa fa-thumbs-up"></i> <?php echo $toprated[1]['likes'] ?></span></div></div>
                                 </div>
                                 <img src='<?php echo base_url();?>uploads/<?php echo $toprated[1]['pic_id'] ?>' alt="2"/>
                             </a>
@@ -183,7 +216,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div><?php echo $toprated[3]['name'] ?><span>R <?php echo $toprated[3]['price'] ?></span><span>Likes:<?php echo $toprated[3]['likes'] ?></div></div>
+                                    <div class="descr" ><div><?php echo $toprated[3]['name'] ?><span>R <?php echo $toprated[3]['price'] ?></span><span style="font-weight:200;font-size:70%"><i class="fa fa-thumbs-up"></i> <?php echo $toprated[3]['likes'] ?></span></div></div>
                                 </div>
                                 <img src='<?php echo base_url();?>uploads/<?php echo $toprated[3]['pic_id'] ?>' alt="3"/>
                             </a>
@@ -191,7 +224,7 @@
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div><?php echo $toprated[2]['name'] ?><span>R <?php echo $toprated[2]['price'] ?></span><span>Likes:<?php echo $toprated[2]['likes'] ?></span></div></div>
+                                    <div class="descr"><div><?php echo $toprated[2]['name'] ?><span>R <?php echo $toprated[2]['price'] ?></span><span style="font-weight:200;font-size:70%"><i class="fa fa-thumbs-up"></i> <?php echo $toprated[2]['likes'] ?></span></div></div>
                                 </div>
                                 <img src='<?php echo base_url();?>uploads/<?php echo $toprated[2]['pic_id'] ?>' alt="4"/>
                             </a>
@@ -199,7 +232,7 @@
                         <div class="col-lg-3 col-md-3 col-sm-3">
                             <a class="media-link" href="#">
                                 <div class="overlay">
-                                    <div class="descr"><div><?php echo $toprated[4]['name'] ?><span>R <?php echo $toprated[4]['price'] ?></span><span>Likes:<?php echo $toprated[4]['likes'] ?></div></div>
+                                    <div class="descr"><div><?php echo $toprated[4]['name'] ?><span>R <?php echo $toprated[4]['price'] ?></span><span style="font-weight:200;font-size:70%"><i class="fa fa-thumbs-up"></i> <?php echo $toprated[4]['likes'] ?></span></div></div>
                                 </div>
                                 <img src='<?php echo base_url();?>uploads/<?php echo $toprated[4]['pic_id'] ?>' alt="5"/>
                             </a>
@@ -279,7 +312,7 @@
                 <div class="latest-posts col-lg-8 col-md-8">
                     <div class="row">
                     
-              <div class="fb-like-box" data-href="https://www.facebook.com/pages/Thriftshop/413901205429151" data-width="600" data-height="600" data-colorscheme="dark" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
+              <div data-width="100%" class="fb-like-box" data-href="https://www.facebook.com/pages/Thriftshop/413901205429151" data-width="400" data-height="600" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
                     </div>
                 </div>
                 <div class="twitter-feed col-lg-4 col-md-4">

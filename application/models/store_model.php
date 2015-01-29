@@ -84,6 +84,34 @@ class Store_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	public function seller_details(){
+		$id = $this->session->userdata('id');
+		$this->db->where('userid',$id);
+		$query = $this->db->select()->from('sellers');	
+		$query = $this->db->get();
+		return $query->row_array();
+	}
+
+	public function Add_seller_details(){
+		$userid = $this->session->userdata('id');
+		$fname = $this->input->post('firstname');
+		$lname = $this->input->post('lastname');
+		$bio = $this->input->post('bio');
+		$nick = $this->input->post('nickname');
+
+		$data = array(
+			'nick_name' => $nick ,
+			'first_name' => $fname, 
+			'last_name' => $lname, 
+			'last_name' => $lname, 
+			'bio' => $bio,
+			'userid' => $userid,
+			'date_created' => date("Y-m-d")
+			);
+
+		$this->db->insert('sellers', $data); 
+	}
+
 	public function get_seller($id)
 	{
 		$this->db->where('product.id ',$id);
@@ -291,6 +319,28 @@ class Store_model extends CI_Model {
 
 	}
 
+	function get_pricemax(){
+
+		$this->db->order_by("product.price", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get('',1);
+		return $query->row_array();
+
+	}
+
+	function get_pricemin(){
+
+		$this->db->order_by("product.price", "asc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get('',1);
+		return $query->row_array();
+
+	}
+
 
 	function get_filterSearchHD(){
 		$searchterm = $this->input->post('search-hd');
@@ -443,8 +493,11 @@ class Store_model extends CI_Model {
 	public function get_product_comments(){
 		$this->load->helper('array');
 		$type = $this->input->post('type');
-		$this->db->where('seller_id',$this->session->userdata('id'));
-		$query1 = $this->db->select()->from('comment')->get();
+		$this->db->where('comment.seller_id',$this->session->userdata('id'));
+		$query1 = $this->db->select()->from('comment');
+		$query1 = $this->db->join('userprofile', 'comment.user_id = userprofile.id','left');
+		$query1 = $this->db->join('sellers', 'comment.seller_id=sellers.seller_id', 'inner');
+		$query1 = $this->db->get();
 		return $query1->result_array();
 	}
 

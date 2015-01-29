@@ -1,138 +1,5 @@
 
 
-<style>
-.small_pic{
-    padding:5px;
-    float:left;
-    border: 3px solid whitesmoke ;
-    margin-top:4px;
-    border-radius:3px;
-}
-</style>
-
-<div style="padding-right: 0px;"class="col-md-12">
-  <div id="wrapper">
-
-    <!-- Navigation -->
-    <nav style="background-color:#2f343b;"class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">Thrift Shop</a>
-        </div>
-        <!-- Top Menu Items -->
-        <ul class="nav navbar-right top-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                <ul class="dropdown-menu message-dropdown">
-                    <?php  foreach($product_comments as $product_comment){
-
-
-                        ?>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p><?php echo $product_comment["message"];?></p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <?php } ?>
-                        
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Njinu Kimani <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <style>
-            .myactive {
-                color:#a3c756 !important;
-            }
-
-            </style>
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav" style="height:100%;">
-                    <li class="active">
-                        <a style="padding-top: 20.5px;"class="myactive" href="<?php echo base_url(); ?>index.php/user/myStore"><i class="fa fa-fw fa-dashboard"></i> Add a post</a>
-                    </li>
-                    <li>
-                        <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_item_view"><i class="fa fa-fw fa-edit"></i> All Posts</a>
-                    </li>
-                    <li>
-                        <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_views"><i class="fa fa-fw fa-bar-chart-o"></i> Views</a>
-                    </li>
-                    <li>
-                        <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_comments"><i class="fa fa-fw fa-table"></i> Comments</a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> Logout</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
-
         <div id="page-wrapper" style="padding-top:45px; padding-right: 0px; padding-left: 0px;">
 
             <div class="container-fluid" style="padding-right: 0px;padding-left: 0px;">
@@ -279,7 +146,7 @@
       </br>
       <div class="form-group"> 
         <label>Category</label> 
-        <select class="form-control">
+        <select class="form-control" id="ItemCat" name="ItemCat">
             <option value="Accomodation">Accomodation</option>
             <option value="Furniture">Furniture</option>
             <option value="Miscellaneous">Miscellaneous</option>
@@ -291,6 +158,7 @@
             <option value="Vehicles">Vehicles</option>
             <option value="Competitions">Competitions</option>
         </select>
+        <input type="hidden" value="" class="form-control" id="ItemCategory" name="ItemCategory" placeholder="Enter Item Name">
     </div>
 </br>
 
@@ -493,6 +361,13 @@ elseif($product_id !=='' && $pic_progress==''){
 
 </div>
 </div>
+
+<script type="text/javascript">
+ $("#ItemCat").change(function () {
+        var end = this.value;
+         $('#ItemCategory').val(end);
+    });
+</script>
 
 
 

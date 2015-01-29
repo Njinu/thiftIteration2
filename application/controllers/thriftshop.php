@@ -16,6 +16,8 @@ class thriftshop extends CI_Controller {
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
         $data['filterslatest'] = $this->store_model->get_filtersLatest();
+        $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');

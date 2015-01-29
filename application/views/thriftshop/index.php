@@ -109,9 +109,9 @@
                  <div class="values group">
                    <!--data-min-val represent minimal price and data-max-val maximum price respectively in pricing slider range; value="" - default values-->
                    <span class="labels">R </span>
-                   <input class="form-control" name="minVal" id="minVal" type="text" data-min-val="10" value="180">
+                   <input class="form-control" name="minVal" id="minVal" type="text" data-min-val='<?php echo $minprice['price'] ?>' value='<?php echo $minprice['price'] ?>'>
                    <span class="labels">- R</span>
-                   <input class="form-control" name="maxVal" id="maxVal" type="text" data-max-val="2500" value="1400">
+                   <input class="form-control" name="maxVal" id="maxVal" type="text" data-max-val='<?php echo $maxprice['price'] ?>' value='<?php echo $maxprice['price'] ?>'>
                    
                  </div>
                  <input class="btn btn-primary btn-sm" id="filterbutton" type="submit" value="Filter">
@@ -189,7 +189,7 @@
                                 </div>
                                 <div class="price-label" data-price="299">R <?php echo $filter['price'] ?></div>
                                 
-                                <a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><img src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
+                                <a href='<?php echo base_url()."index.php/". "thriftshop/view/".$filter["slug"]."/".$filter['product_id']?>'><img style="max-height:200px;min-height:200px" src='<?php echo base_url();?>uploads/<?php echo $filter['pic_id'] ?>' alt="1"/></a>
                                 <div class="footer">
                                   <a href="#"><?php echo $filter['name'] ?></a>
                                   <span><?php echo $filter['category'] ?></span>

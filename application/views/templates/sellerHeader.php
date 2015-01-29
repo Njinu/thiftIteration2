@@ -90,3 +90,67 @@
   }
   ?>
 <input type="hidden" id="sellerId" name="sellerId" value="<?php echo $log_id;?> "/>
+
+
+
+<style>
+.small_pic{
+    padding:5px;
+    float:left;
+    border: 3px solid whitesmoke ;
+    margin-top:4px;
+    border-radius:3px;
+}
+</style>
+
+<div style="padding-right: 0px;margin-top:8%;"class="col-md-12">
+  <div id="wrapper">
+
+    <!-- Navigation -->
+    <nav style="background-color:#2f343b;"class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href='<?php echo base_url()."index.php/"?>'>Thriftshop</a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $product_comment["nick_name"];?><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href='<?php echo base_url()."index.php/". "user/logout"?>'><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <style>
+            .myactive {
+                color:#a3c756 !important;
+            }
+
+            </style>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav" style="height:100%;">
+                    <li class="active">
+                        <a style="padding-top: 20.5px;"class="myactive" href="<?php echo base_url(); ?>index.php/user/myStore"><i class="fa fa-fw fa-dashboard"></i> Add a post</a>
+                    </li>
+                    <li>
+                        <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/get_item_view"><i class="fa fa-fw fa-edit"></i> All Posts</a>
+                    </li>
+                    <li>
+                        <a style="padding-top: 20.5px;" href="<?php echo base_url(); ?>index.php/user/sellerdetails"><i class="fa fa-folder-open-o"></i> My Details </a>
+                    </li>         
+                    <li>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>

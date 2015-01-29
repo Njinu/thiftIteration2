@@ -194,32 +194,13 @@ console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'+url);
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-                <h2>Login or <a href="register.html">Register</a></h2>
-                <p class="large">Use social accounts</p>
-                <div class="social-login">
-                  <a class="facebook" href="#"><i class="fa fa-facebook-square"></i></a>
-                  <a class="google" href="#"><i class="fa fa-google-plus-square"></i></a>
-                  <a class="twitter" href="#"><i class="fa fa-twitter-square"></i></a>
-                </div>
+                <center><h2>Check out our <a href="register.html">Media</a></h2></center>       
+                <center><div class="social-login">
+                  <a class="facebook" href="https://www.facebook.com/pages/Thriftshop/413901205429151"><i class="fa fa-facebook-square"></i></a>               
+                  <a class="twitter" href="https://twitter.com/TheThriftshopZA"><i class="fa fa-twitter-square"></i></a>
+                </div></center>
               </div>
-              <div class="modal-body">
-                <form class="login-form">
-                  <div class="form-group group">
-                    <label for="log-email">Email</label>
-                    <input type="email" class="form-control" name="log-email" id="log-email" placeholder="Enter your email" required>
-                    <a class="help-link" href="#">Forgot email?</a>
-                  </div>
-                  <div class="form-group group">
-                    <label for="log-password">Password</label>
-                    <input type="text" class="form-control" name="log-password" id="log-password" placeholder="Enter your password" required>
-                    <a class="help-link" href="#">Forgot password?</a>
-                  </div>
-                  <div class="checkbox">
-                    <label><input type="checkbox" name="remember"> Remember me</label>
-                  </div>
-                  <input class="btn btn-success" type="submit" value="Login">
-                </form>
-              </div>
+             
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -236,7 +217,7 @@ console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'+url);
               <div class="form-group">
                 <label class="sr-only" for="search-hd">Search for procuct</label>
                 <input type="text" class="form-control" name="search-hd" id="search-hd" placeholder="Search for procuct">
-                <button type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                <button type="submit"><i class="fa fa-search"></i></button>
               </div>
             </div>
           </form>
@@ -249,7 +230,7 @@ console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'+url);
             <!-- <a class="logo" href="index.html"><img src="img/logo.png" alt="Bushido"/></a> -->
 
             <!--Language / Currency Switchers-->
-            <ul class="switchers">
+            <!-- <ul class="switchers">
               <li>$
                 <ul class="dropdown">
                   <li><a href="#">&euro;</a></li>
@@ -264,7 +245,7 @@ console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'+url);
                 </ul>
               </li>
             </ul>
-
+ -->
             <!--Mobile Menu Toggle-->
             <div class="menu-toggle"><i class="fa fa-list"></i></div>
             <div class="mobile-border"><span></span></div>
@@ -364,13 +345,13 @@ console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'+url);
         
         <!--Toolbar-->
         <div class="toolbar group">
-          <button class="search-btn btn-outlined-invert"><i class="glyphicon glyphicon-search"></i></button>
+          <button class="search-btn btn-outlined-invert"><i class="fa fa-search"></i></button>
           <div class="middle-btns">
             <a class="btn-outlined-invert" href='<?php echo base_url()."index.php/". "thriftshop/wishlist"?>'><i class="fa fa-heart"></i> <span>Wishlist</span></a>
-            <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i class="glyphicon glyphicon-user"></i> <span>Login</span></a>
+            <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i class="fa fa-slideshare"></i><span>Media</span></a>
           </div>
           <div class="cart-btn">
-            <a class="btn btn-outlined-invert" href='<?php echo base_url()."index.php/". "user/signup"?>'><i class="glyphicon glyphicon-user"></i></a>
+            <a class="btn btn-outlined-invert" href='<?php echo base_url()."index.php/". "user/signup"?>'><i class="fa fa-user"></i></a>
             
             <!--Cart Dropdown-->
             <div class="cart-dropdown">
