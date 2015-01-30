@@ -52,11 +52,11 @@
           <div class="sorting">
             <a id="thenamefilter" onclick="performfiltername()">Sort by Name</a>
              <a id="thepricefilter" onclick="performfilter()" >Sort by Price</a>
-              <?php $attributes3 = array('name' => 'price-filters3', 'id' => 'filterform3', 'name' => 'filterform3', 'style'=>'visibility:hidden; display:none'); ?>
-               <?php $attributes4 = array('name' => 'price-filters4', 'id' => 'filterform4', 'name' => 'filterform4','style'=>'visibility:hidden; display:none'); ?>
-                <?php $attributes5 = array('name' => 'price-filters5', 'id' => 'filterform5', 'name' => 'filterform5','style'=>'visibility:hidden; display:none'); ?>
-               <?php $attributes6 = array('name' => 'price-filters6', 'id' => 'filterform6', 'name' => 'filterform6','style'=>'visibility:hidden; display:none'); ?>
-               <?php $attributes7 = array('name' => 'price-filters7', 'id' => 'filterform7', 'name' => 'filterform7','style'=>'visibility:hidden; display:none'); ?>
+              <?php $attributes3 = array( 'id' => 'filterform3', 'name' => 'filterform3', 'style'=>'visibility:hidden; display:none'); ?>
+               <?php $attributes4 = array('id' => 'filterform4', 'name' => 'filterform4','style'=>'visibility:hidden; display:none'); ?>
+                <?php $attributes5 = array( 'id' => 'filterform5', 'name' => 'filterform5','style'=>'visibility:hidden; display:none'); ?>
+               <?php $attributes6 = array( 'id' => 'filterform6', 'name' => 'filterform6','style'=>'visibility:hidden; display:none'); ?>
+               <?php $attributes7 = array( 'id' => 'filterform7', 'name' => 'filterform7','style'=>'visibility:hidden; display:none'); ?>
             <?php echo form_open('thriftshop/get_filteredpage',$attributes3) ?>
             <input type="submit" style="visibility:hidden" hidden; id="pricefilter" name="pricefilter" href="#" value="Sort by Price"/>
           </form>
@@ -96,10 +96,10 @@
                   <div class="price-btns">
                    <input type="hidden" id="minValue" name="minValue" value="" />
                    <input type="hidden" id="maxValue" name="maxValue" value="" />
-                   <button type="submit" onclick="adjustvalue50()"  class="btn btn-success btn-sm" value="50">Below R50</button><br/>
-                   <button type="submit" onclick="adjustvalue100()"  class="btn btn-success btn-sm" value="50-100">R50-R100</button><br/>
-                   <button  type="submit" onclick="adjustvalue300()" class="btn btn-success btn-sm" value="100-300">R100-R300</button><br/>
-                   <button  type="submit" onclick="adjustvalue1000()" class="btn btn-success btn-sm" value="300-1000">R300-R1000</button>
+                   <button type="submit" onclick="adjustvalue50()"  class="btn btn-success btn-sm" value="50">R0-R50</button><br/>
+                   <button type="submit" onclick="adjustvalue100()"  class="btn btn-success btn-sm" value="50-100">R50-R500</button><br/>
+                   <button  type="submit" onclick="adjustvalue300()" class="btn btn-success btn-sm" value="100-300">R500-R2500</button><br/>
+                   <button  type="submit" onclick="adjustvalue1000()" class="btn btn-success btn-sm" value="300-1000">R2500 up</button>
                    
                  </div>
                </form>
@@ -365,7 +365,7 @@
   function performfilter()
   {
     $("#pricefilter").click();
-   
+    $("#thepricefilter").attr("onclick","performfilter2()");
   }
 
   function performfilterclean()
@@ -407,19 +407,19 @@
   function adjustvalue100()
   {
    $( "#minValue" ).val(50);
-   $( "#maxValue" ).val(100);
+   $( "#maxValue" ).val(500);
  }
 
  function adjustvalue300()
  {
-  $( "#minValue" ).val(100);
-  $( "#maxValue" ).val(300);
+  $( "#minValue" ).val(500);
+  $( "#maxValue" ).val(2500);
 }
 
 function adjustvalue1000()
 {
-  $( "#minValue" ).val(300);
-  $( "#maxValue" ).val(1000);
+  $( "#minValue" ).val(2500);
+  $( "#maxValue" ).val(1000000);
 }
 </script>
 
