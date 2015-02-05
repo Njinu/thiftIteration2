@@ -25,8 +25,8 @@
 
   <!--Breadcrumbs-->
   <ol class="breadcrumb">
-    <li><a href="index.html">Home</a></li>
-    <li>Login/Register</li>
+    <li><a href='<?php echo base_url()."index.php/"?>'>Home</a></li>
+    <li><a href='<?php echo base_url()."index.php/". "user/signup"?>'>Login/Register</a></li>
   </ol><!--Breadcrumbs Close-->
 
   <!--Login / Register-->

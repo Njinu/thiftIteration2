@@ -12,8 +12,8 @@
 
   <!--Breadcrumbs-->
   <ol class="breadcrumb">
-    <li><a href="index.html">Home</a></li>
-    <li>Wishlist</li>
+    <li><a href='<?php echo base_url()."index.php/"?>'>Home</a></li>
+    <li><a href='<?php echo base_url()."index.php/". "thriftshop/wishlist"?>'>Wishlist</a></li>
   </ol><!--Breadcrumbs Close-->
 
   <!--Wishlist-->

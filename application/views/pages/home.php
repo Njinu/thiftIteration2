@@ -86,13 +86,13 @@
             <div class="row">
                 <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
                     <a href='<?php echo base_url()."index.php/". "thriftshop/indexFlat"?>'>
-                      <i class="fa fa-home fa-5x"></i>
+                      <i style="color:#2980b9" class="fa fa-home fa-5x"></i>
                         <p>Accomodation</p>
                     </a>
                 </div>
                  <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
                     <a href='<?php echo base_url()."index.php/". "thriftshop/indexbooks"?>'>
-                    <i class="fa fa-book fa-5x"></i>
+                    <i style="color:#7f8c8d" class="fa fa-book fa-5x"></i>
                         <p>Books</p>
                     </a>
                 </div>
@@ -104,22 +104,22 @@
                 </div>
                 <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
                     <a href='<?php echo base_url()."index.php/". "thriftshop/indexFurn"?>'>
-                        <i class="fa fa-bed fa-5x" ></i>
+                        <i style="color:#2ecc71" class="fa fa-bed fa-5x" ></i>
                         <p>Furniture</p>
-                    </a>
-                </div>
-                <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <a href='<?php echo base_url()."index.php/". "thriftshop/indexMis"?>'>
-                    <i class="fa fa-user-secret fa-5x"></i>
-                        <p>Miscellaneous</p>
                     </a>
                 </div>
                  <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
                     <a href='<?php echo base_url()."index.php/". "thriftshop/indexVeh"?>'>
-                     <i class="fa fa-fighter-jet fa-5x"></i>
+                     <i style="color:#7f8c8d" class="fa fa-fighter-jet fa-5x"></i>
                         <p>Vehicles</p>
                     </a>
-                </div>           
+                </div> 
+                 <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href='<?php echo base_url()."index.php/". "thriftshop/indexMis"?>'>
+                    <i class="fa fa-user-secret fa-5x"></i>
+                        <p>Miscellaneous</p>
+                    </a>
+                </div>          
             </div>
         </div>
     </section><!--Categories Close-->
@@ -195,7 +195,7 @@
             <div class="tab-pane fade in active" id="bestsel">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-7 col-md-7 col-sm-7">
+                        <div class="col-md-offset-1 col-lg-5 col-md-5 col-sm-5">
                             <a class="media-link" href="#">
                                 <div class="overlay">
                                     <div class="descr"><div><?php echo $toprated[0]['name'] ?><span>R <?php echo $toprated[0]['price'] ?></span><span style="font-weight:200;font-size:70%"><i class="fa fa-thumbs-up"></i> <?php echo $toprated[0]['likes'] ?></span></div></div>
@@ -203,7 +203,7 @@
                                 <img src='<?php echo base_url();?>uploads/<?php echo $toprated[0]['pic_id'] ?>' alt="1"/>
                             </a>
                         </div>
-                        <div class="col-lg-5 col-md-5 col-sm-5">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
                             <a class="media-link" href="#">
                                 <div class="overlay">
                                     <div class="descr"><div><?php echo $toprated[1]['name'] ?><span>R <?php echo $toprated[1]['price'] ?></span><span style="font-weight:200;font-size:70%"><i class="fa fa-thumbs-up"></i> <?php echo $toprated[1]['likes'] ?></span></div></div>
@@ -213,7 +213,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="col-md-offset-1 col-lg-3 col-md-3 col-sm-3">
                             <a class="media-link" href="#">
                                 <div class="overlay">
                                     <div class="descr" ><div><?php echo $toprated[3]['name'] ?><span>R <?php echo $toprated[3]['price'] ?></span><span style="font-weight:200;font-size:70%"><i class="fa fa-thumbs-up"></i> <?php echo $toprated[3]['likes'] ?></span></div></div>
@@ -221,7 +221,7 @@
                                 <img src='<?php echo base_url();?>uploads/<?php echo $toprated[3]['pic_id'] ?>' alt="3"/>
                             </a>
                         </div>
-                        <div class="col-lg-5 col-md-5 col-sm-5">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
                             <a class="media-link" href="#">
                                 <div class="overlay">
                                     <div class="descr"><div><?php echo $toprated[2]['name'] ?><span>R <?php echo $toprated[2]['price'] ?></span><span style="font-weight:200;font-size:70%"><i class="fa fa-thumbs-up"></i> <?php echo $toprated[2]['likes'] ?></span></div></div>

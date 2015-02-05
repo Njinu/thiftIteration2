@@ -46,8 +46,8 @@
     
       <!--Breadcrumbs-->
       <ol class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
-        <li>Account: Personal info</li>
+        <li><a href='<?php echo base_url()."index.php/"?>'>Home</a></li>
+        <li><a href='<?php echo base_url()."index.php/". "user/profile"?>'>Account: Personal info</a></li>
       </ol><!--Breadcrumbs Close-->
       
       <!--Account Personal Info-->

@@ -103,7 +103,7 @@
 }
 </style>
 
-<div style="padding-right: 0px;margin-top:8%;"class="col-md-12">
+<div style="padding-right: 0px;"class="col-md-12">
   <div id="wrapper">
 
     <!-- Navigation -->

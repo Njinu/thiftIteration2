@@ -92,12 +92,14 @@ class Store_model extends CI_Model {
 		return $query->row_array();
 	}
 
-	public function Add_seller_details(){
+	public function update_seller_details(){
 		$userid = $this->session->userdata('id');
 		$fname = $this->input->post('firstname');
 		$lname = $this->input->post('lastname');
 		$bio = $this->input->post('bio');
 		$nick = $this->input->post('nickname');
+		$loc = $this->input->post('locationid');
+		$UCTemail = $this->input->post('UCTemail');
 
 		$data = array(
 			'nick_name' => $nick ,
@@ -106,6 +108,33 @@ class Store_model extends CI_Model {
 			'last_name' => $lname, 
 			'bio' => $bio,
 			'userid' => $userid,
+			'location' => $loc,
+			'UCTemail' => $UCTemail,
+			'date_created' => date("Y-m-d")
+			);
+
+		$this->db->where('userid', $userid);
+$this->db->update('sellers', $data);  
+	}
+
+	public function Add_seller_details(){
+		$userid = $this->session->userdata('id');
+		$fname = $this->input->post('firstname');
+		$lname = $this->input->post('lastname');
+		$bio = $this->input->post('bio');
+		$nick = $this->input->post('nickname');
+		$loc = $this->input->post('locationid');
+		$UCTemail = $this->input->post('UCTemail');
+
+		$data = array(
+			'nick_name' => $nick ,
+			'first_name' => $fname, 
+			'last_name' => $lname, 
+			'last_name' => $lname, 
+			'bio' => $bio,
+			'userid' => $userid,
+			'location' => $loc,
+			'UCTemail' => $UCTemail,
 			'date_created' => date("Y-m-d")
 			);
 
@@ -219,8 +248,15 @@ class Store_model extends CI_Model {
 		$min = $this->input->post('minVal');
 		$this->db->where('product.price >=',$min);
 		$this->db->where('product.price <=',$max);
+		if($this->session->userdata('categorytype') != ""){
+		$this->db->where('product.category',$this->session->userdata('categorytype'));
+	}
 		$this->db->order_by("product.id", "desc");		
-		$query = $this->db->select()->from('product');	
+		$query = $this->db->select()->from('product');
+		if($this->session->userdata('sellerLoc') != ""){
+		$this->db->where('sellers.location',$this->session->userdata('sellerLoc'));	
+		$query = $this->db->join('sellers', 'product.seller_id = sellers.seller_id','right');
+	}
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
 		$this->db->group_by('product.id');
 		$query = $this->db->get();
@@ -235,8 +271,16 @@ class Store_model extends CI_Model {
 		$min = $this->input->post('minValue');
 		$this->db->where('product.price >=',$min);
 		$this->db->where('product.price <=',$max);
+		if($this->session->userdata('categorytype') != ""){
+		$this->db->where('product.category',$this->session->userdata('categorytype'));
+	}
 		$this->db->order_by("product.id", "desc");		
-		$query = $this->db->select()->from('product');	
+		$query = $this->db->select()->from('product');
+		if($this->session->userdata('sellerLoc') != ""){
+		$this->db->where('sellers.location',$this->session->userdata('sellerLoc'));	
+		$query = $this->db->join('sellers', 'product.seller_id = sellers.seller_id','right');
+	}
+		
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
 		$this->db->group_by('product.id');
 		$query = $this->db->get();
@@ -247,10 +291,16 @@ class Store_model extends CI_Model {
 
 	public function get_filters3(){
 
-
-		
+		if($this->session->userdata('categorytype') != ""){
+		$this->db->where('product.category ',$this->session->userdata('categorytype'));
+	}
 		$this->db->order_by("product.price", "desc");		
 		$query = $this->db->select()->from('product');	
+		if($this->session->userdata('sellerLoc') != ""){
+		$this->db->where('sellers.location',$this->session->userdata('sellerLoc'));	
+		$query = $this->db->join('sellers', 'product.seller_id = sellers.seller_id','right');	
+	}
+		
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
 		$this->db->group_by('product.id');
 		$query = $this->db->get();
@@ -262,10 +312,16 @@ class Store_model extends CI_Model {
 
 	public function get_filters4(){
 
-
-		
+		if($this->session->userdata('categorytype') != ""){
+		$this->db->where('product.category',$this->session->userdata('categorytype'));
+	}
 		$this->db->order_by("product.price", "asc");		
-		$query = $this->db->select()->from('product');	
+		$query = $this->db->select()->from('product');
+		if($this->session->userdata('sellerLoc') != ""){
+		$this->db->where('sellers.location',$this->session->userdata('sellerLoc'));	
+		$query = $this->db->join('sellers', 'product.seller_id = sellers.seller_id','right');
+	}
+		
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
 		$this->db->group_by('product.id');
 		$query = $this->db->get();
@@ -275,10 +331,16 @@ class Store_model extends CI_Model {
 
 	public function get_filters5(){
 
-
-		
+		if($this->session->userdata('categorytype') != ""){
+		$this->db->where('product.category',$this->session->userdata('categorytype'));
+	}
 		$this->db->order_by("product.name", "desc");		
 		$query = $this->db->select()->from('product');	
+		if($this->session->userdata('sellerLoc') != ""){
+		$this->db->where('sellers.location',$this->session->userdata('sellerLoc'));	
+		$query = $this->db->join('sellers', 'product.seller_id = sellers.seller_id','right');
+	}
+		
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
 		$this->db->group_by('product.id');
 		$query = $this->db->get();
@@ -288,10 +350,17 @@ class Store_model extends CI_Model {
 
 	public function get_filters6(){
 
-
-		
+		if($this->session->userdata('categorytype') != ""){
+		$this->db->where('product.category',$this->session->userdata('categorytype'));
+	}
+	
 		$this->db->order_by("product.name", "asc");		
-		$query = $this->db->select()->from('product');	
+		$query = $this->db->select()->from('product');
+		if($this->session->userdata('sellerLoc') != ""){
+		$this->db->where('sellers.location',$this->session->userdata('sellerLoc'));	
+		$query = $this->db->join('sellers', 'product.seller_id = sellers.seller_id','right');
+	}
+		
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
 		$this->db->group_by('product.id');
 		$query = $this->db->get();
@@ -300,6 +369,8 @@ class Store_model extends CI_Model {
 	}
 
 	public function get_filters7(){
+		$this->session->set_userdata('sellerLoc', '');
+		$this->session->set_userdata('categorytype', '');
 		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
@@ -312,11 +383,30 @@ class Store_model extends CI_Model {
 
 		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
+		if($this->session->userdata('sellerLoc') != ""){
+		$this->db->where('sellers.location',$this->session->userdata('sellerLoc'));	
+		$query = $this->db->join('sellers', 'product.seller_id = sellers.seller_id','right');
+	}
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
 		$this->db->group_by('product.id');
 		$query = $this->db->get();
 		return $query->result_array();
 
+	}
+
+	function get_filtersLoc(){
+		if($this->session->userdata('categorytype') != ""){
+		$this->db->where('product.category',$this->session->userdata('categorytype'));
+	}
+		$this->session->set_userdata('sellerLoc', $this->input->post('locationid'));
+		$this->db->where('sellers.location',$this->session->userdata('sellerLoc'));
+		$this->db->order_by("product.id", "desc");		
+		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('sellers', 'product.seller_id = sellers.seller_id','right');
+		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+		$this->db->group_by('product.id');
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 
 	function get_pricemax(){
@@ -392,7 +482,9 @@ class Store_model extends CI_Model {
 		$this->db->where('category','books');
 		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
+		$query = $this->db->join('sellers', 'product.seller_id = sellers.seller_id','right');
 		$query = $this->db->join('product_images', 'product.id = product_images.product_id','left');
+
 		$this->db->group_by('product.id');
 		$query = $this->db->get();
 		return $query->result_array();
@@ -422,6 +514,7 @@ class Store_model extends CI_Model {
 	}
 
 	function get_filterSportingGoods(){
+		
 		$this->db->where('category','SportingGoods');
 		$this->db->order_by("product.id", "desc");		
 		$query = $this->db->select()->from('product');	
