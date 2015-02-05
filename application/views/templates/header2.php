@@ -226,14 +226,17 @@ var url      = window.location.href;
 
           <!--Split Background-->
           <div class="left-bg"></div>
-          <div class="right-bg"></div>
 
+          <div class="right-bg"></div>
+           <?php if($user_me['name'] or $this->session->userdata('id')) {?>
+  <a type="button" href='<?php echo base_url()."index.php/". "user/myStore"?>' class="btn btn-default" style="position: absolute; margin-left:1%;margin-top:3%;top: 0;left: 0; z-index: 2;"><i class="fa fa-building-o"></i> My Store</a>
+          <?php } ?>
           <div class="container">
             <!-- <a class="logo" href="index.html"><img src="img/logo.png" alt="Bushido"/></a> -->
 
             <!--Language / Currency Switchers-->
             <!-- <ul class="switchers">
-              <li>$
+              <li>$`
                 <ul class="dropdown">
                   <li><a href="#">&euro;</a></li>
                   <li><a href="#">$</a></li>
@@ -250,14 +253,14 @@ var url      = window.location.href;
  -->
             <!--Mobile Menu Toggle-->
             <div class="menu-toggle"><i class="fa fa-list"></i></div>
+
             <div class="mobile-border"><span></span></div>
 
             <!--Main Menu-->
             <nav class="menu">
+          
               <ul class="main">
-                <li class="has-submenu"><a href='<?php echo base_url()."index.php/"?>'>Home</a><!--Class "has-submenu" for proper highlighting and dropdown-->
-
-                </li>
+                <li class="has-submenu"><a href='<?php echo base_url()."index.php/"?>'>Home</a><!--Class "has-submenu" for proper highlighting and dropdown--></li>
                 <li class="has-submenu"><a href='<?php echo base_url()."index.php/". "thriftshop"?>'>Shop<i class="fa fa-chevron-down"></i></a>
                 <!--   <ul class="submenu">
                     <li><a href='<?php echo base_url()."index.php/". "thriftshop/wishlist"?>'>Wishlist</a></li>

@@ -25,8 +25,8 @@
 
   <!--Breadcrumbs-->
   <ol class="breadcrumb">
-    <li><a href="index.html">Home</a></li>
-    <li>Login/Register</li>
+    <li><a href='<?php echo base_url()."index.php/"?>'>Home</a></li>
+    <li><a href='<?php echo base_url()."index.php/". "user/signup"?>'>Login/Register</a></li>
   </ol><!--Breadcrumbs Close-->
 
   <!--Login / Register-->
@@ -68,15 +68,15 @@
     <div class="form-group">
       <label for="fname">First Name</label>
 
-      <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your first name" required>
+      <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your first name" value="<?php echo set_value('fname'); ?>"  required>
     </div>
     <div class="form-group">
       <label for="lname">Last Name</label>
-      <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your last name" required>
+      <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your last name" value="<?php echo set_value('lname'); ?>" required>
     </div>
     <div class="form-group">
       <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" value="<?php echo set_value('email'); ?>" required>
     </div>
     <button onclick="NextStep()" type="button" class="btn btn-default">Next</button>
   </div>
@@ -85,7 +85,7 @@
 
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+      <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" value="<?php echo set_value('username'); ?>" required>
     </div>
 
     <div class="form-group">
@@ -95,7 +95,7 @@
 
     <div class="form-group">
       <label for="passconfirm">Confirm Password</label>
-      <input type="password" class="form-control" id="passconfirm" name="passconfirm" placeholder="Confirm password" required>
+      <input type="password" class="form-control" id="passconfirm" name="passconfirm" placeholder="Confirm password" value="<?php echo set_value('passconfirm'); ?>" required>
     </div>
     <button onclick="PreviousStep2()" type="button" class="btn btn-default">Back</button>
     <button onclick="NextStep2()" type="button" class="btn btn-default">Next</button>
@@ -105,16 +105,16 @@
   <div class="step2" id="step2" style="display:none;">
     <div class="form-group">
       <label for="cellnumber">Cell Number</label>
-      <input type="number" class="form-control" id="cellnumber" name="cellnumber" placeholder="Enter cell number" required>
+      <input type="number" class="form-control" id="cellnumber" name="cellnumber" placeholder="Enter cell number" value="<?php echo set_value('cellnumber'); ?>" required>
     </div>
     <div class="form-group">
       <label for="address">Address</label>
-      <input type="text" class="form-control" id="address1" name="address1" placeholder="Line 1" required>
-      <input type="text" class="form-control" id="address2" name="address2" placeholder="Line 2" required>
+      <input type="text" class="form-control" id="address1" name="address1" placeholder="Line 1" value="<?php echo set_value('address1'); ?>" required>
+      <input type="text" class="form-control" id="address2" name="address2" placeholder="Line 2" value="<?php echo set_value('address2'); ?>" required>
     </div>
     <div class="form-group">
       <label for="pcode">Postal Code</label>
-      <input type="number" class="form-control" id="pcode" name="pcode" placeholder="Enter your postal code" required>
+      <input type="number" class="form-control" id="pcode" name="pcode" placeholder="Enter your postal code" value="<?php echo set_value('pcode'); ?>" required>
     </div>
 
     <div class="checkbox">

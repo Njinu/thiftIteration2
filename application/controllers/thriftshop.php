@@ -15,6 +15,7 @@ class thriftshop extends CI_Controller {
      public function index(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+ $this->session->set_userdata('categorytype', '');
         $data['filterslatest'] = $this->store_model->get_filtersLatest();
         $data['maxprice'] = $this->store_model->get_pricemax();
         $data['minprice'] = $this->store_model->get_pricemin();
@@ -26,7 +27,10 @@ class thriftshop extends CI_Controller {
  public function indexFlat(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+         $this->session->set_userdata('categorytype', 'Accomodation');
         $data['filterslatest'] = $this->store_model->get_filterflats();
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');
@@ -35,7 +39,10 @@ class thriftshop extends CI_Controller {
 public function indexFurn(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+         $this->session->set_userdata('categorytype', 'Furniture');
         $data['filterslatest'] = $this->store_model->get_filterfurniture();
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');
@@ -43,7 +50,10 @@ public function indexFurn(){
 public function indexVeh(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+         $this->session->set_userdata('categorytype', 'Vehicles');
         $data['filterslatest'] = $this->store_model->get_filtervehicles();
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');
@@ -52,7 +62,10 @@ public function indexVeh(){
 public function indexEle(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+         $this->session->set_userdata('categorytype', 'Electronics');
         $data['filterslatest'] = $this->store_model->get_filterelectronics();
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');
@@ -60,7 +73,10 @@ public function indexEle(){
 public function indexSG(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+         $this->session->set_userdata('categorytype', 'Sporting-Goods');
         $data['filterslatest'] = $this->store_model->get_filterSportingGoods();
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');
@@ -69,7 +85,10 @@ public function indexSG(){
 public function indexjobs(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+         $this->session->set_userdata('categorytype', 'Jobs');
         $data['filterslatest'] = $this->store_model->get_filterJobs();
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');
@@ -78,7 +97,10 @@ public function indexjobs(){
 public function indextutors(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+         $this->session->set_userdata('categorytype', 'Tutotoring');
         $data['filterslatest'] = $this->store_model->get_filterTutoring();
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');
@@ -87,7 +109,10 @@ public function indextutors(){
 public function indexbooks(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+         $this->session->set_userdata('categorytype', 'Books');
         $data['filterslatest'] = $this->store_model->get_filterBooks();
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');
@@ -96,7 +121,10 @@ public function indexbooks(){
 public function indexMis(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+        $this->session->set_userdata('categorytype', 'Miscellaneous');
         $data['filterslatest'] = $this->store_model->get_filterMiscellaneous();
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');
@@ -105,7 +133,10 @@ public function indexMis(){
 public function indexComp(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+         $this->session->set_userdata('categorytype', 'Competitions');
         $data['filterslatest'] = $this->store_model->get_filtercompetitions();
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);
         $this->load->view('templates/footer2');
@@ -190,11 +221,22 @@ public function view($slug,$id)
     
   }
 
+public function get_LocFilter(){
+        $data['title'] = 'thriftshop';
+        $this->load->model('store_model');
+        $data['filterslatest'] = $this->store_model->get_filtersLoc();
+        $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
+        $this->load->view('thriftshop/locFilter', $data);
+     
+}
  
 
   public function ShopSearch(){
         $data['title'] = 'thriftshop';
         $this->load->model('store_model');
+         $data['maxprice'] = $this->store_model->get_pricemax();
+        $data['minprice'] = $this->store_model->get_pricemin();
         $data['filterslatest'] = $this->store_model->get_filterSearchHD();
         $this->load->view('templates/header2', $data);
         $this->load->view('thriftshop/index', $data);

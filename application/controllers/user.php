@@ -44,6 +44,11 @@ $this->load->model('store_model');
 $this->store_model->Add_seller_details();
 }
 
+public function updateseller(){
+$this->load->model('store_model');  
+$this->store_model->update_seller_details();
+}
+
 public function myStore(){
  $this->load->model('Model_users');
  $data['me'] = $this->Model_users->getme();

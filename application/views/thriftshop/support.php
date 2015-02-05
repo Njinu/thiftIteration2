@@ -5,8 +5,8 @@
     
       <!--Breadcrumbs-->
       <ol class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
-        <li>Support</li>
+        <li><a href='<?php echo base_url()."index.php/"?>'>Home</a></li>
+        <li><a href='<?php echo base_url()."index.php/". "thriftshop/support"?>'>Support</a></li>
       </ol><!--Breadcrumbs Close-->
       
       <!--Support-->

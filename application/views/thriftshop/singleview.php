@@ -18,7 +18,7 @@
     <input type="hidden" id="notify" data-toggle="modal" data-target="#myModal" />
       <!--Breadcrumbs-->
       <ol class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
+        <li><a href='<?php echo base_url()."index.php/"?>'>Home</a></li>
         <li><a href="shop-filters-left-3cols.html">ItemView</a></li>
         
       </ol><!--Breadcrumbs Close-->
