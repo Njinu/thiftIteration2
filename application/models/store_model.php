@@ -150,6 +150,544 @@ class Store_model extends CI_Model {
 
 		return $query->result_array();
 	}
+public function product_name1(){
+
+$user = $this->session->userdata('id');
+			$this->db->where('seller_id',$this->session->userdata('id'));
+			$this->db->order_by("id", "desc");
+	$query = $this->db->select()->from('product')->get();
+	return $query->result_array();
+
+	}
+	public function product_name2(){
+
+$user = $this->session->userdata('id');
+			$this->db->where('seller_id',$this->session->userdata('id'));
+			$this->db->order_by("id", "desc");
+		$query = $this->db->select()->from('product')->get();
+return $query->result_array();
+
+	}
+
+public function product_name3(){
+
+$user = $this->session->userdata('id');
+			$this->db->where('seller_id',$this->session->userdata('id'));
+			$this->db->order_by("id", "desc");
+		$query = $this->db->select()->from('product')->get();
+return $query->result_array();
+
+	}
+
+	public function graph_products1()
+	{
+		$user = $this->session->userdata('id');
+			$this->db->where('seller_id',$this->session->userdata('id'));
+			$this->db->order_by("id", "desc");
+		$query = $this->db->select()->from('product')->get();
+
+		$result=$query->result_array();
+		$product_counter =0;
+		$result_string= "";
+		$product1_day1=0;
+		$product1_day2=0;
+		$product1_day3=0;
+		$product1_day4=0;
+		$product1_day5=0;
+
+		$product2_day1=0;
+		$product2_day2=0;
+		$product2_day3=0;
+		$product2_day4=0;
+		$product2_day5=0;
+
+		$product3_day1=0;
+		$product3_day2=0;
+		$product3_day3=0;
+		$product3_day4=0;
+		$product3_day5=0;
+		
+		$date = date('d.m.y');
+
+		foreach ($result as $key) {
+			$product_id=$key['id'];
+	
+
+			if($product_counter==0){
+
+		$this->db->where('event_id',$product_id);
+		$query2 = $this->db->select()->from('viewtest')->get();
+		$result2= $query2->result_array();
+		foreach ($result2 as $view) {
+			$view_date = $view['date'];
+			$datetime=date_create($view_date);
+			$datetime2=date_create($date);
+
+			$diff=date_diff($datetime,$datetime2);
+			$diff=$diff->format("%R%a days");
+
+			if( $diff=='+5 days')
+			{
+				$product1_day1++;
+			}
+			if( $diff=='+4 days')
+			{
+				$product1_day2++;
+			}
+			if( $diff=='+3 days')
+			{
+				$product1_day3++;
+			}
+				if( $diff=='+2 days')
+			{
+				$product1_day4++;
+			}
+				if( $diff=='+1 days')
+			{
+				$product1_day5++;
+			}
+			# code...
+		}
+			?>
+<script>
+console.log(<?php echo $product_id; ?>);
+</script>
+<?php
+		
+		$product1_data="$product1_day1,$product1_day2,$product1_day3,$product1_day4,$product1_day5";
+
+			}
+	
+
+		if($product_counter==1){
+
+
+
+		$this->db->where('event_id',$product_id);
+		$query2 = $this->db->select()->from('viewtest')->get();
+		$result2= $query2->result_array();
+		foreach ($result2 as $view) {
+			$view_date = $view['date'];
+			$datetime=date_create($view_date);
+			$datetime2=date_create($date);
+
+			$diff=date_diff($datetime,$datetime2);
+			$diff=$diff->format("%R%a days");
+
+			if( $diff=='+5 days')
+			{
+				$product2_day1++;
+			}
+			if( $diff=='+4 days')
+			{
+				$product2_day2++;
+			}
+			if( $diff=='+3 days')
+			{
+				$product2_day3++;
+			}
+				if( $diff=='+2 days')
+			{
+				$product2_day4++;
+			}
+				if( $diff=='+1 days')
+			{
+				$product2_day5++;
+			}
+			# code...
+		}
+		$product2_data="$product2_day1,$product2_day2,$product2_day3,$product2_day4,$product2_day5";
+
+			}
+	
+
+	if($product_counter==2){
+
+		$this->db->where('event_id',$product_id);
+		$query2 = $this->db->select()->from('viewtest')->get();
+		$result2= $query2->result_array();
+		foreach ($result2 as $view) {
+			$view_date = $view['date'];
+			$datetime=date_create($view_date);
+			$datetime2=date_create($date);
+
+			$diff=date_diff($datetime,$datetime2);
+			$diff=$diff->format("%R%a days");
+
+			if( $diff=='+5 days')
+			{
+				$product3_day1++;
+			}
+			if( $diff=='+4 days')
+			{
+				$product3_day2++;
+			}
+			if( $diff=='+3 days')
+			{
+				$product3_day3++;
+			}
+				if( $diff=='+2 days')
+			{
+				$product3_day4++;
+			}
+				if( $diff=='+1 days')
+			{
+				$product3_day5++;
+			}
+			# code...
+		}
+		
+		$product3_data="$product3_day1,$product3_day2,$product3_day3,$product3_day4,$product3_day5";
+
+			}
+
+
+		$product_counter++; 	# code...
+		 } 
+
+	$product_return = 	$product1_data+'k'+$product2_data+'k'+$product3_data;
+
+return $product1_data;
+	}
+		public function graph_products2()
+	{
+		$user = $this->session->userdata('id');
+			$this->db->where('seller_id',$this->session->userdata('id'));
+			$this->db->order_by("id", "desc");
+		$query = $this->db->select()->from('product')->get();
+
+		$result=$query->result_array();
+		$product_counter =0;
+		$result_string= "";
+		$product1_day1=0;
+		$product1_day2=0;
+		$product1_day3=0;
+		$product1_day4=0;
+		$product1_day5=0;
+
+		$product2_day1=0;
+		$product2_day2=0;
+		$product2_day3=0;
+		$product2_day4=0;
+		$product2_day5=0;
+
+		$product3_day1=0;
+		$product3_day2=0;
+		$product3_day3=0;
+		$product3_day4=0;
+		$product3_day5=0;
+		
+		$date = date('d.m.y');
+
+		foreach ($result as $key) {
+			$product_id=$key['id'];
+	
+
+			if($product_counter==0){
+
+		$this->db->where('event_id',$product_id);
+		$query2 = $this->db->select()->from('viewtest')->get();
+		$result2= $query2->result_array();
+		foreach ($result2 as $view) {
+			$view_date = $view['date'];
+			$datetime=date_create($view_date);
+			$datetime2=date_create($date);
+
+			$diff=date_diff($datetime,$datetime2);
+			$diff=$diff->format("%R%a days");
+
+			if( $diff=='+5 days')
+			{
+				$product1_day1++;
+			}
+			if( $diff=='+4 days')
+			{
+				$product1_day2++;
+			}
+			if( $diff=='+3 days')
+			{
+				$product1_day3++;
+			}
+				if( $diff=='+2 days')
+			{
+				$product1_day4++;
+			}
+				if( $diff=='+1 days')
+			{
+				$product1_day5++;
+			}
+			# code...
+		}
+		
+		$product1_data="$product1_day1,$product1_day2,$product1_day3,$product1_day4,$product1_day5";
+
+			}
+	
+
+		if($product_counter==1){
+
+
+
+		$this->db->where('event_id',$product_id);
+		$query2 = $this->db->select()->from('viewtest')->get();
+		$result2= $query2->result_array();
+		foreach ($result2 as $view) {
+			$view_date = $view['date'];
+			$datetime=date_create($view_date);
+			$datetime2=date_create($date);
+
+			$diff=date_diff($datetime,$datetime2);
+			$diff=$diff->format("%R%a days");
+
+			if( $diff=='+5 days')
+			{
+				$product2_day1++;
+			}
+			if( $diff=='+4 days')
+			{
+				$product2_day2++;
+			}
+			if( $diff=='+3 days')
+			{
+				$product2_day3++;
+			}
+				if( $diff=='+2 days')
+			{
+				$product2_day4++;
+			}
+				if( $diff=='+1 days')
+			{
+				$product2_day5++;
+			}
+			# code...
+		}
+
+		$product2_data="$product2_day1,$product2_day2,$product2_day3,$product2_day4,$product2_day5";
+			?>
+<script>
+console.log(<?php echo $product_id; ?>);
+</script>
+<?php
+			}
+	
+
+	if($product_counter==2){
+
+		$this->db->where('event_id',$product_id);
+		$query2 = $this->db->select()->from('viewtest')->get();
+		$result2= $query2->result_array();
+		foreach ($result2 as $view) {
+			$view_date = $view['date'];
+			$datetime=date_create($view_date);
+			$datetime2=date_create($date);
+
+			$diff=date_diff($datetime,$datetime2);
+			$diff=$diff->format("%R%a days");
+
+			if( $diff=='+5 days')
+			{
+				$product3_day1++;
+			}
+			if( $diff=='+4 days')
+			{
+				$product3_day2++;
+			}
+			if( $diff=='+3 days')
+			{
+				$product3_day3++;
+			}
+				if( $diff=='+2 days')
+			{
+				$product3_day4++;
+			}
+				if( $diff=='+1 days')
+			{
+				$product3_day5++;
+			}
+			# code...
+		}
+		
+		$product3_data="$product3_day1,$product3_day2,$product3_day3,$product3_day4,$product3_day5";
+
+			}
+
+
+		$product_counter++; 	# code...
+		 } 
+
+	$product_return = 	$product1_data+'k'+$product2_data+'k'+$product3_data;
+return $product2_data;
+	}
+
+	public function graph_products3()
+	{
+		$user = $this->session->userdata('id');
+			$this->db->where('seller_id',$this->session->userdata('id'));
+			$this->db->order_by("id", "desc");
+		$query = $this->db->select()->from('product')->get();
+
+		$result=$query->result_array();
+		$product_counter =0;
+		$result_string= "";
+		$product1_day1=0;
+		$product1_day2=0;
+		$product1_day3=0;
+		$product1_day4=0;
+		$product1_day5=0;
+
+		$product2_day1=0;
+		$product2_day2=0;
+		$product2_day3=0;
+		$product2_day4=0;
+		$product2_day5=0;
+
+		$product3_day1=0;
+		$product3_day2=0;
+		$product3_day3=0;
+		$product3_day4=0;
+		$product3_day5=0;
+		
+		$date = date('d.m.y');
+
+		foreach ($result as $key) {
+			$product_id=$key['id'];
+	
+
+			if($product_counter==0){
+
+		$this->db->where('event_id',$product_id);
+		$query2 = $this->db->select()->from('viewtest')->get();
+		$result2= $query2->result_array();
+		foreach ($result2 as $view) {
+			$view_date = $view['date'];
+			$datetime=date_create($view_date);
+			$datetime2=date_create($date);
+
+			$diff=date_diff($datetime,$datetime2);
+			$diff=$diff->format("%R%a days");
+
+			if( $diff=='+5 days')
+			{
+				$product1_day1++;
+			}
+			if( $diff=='+4 days')
+			{
+				$product1_day2++;
+			}
+			if( $diff=='+3 days')
+			{
+				$product1_day3++;
+			}
+				if( $diff=='+2 days')
+			{
+				$product1_day4++;
+			}
+				if( $diff=='+1 days')
+			{
+				$product1_day5++;
+			}
+			# code...
+		}
+		
+		$product1_data="$product1_day1,$product1_day2,$product1_day3,$product1_day4,$product1_day5";
+
+			}
+	
+
+		if($product_counter==1){
+
+
+
+		$this->db->where('event_id',$product_id);
+		$query2 = $this->db->select()->from('viewtest')->get();
+		$result2= $query2->result_array();
+		foreach ($result2 as $view) {
+			$view_date = $view['date'];
+			$datetime=date_create($view_date);
+			$datetime2=date_create($date);
+
+			$diff=date_diff($datetime,$datetime2);
+			$diff=$diff->format("%R%a days");
+
+			if( $diff=='+5 days')
+			{
+				$product2_day1++;
+			}
+			if( $diff=='+4 days')
+			{
+				$product2_day2++;
+			}
+			if( $diff=='+3 days')
+			{
+				$product2_day3++;
+			}
+				if( $diff=='+2 days')
+			{
+				$product2_day4++;
+			}
+				if( $diff=='+1 days')
+			{
+				$product2_day5++;
+			}
+			# code...
+		}
+		$product2_data="$product2_day1,$product2_day2,$product2_day3,$product2_day4,$product2_day5";
+
+			}
+	
+
+	if($product_counter==2){
+
+		$this->db->where('event_id',$product_id);
+
+		$query2 = $this->db->select()->from('viewtest')->get();
+		$result2= $query2->result_array();
+		foreach ($result2 as $view) {
+			$view_date = $view['date'];
+			$datetime=date_create($view_date);
+			$datetime2=date_create($date);
+
+			$diff=date_diff($datetime,$datetime2);
+			$diff=$diff->format("%R%a days");
+
+			if( $diff=='+5 days')
+			{
+				$product3_day1++;
+			}
+			if( $diff=='+4 days')
+			{
+				$product3_day2++;
+			}
+			if( $diff=='+3 days')
+			{
+				$product3_day3++;
+			}
+				if( $diff=='+2 days')
+			{
+				$product3_day4++;
+			}
+				if( $diff=='+1 days')
+			{
+				$product3_day5++;
+			}
+			# code...
+		}
+		
+		$product3_data="$product3_day1,$product3_day2,$product3_day3,$product3_day4,$product3_day5";
+					?>
+<script>
+console.log(<?php echo $product_id; ?>);
+</script>
+<?php
+	}
+
+
+		$product_counter++; 	# code...
+		 } 
+
+	$product_return = 	$product1_data+'k'+$product2_data+'k'+$product3_data;
+return $product3_data;
+	}
 
 	public function get_wishlist(){
 		$user = $this->session->userdata('id');

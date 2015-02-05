@@ -342,6 +342,17 @@ elseif($product_id !=='' && $pic_progress==''){
 </div>
 </div>
 <div class="row">
+
+  <input type="hidden" id="pname1" class="pname1" value="<?php echo $product1_name['name'] ?>"/>
+  <input type="hidden" id="pname2" class="pname2" value="<?php echo $product2_name['name']  ?>"/>
+  <input type="hidden" id="pname3" class="pname3" value="<?php echo $product3_name['name']  ?>"/>
+
+  <input type="hidden" id="chartData1" class="chartData" value="<?php echo $graph_data0 ?>"/>
+  <input type="hidden" id="chartData2" class="chartData" value="<?php echo $graph_data1 ?>"/>
+  <input type="hidden" id="chartData3" class="chartData" value="<?php echo $graph_data2 ?>"/>
+  
+
+  
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">

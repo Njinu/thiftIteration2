@@ -20,6 +20,14 @@ public function cart(){
     $data['me'] = $this->Model_users->getme();
 }
 
+public function graph_Products()
+{
+    $this->load->model('store_model');
+      $this->load->model('Model_users');
+      $data['me'] = $this->Model_users->getme();
+
+}
+
 public function sellerdetails(){
     $this->load->helper('array'); 
     $this->load->model('Model_users');
@@ -43,6 +51,18 @@ public function myStore(){
  $this->load->model('store_model');	
  $data['title'] = 'My Store';
  $data['products'] = $this->store_model->get_data();
+ $pname1=$this->store_model->product_name1();
+$data['product1_name']=$pname1[0];
+
+ $pname2=$this->store_model->product_name2();
+$data['product2_name']=$pname2[1];
+
+ $pname3=$this->store_model->product_name3();
+$data['product3_name']=$pname3[2];
+
+ $data['graph_data0'] = $this->store_model->graph_products1();
+ $data['graph_data1'] = $this->store_model->graph_products2();
+ $data['graph_data2'] = $this->store_model->graph_products3();
  $prodCount=0;
  foreach ($data['products'] as $product['product_id']) {
      $prodCount++;

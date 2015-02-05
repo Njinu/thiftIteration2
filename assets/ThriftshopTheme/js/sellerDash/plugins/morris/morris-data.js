@@ -7,73 +7,93 @@ $(function() {
     var seller_id= seller.val();
     //alert(seller_id);
    // console.log(sellerId);
-        $.ajax({
-            type: 'POST',
-            url: 'ajax.php',
-            data: 'id=testdata',
-            dataType: 'json',
-            cache: false,
-            success: function(result) {
-                $('#content1').html(result[0]);
-            },
-        });
+    var chart1 =$('#chartData1').val();
+     array1= chart1.split(',');
+    var chart2 =$('#chartData2').val();
+     array2= chart2.split(',');
+    var chart3 =$('#chartData3').val();
+
+     var pname1 =$('#pname1').val();
+ var pname2 =$('#pname2').val();
+var pname3=$('#pname3').val();
+
+     array3= chart3.split(',');
+    console.log(array1);
+    console.log(array2);
+    console.log(array3);
+  //  var seller_id= seller.val();
+var d_1 = new Date();
+ d_1.setDate(d_1.getDate());
+
+var d_5 = new Date();
+ d_5.setDate(d_5.getDate()-4);
+
+ var d_4 = new Date();
+ d_4.setDate(d_4.getDate()-3);
+
+ var d_3 = new Date();
+ d_3.setDate(d_3.getDate()-2);
+
+ var d_2 = new Date();
+ d_2.setDate(d_2.getDate()-1);
+
+ 
+console.log(d_1);
+console.log(d_2);
+console.log(d_3);
+console.log(d_4);
+console.log(d_5);
+
+function formatDate(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return date.getFullYear() + "-"+  date.getMonth()+1 + "-" + date.getDate();
+}
+
+
+console.log(formatDate(d_1));
+
+console.log(formatDate(d_2));
+console.log(formatDate(d_3));
+console.log(formatDate(d_4));
+console.log(formatDate(d_5));
 
     Morris.Area({
         element: 'morris-area-chart',
         data: [{
-            period: '2010 Q1',
-            iphone: 2666,
-            ipad: null,
-            itouch: 2647
+            period: formatDate(d_1),
+            iphone: array1[0],
+            ipad: array2[0],
+            itouch: array3[0]
         }, {
-            period: '2010 Q2',
-            iphone: 2778,
-            ipad: 2294,
-            itouch: 2441
+            period: formatDate(d_2),
+            iphone: array1[1],
+            ipad: array2[1],
+            itouch: array3[1]
         }, {
-            period: '2010 Q3',
-            iphone: 4912,
-            ipad: 1969,
-            itouch: 2501
+            period: formatDate(d_3),
+            iphone: array1[2],
+            ipad: array2[2],
+            itouch: array3[2]
         }, {
-            period: '2010 Q4',
-            iphone: 3767,
-            ipad: 3597,
-            itouch: 5689
+            period: formatDate(d_4),
+            iphone: array1[3],
+            ipad: array2[3],
+            itouch: array3[3]
         }, {
-            period: '2011 Q1',
-            iphone: 6810,
-            ipad: 1914,
-            itouch: 2293
-        }, {
-            period: '2011 Q2',
-            iphone: 5670,
-            ipad: 4293,
-            itouch: 1881
-        }, {
-            period: '2011 Q3',
-            iphone: 4820,
-            ipad: 3795,
-            itouch: 1588
-        }, {
-            period: '2011 Q4',
-            iphone: 15073,
-            ipad: 5967,
-            itouch: 5175
-        }, {
-            period: '2012 Q1',
-            iphone: 10687,
-            ipad: 4460,
-            itouch: 2028
-        }, {
-            period: '2012 Q2',
-            iphone: 8432,
-            ipad: 5713,
-            itouch: 1791
+            period: formatDate(d_5),
+            iphone: array1[4],
+            ipad: array2[4],
+            itouch: array3[4]
         }],
         xkey: 'period',
         ykeys: ['iphone', 'ipad', 'itouch'],
-        labels: ['iPhone', 'iPad', 'iPod Touch'],
+        labels: [pname1, pname2, pname3],
         pointSize: 2,
         hideHover: 'auto',
         resize: true

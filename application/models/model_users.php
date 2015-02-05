@@ -53,8 +53,7 @@ class Model_users extends CI_Model {
 			
 			$query = $query->result();
 			
-			$query= $query[0];
-                        $query= (array) $query;
+			
 			
 		return $query ;
 	}
