@@ -652,13 +652,12 @@ public function logout() {
 		
 		$this->form_validation->set_rules('ItemName', 'Name', 'required');
 		$this->form_validation->set_rules('ItemPrice', 'Price', 'required');
-	$this->form_validation->set_rules('ItemCategory', 'Category', 'required');
 		$this->form_validation->set_rules('ItemDescription', 'Description', 'required');
 		
 		if ($this->form_validation->run() === FALSE)
 		{
 			$this->load->view('templates/header2', $data);
-			$this->load->view('store/create',array('error' => ' ' ));			
+			$this->load->view('user/myStore',$data);			
 		}
 		else
 		{

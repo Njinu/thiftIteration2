@@ -352,18 +352,25 @@ elseif($product_id !=='' && $pic_progress==''){
   <input type="hidden" id="chartData3" class="chartData" value="<?php echo $graph_data2 ?>"/>
   
 
-  
     <div class="col-lg-12">
+      <?php if($graph_data0 && $graph_data1 && $graph_data2){
+  ?>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
+                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Views</h3>
             </div>
             <div class="panel-body">
                 <div id="morris-area-chart"></div>
             </div>
         </div>
+            <?php
+  }
+
+?>
     </div>
+
 </div>
+
 <!-- /.row -->
 
 <!-- /.container-fluid -->
